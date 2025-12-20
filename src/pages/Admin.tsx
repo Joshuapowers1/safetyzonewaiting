@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Users, 
   LogOut, 
@@ -11,7 +11,8 @@ import {
   Clock,
   TrendingUp,
   BarChart3,
-  RefreshCw
+  RefreshCw,
+  Mail
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,6 +20,7 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import type { Database } from '@/integrations/supabase/types';
 import logo from '@/assets/logo.png';
+import EmailNotificationPanel from '@/components/EmailNotificationPanel';
 
 type WaitlistEntry = Database['public']['Tables']['waitlist']['Row'];
 
@@ -30,6 +32,8 @@ const Admin = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [showEmailPanel, setShowEmailPanel] = useState(false);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -153,6 +157,7 @@ const Admin = () => {
       if (error) throw error;
 
       setWaitlist((prev) => prev.filter((entry) => entry.id !== id));
+      setSelectedIds((prev) => prev.filter((selectedId) => selectedId !== id));
       toast({ title: "Entry deleted" });
     } catch (error: any) {
       toast({
@@ -160,6 +165,20 @@ const Admin = () => {
         description: error.message,
         variant: "destructive",
       });
+    }
+  };
+
+  const toggleSelect = (id: string) => {
+    setSelectedIds((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+    );
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedIds.length === filteredWaitlist.length) {
+      setSelectedIds([]);
+    } else {
+      setSelectedIds(filteredWaitlist.map((e) => e.id));
     }
   };
 
@@ -225,6 +244,20 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Email Panel */}
+      <AnimatePresence>
+        {showEmailPanel && (
+          <EmailNotificationPanel
+            recipientCount={waitlist.length}
+            selectedIds={selectedIds.length > 0 ? selectedIds : undefined}
+            onClose={() => {
+              setShowEmailPanel(false);
+              handleRefresh();
+            }}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-xl sticky top-0 z-20">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -279,7 +312,7 @@ const Admin = () => {
               className="pl-10"
             />
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <Button variant="outline" onClick={handleRefresh} disabled={isRefreshing}>
               <RefreshCw className={`w-4 h-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
               Refresh
@@ -288,8 +321,32 @@ const Admin = () => {
               <Download className="w-4 h-4 mr-2" />
               Export CSV
             </Button>
+            <Button 
+              variant="glow" 
+              onClick={() => setShowEmailPanel(true)}
+              disabled={waitlist.length === 0}
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              Send Email {selectedIds.length > 0 && `(${selectedIds.length})`}
+            </Button>
           </div>
         </div>
+
+        {/* Selection info */}
+        {selectedIds.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-4 p-3 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-between"
+          >
+            <span className="text-sm text-primary">
+              {selectedIds.length} subscriber{selectedIds.length > 1 ? 's' : ''} selected
+            </span>
+            <Button variant="ghost" size="sm" onClick={() => setSelectedIds([])}>
+              Clear selection
+            </Button>
+          </motion.div>
+        )}
 
         {/* Table */}
         <div className="glass-card overflow-hidden">
@@ -297,6 +354,14 @@ const Admin = () => {
             <table className="w-full">
               <thead className="bg-muted/50">
                 <tr>
+                  <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">
+                    <input
+                      type="checkbox"
+                      checked={selectedIds.length === filteredWaitlist.length && filteredWaitlist.length > 0}
+                      onChange={toggleSelectAll}
+                      className="rounded border-border"
+                    />
+                  </th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Name</th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Email</th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground hidden md:table-cell">Source</th>
@@ -312,8 +377,18 @@ const Admin = () => {
                     key={entry.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="border-t border-border hover:bg-muted/30 transition-colors"
+                    className={`border-t border-border hover:bg-muted/30 transition-colors ${
+                      selectedIds.includes(entry.id) ? 'bg-primary/5' : ''
+                    }`}
                   >
+                    <td className="px-4 py-3">
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.includes(entry.id)}
+                        onChange={() => toggleSelect(entry.id)}
+                        className="rounded border-border"
+                      />
+                    </td>
                     <td className="px-4 py-3 text-sm text-foreground font-medium">{entry.name}</td>
                     <td className="px-4 py-3 text-sm text-muted-foreground">{entry.email}</td>
                     <td className="px-4 py-3 text-sm text-muted-foreground hidden md:table-cell">
@@ -350,7 +425,7 @@ const Admin = () => {
                 ))}
                 {filteredWaitlist.length === 0 && (
                   <tr>
-                    <td colSpan={7} className="px-4 py-12 text-center text-muted-foreground">
+                    <td colSpan={8} className="px-4 py-12 text-center text-muted-foreground">
                       {searchQuery ? 'No results found' : 'No waitlist entries yet'}
                     </td>
                   </tr>
