@@ -5,12 +5,12 @@ const SocialLinks = () => {
   const links = [
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/safetyzoneofficial/',
+      url: 'https://instagram.com/safetyzoneofficial',
       icon: Instagram,
     },
     {
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/company/mysafetyzone/?viewAsMember=true',
+      url: 'https://www.linkedin.com/company/mysafetyzone/',
       icon: Linkedin,
     },
   ];
