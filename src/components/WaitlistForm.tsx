@@ -25,12 +25,12 @@ const heardFromOptions = [
   "Other",
 ];
 
-const interestOptions = [
-  "Food Allergies",
-  "Dietary Restrictions",
-  "Restaurant Scanning",
-  "Meal Planning",
-  "Recipe Suggestions",
+const hopingForOptions = [
+  "Allergy Alerts",
+  "Restaurant Menu Scanning",
+  "Ingredient Analysis",
+  "Meal Recommendations",
+  "Grocery List Helper",
 ];
 
 const WaitlistForm = () => {
@@ -210,9 +210,9 @@ const WaitlistForm = () => {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-foreground">What feature interests you most?</Label>
+          <Label className="text-foreground">What are you hoping is in the app?</Label>
           <div className="flex flex-wrap gap-2">
-            {interestOptions.map((option) => (
+            {hopingForOptions.map((option) => (
               <button
                 key={option}
                 type="button"

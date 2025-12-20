@@ -70,9 +70,9 @@ const Index = () => {
           transition={{ delay: 1 }}
           className="fixed bottom-4 left-0 right-0 text-center z-10"
         >
-          <p className="text-xs text-muted-foreground">
-            © 2024 Safety Zone. All rights reserved.
-          </p>
+        <p className="text-xs text-muted-foreground">
+          © 2025 Powers Solutions USA LLC. All rights reserved.
+        </p>
         </motion.footer>
       </div>
     </>
