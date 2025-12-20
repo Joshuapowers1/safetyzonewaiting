@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Shield, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import SocialLinks from './SocialLinks';
+import logo from '@/assets/logo.png';
 
 const HeroSection = () => {
   return (
@@ -16,15 +17,19 @@ const HeroSection = () => {
         <motion.div
           animate={{ 
             boxShadow: [
-              "0 0 20px hsl(185 100% 50% / 0.3)",
-              "0 0 40px hsl(185 100% 50% / 0.5)",
-              "0 0 20px hsl(185 100% 50% / 0.3)"
+              "0 0 20px hsl(174 72% 46% / 0.3)",
+              "0 0 40px hsl(174 72% 46% / 0.5)",
+              "0 0 20px hsl(174 72% 46% / 0.3)"
             ]
           }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-primary via-accent to-secondary flex items-center justify-center"
+          className="rounded-2xl overflow-hidden"
         >
-          <Shield className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" />
+          <img 
+            src={logo} 
+            alt="Safety Zone Logo" 
+            className="w-24 h-24 md:w-32 md:h-32 object-contain"
+          />
         </motion.div>
       </motion.div>
 
@@ -33,7 +38,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30 text-secondary mb-6"
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary mb-6"
       >
         <motion.span
           animate={{ rotate: [0, 15, -15, 0] }}
@@ -60,10 +65,10 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto mb-8"
+        className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8"
       >
-        The future of safety is almost here. Be among the first to experience 
-        <span className="text-primary"> revolutionary protection</span>.
+        Your AI-powered dietary companion. Navigate food allergies and restrictions with 
+        <span className="text-primary"> intelligent, personalized guidance</span>.
       </motion.p>
 
       {/* Timeline Indicator */}
@@ -74,7 +79,7 @@ const HeroSection = () => {
         className="mb-8"
       >
         <span className="text-sm text-muted-foreground tracking-wider uppercase">
-          Expected Launch: <span className="text-accent font-semibold">Q1 2025</span>
+          Expected Launch: <span className="text-accent font-semibold">January 20, 2026</span>
         </span>
       </motion.div>
 
