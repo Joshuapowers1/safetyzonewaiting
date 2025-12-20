@@ -14,10 +14,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Safety Zone - Coming Soon | Revolutionary Protection Platform</title>
-        <meta name="description" content="Join the waitlist for Safety Zone - the future of personal and community safety. Be among the first to experience revolutionary protection technology launching Q1 2025." />
-        <meta name="keywords" content="safety, security, protection, emergency, community safety, personal safety" />
-        <link rel="canonical" href="https://safetyzone.com" />
+        <title>Safety Zone - AI Dietary Restriction App | Coming Soon</title>
+        <meta name="description" content="Join the waitlist for Safety Zone - your AI-powered dietary companion. Navigate food allergies and restrictions with intelligent, personalized guidance. Launching January 2026." />
+        <meta name="keywords" content="dietary restrictions, food allergies, AI assistant, meal planning, allergy scanner, food safety" />
+        <link rel="canonical" href="https://safetyzone.app" />
       </Helmet>
 
       <AnimatePresence>
@@ -30,8 +30,8 @@ const Index = () => {
 
         {/* Gradient overlays */}
         <div className="fixed inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(185_100%_50%_/_0.1)_0%,_transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_hsl(320_100%_60%_/_0.08)_0%,_transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(174_72%_46%_/_0.1)_0%,_transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_hsl(170_80%_55%_/_0.08)_0%,_transparent_50%)]" />
         </div>
 
         {/* Admin Link */}

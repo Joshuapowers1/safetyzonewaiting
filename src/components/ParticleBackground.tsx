@@ -30,7 +30,8 @@ const ParticleBackground = () => {
 
     const particles: Particle[] = [];
     const particleCount = 80;
-    const colors = ['#00d4ff', '#ff00d4', '#00a8ff'];
+    // Teal color palette matching the logo
+    const colors = ['#2eaaab', '#40c9c9', '#1d8d8d'];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -56,7 +57,7 @@ const ParticleBackground = () => {
 
           if (distance < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 * (1 - distance / 150)})`;
+            ctx.strokeStyle = `rgba(46, 170, 171, ${0.1 * (1 - distance / 150)})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);

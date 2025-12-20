@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -15,7 +15,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
       onAnimationComplete={onComplete}
     >
       {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(185_100%_50%_/_0.15)_0%,_transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(174_72%_46%_/_0.15)_0%,_transparent_70%)]" />
       
       {/* Animated rings */}
       <div className="absolute">
@@ -28,7 +28,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
       </div>
       <div className="absolute">
         <motion.div
-          className="w-48 h-48 rounded-full border border-secondary/20"
+          className="w-48 h-48 rounded-full border border-accent/20"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1.5, opacity: 0 }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 0.5 }}
@@ -46,16 +46,18 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           className="relative"
           animate={{ 
             boxShadow: [
-              "0 0 20px hsl(185 100% 50% / 0.3)",
-              "0 0 60px hsl(185 100% 50% / 0.6)",
-              "0 0 20px hsl(185 100% 50% / 0.3)"
+              "0 0 20px hsl(174 72% 46% / 0.3)",
+              "0 0 60px hsl(174 72% 46% / 0.6)",
+              "0 0 20px hsl(174 72% 46% / 0.3)"
             ]
           }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary via-accent to-secondary flex items-center justify-center">
-            <Shield className="w-12 h-12 text-primary-foreground" />
-          </div>
+          <img 
+            src={logo} 
+            alt="Safety Zone Logo" 
+            className="w-28 h-28 object-contain rounded-2xl"
+          />
         </motion.div>
         
         <motion.h1

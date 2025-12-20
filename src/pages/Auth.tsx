@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { z } from 'zod';
-import { Shield, Mail, Lock, Loader2, ArrowLeft } from 'lucide-react';
+import { Mail, Lock, Loader2, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import ParticleBackground from '@/components/ParticleBackground';
+import logo from '@/assets/logo.png';
 
 const authSchema = z.object({
   email: z.string().trim().email("Please enter a valid email"),
@@ -117,7 +118,7 @@ const Auth = () => {
 
       {/* Gradient overlays */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(185_100%_50%_/_0.1)_0%,_transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(174_72%_46%_/_0.1)_0%,_transparent_60%)]" />
       </div>
 
       {/* Back button */}
@@ -145,9 +146,11 @@ const Auth = () => {
         <div className="glass-card gradient-border p-8">
           {/* Logo */}
           <div className="flex justify-center mb-6">
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary via-accent to-secondary flex items-center justify-center shadow-glow-sm">
-              <Shield className="w-7 h-7 text-primary-foreground" />
-            </div>
+            <img 
+              src={logo} 
+              alt="Safety Zone Logo" 
+              className="w-16 h-16 object-contain rounded-xl shadow-[0_0_20px_hsl(174_72%_46%_/_0.3)]"
+            />
           </div>
 
           <h1 className="font-display text-2xl font-bold text-center text-foreground mb-2">

@@ -19,18 +19,18 @@ type WaitlistFormData = z.infer<typeof waitlistSchema>;
 
 const heardFromOptions = [
   "Social Media",
-  "Friend or Colleague",
+  "Friend or Family",
   "Search Engine",
-  "News Article",
+  "Healthcare Provider",
   "Other",
 ];
 
 const interestOptions = [
-  "Personal Safety",
-  "Workplace Safety",
-  "Community Protection",
-  "Emergency Services",
-  "Just Curious",
+  "Food Allergies",
+  "Dietary Restrictions",
+  "Restaurant Scanning",
+  "Meal Planning",
+  "Recipe Suggestions",
 ];
 
 const WaitlistForm = () => {
@@ -49,7 +49,6 @@ const WaitlistForm = () => {
     e.preventDefault();
     setErrors({});
 
-    // Validate form data
     const result = waitlistSchema.safeParse(formData);
     if (!result.success) {
       const fieldErrors: Partial<Record<keyof WaitlistFormData, string>> = {};
@@ -87,7 +86,7 @@ const WaitlistForm = () => {
 
       setIsSuccess(true);
       toast({
-        title: "Welcome aboard! 🚀",
+        title: "Welcome aboard! 🥗",
         description: "You're on the list. We'll notify you when we launch!",
       });
     } catch (error) {
@@ -138,7 +137,7 @@ const WaitlistForm = () => {
           <span>Join the Waitlist</span>
         </div>
         <p className="text-muted-foreground text-sm">
-          Be the first to experience the future of safety
+          Be the first to experience AI-powered dietary assistance
         </p>
       </div>
 
@@ -211,7 +210,7 @@ const WaitlistForm = () => {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-foreground">What interests you most?</Label>
+          <Label className="text-foreground">What feature interests you most?</Label>
           <div className="flex flex-wrap gap-2">
             {interestOptions.map((option) => (
               <button
@@ -220,8 +219,8 @@ const WaitlistForm = () => {
                 onClick={() => setFormData({ ...formData, interest: option })}
                 className={`px-3 py-1.5 text-sm rounded-lg border transition-all duration-200 ${
                   formData.interest === option
-                    ? 'bg-secondary/20 border-secondary text-secondary'
-                    : 'bg-muted/30 border-border text-muted-foreground hover:border-secondary/50'
+                    ? 'bg-accent/20 border-accent text-accent'
+                    : 'bg-muted/30 border-border text-muted-foreground hover:border-accent/50'
                 }`}
               >
                 {option}
