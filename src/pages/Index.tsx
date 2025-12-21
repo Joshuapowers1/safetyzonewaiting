@@ -17,7 +17,7 @@ const Index = () => {
         <title>Safety Zone - AI Dietary Restriction App | Coming Soon</title>
         <meta name="description" content="Join the waitlist for Safety Zone - your AI-powered dietary companion. Navigate food allergies and restrictions with intelligent, personalized guidance. Launching January 2026." />
         <meta name="keywords" content="dietary restrictions, food allergies, AI assistant, meal planning, allergy scanner, food safety" />
-        <link rel="canonical" href="https://safetyzone.app" />
+        <link rel="canonical" href="https://mysafetyzone.com" />
       </Helmet>
 
       <AnimatePresence>
