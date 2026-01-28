@@ -25,7 +25,7 @@ const Index = () => {
       </AnimatePresence>
 
       <div className="min-h-screen bg-background overflow-hidden relative">
-        {/* Subtle Background */}
+        {/* Moving Background */}
         <ColorfulBackground />
 
         {/* Admin Link */}
