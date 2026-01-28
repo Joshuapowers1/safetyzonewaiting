@@ -3,8 +3,6 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
-
-
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -17,6 +15,17 @@ interface EmailRequest {
   recipientIds?: string[]; // Optional: specific recipients, or all if empty
 }
 
+// HTML escape function to prevent XSS
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
+    .replace(/\n/g, "<br>");
+}
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -27,7 +36,6 @@ const handler = async (req: Request): Promise<Response> => {
     // Verify authentication
     const authHeader = req.headers.get("Authorization");
     if (!authHeader) {
-      console.error("No authorization header");
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -44,7 +52,6 @@ const handler = async (req: Request): Promise<Response> => {
     // Verify user is admin
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     if (authError || !user) {
-      console.error("Auth error:", authError);
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -65,7 +72,6 @@ const handler = async (req: Request): Promise<Response> => {
       .maybeSingle();
 
     if (roleError || !roleData) {
-      console.error("Role check failed:", roleError);
       return new Response(JSON.stringify({ error: "Admin access required" }), {
         status: 403,
         headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -94,8 +100,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { data: recipients, error: recipientsError } = await query;
 
     if (recipientsError) {
-      console.error("Error fetching recipients:", recipientsError);
-      throw recipientsError;
+      throw new Error("Failed to fetch recipients");
     }
 
     if (!recipients || recipients.length === 0) {
@@ -108,14 +113,18 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    console.log(`Sending email to ${recipients.length} recipients`);
-
     // Send emails (batch for efficiency)
     const results = [];
     const errors = [];
 
+    // HTML-escape the message to prevent XSS
+    const safeMessage = escapeHtml(message);
+
     for (const recipient of recipients) {
       try {
+        // HTML-escape the recipient name as well
+        const safeName = escapeHtml(recipient.name);
+        
         const htmlContent = `
           <!DOCTYPE html>
           <html>
@@ -130,10 +139,10 @@ const handler = async (req: Request): Promise<Response> => {
                   <p style="font-size: 14px; color: #7a9999; margin-top: 8px;">AI Dietary Restriction App</p>
                 </div>
                 
-                <p style="font-size: 16px; color: #d0e5e5; margin-bottom: 16px;">Hi ${recipient.name},</p>
+                <p style="font-size: 16px; color: #d0e5e5; margin-bottom: 16px;">Hi ${safeName},</p>
                 
                 <div style="font-size: 16px; line-height: 1.6; color: #b0c5c5;">
-                  ${message.replace(/\n/g, "<br>")}
+                  ${safeMessage}
                 </div>
                 
                 <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(46, 170, 171, 0.2); text-align: center;">
@@ -169,24 +178,24 @@ const handler = async (req: Request): Promise<Response> => {
         const emailData = await emailRes.json();
 
         if (!emailRes.ok) {
-          throw new Error(emailData.message || "Failed to send email");
+          throw new Error("Failed to send email");
         }
 
-        results.push({ email: recipient.email, success: true, id: emailData.id });
-        console.log(`Email sent to ${recipient.email}:`, emailData.id);
+        results.push({ success: true });
       } catch (emailError: any) {
-        console.error(`Error sending to ${recipient.email}:`, emailError);
-        errors.push({ email: recipient.email, error: emailError.message });
+        errors.push({ error: "Send failed" });
       }
     }
 
     // Update waitlist status to 'contacted' for successful sends
     if (results.length > 0) {
-      const successEmails = results.map(r => r.email);
+      const successfulRecipientIds = recipients
+        .slice(0, results.length)
+        .map(r => r.id);
       await supabaseServiceRole
         .from("waitlist")
         .update({ status: "contacted" })
-        .in("email", successEmails);
+        .in("id", successfulRecipientIds);
     }
 
     return new Response(
@@ -194,8 +203,6 @@ const handler = async (req: Request): Promise<Response> => {
         success: true,
         sent: results.length,
         failed: errors.length,
-        results,
-        errors,
       }),
       {
         status: 200,
@@ -203,9 +210,8 @@ const handler = async (req: Request): Promise<Response> => {
       }
     );
   } catch (error: any) {
-    console.error("Error in send-waitlist-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "An error occurred while sending emails" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
