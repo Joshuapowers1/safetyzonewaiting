@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,75 +6,75 @@
 
 @layer base {
   :root {
-    /* Softer, warmer teal theme */
-    --background: 180 20% 8%;
-    --foreground: 180 10% 95%;
+    /* Clean light theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
 
-    --card: 180 15% 12%;
-    --card-foreground: 180 10% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
 
-    --popover: 180 15% 12%;
-    --popover-foreground: 180 10% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Warm teal primary */
-    --primary: 174 65% 42%;
+    /* Teal primary matching logo */
+    --primary: 174 72% 40%;
     --primary-foreground: 0 0% 100%;
 
-    /* Soft teal secondary */
-    --secondary: 175 45% 28%;
-    --secondary-foreground: 180 10% 95%;
+    /* Soft gray secondary */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 180 15% 18%;
-    --muted-foreground: 180 10% 55%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Vibrant mint accent */
-    --accent: 168 70% 50%;
-    --accent-foreground: 180 20% 8%;
+    /* Teal accent */
+    --accent: 174 65% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 75% 55%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 180 15% 22%;
-    --input: 180 15% 18%;
-    --ring: 174 65% 42%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 174 72% 40%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    /* Soft shadows */
-    --shadow-glow-sm: 0 4px 12px hsl(174 65% 42% / 0.15);
-    --shadow-glow-md: 0 8px 24px hsl(174 65% 42% / 0.2);
-    --shadow-glow-lg: 0 16px 48px hsl(174 65% 42% / 0.25);
+    /* Clean shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
-    --sidebar-background: 180 15% 12%;
-    --sidebar-foreground: 180 10% 95%;
-    --sidebar-primary: 174 65% 42%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 174 72% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 180 15% 18%;
-    --sidebar-accent-foreground: 180 10% 95%;
-    --sidebar-border: 180 15% 22%;
-    --sidebar-ring: 174 65% 42%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 174 72% 40%;
   }
 
   .dark {
-    --background: 180 20% 8%;
-    --foreground: 180 10% 95%;
-    --card: 180 15% 12%;
-    --card-foreground: 180 10% 95%;
-    --popover: 180 15% 12%;
-    --popover-foreground: 180 10% 95%;
-    --primary: 174 65% 42%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 174 72% 45%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 175 45% 28%;
-    --secondary-foreground: 180 10% 95%;
-    --muted: 180 15% 18%;
-    --muted-foreground: 180 10% 55%;
-    --accent: 168 70% 50%;
-    --accent-foreground: 180 20% 8%;
-    --destructive: 0 75% 55%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 174 65% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 180 15% 22%;
-    --input: 180 15% 18%;
-    --ring: 174 65% 42%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 174 72% 45%;
   }
 }
 
@@ -95,33 +95,13 @@
 }
 
 @layer components {
+  .clean-card {
+    @apply bg-card border border-border rounded-xl;
+    box-shadow: var(--shadow-md);
+  }
+  
   .soft-card {
-    @apply bg-card/80 backdrop-blur-lg border border-border/40 rounded-2xl;
-    box-shadow: 0 4px 24px hsl(var(--primary) / 0.08), 0 1px 2px hsl(0 0% 0% / 0.1);
-  }
-  
-  .glass-card {
-    @apply bg-card/60 backdrop-blur-xl border border-border/30 rounded-2xl;
-    box-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
-  }
-  
-  .gradient-border {
-    position: relative;
-    background: hsl(var(--card) / 0.9);
-    border-radius: 1rem;
-  }
-  
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, hsl(var(--primary) / 0.6) 0%, hsl(var(--accent) / 0.4) 50%, hsl(var(--secondary) / 0.3) 100%);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    -webkit-mask-composite: xor;
-    pointer-events: none;
+    @apply bg-secondary/50 border border-border rounded-xl;
   }
 }
 

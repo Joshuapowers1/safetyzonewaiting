@@ -19,18 +19,18 @@ type WaitlistFormData = z.infer<typeof waitlistSchema>;
 
 const heardFromOptions = [
   "Social Media",
-  "Friend or Family",
-  "Search Engine",
-  "Healthcare Provider",
+  "Friend",
+  "Search",
+  "Healthcare",
   "Other",
 ];
 
-const hopingForOptions = [
+const featureOptions = [
   "Allergy Alerts",
   "Menu Scanning",
-  "Ingredient Analysis",
-  "Meal Recommendations",
-  "Grocery Helper",
+  "Ingredient Check",
+  "Meal Ideas",
+  "Grocery Help",
 ];
 
 const WaitlistForm = () => {
@@ -86,8 +86,8 @@ const WaitlistForm = () => {
 
       setIsSuccess(true);
       toast({
-        title: "Welcome aboard! 🥗",
-        description: "You're on the list. We'll notify you when we launch!",
+        title: "You're on the list! 🥗",
+        description: "We'll notify you when we launch.",
       });
     } catch (error) {
       toast({
@@ -103,21 +103,21 @@ const WaitlistForm = () => {
   if (isSuccess) {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="soft-card p-8 text-center max-w-md mx-auto"
+        className="clean-card p-8 text-center"
       >
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center mx-auto mb-4"
+          className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4"
         >
-          <CheckCircle2 className="w-8 h-8 text-primary" />
+          <CheckCircle2 className="w-7 h-7 text-primary" />
         </motion.div>
-        <h3 className="text-xl font-bold text-foreground mb-2">You're In!</h3>
-        <p className="text-muted-foreground">
-          Thanks for joining, <span className="text-primary font-medium">{formData.name}</span>! We'll be in touch soon.
+        <h3 className="text-lg font-semibold text-foreground mb-2">You're on the list!</h3>
+        <p className="text-muted-foreground text-sm">
+          Thanks, <span className="text-foreground font-medium">{formData.name}</span>. We'll be in touch soon.
         </p>
       </motion.div>
     );
@@ -126,30 +126,30 @@ const WaitlistForm = () => {
   return (
     <motion.form
       onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="soft-card p-6 md:p-8 max-w-md mx-auto space-y-6"
+      transition={{ delay: 0.2, duration: 0.5 }}
+      className="clean-card p-6 md:p-8 space-y-5"
     >
-      <div className="text-center mb-2">
-        <h2 className="text-xl font-bold text-foreground mb-2">Join the Waitlist</h2>
+      <div className="text-center mb-1">
+        <h2 className="text-lg font-semibold text-foreground mb-1">Join the Waitlist</h2>
         <p className="text-muted-foreground text-sm">
-          Be the first to experience AI-powered dietary assistance
+          Be first to try Safety Zone
         </p>
       </div>
 
-      <div className="space-y-5">
+      <div className="space-y-4">
         {/* Name Field */}
-        <div className="space-y-2">
-          <Label htmlFor="name" className="text-foreground font-medium">
-            Your Name <span className="text-primary">*</span>
+        <div className="space-y-1.5">
+          <Label htmlFor="name" className="text-foreground text-sm font-medium">
+            Name
           </Label>
           <Input
             id="name"
-            placeholder="John Doe"
+            placeholder="Your name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className={`h-12 ${errors.name ? "border-destructive" : ""}`}
+            className={`h-11 ${errors.name ? "border-destructive" : ""}`}
           />
           <AnimatePresence>
             {errors.name && (
@@ -157,7 +157,7 @@ const WaitlistForm = () => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="text-destructive text-sm"
+                className="text-destructive text-xs"
               >
                 {errors.name}
               </motion.p>
@@ -166,9 +166,9 @@ const WaitlistForm = () => {
         </div>
 
         {/* Email Field */}
-        <div className="space-y-2">
-          <Label htmlFor="email" className="text-foreground font-medium">
-            Email Address <span className="text-primary">*</span>
+        <div className="space-y-1.5">
+          <Label htmlFor="email" className="text-foreground text-sm font-medium">
+            Email
           </Label>
           <Input
             id="email"
@@ -176,7 +176,7 @@ const WaitlistForm = () => {
             placeholder="you@example.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className={`h-12 ${errors.email ? "border-destructive" : ""}`}
+            className={`h-11 ${errors.email ? "border-destructive" : ""}`}
           />
           <AnimatePresence>
             {errors.email && (
@@ -184,7 +184,7 @@ const WaitlistForm = () => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="text-destructive text-sm"
+                className="text-destructive text-xs"
               >
                 {errors.email}
               </motion.p>
@@ -192,22 +192,21 @@ const WaitlistForm = () => {
           </AnimatePresence>
         </div>
 
-        {/* How did you hear about us */}
-        <div className="space-y-3">
-          <Label className="text-foreground font-medium">
+        {/* How did you find us */}
+        <div className="space-y-2">
+          <Label className="text-foreground text-sm font-medium">
             How did you find us?
           </Label>
-          <p className="text-muted-foreground text-xs -mt-1">Select one option</p>
           <div className="flex flex-wrap gap-2">
             {heardFromOptions.map((option) => (
               <button
                 key={option}
                 type="button"
                 onClick={() => setFormData({ ...formData, heardFrom: option })}
-                className={`px-4 py-2 text-sm rounded-full border transition-all duration-200 ${
+                className={`px-3 py-1.5 text-sm rounded-md border transition-all ${
                   formData.heardFrom === option
-                    ? 'bg-primary/20 border-primary text-primary font-medium'
-                    : 'bg-muted/40 border-border text-muted-foreground hover:border-primary/40 hover:text-foreground'
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-secondary border-border text-muted-foreground hover:text-foreground hover:border-primary/50'
                 }`}
               >
                 {option}
@@ -216,22 +215,21 @@ const WaitlistForm = () => {
           </div>
         </div>
 
-        {/* What features are you interested in */}
-        <div className="space-y-3">
-          <Label className="text-foreground font-medium">
-            Which feature excites you most?
+        {/* Feature interest */}
+        <div className="space-y-2">
+          <Label className="text-foreground text-sm font-medium">
+            Most excited about?
           </Label>
-          <p className="text-muted-foreground text-xs -mt-1">This helps us prioritize development</p>
           <div className="flex flex-wrap gap-2">
-            {hopingForOptions.map((option) => (
+            {featureOptions.map((option) => (
               <button
                 key={option}
                 type="button"
                 onClick={() => setFormData({ ...formData, interest: option })}
-                className={`px-4 py-2 text-sm rounded-full border transition-all duration-200 ${
+                className={`px-3 py-1.5 text-sm rounded-md border transition-all ${
                   formData.interest === option
-                    ? 'bg-accent/20 border-accent text-accent font-medium'
-                    : 'bg-muted/40 border-border text-muted-foreground hover:border-accent/40 hover:text-foreground'
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-secondary border-border text-muted-foreground hover:text-foreground hover:border-primary/50'
                 }`}
               >
                 {option}
@@ -243,8 +241,7 @@ const WaitlistForm = () => {
 
       <Button
         type="submit"
-        size="lg"
-        className="w-full h-12 text-base font-medium bg-primary hover:bg-primary/90 text-primary-foreground"
+        className="w-full h-11 font-medium"
         disabled={isSubmitting}
       >
         {isSubmitting ? (

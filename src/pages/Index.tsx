@@ -25,19 +25,19 @@ const Index = () => {
       </AnimatePresence>
 
       <div className="min-h-screen bg-background overflow-hidden relative">
-        {/* Colorful Background */}
+        {/* Subtle Background */}
         <ColorfulBackground />
 
         {/* Admin Link */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 0.8 }}
           className="fixed top-4 right-4 z-30"
         >
           <Link
             to="/auth"
-            className="flex items-center gap-2 px-3 py-2 text-xs text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-muted/50"
+            className="flex items-center gap-2 px-3 py-2 text-xs text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted"
           >
             <Lock className="w-3 h-3" />
             <span>Admin</span>
@@ -48,10 +48,10 @@ const Index = () => {
         <motion.main
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
           className="relative z-10 container mx-auto px-4 min-h-screen flex flex-col items-center justify-center py-12"
         >
-          <div className="w-full max-w-4xl space-y-12">
+          <div className="w-full max-w-xl space-y-8">
             <HeroSection />
             <WaitlistForm />
           </div>
@@ -61,12 +61,12 @@ const Index = () => {
         <motion.footer
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 0.8 }}
           className="fixed bottom-4 left-0 right-0 text-center z-10"
         >
-        <p className="text-xs text-muted-foreground">
-          © 2025 Powers Solutions USA LLC. All rights reserved.
-        </p>
+          <p className="text-xs text-muted-foreground">
+            © 2025 Powers Solutions USA LLC. All rights reserved.
+          </p>
         </motion.footer>
       </div>
     </>
