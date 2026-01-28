@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import SocialLinks from './SocialLinks';
 import logo from '@/assets/logo.png';
@@ -16,14 +15,10 @@ const HeroSection = () => {
       >
         <motion.div
           animate={{ 
-            boxShadow: [
-              "0 0 20px hsl(174 72% 46% / 0.3)",
-              "0 0 40px hsl(174 72% 46% / 0.5)",
-              "0 0 20px hsl(174 72% 46% / 0.3)"
-            ]
+            scale: [1, 1.02, 1],
           }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="rounded-2xl overflow-hidden"
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="rounded-3xl overflow-hidden shadow-glow-md"
         >
           <img 
             src={logo} 
@@ -38,15 +33,9 @@ const HeroSection = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary mb-6"
+        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/15 border border-primary/25 text-primary mb-6"
       >
-        <motion.span
-          animate={{ rotate: [0, 15, -15, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <Sparkles className="w-4 h-4" />
-        </motion.span>
-        <span className="text-sm font-medium tracking-wider uppercase">Coming Soon</span>
+        <span className="text-sm font-medium tracking-wide">Coming Soon</span>
       </motion.div>
 
       {/* Main Heading */}
@@ -54,10 +43,10 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight"
+        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight"
       >
-        <span className="text-foreground">SAFETY</span>{' '}
-        <span className="text-primary glow-text">ZONE</span>
+        <span className="text-foreground">Safety</span>{' '}
+        <span className="text-primary">Zone</span>
       </motion.h1>
 
       {/* Tagline */}
@@ -65,10 +54,10 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8"
+        className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto mb-8 leading-relaxed"
       >
         Your AI-powered dietary companion. Navigate food allergies and restrictions with 
-        <span className="text-primary"> intelligent, personalized guidance</span>.
+        <span className="text-primary font-medium"> intelligent, personalized guidance</span>.
       </motion.p>
 
       {/* Timeline Indicator */}
@@ -78,8 +67,8 @@ const HeroSection = () => {
         transition={{ delay: 0.5, duration: 0.5 }}
         className="mb-8"
       >
-        <span className="text-sm text-muted-foreground tracking-wider uppercase">
-          Expected Launch: <span className="text-accent font-semibold">January 20, 2026</span>
+        <span className="text-sm text-muted-foreground">
+          Expected Launch: <span className="text-accent font-semibold">January 31, 2026</span>
         </span>
       </motion.div>
 

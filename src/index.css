@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,79 +6,75 @@
 
 @layer base {
   :root {
-    /* Teal-based theme matching Safety Zone logo */
-    --background: 180 15% 4%;
-    --foreground: 180 20% 98%;
+    /* Softer, warmer teal theme */
+    --background: 180 20% 8%;
+    --foreground: 180 10% 95%;
 
-    --card: 180 15% 7%;
-    --card-foreground: 180 20% 98%;
+    --card: 180 15% 12%;
+    --card-foreground: 180 10% 95%;
 
-    --popover: 180 15% 7%;
-    --popover-foreground: 180 20% 98%;
+    --popover: 180 15% 12%;
+    --popover-foreground: 180 10% 95%;
 
-    /* Teal primary from logo */
-    --primary: 174 72% 46%;
-    --primary-foreground: 180 15% 4%;
+    /* Warm teal primary */
+    --primary: 174 65% 42%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Darker teal secondary */
-    --secondary: 180 60% 30%;
-    --secondary-foreground: 180 20% 98%;
+    /* Soft teal secondary */
+    --secondary: 175 45% 28%;
+    --secondary-foreground: 180 10% 95%;
 
-    --muted: 180 20% 12%;
-    --muted-foreground: 180 15% 60%;
+    --muted: 180 15% 18%;
+    --muted-foreground: 180 10% 55%;
 
-    /* Lighter teal accent */
-    --accent: 170 80% 55%;
-    --accent-foreground: 180 15% 4%;
+    /* Vibrant mint accent */
+    --accent: 168 70% 50%;
+    --accent-foreground: 180 20% 8%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 180 20% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 180 20% 15%;
-    --input: 180 20% 15%;
-    --ring: 174 72% 46%;
+    --border: 180 15% 22%;
+    --input: 180 15% 18%;
+    --ring: 174 65% 42%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom glow colors */
-    --glow-primary: 174 72% 46%;
-    --glow-accent: 170 80% 55%;
-    
-    /* Shadows */
-    --shadow-glow-sm: 0 0 10px hsl(174 72% 46% / 0.3);
-    --shadow-glow-md: 0 0 20px hsl(174 72% 46% / 0.4);
-    --shadow-glow-lg: 0 0 40px hsl(174 72% 46% / 0.5);
+    /* Soft shadows */
+    --shadow-glow-sm: 0 4px 12px hsl(174 65% 42% / 0.15);
+    --shadow-glow-md: 0 8px 24px hsl(174 65% 42% / 0.2);
+    --shadow-glow-lg: 0 16px 48px hsl(174 65% 42% / 0.25);
 
-    --sidebar-background: 180 15% 7%;
-    --sidebar-foreground: 180 20% 98%;
-    --sidebar-primary: 174 72% 46%;
-    --sidebar-primary-foreground: 180 15% 4%;
-    --sidebar-accent: 180 20% 12%;
-    --sidebar-accent-foreground: 180 20% 98%;
-    --sidebar-border: 180 20% 15%;
-    --sidebar-ring: 174 72% 46%;
+    --sidebar-background: 180 15% 12%;
+    --sidebar-foreground: 180 10% 95%;
+    --sidebar-primary: 174 65% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 180 15% 18%;
+    --sidebar-accent-foreground: 180 10% 95%;
+    --sidebar-border: 180 15% 22%;
+    --sidebar-ring: 174 65% 42%;
   }
 
   .dark {
-    --background: 180 15% 4%;
-    --foreground: 180 20% 98%;
-    --card: 180 15% 7%;
-    --card-foreground: 180 20% 98%;
-    --popover: 180 15% 7%;
-    --popover-foreground: 180 20% 98%;
-    --primary: 174 72% 46%;
-    --primary-foreground: 180 15% 4%;
-    --secondary: 180 60% 30%;
-    --secondary-foreground: 180 20% 98%;
-    --muted: 180 20% 12%;
-    --muted-foreground: 180 15% 60%;
-    --accent: 170 80% 55%;
-    --accent-foreground: 180 15% 4%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 180 20% 98%;
-    --border: 180 20% 15%;
-    --input: 180 20% 15%;
-    --ring: 174 72% 46%;
+    --background: 180 20% 8%;
+    --foreground: 180 10% 95%;
+    --card: 180 15% 12%;
+    --card-foreground: 180 10% 95%;
+    --popover: 180 15% 12%;
+    --popover-foreground: 180 10% 95%;
+    --primary: 174 65% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 175 45% 28%;
+    --secondary-foreground: 180 10% 95%;
+    --muted: 180 15% 18%;
+    --muted-foreground: 180 10% 55%;
+    --accent: 168 70% 50%;
+    --accent-foreground: 180 20% 8%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 180 15% 22%;
+    --input: 180 15% 18%;
+    --ring: 174 65% 42%;
   }
 }
 
@@ -89,27 +85,30 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'DM Sans', 'Inter', sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
   }
 }
 
 @layer components {
-  .glow-text {
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
+  .soft-card {
+    @apply bg-card/80 backdrop-blur-lg border border-border/40 rounded-2xl;
+    box-shadow: 0 4px 24px hsl(var(--primary) / 0.08), 0 1px 2px hsl(0 0% 0% / 0.1);
   }
   
   .glass-card {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50 rounded-xl;
-    box-shadow: inset 0 1px 0 0 hsl(var(--primary) / 0.1);
+    @apply bg-card/60 backdrop-blur-xl border border-border/30 rounded-2xl;
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
   }
   
   .gradient-border {
     position: relative;
-    background: hsl(var(--card));
+    background: hsl(var(--card) / 0.9);
+    border-radius: 1rem;
   }
   
   .gradient-border::before {
@@ -118,7 +117,7 @@
     inset: 0;
     padding: 1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.6) 0%, hsl(var(--accent) / 0.4) 50%, hsl(var(--secondary) / 0.3) 100%);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask-composite: xor;

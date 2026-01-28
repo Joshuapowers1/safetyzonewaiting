@@ -43,7 +43,7 @@ const CountdownTimer = () => {
   ];
 
   return (
-    <div className="flex gap-3 md:gap-6 justify-center">
+    <div className="flex gap-3 md:gap-5 justify-center">
       {timeBlocks.map((block, index) => (
         <motion.div
           key={block.label}
@@ -52,17 +52,17 @@ const CountdownTimer = () => {
           transition={{ delay: 0.1 * index, duration: 0.5 }}
           className="flex flex-col items-center"
         >
-          <div className="glass-card gradient-border w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
+          <div className="soft-card w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
             <motion.span
               key={block.value}
-              initial={{ scale: 1.2, opacity: 0 }}
+              initial={{ scale: 1.1, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="font-display text-2xl md:text-3xl font-bold text-primary"
+              className="text-2xl md:text-3xl font-bold text-primary"
             >
               {String(block.value).padStart(2, '0')}
             </motion.span>
           </div>
-          <span className="text-xs md:text-sm text-muted-foreground mt-2 font-medium tracking-wider uppercase">
+          <span className="text-xs md:text-sm text-muted-foreground mt-2 font-medium">
             {block.label}
           </span>
         </motion.div>
