@@ -51,12 +51,21 @@ const CountdownTimer = () => {
           transition={{ delay: 0.1 * index, duration: 0.4 }}
           className="flex flex-col items-center"
         >
-          <div className="w-14 h-14 md:w-16 md:h-16 bg-secondary rounded-lg flex items-center justify-center border border-border">
-            <span className="text-xl md:text-2xl font-semibold text-foreground tabular-nums">
+          <motion.div 
+            className="w-14 h-14 md:w-16 md:h-16 bg-card rounded-xl flex items-center justify-center border border-border shadow-md"
+            whileHover={{ scale: 1.05, boxShadow: "0 8px 20px -4px hsl(174 72% 38% / 0.2)" }}
+            transition={{ duration: 0.2 }}
+          >
+            <motion.span 
+              key={block.value}
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="text-xl md:text-2xl font-bold text-primary tabular-nums"
+            >
               {String(block.value).padStart(2, '0')}
-            </span>
-          </div>
-          <span className="text-xs text-muted-foreground mt-1.5">
+            </motion.span>
+          </motion.div>
+          <span className="text-xs text-muted-foreground mt-1.5 font-medium">
             {block.label}
           </span>
         </motion.div>
