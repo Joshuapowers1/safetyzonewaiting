@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Utensils } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import SocialLinks from './SocialLinks';
 import logo from '@/assets/logo.png';
@@ -33,22 +32,15 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* Main Heading with icon */}
+      {/* Main Heading - Cursive font */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.5 }}
         className="mb-3"
       >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground inline-flex items-center gap-3 justify-center flex-wrap">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground italic">
           Safety Zone
-          <motion.span
-            animate={{ rotate: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="text-primary"
-          >
-            <Utensils className="w-8 h-8 md:w-10 md:h-10" />
-          </motion.span>
         </h1>
       </motion.div>
 
