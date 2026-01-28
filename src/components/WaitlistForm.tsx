@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { CheckCircle2, Loader2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Loader2, ArrowRight, Sparkles } from 'lucide-react';
 
 const waitlistSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -18,19 +18,19 @@ const waitlistSchema = z.object({
 type WaitlistFormData = z.infer<typeof waitlistSchema>;
 
 const heardFromOptions = [
-  "Social Media",
-  "Friend",
-  "Search",
-  "Healthcare",
-  "Other",
+  { label: "Social Media", emoji: "📱" },
+  { label: "Friend", emoji: "👋" },
+  { label: "Search", emoji: "🔍" },
+  { label: "Healthcare", emoji: "🏥" },
+  { label: "Other", emoji: "✨" },
 ];
 
 const featureOptions = [
-  "Allergy Alerts",
-  "Menu Scanning",
-  "Ingredient Check",
-  "Meal Ideas",
-  "Grocery Help",
+  { label: "Allergy Alerts", emoji: "🚨" },
+  { label: "Menu Scanning", emoji: "📋" },
+  { label: "Ingredient Check", emoji: "🔬" },
+  { label: "Meal Ideas", emoji: "🍽️" },
+  { label: "Grocery Help", emoji: "🛒" },
 ];
 
 const WaitlistForm = () => {
@@ -105,19 +105,19 @@ const WaitlistForm = () => {
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="clean-card p-8 text-center"
+        className="bg-card rounded-2xl border border-border p-8 text-center shadow-lg"
       >
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4"
+          className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-4"
         >
-          <CheckCircle2 className="w-7 h-7 text-primary" />
+          <CheckCircle2 className="w-8 h-8 text-primary" />
         </motion.div>
-        <h3 className="text-lg font-semibold text-foreground mb-2">You're on the list!</h3>
-        <p className="text-muted-foreground text-sm">
-          Thanks, <span className="text-foreground font-medium">{formData.name}</span>. We'll be in touch soon.
+        <h3 className="text-xl font-bold text-foreground mb-2">You're on the list! 🎉</h3>
+        <p className="text-muted-foreground">
+          Thanks, <span className="text-primary font-semibold">{formData.name}</span>. We'll be in touch soon.
         </p>
       </motion.div>
     );
@@ -129,10 +129,13 @@ const WaitlistForm = () => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2, duration: 0.5 }}
-      className="clean-card p-6 md:p-8 space-y-5"
+      className="bg-card rounded-2xl border border-border p-6 md:p-8 space-y-5 shadow-lg"
     >
-      <div className="text-center mb-1">
-        <h2 className="text-lg font-semibold text-foreground mb-1">Join the Waitlist</h2>
+      <div className="text-center mb-2">
+        <div className="inline-flex items-center gap-2 mb-2">
+          <Sparkles className="w-5 h-5 text-primary" />
+          <h2 className="text-lg font-bold text-foreground">Join the Waitlist</h2>
+        </div>
         <p className="text-muted-foreground text-sm">
           Be first to try Safety Zone
         </p>
@@ -149,7 +152,7 @@ const WaitlistForm = () => {
             placeholder="Your name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className={`h-11 ${errors.name ? "border-destructive" : ""}`}
+            className={`h-11 bg-secondary/50 border-border focus:border-primary ${errors.name ? "border-destructive" : ""}`}
           />
           <AnimatePresence>
             {errors.name && (
@@ -176,7 +179,7 @@ const WaitlistForm = () => {
             placeholder="you@example.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className={`h-11 ${errors.email ? "border-destructive" : ""}`}
+            className={`h-11 bg-secondary/50 border-border focus:border-primary ${errors.email ? "border-destructive" : ""}`}
           />
           <AnimatePresence>
             {errors.email && (
@@ -199,18 +202,21 @@ const WaitlistForm = () => {
           </Label>
           <div className="flex flex-wrap gap-2">
             {heardFromOptions.map((option) => (
-              <button
-                key={option}
+              <motion.button
+                key={option.label}
                 type="button"
-                onClick={() => setFormData({ ...formData, heardFrom: option })}
-                className={`px-3 py-1.5 text-sm rounded-md border transition-all ${
-                  formData.heardFrom === option
-                    ? 'bg-primary text-primary-foreground border-primary'
-                    : 'bg-secondary border-border text-muted-foreground hover:text-foreground hover:border-primary/50'
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setFormData({ ...formData, heardFrom: option.label })}
+                className={`px-3 py-2 text-sm rounded-lg border transition-all flex items-center gap-1.5 ${
+                  formData.heardFrom === option.label
+                    ? 'bg-primary text-primary-foreground border-primary shadow-md'
+                    : 'bg-secondary/50 border-border text-muted-foreground hover:text-foreground hover:border-primary/50'
                 }`}
               >
-                {option}
-              </button>
+                <span>{option.emoji}</span>
+                <span>{option.label}</span>
+              </motion.button>
             ))}
           </div>
         </div>
@@ -222,40 +228,45 @@ const WaitlistForm = () => {
           </Label>
           <div className="flex flex-wrap gap-2">
             {featureOptions.map((option) => (
-              <button
-                key={option}
+              <motion.button
+                key={option.label}
                 type="button"
-                onClick={() => setFormData({ ...formData, interest: option })}
-                className={`px-3 py-1.5 text-sm rounded-md border transition-all ${
-                  formData.interest === option
-                    ? 'bg-primary text-primary-foreground border-primary'
-                    : 'bg-secondary border-border text-muted-foreground hover:text-foreground hover:border-primary/50'
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setFormData({ ...formData, interest: option.label })}
+                className={`px-3 py-2 text-sm rounded-lg border transition-all flex items-center gap-1.5 ${
+                  formData.interest === option.label
+                    ? 'bg-primary text-primary-foreground border-primary shadow-md'
+                    : 'bg-secondary/50 border-border text-muted-foreground hover:text-foreground hover:border-primary/50'
                 }`}
               >
-                {option}
-              </button>
+                <span>{option.emoji}</span>
+                <span>{option.label}</span>
+              </motion.button>
             ))}
           </div>
         </div>
       </div>
 
-      <Button
-        type="submit"
-        className="w-full h-11 font-medium"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="w-4 h-4 animate-spin mr-2" />
-            Joining...
-          </>
-        ) : (
-          <>
-            Join Waitlist
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </>
-        )}
-      </Button>
+      <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+        <Button
+          type="submit"
+          className="w-full h-12 font-semibold text-base bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-lg"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin mr-2" />
+              Joining...
+            </>
+          ) : (
+            <>
+              Join Waitlist
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </>
+          )}
+        </Button>
+      </motion.div>
     </motion.form>
   );
 };

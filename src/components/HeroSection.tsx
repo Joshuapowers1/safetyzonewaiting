@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Utensils } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import SocialLinks from './SocialLinks';
 import logo from '@/assets/logo.png';
@@ -6,29 +7,50 @@ import logo from '@/assets/logo.png';
 const HeroSection = () => {
   return (
     <div className="relative z-10 text-center px-4">
-      {/* Logo */}
+      {/* Logo with glow effect */}
       <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         className="flex justify-center mb-6"
       >
-        <img 
-          src={logo} 
-          alt="Safety Zone Logo" 
-          className="w-20 h-20 md:w-24 md:h-24 object-contain"
-        />
+        <motion.div
+          animate={{ 
+            boxShadow: [
+              "0 0 20px hsl(174 72% 38% / 0.2)",
+              "0 0 30px hsl(174 72% 38% / 0.3)",
+              "0 0 20px hsl(174 72% 38% / 0.2)"
+            ]
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="rounded-2xl overflow-hidden"
+        >
+          <img 
+            src={logo} 
+            alt="Safety Zone Logo" 
+            className="w-20 h-20 md:w-24 md:h-24 object-contain"
+          />
+        </motion.div>
       </motion.div>
 
-      {/* Main Heading */}
-      <motion.h1
+      {/* Main Heading with icon */}
+      <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.5 }}
-        className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 tracking-tight text-foreground"
+        className="mb-3"
       >
-        Safety Zone
-      </motion.h1>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground inline-flex items-center gap-3 justify-center flex-wrap">
+          Safety Zone
+          <motion.span
+            animate={{ rotate: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="text-primary"
+          >
+            <Utensils className="w-8 h-8 md:w-10 md:h-10" />
+          </motion.span>
+        </h1>
+      </motion.div>
 
       {/* Tagline */}
       <motion.p
@@ -37,17 +59,21 @@ const HeroSection = () => {
         transition={{ delay: 0.2, duration: 0.5 }}
         className="text-base md:text-lg text-muted-foreground max-w-md mx-auto mb-6 leading-relaxed"
       >
-        Your AI-powered dietary companion. Navigate food allergies with personalized guidance.
+        Your <span className="text-primary font-medium">AI-powered</span> dietary companion. Navigate food allergies with personalized guidance.
       </motion.p>
 
       {/* Coming Soon Badge */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
         className="mb-6"
       >
-        <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+        <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary text-sm font-medium border border-primary/20">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </span>
           Launching January 31, 2026
         </span>
       </motion.div>
