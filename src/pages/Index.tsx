@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Lock } from 'lucide-react';
-import ParticleBackground from '@/components/ParticleBackground';
+import ColorfulBackground from '@/components/ColorfulBackground';
 import LoadingScreen from '@/components/LoadingScreen';
 import HeroSection from '@/components/HeroSection';
 import WaitlistForm from '@/components/WaitlistForm';
@@ -25,14 +25,8 @@ const Index = () => {
       </AnimatePresence>
 
       <div className="min-h-screen bg-background overflow-hidden relative">
-        {/* Particle Background */}
-        <ParticleBackground />
-
-        {/* Gradient overlays */}
-        <div className="fixed inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(174_72%_46%_/_0.1)_0%,_transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_hsl(170_80%_55%_/_0.08)_0%,_transparent_50%)]" />
-        </div>
+        {/* Colorful Background */}
+        <ColorfulBackground />
 
         {/* Admin Link */}
         <motion.div
