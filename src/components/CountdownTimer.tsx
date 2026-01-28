@@ -12,8 +12,8 @@ const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    // Set target date to January 20, 2026
-    const targetDate = new Date('2026-01-20T00:00:00').getTime();
+    // Set target date to January 31, 2026
+    const targetDate = new Date('2026-01-31T00:00:00').getTime();
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
