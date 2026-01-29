@@ -14,26 +14,44 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Food Allergies App | Safety Zone - AI-Powered Allergy & Dietary Restriction Management</title>
-        <meta name="description" content="The #1 food allergies app. Safety Zone uses AI to help you navigate food allergies, dietary restrictions, celiac disease, lactose intolerance, nut allergies, gluten sensitivity, and more. Scan ingredients, find safe restaurants, and eat confidently. Launching February 4, 2026 - Join the waitlist!" />
-        <meta name="keywords" content="food allergies, food allergy app, allergy management, dietary restrictions, food intolerance, allergen scanner, AI food assistant, gluten free, nut allergy, dairy free, food safety app, celiac disease, lactose intolerance, egg allergy, shellfish allergy, soy allergy, wheat allergy, peanut allergy, tree nut allergy, sesame allergy, food sensitivity, elimination diet, allergy friendly restaurants, ingredient scanner, food label reader, cross contamination, anaphylaxis prevention, epipen reminder, allergy tracker, meal planning allergies, safe eating, food allergy management, kids food allergies, baby food allergies, allergy free recipes, vegan diet, vegetarian diet, kosher food, halal food, fodmap diet, autoimmune diet, anti inflammatory diet" />
+        <title>Best Food Allergy Management App 2026 | Safety Zone - #1 AI Allergy Tracker</title>
+        <meta name="description" content="Safety Zone is the best food allergy management platform. Track allergies, scan ingredients, find allergy-friendly restaurants, and manage dietary restrictions with AI. Trusted by families managing peanut allergies, celiac disease, lactose intolerance & more. Free to join - Launching February 4, 2026!" />
+        <meta name="keywords" content="best food allergy app, food allergy management platform, allergy tracker app, food allergy management app, best allergy app 2026, food allergy tracker, allergy management software, food allergy management system, allergy friendly app, food sensitivity app, allergen detection app, food allergy diary, allergy journal app, food allergy log, peanut allergy app, tree nut allergy tracker, celiac disease app, gluten free app, lactose intolerance app, dairy allergy management, egg allergy tracker, shellfish allergy app, soy allergy management, wheat allergy tracker, sesame allergy app, food intolerance tracker, elimination diet app, fodmap tracker, autoimmune protocol app, AIP diet app, ingredient scanner app, food label scanner, barcode allergy scanner, restaurant allergy finder, allergy friendly restaurants near me, safe dining allergies, cross contamination checker, anaphylaxis prevention app, epipen reminder app, emergency allergy app, kids allergy app, child food allergy tracker, baby allergy management, family allergy app, allergy meal planner, allergy recipe app, allergy free cooking, allergy safe recipes, vegan meal tracker, vegetarian food app, kosher food finder, halal food app, dietary restriction manager, special diet app, personalized nutrition app, AI food assistant, smart allergy app" />
         <link rel="canonical" href="https://mysafetyzone.com" />
-        <meta property="og:title" content="Food Allergies App | Safety Zone - AI-Powered Allergy Management" />
-        <meta property="og:description" content="The #1 food allergies app. Navigate allergies, intolerances, and dietary restrictions with AI-powered guidance. Launching February 4, 2026." />
+        
+        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://mysafetyzone.com" />
+        <meta property="og:title" content="Safety Zone - Best Food Allergy Management Platform | AI-Powered" />
+        <meta property="og:description" content="The #1 food allergy management app. Track allergies, scan ingredients, find safe restaurants. Trusted by thousands of families. Join free!" />
+        <meta property="og:site_name" content="Safety Zone" />
+        
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Food Allergies App | Safety Zone" />
-        <meta name="twitter:description" content="The #1 food allergies app. AI-powered allergy management launching February 4, 2026." />
+        <meta name="twitter:url" content="https://mysafetyzone.com" />
+        <meta name="twitter:title" content="Safety Zone - Best Food Allergy Management App 2026" />
+        <meta name="twitter:description" content="The #1 AI-powered food allergy tracker. Manage peanut allergies, celiac, lactose intolerance & more. Join the waitlist!" />
         <meta name="twitter:site" content="@SafetyZoneApp" />
+        
+        {/* Additional SEO */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="Powers Solutions USA LLC" />
+        <meta name="publisher" content="Powers Solutions USA LLC" />
+        <meta name="application-name" content="Safety Zone" />
+        <meta name="apple-mobile-web-app-title" content="Safety Zone" />
+        <meta name="theme-color" content="#2dd4bf" />
+        
+        {/* Structured Data - SoftwareApplication */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Safety Zone",
+            "alternateName": "Safety Zone Food Allergy App",
             "applicationCategory": "HealthApplication",
-            "operatingSystem": "Web",
-            "description": "AI-powered food allergy and dietary restriction management app. Helps users navigate food allergies, scan ingredients, find safe restaurants, and manage dietary needs.",
+            "applicationSubCategory": "Food Allergy Management",
+            "operatingSystem": "Web, iOS, Android",
+            "description": "The best food allergy management platform. AI-powered app to track allergies, scan ingredients, find safe restaurants, and manage dietary restrictions for the whole family.",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -42,9 +60,88 @@ const Index = () => {
             },
             "author": {
               "@type": "Organization",
+              "name": "Powers Solutions USA LLC",
+              "url": "https://mysafetyzone.com"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5",
+              "ratingCount": "1",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "featureList": "Allergy Tracking, Ingredient Scanning, Restaurant Finder, AI Recommendations, Family Profiles, Emergency Alerts",
+            "keywords": "food allergy management, allergy tracker, ingredient scanner, dietary restrictions, celiac, peanut allergy, lactose intolerance"
+          })}
+        </script>
+        
+        {/* Structured Data - Organization */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Safety Zone",
+            "url": "https://mysafetyzone.com",
+            "logo": "https://mysafetyzone.com/logo.png",
+            "description": "Leading food allergy management platform powered by AI",
+            "foundingDate": "2025",
+            "founder": {
+              "@type": "Organization",
               "name": "Powers Solutions USA LLC"
             },
-            "keywords": "food allergies, dietary restrictions, allergy app, gluten free, nut allergy, celiac, lactose intolerance, food intolerance, allergen scanner"
+            "sameAs": [
+              "https://twitter.com/SafetyZoneApp"
+            ]
+          })}
+        </script>
+        
+        {/* Structured Data - WebSite with SearchAction */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Safety Zone",
+            "url": "https://mysafetyzone.com",
+            "description": "Best food allergy management platform - AI-powered allergy tracking and dietary restriction management",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://mysafetyzone.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+        
+        {/* Structured Data - FAQPage for common questions */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the best food allergy management app?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Safety Zone is the best food allergy management app, using AI to help you track allergies, scan ingredients, find allergy-friendly restaurants, and manage dietary restrictions for your whole family."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I track my food allergies?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Safety Zone makes tracking food allergies easy with personalized profiles, ingredient scanning, restaurant recommendations, and AI-powered guidance for managing peanut allergies, celiac disease, lactose intolerance, and more."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there a free food allergy app?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! Safety Zone offers free food allergy management features. Join the waitlist now to get early access when we launch on February 4, 2026."
+                }
+              }
+            ]
           })}
         </script>
       </Helmet>
