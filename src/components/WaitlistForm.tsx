@@ -256,9 +256,10 @@ const WaitlistForm = () => {
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className={`h-12 bg-secondary/30 border-border focus:border-primary transition-all ${errors.name ? "border-destructive" : ""}`}
             />
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               {errors.name && (
                 <motion.p
+                  key="name-error"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
@@ -283,9 +284,10 @@ const WaitlistForm = () => {
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className={`h-12 bg-secondary/30 border-border focus:border-primary transition-all ${errors.email ? "border-destructive" : ""}`}
             />
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               {errors.email && (
                 <motion.p
+                  key="email-error"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
