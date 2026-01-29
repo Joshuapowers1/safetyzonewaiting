@@ -66,7 +66,7 @@ const HeroSection = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
           </span>
-          Launching January 31, 2026
+          Launching February 4, 2026
         </span>
       </motion.div>
 
