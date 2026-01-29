@@ -14,10 +14,18 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Safety Zone - AI Dietary Restriction App | Coming Soon</title>
-        <meta name="description" content="Join the waitlist for Safety Zone - your AI-powered dietary companion. Navigate food allergies and restrictions with intelligent, personalized guidance. Launching January 2026." />
-        <meta name="keywords" content="dietary restrictions, food allergies, AI assistant, meal planning, allergy scanner, food safety" />
+        <title>Food Allergies App | Safety Zone - AI-Powered Allergy Management</title>
+        <meta name="description" content="The #1 food allergies app. Safety Zone uses AI to help you navigate food allergies, dietary restrictions, and intolerances. Get personalized guidance, scan ingredients, and eat safely. Launching February 4, 2026 - Join the waitlist!" />
+        <meta name="keywords" content="food allergies, food allergy app, allergy management, dietary restrictions, food intolerance, allergen scanner, AI food assistant, gluten free, nut allergy, dairy free, food safety app" />
         <link rel="canonical" href="https://mysafetyzone.com" />
+        <meta property="og:title" content="Food Allergies App | Safety Zone - AI-Powered Allergy Management" />
+        <meta property="og:description" content="The #1 food allergies app. Navigate allergies and dietary restrictions with AI-powered guidance. Launching February 4, 2026." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mysafetyzone.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Food Allergies App | Safety Zone" />
+        <meta name="twitter:description" content="The #1 food allergies app. AI-powered allergy management launching February 4, 2026." />
+        <meta name="twitter:site" content="@SafetyZoneApp" />
       </Helmet>
 
       <AnimatePresence>
