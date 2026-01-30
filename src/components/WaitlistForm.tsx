@@ -60,7 +60,7 @@ const WaitlistForm = () => {
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
   const { toast } = useToast();
 
-  // Fetch waitlist count
+  // Fetch waitlist count with realtime updates
   useEffect(() => {
     const fetchCount = async () => {
       const { count } = await supabase
@@ -71,7 +71,23 @@ const WaitlistForm = () => {
       }
     };
     fetchCount();
-  }, [isSuccess]);
+
+    // Subscribe to realtime changes
+    const channel = supabase
+      .channel('waitlist-count')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'waitlist' },
+        () => {
+          fetchCount();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,6 +143,21 @@ const WaitlistForm = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Refetch count on success
+  useEffect(() => {
+    if (isSuccess) {
+      const fetchCount = async () => {
+        const { count } = await supabase
+          .from('waitlist')
+          .select('*', { count: 'exact', head: true });
+        if (count !== null) {
+          setWaitlistCount(count);
+        }
+      };
+      fetchCount();
+    }
+  }, [isSuccess]);
 
   if (isSuccess) {
     return (
