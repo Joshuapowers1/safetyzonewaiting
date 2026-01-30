@@ -15,7 +15,7 @@ interface EmailRequest {
   recipientIds?: string[]; // Optional: specific recipients, or all if empty
 }
 
-// HTML escape function to prevent XSS
+// HTML escape function to prevent XSS (only for plain text, not for rich HTML)
 function escapeHtml(text: string): string {
   return text
     .replace(/&/g, "&amp;")
@@ -24,6 +24,21 @@ function escapeHtml(text: string): string {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;")
     .replace(/\n/g, "<br>");
+}
+
+// Sanitize HTML content - allow safe tags only
+function sanitizeHtml(html: string): string {
+  // Allow these safe tags and attributes
+  const allowedTags = ['p', 'br', 'strong', 'b', 'em', 'i', 'u', 'a', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'span', 'div'];
+  const allowedAttributes = ['href', 'style'];
+  
+  // Remove script tags and event handlers
+  let sanitized = html
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/on\w+\s*=\s*["'][^"']*["']/gi, '')
+    .replace(/javascript:/gi, '');
+  
+  return sanitized;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -117,8 +132,11 @@ const handler = async (req: Request): Promise<Response> => {
     const results = [];
     const errors = [];
 
-    // HTML-escape the message to prevent XSS
-    const safeMessage = escapeHtml(message);
+    // Check if message contains HTML (rich text) or plain text
+    const isHtmlMessage = message.includes('<') && message.includes('>');
+    
+    // Sanitize HTML or escape plain text
+    const formattedMessage = isHtmlMessage ? sanitizeHtml(message) : escapeHtml(message);
 
     for (const recipient of recipients) {
       try {
@@ -131,6 +149,15 @@ const handler = async (req: Request): Promise<Response> => {
             <head>
               <meta charset="utf-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                a { color: #2eaaab !important; text-decoration: underline; }
+                strong, b { font-weight: bold; }
+                em, i { font-style: italic; }
+                u { text-decoration: underline; }
+                h2 { font-size: 20px; font-weight: 600; margin: 12px 0; color: #f0f9f9; }
+                ul, ol { padding-left: 24px; margin: 12px 0; }
+                li { margin: 4px 0; }
+              </style>
             </head>
             <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0a1515; color: #f0f9f9; margin: 0; padding: 40px 20px;">
               <div style="max-width: 600px; margin: 0 auto; background-color: #0f1f1f; border-radius: 16px; padding: 40px; border: 1px solid rgba(46, 170, 171, 0.2);">
@@ -142,7 +169,7 @@ const handler = async (req: Request): Promise<Response> => {
                 <p style="font-size: 16px; color: #d0e5e5; margin-bottom: 16px;">Hi ${safeName},</p>
                 
                 <div style="font-size: 16px; line-height: 1.6; color: #b0c5c5;">
-                  ${safeMessage}
+                  ${formattedMessage}
                 </div>
                 
                 <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(46, 170, 171, 0.2); text-align: center;">
