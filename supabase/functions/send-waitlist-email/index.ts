@@ -168,7 +168,7 @@ const handler = async (req: Request): Promise<Response> => {
             "Authorization": `Bearer ${RESEND_API_KEY}`,
           },
           body: JSON.stringify({
-            from: "Safety Zone <onboarding@resend.dev>",
+            from: "Safety Zone <joshua@mysafetyzone.com>",
             to: [recipient.email],
             subject: subject,
             html: htmlContent,
