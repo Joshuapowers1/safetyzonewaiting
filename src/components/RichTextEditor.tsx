@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 import { Bold, Italic, Underline, Link, List, ListOrdered, Heading2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,10 +16,22 @@ const RichTextEditor = ({ value, onChange, placeholder, className }: RichTextEdi
   const editorRef = useRef<HTMLDivElement>(null);
   const [linkUrl, setLinkUrl] = useState('');
   const [linkPopoverOpen, setLinkPopoverOpen] = useState(false);
+  const isInternalUpdate = useRef(false);
+
+  // Only update innerHTML when value changes externally (not from user input)
+  useEffect(() => {
+    if (editorRef.current && !isInternalUpdate.current) {
+      if (editorRef.current.innerHTML !== value) {
+        editorRef.current.innerHTML = value;
+      }
+    }
+    isInternalUpdate.current = false;
+  }, [value]);
 
   const execCommand = useCallback((command: string, value?: string) => {
     document.execCommand(command, false, value);
     if (editorRef.current) {
+      isInternalUpdate.current = true;
       onChange(editorRef.current.innerHTML);
     }
     editorRef.current?.focus();
@@ -27,6 +39,7 @@ const RichTextEditor = ({ value, onChange, placeholder, className }: RichTextEdi
 
   const handleInput = useCallback(() => {
     if (editorRef.current) {
+      isInternalUpdate.current = true;
       onChange(editorRef.current.innerHTML);
     }
   }, [onChange]);
@@ -111,7 +124,6 @@ const RichTextEditor = ({ value, onChange, placeholder, className }: RichTextEdi
         dir="ltr"
         className="min-h-[200px] p-3 focus:outline-none prose prose-invert max-w-none text-foreground"
         onInput={handleInput}
-        dangerouslySetInnerHTML={{ __html: value }}
         data-placeholder={placeholder}
         style={{
           minHeight: '200px',
