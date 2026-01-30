@@ -6,7 +6,7 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
+    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
 interface EmailRequest {
@@ -203,14 +203,17 @@ const handler = async (req: Request): Promise<Response> => {
         });
 
         const emailData = await emailRes.json();
+        console.log("Resend response:", emailRes.status, JSON.stringify(emailData));
 
         if (!emailRes.ok) {
-          throw new Error("Failed to send email");
+          console.error("Email send failed:", emailData);
+          throw new Error(emailData.message || "Failed to send email");
         }
 
-        results.push({ success: true });
+        results.push({ success: true, id: emailData.id });
       } catch (emailError: any) {
-        errors.push({ error: "Send failed" });
+        console.error("Email error for", recipient.email, ":", emailError.message);
+        errors.push({ error: emailError.message || "Send failed" });
       }
     }
 
