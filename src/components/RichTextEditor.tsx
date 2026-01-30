@@ -108,12 +108,16 @@ const RichTextEditor = ({ value, onChange, placeholder, className }: RichTextEdi
       <div
         ref={editorRef}
         contentEditable
+        dir="ltr"
         className="min-h-[200px] p-3 focus:outline-none prose prose-invert max-w-none text-foreground"
         onInput={handleInput}
         dangerouslySetInnerHTML={{ __html: value }}
         data-placeholder={placeholder}
         style={{
           minHeight: '200px',
+          direction: 'ltr',
+          unicodeBidi: 'normal',
+          textAlign: 'left',
         }}
       />
 
