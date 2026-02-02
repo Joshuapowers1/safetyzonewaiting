@@ -12,7 +12,8 @@ import {
   TrendingUp,
   BarChart3,
   RefreshCw,
-  Mail
+  Mail,
+  Copy
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -205,6 +206,19 @@ const Admin = () => {
     toast({ title: "CSV exported successfully" });
   };
 
+  const copyEmailList = async () => {
+    const emailsSource = selectedIds.length > 0 
+      ? waitlist.filter(e => selectedIds.includes(e.id))
+      : waitlist;
+    const emails = emailsSource.map(e => e.email).join(', ');
+    
+    await navigator.clipboard.writeText(emails);
+    toast({ 
+      title: "Emails copied!", 
+      description: `${emailsSource.length} email${emailsSource.length > 1 ? 's' : ''} copied to clipboard` 
+    });
+  };
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate('/');
@@ -320,6 +334,10 @@ const Admin = () => {
             <Button variant="futuristic" onClick={exportToCSV}>
               <Download className="w-4 h-4 mr-2" />
               Export CSV
+            </Button>
+            <Button variant="outline" onClick={copyEmailList} disabled={waitlist.length === 0}>
+              <Copy className="w-4 h-4 mr-2" />
+              Copy Emails {selectedIds.length > 0 && `(${selectedIds.length})`}
             </Button>
             <Button 
               variant="glow" 
