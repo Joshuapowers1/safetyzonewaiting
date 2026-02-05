@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import appScreenshot1 from '@/assets/app-screenshot-qr.png';
-import appScreenshot2 from '@/assets/app-screenshot-recipe.png';
+import phoneQRProfile from '@/assets/phone-qr-profile.png';
+import phoneRecipeAI from '@/assets/phone-recipe-ai.png';
 
 const HeroSection = () => {
   return (
@@ -77,39 +77,39 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Overlapping Phone Mockups like Spendee */}
+          {/* Right Content - Crossed Phone Mockups */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-[350px] md:w-[450px] lg:w-[550px] h-[400px] md:h-[500px] lg:h-[600px]">
-              {/* Back phone - positioned right, behind */}
+            <div className="relative w-[320px] md:w-[420px] lg:w-[500px] h-[450px] md:h-[550px] lg:h-[650px]">
+              {/* Back phone - tilted right */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, rotate: 0 }}
+                animate={{ opacity: 1, rotate: 8 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
                 className="absolute top-0 right-0 z-10"
               >
                 <img
-                  src={appScreenshot2}
+                  src={phoneRecipeAI}
                   alt="SafetyZone Recipe AI"
-                  className="w-[200px] md:w-[260px] lg:w-[320px] drop-shadow-2xl"
+                  className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-2xl"
                 />
               </motion.div>
               
-              {/* Front phone - positioned left, in front and overlapping */}
+              {/* Front phone - tilted left, overlapping */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, rotate: 0 }}
+                animate={{ opacity: 1, rotate: -8 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="absolute bottom-0 left-0 z-20"
               >
                 <img
-                  src={appScreenshot1}
+                  src={phoneQRProfile}
                   alt="SafetyZone Personal QR Profile"
-                  className="w-[220px] md:w-[280px] lg:w-[340px] drop-shadow-2xl"
+                  className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-2xl"
                 />
               </motion.div>
             </div>
