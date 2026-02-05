@@ -18,13 +18,13 @@ const HeroSection = () => {
       />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Content */}
+        <div className="flex flex-col items-center text-center">
+          {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-6 max-w-lg"
+            className="space-y-6 max-w-2xl mb-12"
           >
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight font-semibold text-primary">
               Safety in every bite.
@@ -34,13 +34,13 @@ const HeroSection = () => {
               AI-powered food safety for 200+ million people managing dietary restrictions.
             </p>
 
-            {/* App Store Badges - Black style like Spendee */}
+            {/* App Store Badges */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
               id="download"
-              className="flex flex-wrap gap-3 pt-2"
+              className="flex flex-wrap justify-center gap-3 pt-2"
             >
               <a
                 href="https://apps.apple.com/us/app/safetyzone-allergy-scanner/id6746200992"
@@ -73,42 +73,23 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Overlapping Phone Mockups like Spendee */}
+          {/* Phone Mockups - Side by side, centered */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex justify-center lg:justify-end"
+            className="flex justify-center items-center gap-8 md:gap-12 lg:gap-16"
           >
-            <div className="relative w-[350px] md:w-[450px] lg:w-[550px] h-[400px] md:h-[500px] lg:h-[600px]">
-              {/* Back phone - positioned right, behind */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 }}
-                className="absolute top-0 right-0 z-10"
-              >
-                <img
-                  src={appScreenshot2}
-                  alt="SafetyZone Recipe AI"
-                  className="w-[200px] md:w-[260px] lg:w-[320px] drop-shadow-2xl"
-                />
-              </motion.div>
-              
-              {/* Front phone - positioned left, in front and overlapping */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="absolute bottom-0 left-0 z-20"
-              >
-                <img
-                  src={appScreenshot1}
-                  alt="SafetyZone Personal QR Profile"
-                  className="w-[220px] md:w-[280px] lg:w-[340px] drop-shadow-2xl"
-                />
-              </motion.div>
-            </div>
+            <img
+              src={appScreenshot1}
+              alt="SafetyZone Personal QR Profile"
+              className="w-[160px] md:w-[220px] lg:w-[280px] border border-border/30 rounded-xl"
+            />
+            <img
+              src={appScreenshot2}
+              alt="SafetyZone Recipe AI"
+              className="w-[160px] md:w-[220px] lg:w-[280px] border border-border/30 rounded-xl"
+            />
           </motion.div>
         </div>
       </div>
