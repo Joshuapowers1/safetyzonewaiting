@@ -25,6 +25,7 @@ const HeroSection = () => {
           duration: 0.6,
           ease: "easeOut"
         }} className="space-y-6 max-w-lg">
+            <p className="text-primary font-medium text-sm uppercase tracking-widest">Beta coming soon</p>
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight">
               <span className="text-foreground text-5xl font-light">Safety in every bite.</span>
             </h1>
