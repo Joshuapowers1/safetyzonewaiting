@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import appScreenshot1 from '@/assets/app-screenshot-qr.png';
 import appScreenshot2 from '@/assets/app-screenshot-recipe.png';
-import appScreenshot3 from '@/assets/app-screenshot-calorie.png';
-import PhoneMockup from './PhoneMockup';
 
 const HeroSection = () => {
   return (
@@ -12,13 +10,13 @@ const HeroSection = () => {
       <div className="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-l from-[hsl(174,60%,85%)] via-[hsl(174,50%,90%)] to-transparent" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Left Content - Clean typography like Spendee */}
+        <div className="flex flex-col items-center text-center lg:text-left lg:items-start gap-12">
+          {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-6 max-w-xl"
+            className="space-y-6 max-w-2xl"
           >
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight">
               <span className="font-light text-foreground text-2xl md:text-3xl">Safety in every bite.</span>
@@ -32,13 +30,13 @@ const HeroSection = () => {
               AI-powered food safety for 200+ million people managing dietary restrictions.
             </p>
 
-            {/* App Store Badges - Black style like Spendee */}
+            {/* App Store Badges */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
               id="download"
-              className="flex flex-wrap gap-3 pt-2"
+              className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2"
             >
               <a
                 href="https://apps.apple.com/us/app/safetyzone-allergy-scanner/id6746200992"
@@ -71,43 +69,24 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - 3D Staggered Phone Mockups */}
-          <div 
-            className="relative flex justify-center lg:justify-end items-center"
-            style={{ perspective: '1200px' }}
+          {/* Two Phone Screenshots - Clean, side by side */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex justify-center items-start gap-8 md:gap-12 lg:gap-16"
           >
-            <div className="relative flex items-end justify-center">
-              {/* Left Phone - QR Profile (slightly back and tilted) */}
-              <div className="relative z-10 -mr-8 md:-mr-12 lg:-mr-16">
-                <PhoneMockup
-                  screenshot={appScreenshot1}
-                  alt="SafetyZone QR Profile"
-                  delay={0.2}
-                  className="transform rotate-y-[5deg]"
-                />
-              </div>
-              
-              {/* Center Phone - SnapCalorie (forward and larger) */}
-              <div className="relative z-30 -mb-4">
-                <PhoneMockup
-                  screenshot={appScreenshot3}
-                  alt="SafetyZone SnapCalorie"
-                  delay={0.4}
-                  isCenter
-                />
-              </div>
-              
-              {/* Right Phone - Recipe AI (slightly back and tilted) */}
-              <div className="relative z-10 -ml-8 md:-ml-12 lg:-ml-16">
-                <PhoneMockup
-                  screenshot={appScreenshot2}
-                  alt="SafetyZone Recipe AI"
-                  delay={0.6}
-                  className="transform -rotate-y-[5deg]"
-                />
-              </div>
-            </div>
-          </div>
+            <img
+              src={appScreenshot1}
+              alt="SafetyZone Personal QR Profile"
+              className="w-[160px] md:w-[220px] lg:w-[280px] rounded-2xl border border-border"
+            />
+            <img
+              src={appScreenshot2}
+              alt="SafetyZone Recipe AI"
+              className="w-[160px] md:w-[220px] lg:w-[280px] rounded-2xl border border-border"
+            />
+          </motion.div>
         </div>
       </div>
     </section>
