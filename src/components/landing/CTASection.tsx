@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Apple, Play, Shield, Heart, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const benefits = [
   'Free to download',
@@ -56,20 +55,30 @@ const CTASection = () => {
 
             {/* Download Buttons */}
             <div className="flex flex-wrap justify-center gap-4 mb-10">
-              <Button size="lg" className="gap-3 bg-foreground hover:bg-foreground/90 text-background h-14 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all">
+              <a
+                href="https://apps.apple.com/us/app/safetyzone-allergy-scanner/id6746200992"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-foreground hover:bg-foreground/90 text-background h-14 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              >
                 <Apple className="w-6 h-6" />
                 <div className="text-left">
                   <div className="text-[10px] leading-none opacity-70">Download on the</div>
                   <div className="text-base font-semibold">App Store</div>
                 </div>
-              </Button>
-              <Button size="lg" variant="outline" className="gap-3 h-14 px-8 rounded-xl border-2 hover:bg-muted/50 transition-all">
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.safetyzone.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 border-2 border-border hover:bg-muted/50 h-14 px-8 rounded-xl transition-all"
+              >
                 <Play className="w-6 h-6 fill-current" />
                 <div className="text-left">
                   <div className="text-[10px] leading-none opacity-70">Get it on</div>
                   <div className="text-base font-semibold">Google Play</div>
                 </div>
-              </Button>
+              </a>
             </div>
 
             {/* Trust badges */}
