@@ -27,7 +27,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-muted-foreground text-lg">
-              Eat with confidence, not caution.
+              AI-powered food safety for 200+ million people managing dietary restrictions.
             </p>
 
             {/* App Store Badges - Black style like Spendee */}
