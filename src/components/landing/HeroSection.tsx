@@ -27,14 +27,11 @@ const HeroSection = () => {
         }} className="space-y-6 max-w-lg">
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight">
               <span className="text-foreground text-5xl font-light">Safety in every bite.</span>
-              <br />
-              <span className="font-semibold text-primary"></span>
-              <br />
-              <span className="font-semibold text-primary"></span>
             </h1>
 
-            <p className="text-muted-foreground text-lg">
-          </p>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              AI-powered food safety for anyone with allergies, dietary restrictions, or simply striving to eat smarter.
+            </p>
 
             {/* App Store Badges - Black style like Spendee */}
             <motion.div initial={{
