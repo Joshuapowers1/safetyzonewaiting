@@ -82,12 +82,12 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="relative z-20 -mr-16"
+                className="relative z-20 -mr-24"
               >
                 <img
                   src={appScreenshot1}
                   alt="SafetyZone QR Profile"
-                  className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-2xl"
+                  className="w-[260px] md:w-[320px] lg:w-[380px] drop-shadow-2xl"
                 />
               </motion.div>
               
@@ -101,7 +101,7 @@ const HeroSection = () => {
                 <img
                   src={appScreenshot2}
                   alt="SafetyZone Recipe AI"
-                  className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-2xl"
+                  className="w-[260px] md:w-[320px] lg:w-[380px] drop-shadow-2xl"
                 />
               </motion.div>
             </div>
