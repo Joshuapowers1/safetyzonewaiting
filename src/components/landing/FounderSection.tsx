@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { Quote, Heart } from 'lucide-react';
 import joshHeadshot from '@/assets/josh-headshot.png';
 
 const FounderSection = () => {
@@ -34,6 +34,14 @@ const FounderSection = () => {
                     alt="Joshua Powers - Founder of SafetyZone"
                     className="relative z-10 w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-4 border-background shadow-2xl"
                   />
+                  {/* Floating badge */}
+                  <motion.div
+                    animate={{ y: [-5, 5, -5] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -bottom-2 -right-2 w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg"
+                  >
+                    <Heart className="w-8 h-8 text-primary-foreground fill-primary-foreground" />
+                  </motion.div>
                 </div>
               </motion.div>
             </div>
