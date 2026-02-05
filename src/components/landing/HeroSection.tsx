@@ -69,39 +69,39 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Cascading Phone Mockups like Spendee */}
+          {/* Right Content - Side by side Phone Mockups like Spendee */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end items-end"
           >
-            <div className="relative w-full h-[450px] md:h-[550px] lg:h-[600px]">
-              {/* Back phone - positioned top right */}
+            <div className="flex items-end gap-[-20px]">
+              {/* Left phone - QR Profile */}
               <motion.div
-                initial={{ opacity: 0, y: 40, x: 20 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 }}
-                className="absolute top-0 right-0 md:right-4 lg:right-0"
-              >
-                <img
-                  src={appScreenshot2}
-                  alt="SafetyZone Recipe AI"
-                  className="w-[200px] md:w-[240px] lg:w-[260px] drop-shadow-2xl"
-                />
-              </motion.div>
-              
-              {/* Front phone - positioned bottom left, overlapping */}
-              <motion.div
-                initial={{ opacity: 0, y: 40, x: -20 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="absolute bottom-0 left-4 md:left-12 lg:left-8"
+                className="relative z-20 -mr-8"
               >
                 <img
                   src={appScreenshot1}
                   alt="SafetyZone QR Profile"
-                  className="w-[220px] md:w-[260px] lg:w-[280px] drop-shadow-2xl"
+                  className="w-[180px] md:w-[220px] lg:w-[260px] drop-shadow-2xl"
+                />
+              </motion.div>
+              
+              {/* Right phone - Recipe AI, slightly behind */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="relative z-10"
+              >
+                <img
+                  src={appScreenshot2}
+                  alt="SafetyZone Recipe AI"
+                  className="w-[180px] md:w-[220px] lg:w-[260px] drop-shadow-2xl"
                 />
               </motion.div>
             </div>
