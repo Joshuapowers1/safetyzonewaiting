@@ -29,9 +29,7 @@ const HeroSection = () => {
               <span className="text-foreground text-5xl font-light">Safety in every bite.</span>
             </h1>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              AI-powered food safety for anyone with allergies, dietary restrictions, or simply striving to eat smarter.
-            </p>
+            <p className="leading-relaxed text-base text-primary">The best AI-powered food safety app for anyone with allergies, dietary restrictions, or simply striving to eat better.</p>
 
             {/* App Store Badges - Black style like Spendee */}
             <motion.div initial={{
