@@ -70,56 +70,52 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - 3 Overlapping Phone Mockups */}
+          {/* Right Content - 3 Phone Mockups in a Row */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end items-end gap-2 md:gap-4"
           >
-            <div className="relative w-[420px] md:w-[520px] lg:w-[620px] h-[420px] md:h-[520px] lg:h-[580px]">
-              {/* Back phone - Recipe AI (right) */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.6 }}
-                className="absolute top-0 right-0 z-10"
-              >
-                <img
-                  src={appScreenshot2}
-                  alt="SafetyZone Recipe AI"
-                  className="w-[200px] md:w-[240px] lg:w-[280px] drop-shadow-2xl"
-                />
-              </motion.div>
-              
-              {/* Middle phone - SnapCalorie (center) */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="absolute top-[10%] left-1/2 -translate-x-1/2 z-20"
-              >
-                <img
-                  src={appScreenshot3}
-                  alt="SafetyZone SnapCalorie"
-                  className="w-[220px] md:w-[260px] lg:w-[300px] drop-shadow-2xl"
-                />
-              </motion.div>
-              
-              {/* Front phone - QR Profile (left) */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="absolute bottom-0 left-0 z-30"
-              >
-                <img
-                  src={appScreenshot1}
-                  alt="SafetyZone QR Profile"
-                  className="w-[220px] md:w-[260px] lg:w-[300px] drop-shadow-2xl"
-                />
-              </motion.div>
-            </div>
+            {/* Phone 1 - QR Profile */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <img
+                src={appScreenshot1}
+                alt="SafetyZone QR Profile"
+                className="w-[140px] md:w-[180px] lg:w-[220px] drop-shadow-2xl"
+              />
+            </motion.div>
+            
+            {/* Phone 2 - SnapCalorie (center, slightly elevated) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="-mb-4"
+            >
+              <img
+                src={appScreenshot3}
+                alt="SafetyZone SnapCalorie"
+                className="w-[160px] md:w-[200px] lg:w-[240px] drop-shadow-2xl"
+              />
+            </motion.div>
+            
+            {/* Phone 3 - Recipe AI */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+            >
+              <img
+                src={appScreenshot2}
+                alt="SafetyZone Recipe AI"
+                className="w-[140px] md:w-[180px] lg:w-[220px] drop-shadow-2xl"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
