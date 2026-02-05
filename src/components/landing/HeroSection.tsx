@@ -21,9 +21,9 @@ const HeroSection = () => {
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight">
               <span className="font-light text-foreground text-2xl md:text-3xl">Safety in every bite.</span>
               <br />
-              <span className="font-semibold text-primary">keeps your food</span>
+              <span className="font-semibold text-primary">Eat with confidence,</span>
               <br />
-              <span className="font-semibold text-primary">safe to eat</span>
+              <span className="font-semibold text-primary">not caution.</span>
             </h1>
 
             <p className="text-muted-foreground text-lg">
