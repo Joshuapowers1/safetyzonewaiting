@@ -19,7 +19,7 @@ const HeroSection = () => {
             className="space-y-6 max-w-xl"
           >
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight">
-              <span className="font-light text-foreground">Safety in every bite.</span>
+              <span className="font-light text-foreground text-2xl md:text-3xl">Safety in every bite.</span>
               <br />
               <span className="font-semibold text-primary">keeps your food</span>
               <br />
