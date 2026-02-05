@@ -76,18 +76,18 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative flex justify-center lg:justify-end items-end"
           >
-            <div className="flex items-end gap-[-20px]">
+            <div className="flex items-end">
               {/* Left phone - QR Profile */}
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="relative z-20 -mr-8"
+                className="relative z-20 -mr-16"
               >
                 <img
                   src={appScreenshot1}
                   alt="SafetyZone QR Profile"
-                  className="w-[180px] md:w-[220px] lg:w-[260px] drop-shadow-2xl"
+                  className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-2xl"
                 />
               </motion.div>
               
@@ -101,7 +101,7 @@ const HeroSection = () => {
                 <img
                   src={appScreenshot2}
                   alt="SafetyZone Recipe AI"
-                  className="w-[180px] md:w-[220px] lg:w-[260px] drop-shadow-2xl"
+                  className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-2xl"
                 />
               </motion.div>
             </div>
