@@ -5,38 +5,46 @@ import appScreenshot2 from '@/assets/app-screenshot-recipe.png';
 const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
-      {/* Clean gradient background - teal/mint on right side like Spendee */}
+      {/* Background */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-l from-[hsl(174,60%,85%)] via-[hsl(174,50%,90%)] to-transparent" />
+      
+      {/* Teal accent shape on right - diagonal like Spendee */}
+      <div 
+        className="absolute top-0 right-0 w-[55%] h-full"
+        style={{
+          background: 'linear-gradient(135deg, transparent 0%, hsl(174, 60%, 80%) 50%, hsl(174, 65%, 75%) 100%)',
+          clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0% 100%)',
+        }}
+      />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col items-center text-center lg:text-left lg:items-start gap-12">
-          {/* Content */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-6 max-w-2xl"
+            className="space-y-6 max-w-lg"
           >
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight">
-              <span className="font-light text-foreground text-2xl md:text-3xl">Safety in every bite.</span>
+              <span className="font-light text-foreground">The only app that</span>
               <br />
-              <span className="font-semibold text-primary">Eat with confidence,</span>
+              <span className="font-semibold text-primary">gets your food</span>
               <br />
-              <span className="font-semibold text-primary">not caution.</span>
+              <span className="font-semibold text-primary">into safe shape</span>
             </h1>
 
             <p className="text-muted-foreground text-lg">
               AI-powered food safety for 200+ million people managing dietary restrictions.
             </p>
 
-            {/* App Store Badges */}
+            {/* App Store Badges - Black style like Spendee */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
               id="download"
-              className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2"
+              className="flex flex-wrap gap-3 pt-2"
             >
               <a
                 href="https://apps.apple.com/us/app/safetyzone-allergy-scanner/id6746200992"
@@ -69,23 +77,42 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Two Phone Screenshots - Clean, side by side */}
+          {/* Right Content - Overlapping Phone Mockups like Spendee */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex justify-center items-start gap-8 md:gap-12 lg:gap-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative flex justify-center lg:justify-end"
           >
-            <img
-              src={appScreenshot1}
-              alt="SafetyZone Personal QR Profile"
-              className="w-[160px] md:w-[220px] lg:w-[280px] rounded-2xl border border-border"
-            />
-            <img
-              src={appScreenshot2}
-              alt="SafetyZone Recipe AI"
-              className="w-[160px] md:w-[220px] lg:w-[280px] rounded-2xl border border-border"
-            />
+            <div className="relative w-[350px] md:w-[450px] lg:w-[550px] h-[400px] md:h-[500px] lg:h-[600px]">
+              {/* Back phone - positioned right, behind */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="absolute top-0 right-0 z-10"
+              >
+                <img
+                  src={appScreenshot2}
+                  alt="SafetyZone Recipe AI"
+                  className="w-[200px] md:w-[260px] lg:w-[320px] drop-shadow-2xl"
+                />
+              </motion.div>
+              
+              {/* Front phone - positioned left, in front and overlapping */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="absolute bottom-0 left-0 z-20"
+              >
+                <img
+                  src={appScreenshot1}
+                  alt="SafetyZone Personal QR Profile"
+                  className="w-[220px] md:w-[280px] lg:w-[340px] drop-shadow-2xl"
+                />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
