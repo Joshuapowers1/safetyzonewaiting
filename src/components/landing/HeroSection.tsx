@@ -26,12 +26,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="space-y-6 max-w-lg"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight">
-              <span className="font-light text-foreground">The only app that</span>
-              <br />
-              <span className="font-semibold text-primary">gets your food</span>
-              <br />
-              <span className="font-semibold text-primary">into safe shape</span>
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] tracking-tight font-semibold text-primary">
+              Safety in every bite.
             </h1>
 
             <p className="text-muted-foreground text-lg">
