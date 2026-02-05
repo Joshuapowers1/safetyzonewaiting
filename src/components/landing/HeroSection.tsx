@@ -69,39 +69,39 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Side by side Phone Mockups like Spendee */}
+          {/* Right Content - Overlapping Phone Mockups like Spendee */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex justify-center lg:justify-end items-end"
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="flex items-end">
-              {/* Left phone - QR Profile */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="relative z-20 -mr-24"
-              >
-                <img
-                  src={appScreenshot1}
-                  alt="SafetyZone QR Profile"
-                  className="w-[260px] md:w-[320px] lg:w-[380px] drop-shadow-2xl"
-                />
-              </motion.div>
-              
-              {/* Right phone - Recipe AI, slightly behind */}
+            <div className="relative w-[400px] md:w-[500px] lg:w-[600px] h-[400px] md:h-[500px] lg:h-[550px]">
+              {/* Back phone - positioned top right, behind */}
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
-                className="relative z-10"
+                className="absolute top-0 right-0 z-10"
               >
                 <img
                   src={appScreenshot2}
                   alt="SafetyZone Recipe AI"
-                  className="w-[260px] md:w-[320px] lg:w-[380px] drop-shadow-2xl"
+                  className="w-[240px] md:w-[300px] lg:w-[340px] drop-shadow-2xl"
+                />
+              </motion.div>
+              
+              {/* Front phone - positioned bottom left, in front and overlapping */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="absolute bottom-0 left-0 z-20"
+              >
+                <img
+                  src={appScreenshot1}
+                  alt="SafetyZone QR Profile"
+                  className="w-[260px] md:w-[320px] lg:w-[360px] drop-shadow-2xl"
                 />
               </motion.div>
             </div>
