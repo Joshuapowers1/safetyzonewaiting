@@ -57,8 +57,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#download" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Download App
+                <a href="#waitlist" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Join Waitlist
                 </a>
               </li>
               <li>

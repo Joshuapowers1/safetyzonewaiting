@@ -64,7 +64,7 @@ const Navbar = () => {
               Admin
             </Link>
             <Button asChild variant="glow">
-              <a href="#download">Download App</a>
+              <a href="#waitlist">Join Waitlist</a>
             </Button>
           </div>
 
@@ -109,7 +109,7 @@ const Navbar = () => {
                 Admin
               </Link>
               <Button asChild variant="glow" className="w-full">
-                <a href="#download">Download App</a>
+                <a href="#waitlist">Join Waitlist</a>
               </Button>
             </div>
           </motion.div>
