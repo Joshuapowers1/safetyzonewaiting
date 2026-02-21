@@ -58,8 +58,11 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
+            <Link to="/auth" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              Admin
+            </Link>
             <Button asChild variant="glow">
               <a href="#download">Download App</a>
             </Button>
@@ -98,6 +101,13 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
+              <Link
+                to="/auth"
+                onClick={() => setIsOpen(false)}
+                className="block text-base font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                Admin
+              </Link>
               <Button asChild variant="glow" className="w-full">
                 <a href="#download">Download App</a>
               </Button>
