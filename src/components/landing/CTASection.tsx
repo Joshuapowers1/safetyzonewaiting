@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Apple, Play, Shield, Heart, CheckCircle } from 'lucide-react';
+import { Shield, Heart, CheckCircle, ArrowRight } from 'lucide-react';
 
 const benefits = [
-  'Free to download',
-  'No credit card required',
-  'Cancel anytime',
+  'Free to join',
+  'Be first to access the beta',
+  'Shape the product with your feedback',
 ];
 
 const CTASection = () => {
@@ -35,12 +35,12 @@ const CTASection = () => {
             </motion.div>
 
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Start eating with{' '}
-              <span className="text-primary italic">confidence</span> today
+              Be the first to eat with{' '}
+              <span className="text-primary italic">confidence</span>
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join the growing community of people taking control of their dietary safety with AI-powered food scanning.
+              SafetyZone is launching soon. Join the waitlist to get early access and help shape the future of AI-powered food safety.
             </p>
 
             {/* Benefits */}
@@ -53,31 +53,14 @@ const CTASection = () => {
               ))}
             </div>
 
-            {/* Download Buttons */}
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
+            {/* Waitlist CTA */}
+            <div className="flex justify-center mb-10">
               <a
-                href="https://apps.apple.com/us/app/safetyzone-allergy-scanner/id6746200992"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-foreground hover:bg-foreground/90 text-background h-14 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                href="#waitlist"
+                className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground h-14 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold text-base"
               >
-                <Apple className="w-6 h-6" />
-                <div className="text-left">
-                  <div className="text-[10px] leading-none opacity-70">Download on the</div>
-                  <div className="text-base font-semibold">App Store</div>
-                </div>
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.safetyzone.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 border-2 border-border hover:bg-muted/50 h-14 px-8 rounded-xl transition-all"
-              >
-                <Play className="w-6 h-6 fill-current" />
-                <div className="text-left">
-                  <div className="text-[10px] leading-none opacity-70">Get it on</div>
-                  <div className="text-base font-semibold">Google Play</div>
-                </div>
+                Join the Waitlist
+                <ArrowRight className="w-5 h-5" />
               </a>
             </div>
 
