@@ -66,7 +66,7 @@ const TranslationDemo = () => {
     setScrambleKey((prev) => prev + 1);
   };
 
-  const items = menuItems[activeLang];
+  const items = allergenItems[activeLang];
 
   return (
     <section className="py-28 bg-background relative overflow-hidden">
