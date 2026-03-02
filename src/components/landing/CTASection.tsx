@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
-import { Shield, Heart, CheckCircle, ArrowRight } from 'lucide-react';
-import { TextEffect } from '@/components/ui/text-effect';
+import { Shield, Heart, CheckCircle } from 'lucide-react';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { GradientText } from '@/components/ui/gradient-text';
 import { Marquee } from '@/components/ui/marquee';
+import { AuroraBackground } from '@/components/ui/aurora-background';
+import { TextEffect } from '@/components/ui/text-effect';
 
 const benefits = [
   'Free to join',
@@ -23,17 +24,13 @@ const testimonials = [
 
 const CTASection = () => {
   return (
-    <section className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      
+    <AuroraBackground className="py-28">
       <div className="container mx-auto px-4 relative z-10">
         {/* Marquee testimonials */}
         <div className="mb-16 overflow-hidden">
           <Marquee pauseOnHover speed={35} className="mb-4">
             {testimonials.map((t) => (
-              <div key={t} className="mx-4 px-6 py-3 rounded-full bg-card border border-border text-sm text-muted-foreground whitespace-nowrap">
+              <div key={t} className="mx-4 px-6 py-3 rounded-full bg-card/80 backdrop-blur border border-border text-sm text-muted-foreground whitespace-nowrap">
                 {t}
               </div>
             ))}
@@ -52,14 +49,20 @@ const CTASection = () => {
               <Heart className="w-10 h-10 text-white fill-white" />
             </motion.div>
 
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Be the first to eat with{' '}
-              <GradientText className="italic font-bold">confidence</GradientText>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+              Every meal is a{' '}
+              <GradientText className="italic font-bold">life-or-death</GradientText>
+              {' '}question.
             </h2>
 
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              SafetyZone is launching soon. Join the waitlist to get early access and help shape the future of AI-powered food safety.
-            </p>
+            <TextEffect
+              per="word"
+              preset="fade"
+              delay={0.3}
+              className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
+            >
+              Be ready. Join 2,000+ families already on the SafetyZone waitlist.
+            </TextEffect>
 
             <div className="flex flex-wrap justify-center gap-6 mb-10">
               {benefits.map((benefit) => (
@@ -72,7 +75,7 @@ const CTASection = () => {
 
             <div className="flex justify-center mb-10">
               <a href="#waitlist">
-                <ButtonColorful label="Join the Waitlist" className="h-14 px-10 text-base" />
+                <ButtonColorful label="Protect Your Family" className="h-14 px-10 text-base" />
               </a>
             </div>
 
@@ -93,7 +96,7 @@ const CTASection = () => {
           </p>
         </FadeInSection>
       </div>
-    </section>
+    </AuroraBackground>
   );
 };
 

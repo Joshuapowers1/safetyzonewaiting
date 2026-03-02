@@ -10,6 +10,7 @@ import StatsSection from '@/components/landing/StatsSection';
 import FounderSection from '@/components/landing/FounderSection';
 import WaitlistSection from '@/components/landing/WaitlistSection';
 import CTASection from '@/components/landing/CTASection';
+import TranslationDemo from '@/components/landing/TranslationDemo';
 
 const Index = () => {
   const [showLoading, setShowLoading] = useState(true);
@@ -96,6 +97,7 @@ const Index = () => {
           <WaitlistSection />
           <FeaturesSection />
           <StatsSection />
+          <TranslationDemo />
           <FounderSection />
           <CTASection />
         </main>
