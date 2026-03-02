@@ -6,7 +6,7 @@ import { DrawIcon } from '@/components/ui/draw-icon';
 import { AlertTriangle, Globe, Zap, Users } from 'lucide-react';
 
 const stats = [
-  { value: 43, suffix: 'M+', label: 'Americans with food allergies', max: 50, icon: Users },
+  { value: 33, suffix: 'M+', label: 'Americans with food allergies', max: 50, icon: Users },
   { value: 200, suffix: 'K+', label: 'ER visits from allergic reactions yearly', max: 250, icon: AlertTriangle },
   { value: 200, suffix: '+', label: 'Languages supported', max: 250, icon: Globe },
   { value: 50, suffix: 'ms', label: 'Allergen detection speed', max: 100, prefix: '< ', icon: Zap },

@@ -6,8 +6,6 @@ import { TextEffect } from '@/components/ui/text-effect';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { TextRotate } from '@/components/ui/text-rotate';
-import { ParallaxFloat } from '@/components/ui/parallax-float';
-import { ScanLineEffect } from '@/components/ui/scan-line';
 import { FloatingParticles } from '@/components/ui/floating-particles';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
 
@@ -137,7 +135,6 @@ const HeroSection = () => {
                 >
                   <div className="relative">
                     <img src={phoneRecipeAI} alt="SafetyZone Recipe AI" className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-2xl" />
-                    <ScanLineEffect />
                   </div>
                 </motion.div>
 
