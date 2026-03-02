@@ -53,9 +53,9 @@ const FounderSection = () => {
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     SafetyZone was founded by Joshua Powers, who has lived with <span className="text-foreground font-medium">anaphylactic food allergies</span> to dairy, eggs, and nuts his entire life. Years of anxiety-filled dining and life-threatening reactions inspired the creation of this platform.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Our technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that others miss—supporting <span className="text-foreground font-medium">200+ languages</span> for global accessibility.
-                  </p>
+                   <p className="text-muted-foreground leading-relaxed">
+                     Our technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that others miss, supporting <span className="text-foreground font-medium">200+ languages</span> for global accessibility.
+                   </p>
                 </div>
 
                 <AnimatedSeparator className="my-8" />
