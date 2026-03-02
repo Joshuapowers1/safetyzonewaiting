@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { NumberTicker } from '@/components/ui/number-ticker';
+import { FadeInSection } from '@/components/ui/fade-in-section';
+import { GradientText } from '@/components/ui/gradient-text';
 
 const stats = [
   { value: 33, suffix: 'M+', label: 'Americans with food allergies' },
@@ -8,35 +10,9 @@ const stats = [
   { value: 20, suffix: 'M+', label: 'Following plant-based diets' },
 ];
 
-const AnimatedNumber = ({ value, suffix }: { value: number; suffix: string }) => {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    const duration = 2000;
-    const steps = 60;
-    const increment = value / steps;
-    let current = 0;
-    
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-    
-    return () => clearInterval(timer);
-  }, [value]);
-  
-  return <>{count}{suffix}</>;
-};
-
 const StatsSection = () => {
   return (
     <section className="py-20 bg-gradient-to-r from-primary via-primary to-accent relative overflow-hidden">
-      {/* Pattern overlay */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
@@ -45,35 +21,22 @@ const StatsSection = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
-        >
+        <FadeInSection className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground">
             Built for the community that needs it most
           </h2>
-        </motion.div>
+        </FadeInSection>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
-            >
+            <FadeInSection key={stat.label} delay={index * 0.1} className="text-center">
               <div className="text-5xl md:text-6xl font-bold text-primary-foreground mb-3">
-                <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                <NumberTicker value={stat.value} suffix={stat.suffix} className="text-primary-foreground" />
               </div>
               <div className="text-sm md:text-base text-primary-foreground/80 font-medium">
                 {stat.label}
               </div>
-            </motion.div>
+            </FadeInSection>
           ))}
         </div>
       </div>

@@ -1,66 +1,51 @@
 import { motion } from 'framer-motion';
 import { Quote, Heart } from 'lucide-react';
 import joshHeadshot from '@/assets/josh-headshot.png';
+import { FadeInSection } from '@/components/ui/fade-in-section';
+import { AnimatedBadge } from '@/components/ui/animated-badge';
+import { GradientText } from '@/components/ui/gradient-text';
+import { AnimatedSeparator } from '@/components/ui/animated-separator';
 
 const FounderSection = () => {
   return (
     <section id="about" className="py-28 bg-background relative overflow-hidden">
-      {/* Background elements */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
       <div className="absolute top-1/2 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="grid md:grid-cols-5 gap-16 items-center"
-          >
+          <div className="grid md:grid-cols-5 gap-16 items-center">
             {/* Image */}
             <div className="md:col-span-2 flex justify-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/40 rounded-full blur-3xl opacity-50 scale-110" />
+              <FadeInSection delay={0.2}>
                 <div className="relative">
-                  <img
-                    src={joshHeadshot}
-                    alt="Joshua Powers - Founder of SafetyZone"
-                    className="relative z-10 w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-4 border-background shadow-2xl"
-                  />
-                  {/* Floating badge */}
-                  <motion.div
-                    animate={{ y: [-5, 5, -5] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -bottom-2 -right-2 w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg"
-                  >
-                    <Heart className="w-8 h-8 text-primary-foreground fill-primary-foreground" />
-                  </motion.div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/40 rounded-full blur-3xl opacity-50 scale-110" />
+                  <div className="relative">
+                    <img
+                      src={joshHeadshot}
+                      alt="Joshua Powers - Founder of SafetyZone"
+                      className="relative z-10 w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-4 border-background shadow-2xl"
+                    />
+                    <motion.div
+                      animate={{ y: [-5, 5, -5] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute -bottom-2 -right-2 w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg"
+                    >
+                      <Heart className="w-8 h-8 text-primary-foreground fill-primary-foreground" />
+                    </motion.div>
+                  </div>
                 </div>
-              </motion.div>
+              </FadeInSection>
             </div>
 
             {/* Content */}
             <div className="md:col-span-3 space-y-6">
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                  Our Story
-                </span>
+              <FadeInSection direction="right" delay={0.2}>
+                <AnimatedBadge pulse={false} className="mb-4">Our Story</AnimatedBadge>
 
                 <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
                   Built from{' '}
-                  <span className="text-primary italic">personal experience</span>
+                  <GradientText className="italic font-bold">personal experience</GradientText>
                 </h2>
 
                 <div className="relative pl-8 border-l-4 border-primary/30 space-y-4">
@@ -69,11 +54,13 @@ const FounderSection = () => {
                     SafetyZone was founded by Joshua Powers, who has lived with <span className="text-foreground font-medium">anaphylactic food allergies</span> to dairy, eggs, and nuts his entire life. Years of anxiety-filled dining and life-threatening reactions inspired the creation of this platform.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Our technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that others miss—supporting <span className="text-foreground font-medium">200+ languages</span> for global accessibility. We understand that for millions of people, food safety isn't just a preference—it's a matter of life and death.
+                    Our technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that others miss—supporting <span className="text-foreground font-medium">200+ languages</span> for global accessibility.
                   </p>
                 </div>
 
-                <div className="pt-6 flex items-center gap-4">
+                <AnimatedSeparator className="my-8" />
+
+                <div className="pt-2 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center text-xl font-bold text-primary">
                     JP
                   </div>
@@ -82,9 +69,9 @@ const FounderSection = () => {
                     <div className="text-sm text-muted-foreground">Founder & CEO, SafetyZone</div>
                   </div>
                 </div>
-              </motion.div>
+              </FadeInSection>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
