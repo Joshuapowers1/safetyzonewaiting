@@ -17,42 +17,42 @@ const languages = [
 
 type LangCode = 'en' | 'es' | 'ja' | 'ar' | 'fr' | 'zh';
 
-const menuItems: Record<LangCode, { name: string; desc: string; safe: boolean }[]> = {
+const allergenItems: Record<LangCode, { name: string; desc: string; safe: boolean }[]> = {
   en: [
-    { name: 'Grilled Salmon', desc: 'With lemon butter sauce', safe: true },
-    { name: 'Pasta Carbonara', desc: 'Eggs, cheese, pancetta', safe: false },
-    { name: 'Caesar Salad', desc: 'Romaine, croutons, dressing', safe: true },
-    { name: 'Peanut Curry', desc: 'Thai curry with peanuts', safe: false },
+    { name: 'Dairy', desc: 'Milk, cheese, butter, cream', safe: false },
+    { name: 'Tree Nuts', desc: 'Almonds, cashews, walnuts', safe: false },
+    { name: 'Gluten-Free', desc: 'No wheat, barley, or rye', safe: true },
+    { name: 'Shellfish', desc: 'Shrimp, crab, lobster', safe: true },
   ],
   es: [
-    { name: 'Salmón a la Parrilla', desc: 'Con salsa de limón y mantequilla', safe: true },
-    { name: 'Pasta Carbonara', desc: 'Huevos, queso, panceta', safe: false },
-    { name: 'Ensalada César', desc: 'Lechuga romana, crutones', safe: true },
-    { name: 'Curry de Cacahuete', desc: 'Curry tailandés con cacahuetes', safe: false },
+    { name: 'Lácteos', desc: 'Leche, queso, mantequilla, crema', safe: false },
+    { name: 'Frutos Secos', desc: 'Almendras, anacardos, nueces', safe: false },
+    { name: 'Sin Gluten', desc: 'Sin trigo, cebada ni centeno', safe: true },
+    { name: 'Mariscos', desc: 'Camarones, cangrejo, langosta', safe: true },
   ],
   ja: [
-    { name: 'グリルサーモン', desc: 'レモンバターソース添え', safe: true },
-    { name: 'パスタ・カルボナーラ', desc: '卵、チーズ、パンチェッタ', safe: false },
-    { name: 'シーザーサラダ', desc: 'ロメインレタス、クルトン', safe: true },
-    { name: 'ピーナッツカレー', desc: 'タイカレー、ピーナッツ入り', safe: false },
+    { name: '乳製品', desc: '牛乳、チーズ、バター、クリーム', safe: false },
+    { name: 'ナッツ類', desc: 'アーモンド、カシューナッツ、くるみ', safe: false },
+    { name: 'グルテンフリー', desc: '小麦、大麦、ライ麦なし', safe: true },
+    { name: '甲殻類', desc: 'エビ、カニ、ロブスター', safe: true },
   ],
   ar: [
-    { name: 'سلمون مشوي', desc: 'مع صلصة الليمون والزبدة', safe: true },
-    { name: 'باستا كاربونارا', desc: 'بيض، جبن، بانشيتا', safe: false },
-    { name: 'سلطة سيزر', desc: 'خس روماني، خبز محمص', safe: true },
-    { name: 'كاري الفول السوداني', desc: 'كاري تايلاندي بالفول السوداني', safe: false },
+    { name: 'منتجات الألبان', desc: 'حليب، جبن، زبدة، كريمة', safe: false },
+    { name: 'المكسرات', desc: 'لوز، كاجو، جوز', safe: false },
+    { name: 'خالي من الغلوتين', desc: 'بدون قمح أو شعير أو جاودار', safe: true },
+    { name: 'المحار', desc: 'جمبري، سلطعون، كركند', safe: true },
   ],
   fr: [
-    { name: 'Saumon Grillé', desc: 'Sauce au beurre citronné', safe: true },
-    { name: 'Pâtes Carbonara', desc: 'Œufs, fromage, pancetta', safe: false },
-    { name: 'Salade César', desc: 'Romaine, croûtons, sauce', safe: true },
-    { name: "Curry aux Cacahuètes", desc: 'Curry thaï aux cacahuètes', safe: false },
+    { name: 'Produits Laitiers', desc: 'Lait, fromage, beurre, crème', safe: false },
+    { name: 'Fruits à Coque', desc: 'Amandes, noix de cajou, noix', safe: false },
+    { name: 'Sans Gluten', desc: 'Sans blé, orge ni seigle', safe: true },
+    { name: 'Fruits de Mer', desc: 'Crevettes, crabe, homard', safe: true },
   ],
   zh: [
-    { name: '烤三文鱼', desc: '配柠檬黄油酱', safe: true },
-    { name: '培根蛋面', desc: '鸡蛋、奶酪、培根', safe: false },
-    { name: '凯撒沙拉', desc: '罗马生菜、面包丁', safe: true },
-    { name: '花生咖喱', desc: '泰式咖喱配花生', safe: false },
+    { name: '乳制品', desc: '牛奶、奶酪、黄油、奶油', safe: false },
+    { name: '坚果类', desc: '杏仁、腰果、核桃', safe: false },
+    { name: '无麸质', desc: '不含小麦、大麦或黑麦', safe: true },
+    { name: '贝类', desc: '虾、蟹、龙虾', safe: true },
   ],
 };
 
@@ -77,11 +77,11 @@ const TranslationDemo = () => {
             Live Demo
           </AnimatedBadge>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Translate any menu{' '}
-            <GradientText className="italic font-bold">instantly</GradientText>
+            Your allergen card,{' '}
+            <GradientText className="italic font-bold">any language</GradientText>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Select a language and watch SafetyZone translate and flag allergens in real time.
+            Your QR Allergen Card translates your dietary needs into 200+ languages so restaurant staff worldwide can keep you safe.
           </p>
         </FadeInSection>
 
