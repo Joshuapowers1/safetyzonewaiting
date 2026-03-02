@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { AnimatedCounter } from '@/components/ui/animated-counter';
-import { ProgressRing } from '@/components/ui/progress-ring';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { DrawIcon } from '@/components/ui/draw-icon';
 import { AlertTriangle, Globe, Zap, Users } from 'lucide-react';
@@ -57,18 +56,15 @@ const StatsSection = () => {
                   </div>
                 </DrawIcon>
 
-                {/* Progress ring + counter */}
-                <ProgressRing value={stat.value} max={stat.max} size={100} strokeWidth={3}>
-                  <div className="text-3xl md:text-4xl font-bold text-white">
-                    <AnimatedCounter
-                      value={stat.value}
-                      suffix={stat.suffix}
-                      prefix={stat.prefix}
-                      className="text-white"
-                      duration={2.5}
-                    />
-                  </div>
-                </ProgressRing>
+                <div className="text-3xl md:text-4xl font-bold text-white">
+                  <AnimatedCounter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    prefix={stat.prefix}
+                    className="text-white"
+                    duration={2.5}
+                  />
+                </div>
 
                 <div className="text-sm text-white/60 font-medium mt-4 max-w-[160px]">
                   {stat.label}

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Heart, CheckCircle } from 'lucide-react';
 import { ButtonColorful } from '@/components/ui/button-colorful';
@@ -6,6 +7,7 @@ import { GradientText } from '@/components/ui/gradient-text';
 import { Marquee } from '@/components/ui/marquee';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import { TextEffect } from '@/components/ui/text-effect';
+import { supabase } from '@/integrations/supabase/client';
 
 const benefits = [
   'Free to join',
@@ -23,6 +25,14 @@ const testimonials = [
 ];
 
 const CTASection = () => {
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    supabase.from('waitlist').select('*', { count: 'exact', head: true }).then(({ count }) => {
+      if (count !== null) setWaitlistCount(count);
+    });
+  }, []);
+
   return (
     <AuroraBackground className="py-28">
       <div className="container mx-auto px-4 relative z-10">
@@ -61,7 +71,7 @@ const CTASection = () => {
               delay={0.3}
               className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
             >
-              Be ready. Join 2,000+ families already on the SafetyZone waitlist.
+              {`Be ready. Join ${waitlistCount !== null ? waitlistCount.toLocaleString() : '...'} families already on the SafetyZone waitlist.`}
             </TextEffect>
 
             <div className="flex flex-wrap justify-center gap-6 mb-10">
