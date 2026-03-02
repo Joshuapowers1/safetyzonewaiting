@@ -6,6 +6,7 @@ import { TextEffect } from '@/components/ui/text-effect';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { TextRotate } from '@/components/ui/text-rotate';
+import { ParallaxFloat } from '@/components/ui/parallax-float';
 import { FloatingParticles } from '@/components/ui/floating-particles';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
 
