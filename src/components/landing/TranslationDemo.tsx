@@ -130,7 +130,7 @@ const TranslationDemo = () => {
 
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-6">
-                      <h3 className="font-semibold text-foreground">Restaurant Menu</h3>
+                      <h3 className="font-semibold text-foreground">QR Allergen Card</h3>
                       <span className="text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
                         {languages.find((l) => l.code === activeLang)?.flag} {languages.find((l) => l.code === activeLang)?.name}
                       </span>
