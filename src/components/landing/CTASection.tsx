@@ -28,8 +28,8 @@ const CTASection = () => {
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
 
   useEffect(() => {
-    supabase.from('waitlist').select('*', { count: 'exact', head: true }).then(({ count }) => {
-      if (count !== null) setWaitlistCount(count);
+    supabase.rpc('get_waitlist_count').then(({ data }) => {
+      if (data !== null) setWaitlistCount(data);
     });
   }, []);
 
