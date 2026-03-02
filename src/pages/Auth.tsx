@@ -17,7 +17,7 @@ const authSchema = z.object({
 });
 
 const Auth = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const isLogin = true;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -76,29 +76,6 @@ const Auth = () => {
         toast({
           title: "Welcome back!",
           description: "Successfully logged in.",
-        });
-      } else {
-        const redirectUrl = `${window.location.origin}/admin`;
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: redirectUrl },
-        });
-        if (error) {
-          if (error.message.includes('already registered')) {
-            toast({
-              title: "Account exists",
-              description: "This email is already registered. Please log in instead.",
-              variant: "destructive",
-            });
-          } else {
-            throw error;
-          }
-          return;
-        }
-        toast({
-          title: "Account created!",
-          description: "You can now access the admin dashboard.",
         });
       }
     } catch (error: any) {
@@ -233,18 +210,7 @@ const Auth = () => {
             </Button>
           </form>
 
-          <div className="mt-6 text-center">
-            <button
-              type="button"
-              onClick={() => setIsLogin(!isLogin)}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              {isLogin ? "Don't have an account? " : "Already have an account? "}
-              <span className="text-primary font-medium">
-                {isLogin ? 'Sign up' : 'Sign in'}
-              </span>
-            </button>
-          </div>
+          
         </div>
       </motion.div>
     </div>
