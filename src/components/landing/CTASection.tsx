@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Shield, Heart, CheckCircle, ArrowRight } from 'lucide-react';
+import { TextEffect } from '@/components/ui/text-effect';
+import { ButtonColorful } from '@/components/ui/button-colorful';
 
 const benefits = [
   'Free to join',
@@ -55,12 +57,8 @@ const CTASection = () => {
 
             {/* Waitlist CTA */}
             <div className="flex justify-center mb-10">
-              <a
-                href="#waitlist"
-                className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground h-14 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold text-base"
-              >
-                Join the Waitlist
-                <ArrowRight className="w-5 h-5" />
+              <a href="#waitlist">
+                <ButtonColorful label="Join the Waitlist" className="h-14 px-10 text-base" />
               </a>
             </div>
 
