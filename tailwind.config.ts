@@ -93,6 +93,10 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "spotlight": {
+          "0%": { opacity: "0", transform: "translate(-72%, -62%) scale(0.5)" },
+          "100%": { opacity: "1", transform: "translate(-50%, -40%) scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -100,6 +104,7 @@ export default {
         "spin-slow": "spin-slow 20s linear infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
+        "spotlight": "spotlight 2s ease 0.75s 1 forwards",
       },
       boxShadow: {
         "glow-sm": "var(--shadow-glow-sm)",
