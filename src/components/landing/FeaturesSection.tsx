@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ScanLine, Barcode, Camera, ChefHat, Users, QrCode,
-  Shield, Globe, Zap, ArrowRight
+  Shield, Globe, Zap, ArrowRight, Infinity, ChevronDown
 } from 'lucide-react';
 import { TiltCard } from '@/components/ui/tilt-card';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
@@ -14,44 +15,75 @@ const features = [
   {
     icon: ScanLine,
     title: 'Menu Scanner',
-    description: 'Scan any menu via photo, QR code, or URL and receive personalized safety ratings in under 3 seconds.',
+    description: 'Snap a photo, scan a QR code, or paste a URL — get personalized safety ratings in under 3 seconds.',
     stat: '< 3s',
     statLabel: 'Scan Speed',
+    details: {
+      howItWorks: 'Snap a photo of any restaurant menu, scan a QR code menu, or paste a URL — SafetyZone\'s triple-verified AI instantly cross-references every dish against your personal allergy profile. Each item receives a color-coded safety rating (Safe, Caution, Avoid) so you can order with confidence, not anxiety.',
+      whatPowersIt: 'Our AI engine analyzes ingredient lists against FDA allergen databases, USDA nutrition data, and published medical research — then layers in your unique dietary restrictions for a personalized result every time.',
+      whyItMatters: 'No more flagging down a server, hoping they checked with the kitchen, and still feeling uncertain. Menu Scanner puts verified allergen intelligence directly in your hands in under 3 seconds — in 200+ languages.',
+    },
   },
   {
     icon: Barcode,
     title: 'Barcode Scanner',
-    description: 'Instantly identify product ingredients and hidden allergens across millions of products.',
+    description: 'Instantly identify hidden allergens, cross-contamination risks, and buried advisory warnings.',
     stat: '10K+',
     statLabel: 'Products',
+    details: {
+      howItWorks: 'Point your camera at any packaged product\'s barcode and instantly receive a full allergen breakdown — including hidden allergens, cross-contamination risks, and advisory warnings that manufacturers often bury in fine print.',
+      whatPowersIt: 'SafetyZone cross-references barcode data against continuously updated product databases, FDA recall alerts, and manufacturer ingredient disclosures to flag risks that standard labels miss.',
+      whyItMatters: 'Food labels are confusing by design. "May contain" warnings, shared facility disclosures, and unfamiliar chemical names make grocery shopping stressful. Barcode Scanner translates all of it into a simple, personalized safety rating — so every trip to the store feels safe, not overwhelming.',
+    },
   },
   {
     icon: Camera,
     title: 'CalorieSnap',
-    description: 'AI-powered calorie and macro analysis from food photos for health-conscious nutrition tracking.',
+    description: 'AI-powered calorie and macro analysis from any food photo — no manual logging required.',
     stat: '99.5%',
     statLabel: 'Accuracy',
+    details: {
+      howItWorks: 'Take a photo of any meal — home-cooked, restaurant, or packaged — and CalorieSnap uses AI-powered image recognition to estimate calories, macros (protein, carbs, fat), and key micronutrients in seconds.',
+      whatPowersIt: 'Advanced computer vision analyzes portion sizes, identifies individual ingredients, and maps them against nutritional databases to deliver accurate breakdowns without manual logging.',
+      whyItMatters: 'For people managing food allergies, nutrition tracking goes hand-in-hand with safety. CalorieSnap makes it effortless to stay on top of both — no more guessing portions or manually searching every ingredient. Just snap and know.',
+    },
   },
   {
     icon: ChefHat,
     title: 'Recipe AI',
-    description: 'Transform any recipe to match your dietary restrictions with safe ingredient substitutions.',
-    stat: '1000+',
+    description: 'Transform any recipe with safe, taste-matched substitutions — infinite possibilities for every dish.',
+    stat: '∞',
     statLabel: 'Recipes',
+    useInfinityIcon: true,
+    details: {
+      howItWorks: 'Paste any recipe or URL — Recipe AI instantly identifies every allergen risk and generates safe, taste-matched ingredient substitutions tailored to your profile. Get an entirely transformed version of the recipe you can follow step-by-step.',
+      whatPowersIt: 'Our AI doesn\'t just swap ingredients — it understands cooking chemistry. It accounts for binding agents, texture, flavor profiles, and baking ratios so your allergen-free version actually tastes right and works in practice.',
+      whyItMatters: 'Living with food allergies shouldn\'t mean giving up the recipes you love. Whether it\'s a family recipe passed down for generations or a trending dish you found online, Recipe AI makes every recipe yours — safely, with infinite possibilities.',
+    },
   },
   {
     icon: Users,
     title: 'Family Profiles',
-    description: 'Create multi-person family profiles with different restrictions for everyone in your household.',
+    description: 'Individual profiles for every household member — switch instantly when scanning.',
     stat: '5+',
     statLabel: 'Profiles',
+    details: {
+      howItWorks: 'Create individual allergy and dietary profiles for every member of your household — each with their own unique restrictions, severity levels, and preferences. Switch between profiles instantly when scanning menus, products, or recipes.',
+      whatPowersIt: 'SafetyZone stores each family member\'s complete dietary profile securely, so every scan and recommendation is personalized to whoever is eating — no re-entering information, no mix-ups.',
+      whyItMatters: 'In families managing multiple food allergies, one wrong assumption can be dangerous. Family Profiles ensure that Mom\'s dairy-free needs, Dad\'s shellfish allergy, and your child\'s peanut and tree nut restrictions are all tracked separately — because safety isn\'t one-size-fits-all.',
+    },
   },
   {
     icon: QrCode,
     title: 'QR Dietary Profile',
-    description: 'Generate shareable QR codes that restaurant staff can scan to understand your needs.',
+    description: 'Your digital allergy card — scannable, auto-translated into 200+ languages, always current.',
     stat: '200+',
     statLabel: 'Languages',
+    details: {
+      howItWorks: 'Generate a personal QR code that contains your complete allergy and dietary profile. Show it to restaurant staff, event caterers, or anyone preparing your food — they scan it and instantly see exactly what you need to avoid, displayed clearly in their language.',
+      whatPowersIt: 'Your QR code dynamically links to your up-to-date profile and auto-translates into 200+ languages, eliminating the communication barrier that makes dining abroad or at unfamiliar restaurants so stressful.',
+      whyItMatters: 'Explaining a complex allergy profile to a new server — especially across language barriers — is exhausting and error-prone. Your QR Dietary Profile communicates everything clearly and accurately in seconds, so the kitchen gets it right the first time.',
+    },
   },
 ];
 
@@ -61,13 +93,84 @@ const trustFeatures = [
   { icon: Globe, title: '200+ Languages', description: 'Global accessibility for travelers and diverse communities.' },
 ];
 
+interface FeatureCardProps {
+  feature: typeof features[0];
+  index: number;
+}
+
+const FeatureCard = ({ feature, index }: FeatureCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <FadeInSection delay={index * 0.1}>
+      <TiltCard className="h-full rounded-2xl">
+        <div
+          className="group relative bg-card border border-border rounded-2xl p-6 h-full overflow-hidden hover:border-primary/30 transition-colors duration-300 cursor-pointer"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          <DrawIcon delay={index * 0.1}>
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+              <feature.icon className="w-7 h-7 text-primary" />
+            </div>
+          </DrawIcon>
+
+          <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+          <p className="text-muted-foreground leading-relaxed mb-4">{feature.description}</p>
+
+          <div className="flex items-baseline gap-2">
+            {feature.useInfinityIcon ? (
+              <Infinity className="w-8 h-8 text-primary" strokeWidth={2.5} />
+            ) : (
+              <span className="text-2xl font-bold text-primary">{feature.stat}</span>
+            )}
+            <span className="text-xs text-muted-foreground uppercase tracking-wider">{feature.statLabel}</span>
+          </div>
+
+          <div className="flex items-center gap-2 mt-4 text-primary font-medium">
+            <span className="text-sm">{isExpanded ? 'Show less' : 'Learn more'}</span>
+            <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+              <ChevronDown className="w-4 h-4" />
+            </motion.div>
+          </div>
+
+          <AnimatePresence>
+            {isExpanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                <div className="mt-4 pt-4 border-t border-border space-y-4 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">How It Works</h4>
+                    <p className="text-muted-foreground leading-relaxed">{feature.details.howItWorks}</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">What Powers It</h4>
+                    <p className="text-muted-foreground leading-relaxed">{feature.details.whatPowersIt}</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">Why It Matters</h4>
+                    <p className="text-muted-foreground leading-relaxed">{feature.details.whyItMatters}</p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </TiltCard>
+    </FadeInSection>
+  );
+};
+
 const FeaturesSection = () => {
   return (
     <section id="features" className="py-28 bg-muted/30 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <FadeInSection className="text-center max-w-3xl mx-auto mb-20">
           <AnimatedBadge className="mb-4">Powerful Features</AnimatedBadge>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
@@ -79,39 +182,12 @@ const FeaturesSection = () => {
           </p>
         </FadeInSection>
 
-        {/* Main Features Grid with 3D Tilt Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {features.map((feature, index) => (
-            <FadeInSection key={feature.title} delay={index * 0.1}>
-              <TiltCard className="h-full rounded-2xl">
-                <div className="group relative bg-card border border-border rounded-2xl p-6 h-full overflow-hidden hover:border-primary/30 transition-colors duration-300">
-                  {/* Icon with draw animation */}
-                  <DrawIcon delay={index * 0.1}>
-                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                      <feature.icon className="w-7 h-7 text-primary" />
-                    </div>
-                  </DrawIcon>
-
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">{feature.description}</p>
-
-                  {/* Stat counter */}
-                  <div className="flex items-baseline gap-2 mt-auto">
-                    <span className="text-2xl font-bold text-primary">{feature.stat}</span>
-                    <span className="text-xs text-muted-foreground uppercase tracking-wider">{feature.statLabel}</span>
-                  </div>
-
-                  {/* Hover arrow */}
-                  <div className="flex items-center gap-2 mt-4 text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </TiltCard>
-            </FadeInSection>
+            <FeatureCard key={feature.title} feature={feature} index={index} />
           ))}
         </div>
 
-        {/* Trust Features */}
         <FadeInSection>
           <AnimatedBorderCard>
             <div className="grid md:grid-cols-3 gap-10 p-4 md:p-8">
