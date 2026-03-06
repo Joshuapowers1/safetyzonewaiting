@@ -139,6 +139,11 @@ export default {
         "spotlight": "spotlight 2s ease 0.75s 1 forwards",
         "marquee": "marquee var(--duration) linear infinite",
         "marquee-reverse": "marquee-reverse var(--duration) linear infinite",
+        first: "moveVertical 30s ease infinite",
+        second: "moveInCircle 20s reverse infinite",
+        third: "moveInCircle 40s linear infinite",
+        fourth: "moveHorizontal 40s ease infinite",
+        fifth: "moveInCircle 20s ease infinite",
       },
       boxShadow: {
         "glow-sm": "var(--shadow-glow-sm)",
