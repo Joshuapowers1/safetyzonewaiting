@@ -50,14 +50,14 @@ const AppShowcase = () => {
 
   // Auto-advance
   useEffect(() => {
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 3000);
     return () => clearInterval(timer);
   }, [next]);
 
   const variants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0, scale: 0.9 }),
+    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0, scale: 0.95 }),
     center: { x: 0, opacity: 1, scale: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0, scale: 0.9 }),
+    exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0, scale: 0.95 }),
   };
 
   return (
@@ -103,7 +103,7 @@ const AppShowcase = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+                    transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </AnimatePresence>
@@ -168,7 +168,7 @@ const AppShowcase = () => {
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       className="mt-3 h-0.5 bg-gradient-to-r from-primary to-transparent rounded-full origin-left"
-                      transition={{ duration: 5, ease: 'linear' }}
+                      transition={{ duration: 3, ease: 'linear' }}
                       key={`progress-${activeIndex}`}
                     />
                   )}
