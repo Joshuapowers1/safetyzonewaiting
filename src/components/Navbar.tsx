@@ -33,13 +33,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="SafetyZone" className="w-10 h-10 object-contain" />
-            <span className="font-display text-xl font-semibold text-foreground italic">SafetyZone</span>
+            <span className="font-display text-xl font-semibold text-white italic">SafetyZone</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -50,7 +50,7 @@ const Navbar = () => {
                 to={link.path}
                 onClick={() => handleNavClick(link.path)}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.path) ? 'text-primary' : 'text-muted-foreground'
+                  isActive(link.path) ? 'text-primary' : 'text-white/70'
                 }`}
               >
                 {link.name}
@@ -60,7 +60,7 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Link to="/auth" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/auth" className="text-sm font-medium text-white/70 hover:text-primary transition-colors">
               Admin
             </Link>
             <Button asChild variant="glow">
@@ -70,7 +70,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -86,7 +86,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border"
+            className="md:hidden bg-black/80 backdrop-blur-xl border-b border-white/5"
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
               {navLinks.map((link) => (
@@ -95,7 +95,7 @@ const Navbar = () => {
                   to={link.path}
                   onClick={() => handleNavClick(link.path)}
                   className={`block text-base font-medium transition-colors ${
-                    isActive(link.path) ? 'text-primary' : 'text-muted-foreground'
+                    isActive(link.path) ? 'text-primary' : 'text-white/70'
                   }`}
                 >
                   {link.name}
@@ -104,7 +104,7 @@ const Navbar = () => {
               <Link
                 to="/auth"
                 onClick={() => setIsOpen(false)}
-                className="block text-base font-medium text-muted-foreground hover:text-primary transition-colors"
+                className="block text-base font-medium text-white/70 hover:text-primary transition-colors"
               >
                 Admin
               </Link>
