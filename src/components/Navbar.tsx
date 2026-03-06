@@ -104,7 +104,7 @@ const Navbar = () => {
               <Link
                 to="/auth"
                 onClick={() => setIsOpen(false)}
-                className="block text-base font-medium text-muted-foreground hover:text-primary transition-colors"
+                className="block text-base font-medium text-white/70 hover:text-primary transition-colors"
               >
                 Admin
               </Link>
