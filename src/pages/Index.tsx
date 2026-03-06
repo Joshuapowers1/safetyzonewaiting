@@ -11,6 +11,7 @@ import FounderSection from '@/components/landing/FounderSection';
 import WaitlistSection from '@/components/landing/WaitlistSection';
 import CTASection from '@/components/landing/CTASection';
 import TranslationDemo from '@/components/landing/TranslationDemo';
+import AppShowcase from '@/components/landing/AppShowcase';
 
 const Index = () => {
   const [showLoading, setShowLoading] = useState(true);
