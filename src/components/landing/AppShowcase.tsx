@@ -103,7 +103,7 @@ const AppShowcase = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+                    transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </AnimatePresence>
