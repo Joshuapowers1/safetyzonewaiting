@@ -105,7 +105,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
     <FadeInSection delay={index * 0.1}>
       <TiltCard className="h-full rounded-2xl">
         <div
-          className="group relative bg-card border border-border rounded-2xl p-6 h-full overflow-hidden hover:border-primary/30 transition-colors duration-300 cursor-pointer"
+          className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 h-full overflow-hidden hover:border-primary/30 transition-colors duration-300 cursor-pointer"
           onClick={() => setIsExpanded(!isExpanded)}
         >
           <DrawIcon delay={index * 0.1}>
