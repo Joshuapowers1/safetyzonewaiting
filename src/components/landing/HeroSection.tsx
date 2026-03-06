@@ -111,14 +111,22 @@ const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
+                className="flex flex-wrap items-center gap-3"
               >
-                <AnimatedBadge className="mt-2 bg-white/5 border-white/10 text-white/80">
+                <AnimatedBadge className="bg-white/5 border-white/10 text-white/80">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                   </span>
                   AI-Powered Protection
                 </AnimatedBadge>
+
+                {waitlistCount !== null && waitlistCount > 0 && (
+                  <AnimatedBadge className="bg-white/5 border-white/10 text-white/80">
+                    <Users className="w-3.5 h-3.5 text-primary" />
+                    {waitlistCount.toLocaleString()} on the waitlist
+                  </AnimatedBadge>
+                )}
               </motion.div>
             </motion.div>
 
