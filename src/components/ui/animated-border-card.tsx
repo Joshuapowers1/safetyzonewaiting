@@ -26,7 +26,7 @@ export function AnimatedBorderCard({
         }}
       />
       {/* Inner content */}
-      <div className={cn("relative bg-card rounded-[calc(1rem-1px)] p-6 h-full", className && "bg-inherit")}>
+      <div className="relative bg-card rounded-[calc(1rem-1px)] p-6 h-full">
         {children}
       </div>
     </div>
