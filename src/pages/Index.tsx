@@ -96,6 +96,7 @@ const Index = () => {
         <main>
           <HeroSection />
           <WaitlistSection />
+          <AppShowcase />
           <FeaturesSection />
           <StatsSection />
           <TranslationDemo />
