@@ -144,16 +144,16 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
               >
                 <div className="mt-4 pt-4 border-t border-border space-y-4 text-sm">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">How It Works</h4>
-                    <p className="text-muted-foreground leading-relaxed">{feature.details.howItWorks}</p>
+                    <h4 className="font-semibold text-white mb-1">How It Works</h4>
+                    <p className="text-white/50 leading-relaxed">{feature.details.howItWorks}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">What Powers It</h4>
-                    <p className="text-muted-foreground leading-relaxed">{feature.details.whatPowersIt}</p>
+                    <h4 className="font-semibold text-white mb-1">What Powers It</h4>
+                    <p className="text-white/50 leading-relaxed">{feature.details.whatPowersIt}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Why It Matters</h4>
-                    <p className="text-muted-foreground leading-relaxed">{feature.details.whyItMatters}</p>
+                    <h4 className="font-semibold text-white mb-1">Why It Matters</h4>
+                    <p className="text-white/50 leading-relaxed">{feature.details.whyItMatters}</p>
                   </div>
                 </div>
               </motion.div>

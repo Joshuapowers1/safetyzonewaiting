@@ -13,7 +13,7 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-[hsl(220,20%,8%)] via-[hsl(220,18%,10%)] to-[hsl(220,20%,8%)]">
+    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-[hsl(200,25%,5%)] via-[hsl(210,30%,8%)] to-[hsl(200,25%,5%)]">
       {/* Animated gradient wave */}
       <motion.div
         className="absolute inset-0 opacity-20"
