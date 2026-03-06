@@ -1,10 +1,13 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TextEffect } from '@/components/ui/text-effect';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { TextRotate } from '@/components/ui/text-rotate';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
+import { Users } from 'lucide-react';
 import HeroWave from '@/components/ui/dynamic-wave-canvas-background';
+import { supabase } from '@/integrations/supabase/client';
 import logoWhite from '@/assets/logo-white.png';
 import screenHome from '@/assets/screen-home.png';
 import screenScan from '@/assets/screen-scan.png';
@@ -17,6 +20,14 @@ const phoneScreens = [
 ];
 
 const HeroSection = () => {
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    supabase.rpc('get_waitlist_count').then(({ data }) => {
+      if (data !== null) setWaitlistCount(data);
+    });
+  }, []);
+
   return (
     <section className="relative min-h-screen overflow-hidden">
       <HeroWave />
@@ -97,14 +108,22 @@ const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
+                className="flex flex-wrap items-center gap-3"
               >
-                <AnimatedBadge className="mt-2 bg-white/5 border-white/10 text-white/80">
+                <AnimatedBadge className="bg-white/5 border-white/10 text-white/80">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                   </span>
                   AI-Powered Protection
                 </AnimatedBadge>
+
+                {waitlistCount !== null && waitlistCount > 0 && (
+                  <AnimatedBadge className="bg-white/5 border-white/10 text-white/80">
+                    <Users className="w-3.5 h-3.5 text-primary" />
+                    {waitlistCount.toLocaleString()} on the waitlist
+                  </AnimatedBadge>
+                )}
               </motion.div>
             </motion.div>
 
