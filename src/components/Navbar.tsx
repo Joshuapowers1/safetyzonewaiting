@@ -95,7 +95,7 @@ const Navbar = () => {
                   to={link.path}
                   onClick={() => handleNavClick(link.path)}
                   className={`block text-base font-medium transition-colors ${
-                    isActive(link.path) ? 'text-primary' : 'text-muted-foreground'
+                    isActive(link.path) ? 'text-primary' : 'text-white/70'
                   }`}
                 >
                   {link.name}
