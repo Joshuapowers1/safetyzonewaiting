@@ -114,8 +114,8 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
             </div>
           </DrawIcon>
 
-          <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
-          <p className="text-muted-foreground leading-relaxed mb-4">{feature.description}</p>
+          <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
+          <p className="text-white/60 leading-relaxed mb-4">{feature.description}</p>
 
           <div className="flex items-baseline gap-2">
             {feature.useInfinityIcon ? (
