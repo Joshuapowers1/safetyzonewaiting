@@ -167,7 +167,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-28 bg-muted/30 relative overflow-hidden">
+    <section id="features" className="py-28 relative overflow-hidden bg-gradient-to-b from-[hsl(200,25%,5%)] via-[hsl(215,30%,7%)] to-[hsl(200,25%,5%)]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
