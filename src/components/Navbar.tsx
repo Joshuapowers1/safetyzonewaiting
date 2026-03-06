@@ -60,7 +60,7 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Link to="/auth" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/auth" className="text-sm font-medium text-white/70 hover:text-primary transition-colors">
               Admin
             </Link>
             <Button asChild variant="glow">
