@@ -142,7 +142,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="overflow-hidden"
               >
-                <div className="mt-4 pt-4 border-t border-border space-y-4 text-sm">
+                <div className="mt-4 pt-4 border-t border-white/10 space-y-4 text-sm">
                   <div>
                     <h4 className="font-semibold text-white mb-1">How It Works</h4>
                     <p className="text-white/50 leading-relaxed">{feature.details.howItWorks}</p>
