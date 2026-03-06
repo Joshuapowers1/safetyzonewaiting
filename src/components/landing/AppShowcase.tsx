@@ -48,7 +48,6 @@ const AppShowcase = () => {
     setActiveIndex(newIndex);
   }, [activeIndex]);
 
-  // Auto-advance
   useEffect(() => {
     const timer = setInterval(next, 3000);
     return () => clearInterval(timer);
@@ -61,7 +60,7 @@ const AppShowcase = () => {
   };
 
   return (
-    <section className="py-28 relative overflow-hidden bg-gradient-to-b from-[hsl(220,20%,6%)] via-[hsl(220,18%,8%)] to-[hsl(220,20%,6%)]">
+    <section className="py-28 relative overflow-hidden bg-gradient-to-b from-[hsl(200,25%,5%)] via-[hsl(210,30%,7%)] to-[hsl(200,25%,5%)]">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
 
@@ -83,16 +82,10 @@ const AppShowcase = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 max-w-6xl mx-auto">
           {/* Phone mockup */}
           <div className="relative flex-shrink-0">
-            {/* Phone frame */}
             <div className="relative w-[280px] md:w-[320px] h-[580px] md:h-[660px]">
-              {/* Glow behind phone */}
               <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-accent/20 rounded-[3rem] blur-3xl scale-110 opacity-50" />
-              
-              {/* Phone body */}
               <div className="relative w-full h-full rounded-[2.5rem] border-[6px] border-white/10 bg-black overflow-hidden shadow-2xl shadow-primary/20">
-                {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-black rounded-b-2xl z-20" />
-                
                 <AnimatePresence initial={false} custom={direction} mode="wait">
                   <motion.img
                     key={activeIndex}
@@ -110,7 +103,6 @@ const AppShowcase = () => {
               </div>
             </div>
 
-            {/* Navigation arrows */}
             <button
               onClick={prev}
               className="absolute left-[-50px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur border border-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
@@ -178,7 +170,6 @@ const AppShowcase = () => {
           </div>
         </div>
 
-        {/* Dot indicators for mobile */}
         <div className="flex justify-center gap-2 mt-8 lg:hidden">
           {screens.map((_, index) => (
             <button

@@ -1,23 +1,23 @@
 import { motion } from 'framer-motion';
-import { FallingPattern } from '@/components/ui/falling-pattern';
 import { TextEffect } from '@/components/ui/text-effect';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { TextRotate } from '@/components/ui/text-rotate';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
+import HeroWave from '@/components/ui/dynamic-wave-canvas-background';
 import logoWhite from '@/assets/logo-white.png';
+import screenHome from '@/assets/screen-home.png';
+import screenScan from '@/assets/screen-scan.png';
+import screenNutriscan from '@/assets/screen-nutriscan.png';
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Full-section falling pattern background */}
-      <FallingPattern
-        color="hsl(174, 72%, 45%)"
-        backgroundColor="hsl(220, 20%, 6%)"
-        duration={120}
-        blurIntensity="0.5em"
-        className="absolute inset-0"
-      />
+      {/* Dynamic wave canvas background */}
+      <HeroWave />
+
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/30 z-[1]" />
 
       {/* Content overlay */}
       <div className="relative z-10 flex items-center justify-center min-h-screen pt-20 pb-16">
@@ -106,17 +106,18 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right Content - Large Logo */}
+            {/* Right Content - Logo + App Screens */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="relative flex justify-center lg:justify-end"
+              className="relative flex flex-col items-center lg:items-end"
             >
+              {/* Large Logo */}
               <motion.img
                 src={logoWhite}
                 alt="SafetyZone"
-                className="w-[300px] md:w-[400px] lg:w-[500px] drop-shadow-[0_0_80px_rgba(0,180,160,0.4)]"
+                className="w-[350px] md:w-[450px] lg:w-[550px] drop-shadow-[0_0_80px_rgba(0,180,160,0.4)] mb-8"
                 animate={{
                   scale: [1, 1.03, 1],
                   filter: [
@@ -127,6 +128,29 @@ const HeroSection = () => {
                 }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               />
+
+              {/* App screen previews */}
+              <div className="flex gap-4 justify-center">
+                {[
+                  { src: screenHome, alt: 'Home Screen', delay: 0.5 },
+                  { src: screenScan, alt: 'Scanner', delay: 0.7 },
+                  { src: screenNutriscan, alt: 'NutriScan', delay: 0.9 },
+                ].map((screen) => (
+                  <motion.div
+                    key={screen.alt}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: screen.delay, duration: 0.6 }}
+                    className="w-[90px] md:w-[110px] lg:w-[130px] rounded-xl overflow-hidden border border-white/10 shadow-xl shadow-black/30"
+                  >
+                    <img
+                      src={screen.src}
+                      alt={screen.alt}
+                      className="w-full h-auto"
+                    />
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>

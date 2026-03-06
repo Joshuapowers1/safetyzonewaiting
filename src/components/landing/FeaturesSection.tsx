@@ -105,7 +105,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
     <FadeInSection delay={index * 0.1}>
       <TiltCard className="h-full rounded-2xl">
         <div
-          className="group relative bg-card border border-border rounded-2xl p-6 h-full overflow-hidden hover:border-primary/30 transition-colors duration-300 cursor-pointer"
+          className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 h-full overflow-hidden hover:border-primary/30 transition-colors duration-300 cursor-pointer"
           onClick={() => setIsExpanded(!isExpanded)}
         >
           <DrawIcon delay={index * 0.1}>
@@ -114,8 +114,8 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
             </div>
           </DrawIcon>
 
-          <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
-          <p className="text-muted-foreground leading-relaxed mb-4">{feature.description}</p>
+          <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
+          <p className="text-white/60 leading-relaxed mb-4">{feature.description}</p>
 
           <div className="flex items-baseline gap-2">
             {feature.useInfinityIcon ? (
@@ -144,16 +144,16 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
               >
                 <div className="mt-4 pt-4 border-t border-border space-y-4 text-sm">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">How It Works</h4>
-                    <p className="text-muted-foreground leading-relaxed">{feature.details.howItWorks}</p>
+                    <h4 className="font-semibold text-white mb-1">How It Works</h4>
+                    <p className="text-white/50 leading-relaxed">{feature.details.howItWorks}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">What Powers It</h4>
-                    <p className="text-muted-foreground leading-relaxed">{feature.details.whatPowersIt}</p>
+                    <h4 className="font-semibold text-white mb-1">What Powers It</h4>
+                    <p className="text-white/50 leading-relaxed">{feature.details.whatPowersIt}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Why It Matters</h4>
-                    <p className="text-muted-foreground leading-relaxed">{feature.details.whyItMatters}</p>
+                    <h4 className="font-semibold text-white mb-1">Why It Matters</h4>
+                    <p className="text-white/50 leading-relaxed">{feature.details.whyItMatters}</p>
                   </div>
                 </div>
               </motion.div>
@@ -167,17 +167,17 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-28 bg-muted/30 relative overflow-hidden">
+    <section id="features" className="py-28 relative overflow-hidden bg-gradient-to-b from-[hsl(200,25%,5%)] via-[hsl(215,30%,7%)] to-[hsl(200,25%,5%)]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
         <FadeInSection className="text-center max-w-3xl mx-auto mb-20">
           <AnimatedBadge className="mb-4">Powerful Features</AnimatedBadge>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Everything you need to eat{' '}
             <GradientText className="italic font-bold">safely</GradientText>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-white/60 leading-relaxed">
             Our triple-verified AI Scanner analyzes menus, product labels, and food photos, cross-referencing FDA allergen databases, USDA nutrition data, and published medical research.
           </p>
         </FadeInSection>
@@ -198,8 +198,8 @@ const FeaturesSection = () => {
                       <feature.icon className="w-8 h-8 text-primary" />
                     </div>
                   </DrawIcon>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                   <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                  <p className="text-white/60">{feature.description}</p>
                 </FadeInSection>
               ))}
             </div>

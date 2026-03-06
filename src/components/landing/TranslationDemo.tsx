@@ -69,37 +69,36 @@ const TranslationDemo = () => {
   const items = allergenItems[activeLang];
 
   return (
-    <section className="py-28 bg-background relative overflow-hidden">
+    <section className="py-28 relative overflow-hidden bg-gradient-to-b from-[hsl(200,25%,5%)] via-[hsl(215,30%,8%)] to-[hsl(200,25%,5%)]">
       <div className="container mx-auto px-4 relative z-10">
         <FadeInSection className="text-center max-w-3xl mx-auto mb-16">
           <AnimatedBadge className="mb-4">
             <Globe className="w-3.5 h-3.5" />
             Live Demo
           </AnimatedBadge>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Your allergen card,{' '}
             <GradientText className="italic font-bold">any language</GradientText>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-white/60">
             Your QR Allergen Card translates your dietary needs into 200+ languages so restaurant staff worldwide can keep you safe.
           </p>
         </FadeInSection>
 
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-5 gap-8 items-start">
-            {/* Language selector */}
             <div className="md:col-span-2">
               <FadeInSection direction="left" delay={0.1}>
-                <div className="bg-card border border-border rounded-2xl p-4 space-y-2">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium px-2 mb-3">Select Language</p>
+                <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 space-y-2">
+                  <p className="text-xs text-white/40 uppercase tracking-wider font-medium px-2 mb-3">Select Language</p>
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() => handleLangChange(lang.code as LangCode)}
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left ${
                         activeLang === lang.code
-                          ? 'bg-primary/10 border border-primary/30 text-foreground'
-                          : 'hover:bg-muted text-muted-foreground'
+                          ? 'bg-primary/10 border border-primary/30 text-white'
+                          : 'hover:bg-white/5 text-white/60'
                       }`}
                     >
                       <span className="text-xl">{lang.flag}</span>
@@ -115,11 +114,9 @@ const TranslationDemo = () => {
               </FadeInSection>
             </div>
 
-            {/* Menu card */}
             <div className="md:col-span-3">
               <FadeInSection direction="right" delay={0.2}>
-                <div className="bg-card border border-border rounded-2xl overflow-hidden relative">
-                  {/* Scan progress bar */}
+                <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl overflow-hidden relative">
                   <motion.div
                     key={scrambleKey}
                     className="absolute top-0 left-0 h-[2px] bg-primary"
@@ -130,8 +127,8 @@ const TranslationDemo = () => {
 
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-6">
-                      <h3 className="font-semibold text-foreground">QR Allergen Card</h3>
-                      <span className="text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
+                      <h3 className="font-semibold text-white">QR Allergen Card</h3>
+                      <span className="text-xs text-white/60 bg-white/10 px-3 py-1 rounded-full">
                         {languages.find((l) => l.code === activeLang)?.flag} {languages.find((l) => l.code === activeLang)?.name}
                       </span>
                     </div>
@@ -145,14 +142,14 @@ const TranslationDemo = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: i * 0.1, duration: 0.3 }}
                             className={`flex items-start justify-between p-4 rounded-xl border ${
-                              item.safe ? 'border-border bg-background' : 'border-destructive/30 bg-destructive/5'
+                              item.safe ? 'border-white/10 bg-white/5' : 'border-destructive/30 bg-destructive/5'
                             }`}
                           >
                             <div className="flex-1">
-                              <div className="font-medium text-foreground">
+                              <div className="font-medium text-white">
                                 <ScrambleText key={`${scrambleKey}-${i}`} text={item.name} duration={600} />
                               </div>
-                              <div className="text-sm text-muted-foreground mt-1">
+                              <div className="text-sm text-white/50 mt-1">
                                 <ScrambleText key={`${scrambleKey}-desc-${i}`} text={item.desc} duration={800} />
                               </div>
                             </div>
