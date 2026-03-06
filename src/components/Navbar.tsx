@@ -50,7 +50,7 @@ const Navbar = () => {
                 to={link.path}
                 onClick={() => handleNavClick(link.path)}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.path) ? 'text-primary' : 'text-muted-foreground'
+                  isActive(link.path) ? 'text-primary' : 'text-white/70'
                 }`}
               >
                 {link.name}
