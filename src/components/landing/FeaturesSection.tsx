@@ -173,7 +173,7 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <FadeInSection className="text-center max-w-3xl mx-auto mb-20">
           <AnimatedBadge className="mb-4">Powerful Features</AnimatedBadge>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Everything you need to eat{' '}
             <GradientText className="italic font-bold">safely</GradientText>
           </h2>
