@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="SafetyZone" className="w-10 h-10 object-contain" />
-            <span className="font-display text-xl font-semibold text-foreground italic">SafetyZone</span>
+            <span className="font-display text-xl font-semibold text-white italic">SafetyZone</span>
           </Link>
 
           {/* Desktop Navigation */}
