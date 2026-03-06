@@ -50,14 +50,14 @@ const AppShowcase = () => {
 
   // Auto-advance
   useEffect(() => {
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 3000);
     return () => clearInterval(timer);
   }, [next]);
 
   const variants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0, scale: 0.9 }),
+    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0, scale: 0.95 }),
     center: { x: 0, opacity: 1, scale: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0, scale: 0.9 }),
+    exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0, scale: 0.95 }),
   };
 
   return (
