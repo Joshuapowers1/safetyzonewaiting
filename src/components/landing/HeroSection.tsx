@@ -12,9 +12,6 @@ import logoWhite from '@/assets/logo-white.png';
 import screenHome from '@/assets/screen-home.png';
 import screenScan from '@/assets/screen-scan.png';
 import screenNutriscan from '@/assets/screen-nutriscan.png';
-import screenHome from '@/assets/screen-home.png';
-import screenScan from '@/assets/screen-scan.png';
-import screenNutriscan from '@/assets/screen-nutriscan.png';
 
 const phoneScreens = [
   { src: screenScan, alt: 'Scanner', rotate: -12, x: -60, z: 0, delay: 0.7 },
