@@ -168,7 +168,7 @@ const AppShowcase = () => {
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       className="mt-3 h-0.5 bg-gradient-to-r from-primary to-transparent rounded-full origin-left"
-                      transition={{ duration: 5, ease: 'linear' }}
+                      transition={{ duration: 3, ease: 'linear' }}
                       key={`progress-${activeIndex}`}
                     />
                   )}
