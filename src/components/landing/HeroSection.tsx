@@ -10,16 +10,18 @@ import screenHome from '@/assets/screen-home.png';
 import screenScan from '@/assets/screen-scan.png';
 import screenNutriscan from '@/assets/screen-nutriscan.png';
 
+const phoneScreens = [
+  { src: screenScan, alt: 'Scanner', rotate: -12, x: -60, z: 0, delay: 0.7 },
+  { src: screenHome, alt: 'Home Screen', rotate: 0, x: 0, z: 10, delay: 0.5 },
+  { src: screenNutriscan, alt: 'NutriScan', rotate: 12, x: 60, z: 0, delay: 0.9 },
+];
+
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Dynamic wave canvas background */}
       <HeroWave />
-
-      {/* Dark overlay for readability */}
       <div className="absolute inset-0 bg-black/30 z-[1]" />
 
-      {/* Content overlay */}
       <div className="relative z-10 flex items-center justify-center min-h-screen pt-20 pb-16">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -106,18 +108,18 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right Content - Logo + App Screens */}
+            {/* Right Content - Logo + Fanned Phone Screens */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="relative flex flex-col items-center lg:items-end"
+              className="relative flex flex-col items-center lg:items-end gap-6"
             >
               {/* Large Logo */}
               <motion.img
                 src={logoWhite}
                 alt="SafetyZone"
-                className="w-[350px] md:w-[450px] lg:w-[550px] drop-shadow-[0_0_80px_rgba(0,180,160,0.4)] mb-8"
+                className="w-[280px] md:w-[350px] lg:w-[420px] drop-shadow-[0_0_80px_rgba(0,180,160,0.4)]"
                 animate={{
                   scale: [1, 1.03, 1],
                   filter: [
@@ -129,25 +131,42 @@ const HeroSection = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               />
 
-              {/* App screen previews */}
-              <div className="flex gap-4 justify-center">
-                {[
-                  { src: screenHome, alt: 'Home Screen', delay: 0.5 },
-                  { src: screenScan, alt: 'Scanner', delay: 0.7 },
-                  { src: screenNutriscan, alt: 'NutriScan', delay: 0.9 },
-                ].map((screen) => (
+              {/* Fanned phone mockups */}
+              <div className="relative w-[340px] md:w-[400px] h-[280px] md:h-[340px]">
+                {/* Glow behind phones */}
+                <div className="absolute inset-0 bg-primary/10 rounded-full blur-[80px] scale-110" />
+
+                {phoneScreens.map((screen, i) => (
                   <motion.div
                     key={screen.alt}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: screen.delay, duration: 0.6 }}
-                    className="w-[90px] md:w-[110px] lg:w-[130px] rounded-xl overflow-hidden border border-white/10 shadow-xl shadow-black/30"
+                    initial={{ opacity: 0, y: 60, rotate: 0 }}
+                    animate={{ opacity: 1, y: 0, rotate: screen.rotate }}
+                    transition={{
+                      delay: screen.delay,
+                      duration: 0.7,
+                      type: 'spring',
+                      stiffness: 120,
+                      damping: 15,
+                    }}
+                    className="absolute top-1/2 left-1/2 -translate-y-1/2 origin-bottom"
+                    style={{
+                      marginLeft: `${screen.x - 55}px`,
+                      zIndex: screen.z,
+                    }}
                   >
-                    <img
-                      src={screen.src}
-                      alt={screen.alt}
-                      className="w-full h-auto"
-                    />
+                    <motion.div
+                      className="w-[110px] md:w-[130px] rounded-2xl overflow-hidden border-2 border-white/15 shadow-2xl shadow-black/40 bg-black"
+                      whileHover={{ y: -8, scale: 1.05 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    >
+                      {/* Mini notch */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40px] h-[8px] bg-black rounded-b-lg z-10" />
+                      <img
+                        src={screen.src}
+                        alt={screen.alt}
+                        className="w-full h-auto"
+                      />
+                    </motion.div>
                   </motion.div>
                 ))}
               </div>
