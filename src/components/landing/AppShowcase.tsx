@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Home, ScanLine, Flame, ChefHat, Sparkles, QrCode } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, ScanLine, Flame, ChefHat, Sparkles, QrCode, CheckCircle, BookOpen, Apple } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { GradientText } from '@/components/ui/gradient-text';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
@@ -11,6 +11,9 @@ import screenNutriscan from '@/assets/screen-nutriscan.png';
 import screenRecipe from '@/assets/screen-recipe.png';
 import screenGenerateRecipe from '@/assets/screen-generate-recipe.png';
 import screenQrProfile from '@/assets/screen-qr-profile.png';
+import screenRecipeResult from '@/assets/screen-recipe-result.png';
+import screenCookingSteps from '@/assets/screen-cooking-steps.png';
+import screenNutrition from '@/assets/screen-nutrition.png';
 
 const screens = [
   { image: screenHome, title: 'Home Dashboard', description: 'Quick actions, allergy card, and recent scans at a glance.', icon: Home },
@@ -18,6 +21,9 @@ const screens = [
   { image: screenNutriscan, title: 'NutriScan', description: 'AI-powered calorie and macro tracking from any food photo.', icon: Flame },
   { image: screenRecipe, title: 'Recipe AI', description: 'Transform any recipe to be safe for your dietary needs.', icon: ChefHat },
   { image: screenGenerateRecipe, title: 'Generate Recipes', description: 'Create allergen-safe recipes from scratch with AI.', icon: Sparkles },
+  { image: screenRecipeResult, title: 'Recipe Results', description: 'Safe substitutions with Grade A allergen-free ratings.', icon: CheckCircle },
+  { image: screenCookingSteps, title: 'Cooking Instructions', description: 'Step-by-step guidance with pro tips and timing.', icon: BookOpen },
+  { image: screenNutrition, title: 'Nutrition Breakdown', description: 'Full macros, calories, and storage tips per serving.', icon: Apple },
   { image: screenQrProfile, title: 'QR Dietary Profile', description: 'Your digital allergy card in 206+ languages.', icon: QrCode },
 ];
 
