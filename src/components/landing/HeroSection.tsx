@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation';
+import { FallingPattern } from '@/components/ui/falling-pattern';
 import { TextEffect } from '@/components/ui/text-effect';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { TextRotate } from '@/components/ui/text-rotate';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
-import phoneQRProfile from '@/assets/phone-qr-profile.png';
-import phoneRecipeAI from '@/assets/phone-recipe-ai.png';
+import logoWhite from '@/assets/logo-white.png';
 
 const HeroSection = () => {
   return (
@@ -103,44 +103,43 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Phone Mockups */}
+          {/* Right Content - Logo with Falling Pattern */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
             className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-[320px] md:w-[420px] lg:w-[500px] h-[450px] md:h-[550px] lg:h-[650px]">
-              {/* Glow behind phones */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-primary/20 rounded-full blur-[100px]" />
-              
-              {/* Back phone */}
-              <motion.div
-                initial={{ opacity: 0, rotate: 0 }}
-                animate={{ opacity: 1, rotate: 8 }}
-                transition={{ duration: 0.7, delay: 0.5 }}
-                className="absolute top-0 right-0 z-10"
-              >
-                <img
-                  src={phoneRecipeAI}
-                  alt="SafetyZone Recipe AI"
-                  className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-[0_20px_60px_rgba(0,180,160,0.3)]"
-                />
-              </motion.div>
+            <div className="relative w-[320px] md:w-[420px] lg:w-[500px] h-[320px] md:h-[420px] lg:h-[500px] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl shadow-primary/20">
+              {/* Falling pattern background */}
+              <FallingPattern
+                color="hsl(174, 72%, 45%)"
+                backgroundColor="hsl(220, 20%, 6%)"
+                duration={120}
+                blurIntensity="0.5em"
+                className="absolute inset-0"
+              />
 
-              {/* Front phone */}
-              <motion.div
-                initial={{ opacity: 0, rotate: 0 }}
-                animate={{ opacity: 1, rotate: -8 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="absolute bottom-0 left-0 z-20"
-              >
-                <img
-                  src={phoneQRProfile}
-                  alt="SafetyZone Personal QR Profile"
-                  className="w-[220px] md:w-[280px] lg:w-[320px] drop-shadow-[0_20px_60px_rgba(0,180,160,0.3)]"
+              {/* Logo centered on top */}
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <motion.img
+                  src={logoWhite}
+                  alt="SafetyZone"
+                  className="w-[180px] md:w-[240px] lg:w-[300px] drop-shadow-[0_0_60px_rgba(0,180,160,0.4)]"
+                  animate={{
+                    scale: [1, 1.03, 1],
+                    filter: [
+                      'drop-shadow(0 0 40px rgba(0,180,160,0.3))',
+                      'drop-shadow(0 0 80px rgba(0,180,160,0.5))',
+                      'drop-shadow(0 0 40px rgba(0,180,160,0.3))',
+                    ],
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 />
-              </motion.div>
+              </div>
+
+              {/* Radial glow overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
             </div>
           </motion.div>
         </div>
