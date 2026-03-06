@@ -23,6 +23,14 @@ const phoneScreens = [
 ];
 
 const HeroSection = () => {
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    supabase.rpc('get_waitlist_count').then(({ data }) => {
+      if (data !== null) setWaitlistCount(data);
+    });
+  }, []);
+
   return (
     <section className="relative min-h-screen overflow-hidden">
       <HeroWave />
