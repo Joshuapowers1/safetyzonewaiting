@@ -123,7 +123,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
             ) : (
               <span className="text-2xl font-bold text-primary">{feature.stat}</span>
             )}
-            <span className="text-xs text-muted-foreground uppercase tracking-wider">{feature.statLabel}</span>
+            <span className="text-xs text-white/40 uppercase tracking-wider">{feature.statLabel}</span>
           </div>
 
           <div className="flex items-center gap-2 mt-4 text-primary font-medium">
