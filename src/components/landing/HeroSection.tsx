@@ -1,11 +1,17 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TextEffect } from '@/components/ui/text-effect';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { TextRotate } from '@/components/ui/text-rotate';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
+import { Users } from 'lucide-react';
 import HeroWave from '@/components/ui/dynamic-wave-canvas-background';
+import { supabase } from '@/integrations/supabase/client';
 import logoWhite from '@/assets/logo-white.png';
+import screenHome from '@/assets/screen-home.png';
+import screenScan from '@/assets/screen-scan.png';
+import screenNutriscan from '@/assets/screen-nutriscan.png';
 import screenHome from '@/assets/screen-home.png';
 import screenScan from '@/assets/screen-scan.png';
 import screenNutriscan from '@/assets/screen-nutriscan.png';
