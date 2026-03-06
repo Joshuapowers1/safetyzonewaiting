@@ -123,7 +123,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
             ) : (
               <span className="text-2xl font-bold text-primary">{feature.stat}</span>
             )}
-            <span className="text-xs text-muted-foreground uppercase tracking-wider">{feature.statLabel}</span>
+            <span className="text-xs text-white/40 uppercase tracking-wider">{feature.statLabel}</span>
           </div>
 
           <div className="flex items-center gap-2 mt-4 text-primary font-medium">
@@ -142,7 +142,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="overflow-hidden"
               >
-                <div className="mt-4 pt-4 border-t border-border space-y-4 text-sm">
+                <div className="mt-4 pt-4 border-t border-white/10 space-y-4 text-sm">
                   <div>
                     <h4 className="font-semibold text-white mb-1">How It Works</h4>
                     <p className="text-white/50 leading-relaxed">{feature.details.howItWorks}</p>
