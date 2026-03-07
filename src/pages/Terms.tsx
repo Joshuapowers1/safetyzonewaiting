@@ -147,14 +147,21 @@ const Terms = () => {
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-foreground mb-4">13. Changes to Terms</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">13. Governing Law</h2>
                 <p className="text-muted-foreground">
                   These Terms shall be governed by and construed in accordance with the laws of the United States and the State of Texas, without regard to conflict of law principles.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-foreground mb-4">13. Contact Information</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">14. Changes to Terms</h2>
+                <p className="text-muted-foreground">
+                  We may modify these Terms at any time. We will notify users of material changes through the app or by email. Continued use of the Service after changes constitutes acceptance of the modified Terms.
+                </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">15. Contact Information</h2>
                 <p className="text-muted-foreground">
                   For questions about these Terms of Service, please contact us at:
                 </p>

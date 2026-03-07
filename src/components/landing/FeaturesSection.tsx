@@ -177,7 +177,7 @@ const FeaturesSection = () => {
             Everything you need to eat{' '}
             <GradientText className="italic font-bold">safely</GradientText>
           </h2>
-          <p className="text-lg text-white/60 leading-relaxed">
+          <p className="text-lg text-white/60 leading-relaxed mt-6">
             Our triple-verified AI Scanner analyzes menus, product labels, and food photos, cross-referencing FDA allergen databases, USDA nutrition data, and published medical research.
           </p>
         </FadeInSection>
