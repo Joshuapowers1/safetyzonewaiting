@@ -106,7 +106,7 @@ const HeroSection = () => {
               transition={{ delay: 0.8 }}
               className="flex flex-wrap items-center justify-center gap-3"
             >
-              <AnimatedBadge className="bg-white/5 border-white/10 text-white/80">
+              <AnimatedBadge pulse={false} className="bg-white/5 border-white/10 text-white/80">
                 <span className="relative flex h-2 w-2">
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                 </span>
