@@ -131,7 +131,23 @@ const Terms = () => {
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-foreground mb-4">12. Governing Law</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">12. Medical-Grade AI Disclaimer</h2>
+                <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-6 mb-4">
+                  <p className="text-muted-foreground mb-4">
+                    SafetyZone markets certain features as "medical-grade AI" or "HIPAA-level privacy." These terms describe the standard of care and security protocols we aspire to maintain, not a certification or regulatory designation.
+                  </p>
+                  <ul className="list-disc pl-6 text-muted-foreground space-y-2">
+                    <li>SafetyZone is <strong className="text-foreground">not FDA-cleared, CE-marked, or classified as a medical device</strong> under any jurisdiction</li>
+                    <li>"Medical-grade" refers to the rigor of our data sourcing (FDA, USDA, and published research databases) and does not imply clinical validation or regulatory approval</li>
+                    <li>"HIPAA-level privacy" describes our commitment to security best practices inspired by HIPAA standards; it does not mean SafetyZone is a HIPAA-covered entity or business associate</li>
+                    <li>AI accuracy rates (e.g., 99.5%) are based on internal testing benchmarks and may vary with real-world conditions, image quality, language, and menu formatting</li>
+                    <li>No output from SafetyZone should be treated as a substitute for professional medical advice, clinical allergy testing, or direct communication with food preparers</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">13. Changes to Terms</h2>
                 <p className="text-muted-foreground">
                   These Terms shall be governed by and construed in accordance with the laws of the United States and the State of Texas, without regard to conflict of law principles.
                 </p>
