@@ -173,11 +173,11 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <FadeInSection className="text-center max-w-3xl mx-auto mb-20">
           <AnimatedBadge className="mb-4">Powerful Features</AnimatedBadge>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white pb-2 leading-snug">
             Everything you need to eat{' '}
             <GradientText className="italic font-bold">safely</GradientText>
           </h2>
-          <p className="text-lg text-white/60 leading-relaxed">
+          <p className="text-lg text-white/60 leading-relaxed mt-6">
             Our triple-verified AI Scanner analyzes menus, product labels, and food photos, cross-referencing FDA allergen databases, USDA nutrition data, and published medical research.
           </p>
         </FadeInSection>
