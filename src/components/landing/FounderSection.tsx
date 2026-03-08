@@ -23,6 +23,7 @@ const FounderSection = () => {
                     <img
                       src={joshHeadshot}
                       alt="Joshua Powers - Founder of SafetyZone"
+                      loading="lazy"
                       className="relative z-10 w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-4 border-white/10 shadow-2xl"
                     />
                   </div>

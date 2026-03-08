@@ -49,7 +49,7 @@ const AppShowcase = () => {
   }, [activeIndex]);
 
   useEffect(() => {
-    const timer = setInterval(next, 3000);
+    const timer = setInterval(next, 4000);
     return () => clearInterval(timer);
   }, [next]);
 

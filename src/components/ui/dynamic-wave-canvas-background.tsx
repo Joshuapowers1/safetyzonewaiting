@@ -46,7 +46,7 @@ const HeroWave = () => {
     let imageData: ImageData;
     let data: Uint8ClampedArray;
     let lastFrame = 0;
-    const TARGET_FPS = 30; // Cap at 30fps for smooth feel without GPU burn
+    const TARGET_FPS = 24;
     const FRAME_TIME = 1000 / TARGET_FPS;
 
     const frame = (now: number) => {
