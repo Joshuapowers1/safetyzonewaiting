@@ -96,13 +96,15 @@ const Index = () => {
         
         <main>
           <HeroSection />
-          <WaitlistSection />
-          <AppShowcase />
-          <FeaturesSection />
-          <StatsSection />
-          <TranslationDemo />
-          <FounderSection />
-          <CTASection />
+          <Suspense fallback={null}>
+            <WaitlistSection />
+            <AppShowcase />
+            <FeaturesSection />
+            <StatsSection />
+            <TranslationDemo />
+            <FounderSection />
+            <CTASection />
+          </Suspense>
         </main>
 
         <Footer />
