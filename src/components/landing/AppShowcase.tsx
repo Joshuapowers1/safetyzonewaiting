@@ -49,7 +49,7 @@ const AppShowcase = () => {
   }, [activeIndex]);
 
   useEffect(() => {
-    const timer = setInterval(next, 3000);
+    const timer = setInterval(next, 4000);
     return () => clearInterval(timer);
   }, [next]);
 
@@ -91,12 +91,13 @@ const AppShowcase = () => {
                     key={activeIndex}
                     src={screens[activeIndex].image}
                     alt={screens[activeIndex].title}
+                    loading="lazy"
                     custom={direction}
                     variants={variants}
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </AnimatePresence>

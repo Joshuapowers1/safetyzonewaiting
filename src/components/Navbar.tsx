@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/logo.png';
+import logoWhite from '@/assets/logo-white.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="SafetyZone" className="w-10 h-10 object-contain" />
+            <img src={logoWhite} alt="SafetyZone" className="w-10 h-10 object-contain" />
             <span className="font-display text-xl font-semibold text-white italic">SafetyZone</span>
           </Link>
 
