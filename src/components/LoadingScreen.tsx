@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import logo from '@/assets/logo.png';
+import logoWhite from '@/assets/logo-white.png';
 
 interface LoadingScreenProps {
   onComplete: () => void;
