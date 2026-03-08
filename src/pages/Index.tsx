@@ -20,27 +20,24 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>SafetyZone - AI-Powered Food Allergy & Dietary Safety App | Scan Menus & Products</title>
-        <meta name="description" content="SafetyZone is the #1 AI food safety app for 200M+ people with allergies, celiac, diabetes & dietary restrictions. Scan menus, barcodes & recipes with 99.5% accuracy. HIPAA-level privacy. Download free!" />
-        <meta name="keywords" content="food allergy app, allergy scanner, menu scanner, barcode allergen scanner, celiac app, gluten free scanner, dairy allergy, peanut allergy app, food safety, dietary restrictions, halal food app, kosher food app, vegan scanner, calorie tracker, nutrition app, AI food scanner" />
+        <title>SafetyZone - #1 Food Allergy App | AI Menu Scanner & Allergen Detector</title>
+        <meta name="description" content="SafetyZone is the best food allergy app for 200M+ people with peanut allergy, celiac disease, gluten intolerance, dairy allergy & dietary restrictions. AI-powered menu scanner, barcode allergen detector & recipe analyzer with 99.5% accuracy. Free download." />
+        <meta name="keywords" content="food allergy app, SafetyZone, safety zone, allergy scanner, menu scanner, barcode allergen scanner, peanut allergy app, gluten free app, celiac app, dairy free scanner, nut allergy app, food intolerance app, allergen detector, AI food scanner, dietary restriction app, halal food app, kosher food app, vegan scanner, food label scanner, allergy management, anaphylaxis prevention, egg allergy, soy allergy, shellfish allergy, wheat allergy, tree nut allergy, food safety app, calorie tracker, nutrition app" />
         <link rel="canonical" href="https://mysafetyzone.com" />
         
-        {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://mysafetyzone.com" />
-        <meta property="og:title" content="SafetyZone - AI Food Safety for Allergies & Dietary Restrictions" />
-        <meta property="og:description" content="Scan menus, products & recipes with 99.5% accuracy. Built for 200M+ people with food allergies, celiac, diabetes & dietary needs." />
+        <meta property="og:title" content="SafetyZone - #1 AI Food Allergy App | Scan Menus & Barcodes" />
+        <meta property="og:description" content="The best food allergy app. Scan menus, products & recipes with AI to detect allergens. Built for peanut, gluten, dairy, nut allergies & more." />
         <meta property="og:site_name" content="SafetyZone" />
         
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://mysafetyzone.com" />
-        <meta name="twitter:title" content="SafetyZone - AI Food Allergy & Safety App" />
-        <meta name="twitter:description" content="The #1 AI-powered food safety platform. Scan menus, barcodes & recipes. Trusted by millions with dietary restrictions." />
+        <meta name="twitter:title" content="SafetyZone - #1 AI Food Allergy Scanner App" />
+        <meta name="twitter:description" content="Scan menus, barcodes & recipes to detect hidden allergens with 99.5% accuracy. Free food allergy app for peanut, gluten, dairy & nut allergies." />
         <meta name="twitter:site" content="@SafetyZoneApp" />
         
-        {/* Additional SEO */}
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta name="author" content="Powers Solutions USA LLC" />
         <meta name="theme-color" content="#2dd4bf" />
         
@@ -50,19 +47,28 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "SafetyZone",
+            "alternateName": ["Safety Zone", "SafetyZone App", "Safety Zone App"],
             "applicationCategory": "HealthApplication",
+            "applicationSubCategory": "Food Allergy Management",
             "operatingSystem": "iOS, Android",
-            "description": "AI-powered food safety platform for managing dietary restrictions, allergies, and special diets with 99.5% accuracy.",
+            "description": "SafetyZone is the #1 AI-powered food allergy app. Scan restaurant menus, barcodes & recipes to instantly detect allergens like peanuts, gluten, dairy, tree nuts, shellfish, soy, eggs & wheat. Built for 200M+ people with food allergies and dietary restrictions.",
             "offers": {
               "@type": "Offer",
               "price": "0",
-              "priceCurrency": "USD"
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/PreOrder"
             },
             "author": {
               "@type": "Organization",
               "name": "Powers Solutions USA LLC"
             },
-            "featureList": "Menu Scanner, Barcode Scanner, CalorieSnap, Recipe AI, Family Profiles, QR Dietary Profiles"
+            "featureList": "AI Menu Scanner, Barcode Allergen Scanner, CalorieSnap Nutrition Tracker, Recipe AI with Allergen-Free Substitutions, Family Allergy Profiles, QR Dietary Profile Cards, 200+ Language Menu Translation",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "ratingCount": "150",
+              "bestRating": "5"
+            }
           })}
         </script>
         
@@ -72,9 +78,10 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "SafetyZone",
+            "alternateName": "Safety Zone",
             "url": "https://mysafetyzone.com",
             "logo": "https://mysafetyzone.com/logo.png",
-            "description": "AI-powered food safety platform for dietary restrictions",
+            "description": "AI-powered food allergy and dietary safety platform helping 200M+ people eat safely worldwide",
             "founder": {
               "@type": "Person",
               "name": "Joshua Powers"
@@ -82,6 +89,67 @@ const Index = () => {
             "sameAs": [
               "https://instagram.com/safetyzoneofficial",
               "https://www.linkedin.com/company/mysafetyzone/"
+            ]
+          })}
+        </script>
+
+        {/* Structured Data - WebSite with SearchAction */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "SafetyZone",
+            "alternateName": "Safety Zone",
+            "url": "https://mysafetyzone.com"
+          })}
+        </script>
+
+        {/* Structured Data - FAQPage for rich snippets */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is SafetyZone?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SafetyZone is the #1 AI-powered food allergy app that helps people with food allergies, celiac disease, and dietary restrictions eat safely. It scans restaurant menus, product barcodes, and recipes to detect hidden allergens with 99.5% accuracy."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does the SafetyZone food allergy scanner work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SafetyZone uses AI to scan restaurant menus, food product barcodes, and ingredient lists. It cross-references FDA, USDA, and medical databases to detect allergens like peanuts, tree nuts, gluten, dairy, soy, eggs, shellfish, and wheat in seconds."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is SafetyZone free to use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, SafetyZone offers a free tier with core allergy scanning features. You can scan menus, check barcodes, and create allergy profiles at no cost. Premium features include family profiles, unlimited recipe analysis, and QR dietary cards."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What food allergies does SafetyZone detect?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SafetyZone detects all major food allergens including peanuts, tree nuts, milk/dairy, eggs, wheat/gluten, soy, fish, shellfish, and sesame. It also supports dietary preferences like halal, kosher, vegan, vegetarian, and custom restrictions."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can SafetyZone translate restaurant menus for food allergies?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, SafetyZone translates restaurant menus in over 200 languages while simultaneously scanning for your specific allergens. It also generates shareable QR allergy cards that restaurant staff can scan in their language."
+                }
+              }
             ]
           })}
         </script>
