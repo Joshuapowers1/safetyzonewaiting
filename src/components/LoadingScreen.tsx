@@ -21,7 +21,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         transition={{ duration: 0.4 }}
       >
         <img 
-          src={logo} 
+          src={logoWhite} 
           alt="Safety Zone Logo" 
           className="w-16 h-16 object-contain"
         />
