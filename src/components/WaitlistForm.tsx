@@ -285,7 +285,7 @@ const WaitlistForm = () => {
               placeholder="Your first name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className={`h-12 bg-white text-foreground border-border focus:border-primary transition-all ${errors.name ? "border-destructive" : ""}`}
+              className={`h-12 bg-background text-foreground border-border focus:border-primary transition-all ${errors.name ? "border-destructive" : ""}`}
             />
             <AnimatePresence mode="wait">
               {errors.name && (
