@@ -313,7 +313,7 @@ const WaitlistForm = () => {
               placeholder="your@email.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className={`h-12 bg-secondary/30 border-border focus:border-primary transition-all ${errors.email ? "border-destructive" : ""}`}
+              className={`h-12 bg-white text-foreground border-border focus:border-primary transition-all ${errors.email ? "border-destructive" : ""}`}
             />
             <AnimatePresence mode="wait">
               {errors.email && (
