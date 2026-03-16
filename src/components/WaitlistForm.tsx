@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { sanitizeText, isDisposableEmail, normalizeEmail, generateMathCaptcha } from '@/lib/security';
 import { 
   CheckCircle2, 
   Loader2, 
@@ -58,7 +60,18 @@ const WaitlistForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof WaitlistFormData, string>>>({});
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+  const [privacyConsent, setPrivacyConsent] = useState(false);
+  const [consentError, setConsentError] = useState('');
   const { toast } = useToast();
+
+  // Bot protection: honeypot + timing
+  const [honeypot, setHoneypot] = useState('');
+  const formLoadTime = useRef(Date.now());
+
+  // Math captcha
+  const [captcha, setCaptcha] = useState(() => generateMathCaptcha());
+  const [captchaAnswer, setCaptchaAnswer] = useState('');
+  const [captchaError, setCaptchaError] = useState('');
 
   // Fetch waitlist count with realtime updates
   useEffect(() => {
@@ -72,7 +85,6 @@ const WaitlistForm = () => {
     };
     fetchCount();
 
-    // Subscribe to realtime changes
     const channel = supabase
       .channel('waitlist-count')
       .on(
@@ -92,8 +104,50 @@ const WaitlistForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+    setConsentError('');
+    setCaptchaError('');
 
-    const result = waitlistSchema.safeParse(formData);
+    // Bot check: honeypot
+    if (honeypot) {
+      // Silently reject - it's a bot
+      setIsSuccess(true);
+      return;
+    }
+
+    // Bot check: timing (< 2 seconds)
+    if (Date.now() - formLoadTime.current < 2000) {
+      toast({
+        title: "Please take your time",
+        description: "Please fill out the form carefully.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Math captcha check
+    if (parseInt(captchaAnswer, 10) !== captcha.answer) {
+      setCaptchaError('Incorrect answer. Please try again.');
+      setCaptcha(generateMathCaptcha());
+      setCaptchaAnswer('');
+      return;
+    }
+
+    // Privacy consent check
+    if (!privacyConsent) {
+      setConsentError('You must agree to the privacy policy to join.');
+      return;
+    }
+
+    // Sanitize inputs
+    const sanitizedData = {
+      ...formData,
+      name: sanitizeText(formData.name),
+      email: normalizeEmail(formData.email),
+      heardFrom: formData.heardFrom ? sanitizeText(formData.heardFrom) : undefined,
+      interest: formData.interest ? sanitizeText(formData.interest) : undefined,
+    };
+
+    const result = waitlistSchema.safeParse(sanitizedData);
     if (!result.success) {
       const fieldErrors: Partial<Record<keyof WaitlistFormData, string>> = {};
       result.error.errors.forEach((err) => {
@@ -105,14 +159,38 @@ const WaitlistForm = () => {
       return;
     }
 
+    // Check disposable email
+    if (isDisposableEmail(result.data.email)) {
+      setErrors({ email: 'Please use a permanent email address.' });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      // Rate limit check via RPC
+      const { data: allowed, error: rlError } = await supabase.rpc('check_rate_limit', {
+        p_action: 'waitlist_signup',
+        p_identifier: result.data.email,
+        p_max_requests: 3,
+        p_window_seconds: 60,
+      });
+
+      if (rlError || !allowed) {
+        toast({
+          title: "Too many attempts",
+          description: "Please wait a minute before trying again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
       const { error } = await supabase.from('waitlist').insert({
         name: result.data.name,
         email: result.data.email,
         heard_from: result.data.heardFrom || null,
         interest: result.data.interest || null,
+        privacy_consent: true,
       });
 
       if (error) {
@@ -133,7 +211,7 @@ const WaitlistForm = () => {
         title: "You're on the list! 🎉",
         description: "We'll notify you when we launch.",
       });
-    } catch (error) {
+    } catch {
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
@@ -211,7 +289,7 @@ const WaitlistForm = () => {
           transition={{ delay: 0.3 }}
           className="font-display text-2xl font-semibold text-foreground mb-2 italic"
         >
-          Welcome aboard, {formData.name}!
+          Welcome aboard, {sanitizeText(formData.name)}!
         </motion.h3>
         
         <motion.p 
@@ -274,6 +352,20 @@ const WaitlistForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="p-6 md:p-8 space-y-5">
+        {/* Honeypot field - hidden from humans, visible to bots */}
+        <div className="absolute -left-[9999px] opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true" tabIndex={-1}>
+          <label htmlFor="website_url">Website</label>
+          <input
+            type="text"
+            id="website_url"
+            name="website_url"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            autoComplete="off"
+            tabIndex={-1}
+          />
+        </div>
+
         <div className="space-y-4">
           {/* Name Field */}
           <div className="space-y-2">
@@ -399,6 +491,70 @@ const WaitlistForm = () => {
                 );
               })}
             </div>
+          </div>
+
+          {/* Math Captcha */}
+          <div className="space-y-2">
+            <Label htmlFor="captcha" className="text-foreground text-sm font-medium">
+              Quick check: {captcha.question}
+            </Label>
+            <Input
+              id="captcha"
+              type="text"
+              inputMode="numeric"
+              placeholder="Your answer"
+              value={captchaAnswer}
+              onChange={(e) => setCaptchaAnswer(e.target.value)}
+              className={`h-12 bg-background text-foreground border-border focus:border-primary transition-all ${captchaError ? "border-destructive" : ""}`}
+            />
+            <AnimatePresence mode="wait">
+              {captchaError && (
+                <motion.p
+                  key="captcha-error"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="text-destructive text-xs"
+                >
+                  {captchaError}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Privacy Consent */}
+          <div className="space-y-1">
+            <div className="flex items-start gap-3">
+              <Checkbox
+                id="privacy-consent"
+                checked={privacyConsent}
+                onCheckedChange={(checked) => {
+                  setPrivacyConsent(checked === true);
+                  setConsentError('');
+                }}
+                className="mt-0.5"
+              />
+              <Label htmlFor="privacy-consent" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                I agree to the{' '}
+                <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80">
+                  Privacy Policy
+                </a>{' '}
+                and consent to SafetyZone storing my information to send launch updates.
+              </Label>
+            </div>
+            <AnimatePresence mode="wait">
+              {consentError && (
+                <motion.p
+                  key="consent-error"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="text-destructive text-xs pl-7"
+                >
+                  {consentError}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
