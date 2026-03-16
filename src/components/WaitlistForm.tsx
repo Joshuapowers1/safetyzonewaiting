@@ -169,7 +169,7 @@ const WaitlistForm = () => {
     }
     if (step === 2) {
       if (!formData.managingFor) {
-        setErrors({ managingFor: 'Please select who you're managing allergies for.' });
+        setErrors({ managingFor: "Please select who you're managing allergies for." });
         return false;
       }
       return true;
