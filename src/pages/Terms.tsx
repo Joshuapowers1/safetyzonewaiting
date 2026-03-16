@@ -167,7 +167,7 @@ const Terms = () => {
                 </p>
                 <p className="text-muted-foreground mt-4">
                   <strong className="text-foreground">Powers Solutions USA LLC</strong><br />
-                  Email: <a href="mailto:legal@mysafetyzone.com" className="text-primary hover:underline">legal@mysafetyzone.com</a>
+                  Email: <a href="mailto:joshua@mysafetyzone.com" className="text-primary hover:underline">joshua@mysafetyzone.com</a>
                 </p>
               </section>
             </div>
