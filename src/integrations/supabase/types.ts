@@ -62,6 +62,27 @@ export type Database = {
         }
         Relationships: []
       }
+      rate_limit_log: {
+        Row: {
+          action: string
+          created_at: string | null
+          id: string
+          identifier: string
+        }
+        Insert: {
+          action: string
+          created_at?: string | null
+          id?: string
+          identifier: string
+        }
+        Update: {
+          action?: string
+          created_at?: string | null
+          id?: string
+          identifier?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
@@ -89,7 +110,9 @@ export type Database = {
           interest: string | null
           name: string
           notes: string | null
+          privacy_consent: boolean
           status: Database["public"]["Enums"]["waitlist_status"]
+          submitted_at: string
         }
         Insert: {
           created_at?: string
@@ -99,7 +122,9 @@ export type Database = {
           interest?: string | null
           name: string
           notes?: string | null
+          privacy_consent?: boolean
           status?: Database["public"]["Enums"]["waitlist_status"]
+          submitted_at?: string
         }
         Update: {
           created_at?: string
@@ -109,7 +134,9 @@ export type Database = {
           interest?: string | null
           name?: string
           notes?: string | null
+          privacy_consent?: boolean
           status?: Database["public"]["Enums"]["waitlist_status"]
+          submitted_at?: string
         }
         Relationships: []
       }
@@ -118,6 +145,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_rate_limit: {
+        Args: {
+          p_action: string
+          p_identifier: string
+          p_max_requests?: number
+          p_window_seconds?: number
+        }
+        Returns: boolean
+      }
       get_waitlist_count: { Args: never; Returns: number }
       has_role: {
         Args: {
