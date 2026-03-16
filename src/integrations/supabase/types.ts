@@ -103,38 +103,50 @@ export type Database = {
       }
       waitlist: {
         Row: {
+          allergy_types: string[] | null
           created_at: string
+          device_preference: string | null
           email: string
           heard_from: string | null
           id: string
           interest: string | null
+          managing_for: string | null
           name: string
           notes: string | null
           privacy_consent: boolean
+          severity: string | null
           status: Database["public"]["Enums"]["waitlist_status"]
           submitted_at: string
         }
         Insert: {
+          allergy_types?: string[] | null
           created_at?: string
+          device_preference?: string | null
           email: string
           heard_from?: string | null
           id?: string
           interest?: string | null
+          managing_for?: string | null
           name: string
           notes?: string | null
           privacy_consent?: boolean
+          severity?: string | null
           status?: Database["public"]["Enums"]["waitlist_status"]
           submitted_at?: string
         }
         Update: {
+          allergy_types?: string[] | null
           created_at?: string
+          device_preference?: string | null
           email?: string
           heard_from?: string | null
           id?: string
           interest?: string | null
+          managing_for?: string | null
           name?: string
           notes?: string | null
           privacy_consent?: boolean
+          severity?: string | null
           status?: Database["public"]["Enums"]["waitlist_status"]
           submitted_at?: string
         }
