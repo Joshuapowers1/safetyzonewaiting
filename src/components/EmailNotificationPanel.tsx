@@ -82,7 +82,7 @@ const EmailNotificationPanel = ({ recipientCount, selectedIds, onClose }: EmailN
         });
       }
     } catch (error: any) {
-      console.error('Error sending emails:', error);
+      // Error logged server-side only
       toast({
         title: "Failed to send emails",
         description: error.message || "Please try again later.",
