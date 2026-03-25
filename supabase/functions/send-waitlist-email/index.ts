@@ -212,7 +212,7 @@ const handler = async (req: Request): Promise<Response> => {
 
         results.push({ success: true, id: emailData.id });
       } catch (emailError: any) {
-        console.error("Email error for", recipient.email, ":", emailError.message);
+        console.error("Email send failed for recipient");
         errors.push({ error: emailError.message || "Send failed" });
       }
     }
