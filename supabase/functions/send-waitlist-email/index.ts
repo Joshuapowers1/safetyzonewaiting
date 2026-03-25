@@ -203,16 +203,16 @@ const handler = async (req: Request): Promise<Response> => {
         });
 
         const emailData = await emailRes.json();
-        console.log("Resend response:", emailRes.status, JSON.stringify(emailData));
+        // Log status only, no PII
 
         if (!emailRes.ok) {
-          console.error("Email send failed:", emailData);
+          console.error("Email send failed with status:", emailRes.status);
           throw new Error(emailData.message || "Failed to send email");
         }
 
         results.push({ success: true, id: emailData.id });
       } catch (emailError: any) {
-        console.error("Email error for", recipient.email, ":", emailError.message);
+        console.error("Email send failed for recipient");
         errors.push({ error: emailError.message || "Send failed" });
       }
     }
