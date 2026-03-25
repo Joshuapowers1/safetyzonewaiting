@@ -206,7 +206,7 @@ const handler = async (req: Request): Promise<Response> => {
         // Log status only, no PII
 
         if (!emailRes.ok) {
-          console.error("Email send failed:", emailData);
+          console.error("Email send failed with status:", emailRes.status);
           throw new Error(emailData.message || "Failed to send email");
         }
 
