@@ -51,7 +51,7 @@ const Index = () => {
             "applicationCategory": "HealthApplication",
             "applicationSubCategory": "Food Allergy Management",
             "operatingSystem": "iOS, Android",
-            "description": "SafetyZone is the #1 AI-powered food allergy app. Scan restaurant menus, barcodes & recipes to instantly detect allergens like peanuts, gluten, dairy, tree nuts, shellfish, soy, eggs & wheat. Built for 200M+ people with food allergies and dietary restrictions.",
+            "description": "Eat with confidence, not caution. SafetyZone is the most advanced food allergy app, powered by AI to keep you and your family safe. Scan menus, products, and barcodes instantly to detect allergens before you eat. Features: AI Menu Scanner, Product & Barcode Scanner, Recipe Transformer, QR Allergy Cards in 200+ languages, Family Profiles with EpiPen reminders, Travel Mode with destination-specific safety tips, FDA recall alerts, NutriScan AI calorie tracking, and cross-reactivity warnings. Supports peanuts, tree nuts, milk, eggs, wheat, soy, fish, shellfish, sesame, and 50+ additional sensitivities.",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -62,7 +62,7 @@ const Index = () => {
               "@type": "Organization",
               "name": "Powers Solutions USA LLC"
             },
-            "featureList": "AI Menu Scanner, Barcode Allergen Scanner, CalorieSnap Nutrition Tracker, Recipe AI with Allergen-Free Substitutions, Family Allergy Profiles, QR Dietary Profile Cards, 200+ Language Menu Translation",
+            "featureList": "AI Menu Scanner, Product & Barcode Scanner, Recipe Transformer, QR Allergy Cards in 200+ Languages, Family Allergy Profiles, EpiPen Expiration Reminders, Travel Mode, FDA Recall Alerts, NutriScan AI Calorie Tracking, Cross-Reactivity Warnings, Restaurant Recommendations, Personal Eating Analytics",
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
