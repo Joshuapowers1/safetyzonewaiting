@@ -62,7 +62,7 @@ const Index = () => {
               "@type": "Organization",
               "name": "Powers Solutions USA LLC"
             },
-            "featureList": "AI Menu Scanner, Barcode Allergen Scanner, CalorieSnap Nutrition Tracker, Recipe AI with Allergen-Free Substitutions, Family Allergy Profiles, QR Dietary Profile Cards, 200+ Language Menu Translation",
+            "featureList": "AI Menu Scanner, Product & Barcode Scanner, Recipe Transformer, QR Allergy Cards in 200+ Languages, Family Allergy Profiles, EpiPen Expiration Reminders, Travel Mode, FDA Recall Alerts, NutriScan AI Calorie Tracking, Cross-Reactivity Warnings, Restaurant Recommendations, Personal Eating Analytics",
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
