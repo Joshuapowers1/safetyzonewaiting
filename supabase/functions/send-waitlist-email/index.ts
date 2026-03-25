@@ -203,7 +203,7 @@ const handler = async (req: Request): Promise<Response> => {
         });
 
         const emailData = await emailRes.json();
-        console.log("Resend response:", emailRes.status, JSON.stringify(emailData));
+        // Log status only, no PII
 
         if (!emailRes.ok) {
           console.error("Email send failed:", emailData);
