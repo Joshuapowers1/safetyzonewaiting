@@ -159,7 +159,7 @@ const Index = () => {
         {showLoading && <LoadingScreen onComplete={() => setShowLoading(false)} />}
       </AnimatePresence>
 
-      <div className="min-h-screen bg-background dark">
+      <div className="min-h-screen bg-background">
         <Navbar />
         
         <main>
