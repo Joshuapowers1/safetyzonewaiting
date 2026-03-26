@@ -343,6 +343,8 @@ const WaitlistForm = () => {
               <Label htmlFor="name" className="text-foreground text-sm font-medium">What should we call you?</Label>
               <Input id="name" placeholder="Your first name" value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                autoComplete="given-name"
+                maxLength={100}
                 className={`h-12 bg-background text-foreground border-border focus:border-primary transition-all ${errors.name ? 'border-destructive' : ''}`} />
               {errors.name && <p className="text-destructive text-xs">{errors.name}</p>}
             </div>
