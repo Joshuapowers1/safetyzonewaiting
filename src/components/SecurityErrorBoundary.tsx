@@ -61,7 +61,7 @@ class SecurityErrorBoundary extends Component<Props, State> {
         userAgent: navigator.userAgent.slice(0, 100),
       },
       success: false,
-    }).catch(() => {
+    }).then(() => {}).catch(() => {
       // Silently fail — never expose logging errors
     });
   }
