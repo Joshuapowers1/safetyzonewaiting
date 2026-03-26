@@ -97,17 +97,19 @@ class SecurityErrorBoundary extends Component<Props, State> {
 if (typeof window !== 'undefined') {
   window.addEventListener('error', (event) => {
     const sanitizedMessage = stripPII(event.message || 'Unknown error');
-    supabase.from('audit_log').insert({
-      action: 'unhandled_error',
-      actor_role: 'client',
-      metadata: {
-        message: sanitizedMessage,
-        filename: event.filename?.replace(/\?.*$/, '') || 'unknown', // strip query params
-        line: event.lineno,
-        url: window.location.pathname,
-      },
-      success: false,
-    }).then(() => {}).catch(() => {});
+    Promise.resolve(
+      supabase.from('audit_log').insert({
+        action: 'unhandled_error',
+        actor_role: 'client',
+        metadata: {
+          message: sanitizedMessage,
+          filename: event.filename?.replace(/\?.*$/, '') || 'unknown',
+          line: event.lineno,
+          url: window.location.pathname,
+        },
+        success: false,
+      })
+    ).catch(() => {});
   });
 
   window.addEventListener('unhandledrejection', (event) => {
