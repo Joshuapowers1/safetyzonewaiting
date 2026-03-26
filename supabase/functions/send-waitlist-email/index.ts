@@ -93,6 +93,24 @@ const handler = async (req: Request): Promise<Response> => {
       });
     }
 
+    // Rate limit: max 10 email sends per admin per hour
+    const { data: rateLimitAllowed } = await supabaseServiceRole.rpc('check_rate_limit', {
+      p_action: 'email_send',
+      p_identifier: user.id,
+      p_max_requests: 10,
+      p_window_seconds: 3600,
+    });
+
+    if (!rateLimitAllowed) {
+      return new Response(
+        JSON.stringify({ error: "Rate limit exceeded. Maximum 10 email sends per hour." }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json", "Retry-After": "3600", ...corsHeaders },
+        }
+      );
+    }
+
     const { subject, message, recipientIds }: EmailRequest = await req.json();
 
     if (!subject || !message) {
