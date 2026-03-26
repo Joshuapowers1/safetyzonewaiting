@@ -163,15 +163,13 @@ const Index = () => {
         
         <main>
           <HeroSection />
-          <Suspense fallback={null}>
-            <WaitlistSection />
-            <AppShowcase />
-            <FeaturesSection />
-            <StatsSection />
-            <TranslationDemo />
-            <FounderSection />
-            <CTASection />
-          </Suspense>
+          <SecurityErrorBoundary fallback={null}><WaitlistSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><AppShowcase /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><FeaturesSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><StatsSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><TranslationDemo /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><FounderSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><CTASection /></SecurityErrorBoundary>
         </main>
 
         <Footer />
