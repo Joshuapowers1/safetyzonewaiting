@@ -42,6 +42,10 @@ class SecurityErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('[SecurityErrorBoundary] Caught error:', error.message);
+    console.error('[SecurityErrorBoundary] Stack:', error.stack?.split('\n').slice(0, 5).join('\n'));
+    console.error('[SecurityErrorBoundary] Component stack:', errorInfo.componentStack);
+
     const sanitizedMessage = stripPII(error.message || 'Unknown error');
     const sanitizedStack = stripPII((error.stack || '').split('\n').slice(0, 3).join('\n'));
     const sanitizedComponentStack = stripPII(
