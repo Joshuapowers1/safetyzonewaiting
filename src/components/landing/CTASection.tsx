@@ -4,7 +4,6 @@ import { Shield, Heart, CheckCircle } from 'lucide-react';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { GradientText } from '@/components/ui/gradient-text';
-import { Marquee } from '@/components/ui/marquee';
 import { TextEffect } from '@/components/ui/text-effect';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -12,15 +11,6 @@ const benefits = [
   'Free to join',
   'Be first to access the beta',
   'Shape the product with your feedback',
-];
-
-const testimonials = [
-  '🥜 "Finally, an app that gets food allergies right!"',
-  '🌿 "Perfect for my vegan family."',
-  '🍞 "As a celiac, this is life-changing."',
-  '🧀 "No more guessing at restaurants!"',
-  '💪 "Love the calorie tracking feature."',
-  '🌍 "Works in any language — amazing for travel."',
 ];
 
 const CTASection = () => {
@@ -39,16 +29,6 @@ const CTASection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Marquee testimonials */}
-        <div className="mb-16 overflow-hidden">
-          <Marquee pauseOnHover speed={35} className="mb-4">
-            {testimonials.map((t) => (
-              <div key={t} className="mx-4 px-6 py-3 rounded-full bg-white/5 backdrop-blur border border-white/10 text-sm text-white/60 whitespace-nowrap">
-                {t}
-              </div>
-            ))}
-          </Marquee>
-        </div>
 
         <FadeInSection className="max-w-4xl mx-auto">
           <div className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-10 md:p-16 border border-white/10 shadow-2xl text-center">
