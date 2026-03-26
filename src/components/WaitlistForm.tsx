@@ -352,6 +352,8 @@ const WaitlistForm = () => {
               <Label htmlFor="email" className="text-foreground text-sm font-medium">Where can we reach you?</Label>
               <Input id="email" type="email" placeholder="your@email.com" value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                autoComplete="email"
+                maxLength={255}
                 className={`h-12 bg-background text-foreground border-border focus:border-primary transition-all ${errors.email ? 'border-destructive' : ''}`} />
               {errors.email && <p className="text-destructive text-xs">{errors.email}</p>}
             </div>
