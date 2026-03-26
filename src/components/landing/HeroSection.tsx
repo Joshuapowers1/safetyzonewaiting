@@ -8,6 +8,7 @@ import { AnimatedBadge } from '@/components/ui/animated-badge';
 import { Users } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import logoWhite from '@/assets/logo-white.png';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroWave = lazy(() => import('@/components/ui/dynamic-wave-canvas-background'));
 
