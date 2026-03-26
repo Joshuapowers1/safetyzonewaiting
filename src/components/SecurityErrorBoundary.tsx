@@ -121,7 +121,7 @@ if (typeof window !== 'undefined') {
         url: window.location.pathname,
       },
       success: false,
-    }).catch(() => {});
+    }).then(() => {}).catch(() => {});
   });
 }
 
