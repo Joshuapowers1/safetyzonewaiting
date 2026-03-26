@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'; // v2 - forwardRef fixes applied
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import LoadingScreen from '@/components/LoadingScreen';
