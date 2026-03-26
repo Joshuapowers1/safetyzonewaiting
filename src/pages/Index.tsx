@@ -159,10 +159,10 @@ const Index = () => {
       </AnimatePresence>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
-        
+        <SecurityErrorBoundary fallback={null}><Navbar /></SecurityErrorBoundary>
+
         <main>
-          <HeroSection />
+          <SecurityErrorBoundary fallback={null}><HeroSection /></SecurityErrorBoundary>
           <SecurityErrorBoundary fallback={null}><WaitlistSection /></SecurityErrorBoundary>
           <SecurityErrorBoundary fallback={null}><AppShowcase /></SecurityErrorBoundary>
           <SecurityErrorBoundary fallback={null}><FeaturesSection /></SecurityErrorBoundary>
@@ -172,7 +172,7 @@ const Index = () => {
           <SecurityErrorBoundary fallback={null}><CTASection /></SecurityErrorBoundary>
         </main>
 
-        <Footer />
+        <SecurityErrorBoundary fallback={null}><Footer /></SecurityErrorBoundary>
       </div>
     </>
   );
