@@ -14,6 +14,7 @@ const HeroWave = lazy(() => import('@/components/ui/dynamic-wave-canvas-backgrou
 
 const HeroSection = () => {
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     supabase.rpc('get_waitlist_count').then(({ data }) => {
@@ -23,9 +24,13 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[100dvh] overflow-hidden">
-      <Suspense fallback={<div className="absolute inset-0 bg-background" />}>
-        <HeroWave />
-      </Suspense>
+      {isMobile ? (
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,20%,8%)] via-[hsl(174,50%,12%)] to-[hsl(220,20%,6%)]" />
+      ) : (
+        <Suspense fallback={<div className="absolute inset-0 bg-background" />}>
+          <HeroWave />
+        </Suspense>
+      )}
       <div className="absolute inset-0 bg-black/30 z-[1]" />
 
       <div className="relative z-10 flex items-center justify-center min-h-[100dvh] pt-20 pb-16 px-4">
