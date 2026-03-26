@@ -217,6 +217,14 @@ const WaitlistForm = () => {
       const cleanName = sanitizeText(formData.name);
       const cleanEmail = normalizeEmail(formData.email);
 
+      // Validate allergy types against known enum (mass assignment protection)
+      const validAllergyLabels = allergyOptions.map(o => o.label);
+      const sanitizedAllergies = formData.allergyTypes.filter(a => validAllergyLabels.includes(a));
+
+      // Validate severity against known options
+      const validSeverities = severityOptions.map(o => o.label);
+      const sanitizedSeverity = validSeverities.includes(formData.severity) ? formData.severity : null;
+
       // Rate limit
       const { data: allowed, error: rlError } = await supabase.rpc('check_rate_limit', {
         p_action: 'waitlist_signup',
@@ -229,12 +237,13 @@ const WaitlistForm = () => {
         return;
       }
 
+      // Only insert explicitly allowed fields (mass assignment protection)
       const { error } = await supabase.from('waitlist').insert({
         name: cleanName,
         email: cleanEmail,
         managing_for: formData.managingFor || null,
-        allergy_types: formData.allergyTypes.length > 0 ? formData.allergyTypes : null,
-        severity: formData.severity || null,
+        allergy_types: sanitizedAllergies.length > 0 ? sanitizedAllergies : null,
+        severity: sanitizedSeverity,
         interest: formData.interest || null,
         heard_from: formData.heardFrom || null,
         device_preference: formData.devicePreference || null,
@@ -249,6 +258,9 @@ const WaitlistForm = () => {
         }
         return;
       }
+
+      // Clear sensitive form data from memory immediately after successful submission
+      setFormData(prev => ({ ...prev, email: '', name: '' }));
 
       setIsSuccess(true);
       toast({ title: "You're on the list! 🎉", description: "We'll notify you when we launch." });
@@ -343,6 +355,8 @@ const WaitlistForm = () => {
               <Label htmlFor="name" className="text-foreground text-sm font-medium">What should we call you?</Label>
               <Input id="name" placeholder="Your first name" value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                autoComplete="given-name"
+                maxLength={100}
                 className={`h-12 bg-background text-foreground border-border focus:border-primary transition-all ${errors.name ? 'border-destructive' : ''}`} />
               {errors.name && <p className="text-destructive text-xs">{errors.name}</p>}
             </div>
@@ -350,6 +364,8 @@ const WaitlistForm = () => {
               <Label htmlFor="email" className="text-foreground text-sm font-medium">Where can we reach you?</Label>
               <Input id="email" type="email" placeholder="your@email.com" value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                autoComplete="email"
+                maxLength={255}
                 className={`h-12 bg-background text-foreground border-border focus:border-primary transition-all ${errors.email ? 'border-destructive' : ''}`} />
               {errors.email && <p className="text-destructive text-xs">{errors.email}</p>}
             </div>

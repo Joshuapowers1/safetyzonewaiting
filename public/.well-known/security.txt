@@ -1,0 +1,6 @@
+Contact: mailto:security@mysafetyzone.com
+Contact: mailto:joshua@mysafetyzone.com
+Expires: 2027-03-26T00:00:00.000Z
+Preferred-Languages: en
+Policy: https://mysafetyzone.com/privacy
+Canonical: https://mysafetyzone.com/.well-known/security.txt

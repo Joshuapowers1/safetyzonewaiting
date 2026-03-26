@@ -19,6 +19,9 @@ const DISPOSABLE_DOMAINS = new Set([
  */
 export function sanitizeText(input: string): string {
   return input
+    .replace(/\0/g, '')  // null bytes
+    .replace(/[\u200E\u200F\u202A-\u202E\u2066-\u2069]/g, '') // direction overrides
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '') // control characters
     .replace(/<[^>]*>/g, '') // Strip HTML tags
     .replace(/[<>]/g, '')    // Remove any remaining angle brackets
     .trim();
@@ -66,4 +69,21 @@ export function generateMathCaptcha(): { question: string; answer: number } {
   const a = Math.floor(Math.random() * 10) + 1;
   const b = Math.floor(Math.random() * 10) + 1;
   return { question: `What is ${a} + ${b}?`, answer: a + b };
+}
+
+/**
+ * Validate a value against a known set of allowed values (enum protection)
+ */
+export function validateEnum<T extends string>(value: string, allowedValues: T[]): T | null {
+  return allowedValues.includes(value as T) ? (value as T) : null;
+}
+
+/**
+ * Strip null bytes, unicode direction overrides, and control characters
+ */
+export function stripDangerousChars(input: string): string {
+  return input
+    .replace(/\0/g, '') // null bytes
+    .replace(/[\u200E\u200F\u202A-\u202E\u2066-\u2069]/g, '') // direction overrides
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, ''); // control characters (preserving \n, \r, \t)
 }

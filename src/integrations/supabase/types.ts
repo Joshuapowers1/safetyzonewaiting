@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      audit_log: {
+        Row: {
+          action: string
+          actor_id_hash: string | null
+          actor_role: string
+          created_at: string
+          id: string
+          ip_hash: string | null
+          metadata: Json | null
+          resource_id_hash: string | null
+          resource_type: string | null
+          success: boolean
+        }
+        Insert: {
+          action: string
+          actor_id_hash?: string | null
+          actor_role?: string
+          created_at?: string
+          id?: string
+          ip_hash?: string | null
+          metadata?: Json | null
+          resource_id_hash?: string | null
+          resource_type?: string | null
+          success?: boolean
+        }
+        Update: {
+          action?: string
+          actor_id_hash?: string | null
+          actor_role?: string
+          created_at?: string
+          id?: string
+          ip_hash?: string | null
+          metadata?: Json | null
+          resource_id_hash?: string | null
+          resource_type?: string | null
+          success?: boolean
+        }
+        Relationships: []
+      }
       email_drafts: {
         Row: {
           created_at: string
