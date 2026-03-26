@@ -131,18 +131,24 @@ const WaitlistForm = () => {
   const [captchaAnswer, setCaptchaAnswer] = useState('');
   const [captchaError, setCaptchaError] = useState('');
 
-  // Realtime count
+  // Waitlist count (WebSocket-free for compatibility with in-app browsers)
   useEffect(() => {
+    let cancelled = false;
+
     const fetchCount = async () => {
-      const { count } = await supabase.from('waitlist').select('*', { count: 'exact', head: true });
-      if (count !== null) setWaitlistCount(count);
+      const { data, error } = await supabase.rpc('get_waitlist_count');
+      if (!cancelled && !error && typeof data === 'number') {
+        setWaitlistCount(data);
+      }
     };
+
     fetchCount();
-    const channel = supabase
-      .channel('waitlist-count')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'waitlist' }, () => fetchCount())
-      .subscribe();
-    return () => { supabase.removeChannel(channel); };
+    const intervalId = window.setInterval(fetchCount, 30000);
+
+    return () => {
+      cancelled = true;
+      window.clearInterval(intervalId);
+    };
   }, []);
 
   // ── Step validation ──
