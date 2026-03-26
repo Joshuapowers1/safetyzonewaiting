@@ -49,21 +49,21 @@ class SecurityErrorBoundary extends Component<Props, State> {
       (errorInfo.componentStack || '').split('\n').slice(0, 5).join('\n')
     );
 
-    supabase.from('audit_log').insert({
-      action: 'client_error',
-      actor_role: 'client',
-      metadata: {
-        message: sanitizedMessage,
-        stack: sanitizedStack,
-        component: sanitizedComponentStack,
-        url: window.location.pathname, // path only, no query params
-        timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent.slice(0, 100),
-      },
-      success: false,
-    }).then(() => {}).catch(() => {
-      // Silently fail — never expose logging errors
-    });
+    Promise.resolve(
+      supabase.from('audit_log').insert({
+        action: 'client_error',
+        actor_role: 'client',
+        metadata: {
+          message: sanitizedMessage,
+          stack: sanitizedStack,
+          component: sanitizedComponentStack,
+          url: window.location.pathname,
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent.slice(0, 100),
+        },
+        success: false,
+      })
+    ).catch(() => {});
   }
 
   render() {
