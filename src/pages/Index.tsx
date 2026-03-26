@@ -1,19 +1,18 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SecurityErrorBoundary from '@/components/SecurityErrorBoundary';
 import HeroSection from '@/components/landing/HeroSection';
-
-const FeaturesSection = lazy(() => import('@/components/landing/FeaturesSection'));
-const StatsSection = lazy(() => import('@/components/landing/StatsSection'));
-const FounderSection = lazy(() => import('@/components/landing/FounderSection'));
-const WaitlistSection = lazy(() => import('@/components/landing/WaitlistSection'));
-const CTASection = lazy(() => import('@/components/landing/CTASection'));
-const TranslationDemo = lazy(() => import('@/components/landing/TranslationDemo'));
-const AppShowcase = lazy(() => import('@/components/landing/AppShowcase'));
-
+import FeaturesSection from '@/components/landing/FeaturesSection';
+import StatsSection from '@/components/landing/StatsSection';
+import FounderSection from '@/components/landing/FounderSection';
+import WaitlistSection from '@/components/landing/WaitlistSection';
+import CTASection from '@/components/landing/CTASection';
+import TranslationDemo from '@/components/landing/TranslationDemo';
+import AppShowcase from '@/components/landing/AppShowcase';
 const Index = () => {
   const [showLoading, setShowLoading] = useState(true);
 
@@ -160,22 +159,20 @@ const Index = () => {
       </AnimatePresence>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
-        
+        <SecurityErrorBoundary fallback={null}><Navbar /></SecurityErrorBoundary>
+
         <main>
-          <HeroSection />
-          <Suspense fallback={null}>
-            <WaitlistSection />
-            <AppShowcase />
-            <FeaturesSection />
-            <StatsSection />
-            <TranslationDemo />
-            <FounderSection />
-            <CTASection />
-          </Suspense>
+          <SecurityErrorBoundary fallback={null}><HeroSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><WaitlistSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><AppShowcase /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><FeaturesSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><StatsSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><TranslationDemo /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><FounderSection /></SecurityErrorBoundary>
+          <SecurityErrorBoundary fallback={null}><CTASection /></SecurityErrorBoundary>
         </main>
 
-        <Footer />
+        <SecurityErrorBoundary fallback={null}><Footer /></SecurityErrorBoundary>
       </div>
     </>
   );
