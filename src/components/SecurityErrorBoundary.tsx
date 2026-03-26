@@ -3,13 +3,13 @@ import { supabase } from '@/integrations/supabase/client';
 
 // PII patterns to strip from error messages before logging
 const PII_PATTERNS = [
-  /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, // emails
-  /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g, // phone numbers
-  /\b\d{3}-\d{2}-\d{4}\b/g, // SSN
-  /\b(?:\d{4}[-\s]?){3}\d{4}\b/g, // credit cards
-  /Bearer\s+[A-Za-z0-9\-._~+\/]+=*/g, // JWT tokens
-  /eyJ[A-Za-z0-9\-_]+\.eyJ[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_.+/=]*/g, // JWT format
-  /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi, // UUIDs
+  /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g,
+  /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g,
+  /\b\d{3}-\d{2}-\d{4}\b/g,
+  /\b(?:\d{4}[-\s]?){3}\d{4}\b/g,
+  /Bearer\s+[A-Za-z0-9\-._~+\/]+=*/g,
+  /eyJ[A-Za-z0-9\-_]+\.eyJ[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_.+/=]*/g,
+  /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi,
 ];
 
 function stripPII(text: string): string {
@@ -17,7 +17,6 @@ function stripPII(text: string): string {
   for (const pattern of PII_PATTERNS) {
     sanitized = sanitized.replace(pattern, '[REDACTED]');
   }
-  // Truncate to prevent huge payloads
   return sanitized.slice(0, 500);
 }
 
@@ -29,20 +28,20 @@ interface Props {
 interface State {
   hasError: boolean;
   error: Error | null;
+  errorCount: number;
 }
 
 class SecurityErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { hasError: false, error: null, errorCount: 0 };
   }
 
-  static getDerivedStateFromError(error: Error): State {
+  static getDerivedStateFromError(error: Error): Partial<State> {
     return { hasError: true, error };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log to audit table with PII stripped
     const sanitizedMessage = stripPII(error.message || 'Unknown error');
     const sanitizedStack = stripPII((error.stack || '').split('\n').slice(0, 3).join('\n'));
     const sanitizedComponentStack = stripPII(
@@ -64,10 +63,22 @@ class SecurityErrorBoundary extends Component<Props, State> {
         success: false,
       })
     ).catch(() => {});
+
+    // Auto-recover after a brief delay if this is the first error
+    this.setState((prev) => {
+      const newCount = prev.errorCount + 1;
+      if (newCount <= 2) {
+        setTimeout(() => {
+          this.setState({ hasError: false, error: null });
+        }, 100);
+      }
+      return { errorCount: newCount };
+    });
   }
 
   render() {
-    if (this.state.hasError) {
+    // Only show fallback if we've had 3+ consecutive errors (persistent crash)
+    if (this.state.hasError && this.state.errorCount > 2) {
       return this.props.fallback || (
         <div className="min-h-screen flex items-center justify-center bg-background">
           <div className="text-center p-8 max-w-md">
@@ -93,7 +104,7 @@ class SecurityErrorBoundary extends Component<Props, State> {
   }
 }
 
-// Global unhandled error listener (also strips PII)
+// Global unhandled error listener (also strips PII) — only logs, never blocks UI
 if (typeof window !== 'undefined') {
   window.addEventListener('error', (event) => {
     const sanitizedMessage = stripPII(event.message || 'Unknown error');
