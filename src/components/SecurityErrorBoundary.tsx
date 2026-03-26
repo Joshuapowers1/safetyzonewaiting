@@ -115,15 +115,17 @@ if (typeof window !== 'undefined') {
   window.addEventListener('unhandledrejection', (event) => {
     const message = event.reason?.message || String(event.reason || 'Unknown rejection');
     const sanitizedMessage = stripPII(message);
-    supabase.from('audit_log').insert({
-      action: 'unhandled_promise_rejection',
-      actor_role: 'client',
-      metadata: {
-        message: sanitizedMessage,
-        url: window.location.pathname,
-      },
-      success: false,
-    }).then(() => {}).catch(() => {});
+    Promise.resolve(
+      supabase.from('audit_log').insert({
+        action: 'unhandled_promise_rejection',
+        actor_role: 'client',
+        metadata: {
+          message: sanitizedMessage,
+          url: window.location.pathname,
+        },
+        success: false,
+      })
+    ).catch(() => {});
   });
 }
 
