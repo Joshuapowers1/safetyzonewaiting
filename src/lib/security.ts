@@ -19,6 +19,9 @@ const DISPOSABLE_DOMAINS = new Set([
  */
 export function sanitizeText(input: string): string {
   return input
+    .replace(/\0/g, '')  // null bytes
+    .replace(/[\u200E\u200F\u202A-\u202E\u2066-\u2069]/g, '') // direction overrides
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '') // control characters
     .replace(/<[^>]*>/g, '') // Strip HTML tags
     .replace(/[<>]/g, '')    // Remove any remaining angle brackets
     .trim();
