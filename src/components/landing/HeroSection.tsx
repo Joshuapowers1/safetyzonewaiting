@@ -54,7 +54,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.4, duration: 0.5 }}
                 className="text-base md:text-lg text-white/45 leading-relaxed max-w-md"
               >
-                SafetyZone protects families with peanut, gluten, dairy, tree nut, shellfish, egg, soy, and sesame allergies. Share your QR allergy card in 200+ languages, track your EpiPens and inhalers, get FDA recall alerts, find allergen-free recipes, and track calories. All in one free app.
+                Whether you have food allergies, celiac disease, EOE, alpha-gal syndrome, or any dietary restriction — SafetyZone keeps you safe. QR allergy cards in 200+ languages, EpiPen &amp; inhaler tracking, FDA recall alerts, allergen-free recipes, and a calorie &amp; macro counter. All free.
               </motion.p>
 
               {/* Real App Store badges */}
