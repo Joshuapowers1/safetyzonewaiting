@@ -1,62 +1,41 @@
 import { motion } from 'framer-motion';
 import { AnimatedCounter } from '@/components/ui/animated-counter';
 import { FadeInSection } from '@/components/ui/fade-in-section';
-import { DrawIcon } from '@/components/ui/draw-icon';
 import { AlertTriangle, Globe, Zap, Users } from 'lucide-react';
 
 const stats = [
-  { value: 33, suffix: 'M+', label: 'Americans with food allergies', max: 50, icon: Users },
-  { value: 200, suffix: 'K+', label: 'ER visits from allergic reactions yearly', max: 250, icon: AlertTriangle },
-  { value: 200, suffix: '+', label: 'Languages supported', max: 250, icon: Globe },
-  { value: 50, suffix: 'ms', label: 'Allergen detection speed', max: 100, prefix: '< ', icon: Zap },
+  { value: 33, suffix: 'M+', label: 'Americans with food allergies', icon: Users },
+  { value: 200, suffix: 'K+', label: 'ER visits from reactions yearly', icon: AlertTriangle },
+  { value: 200, suffix: '+', label: 'Languages supported', icon: Globe },
+  { value: 50, suffix: 'ms', label: 'Allergen detection speed', prefix: '< ', icon: Zap },
 ];
 
 const StatsSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-[hsl(200,25%,5%)] via-[hsl(210,30%,8%)] to-[hsl(200,25%,5%)]">
-      {/* Animated gradient wave */}
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        style={{
-          background: 'linear-gradient(135deg, hsl(var(--primary) / 0.1), transparent 40%, hsl(var(--accent) / 0.1) 60%, transparent)',
-          backgroundSize: '200% 200%',
-        }}
-        animate={{ backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'] }}
-        transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-      />
-
-      {/* Grid lines */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
-        }}
-      />
+    <section className="py-24 relative overflow-hidden bg-[hsl(220,25%,4%)]">
+      {/* Divider line top */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <FadeInSection className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+        <FadeInSection className="text-center mb-14">
+          <h2 className="text-2xl md:text-4xl font-bold text-white">
             Built for the community that needs it most
           </h2>
         </FadeInSection>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
           {stats.map((stat, index) => (
-            <FadeInSection key={stat.label} delay={index * 0.15} className="text-center group">
+            <FadeInSection key={stat.label} delay={index * 0.1} className="text-center">
               <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className="flex flex-col items-center"
+                className="flex flex-col items-center p-6 rounded-2xl bg-white/[0.02] border border-white/[0.04] hover:border-white/[0.08] transition-colors"
               >
-                {/* Icon with draw animation */}
-                <DrawIcon delay={index * 0.15} className="mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <stat.icon className="w-6 h-6 text-primary" />
-                  </div>
-                </DrawIcon>
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <stat.icon className="w-5 h-5 text-primary" />
+                </div>
 
-                <div className="text-3xl md:text-4xl font-bold text-white">
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
                   <AnimatedCounter
                     value={stat.value}
                     suffix={stat.suffix}
@@ -66,7 +45,7 @@ const StatsSection = () => {
                   />
                 </div>
 
-                <div className="text-sm text-white/60 font-medium mt-4 max-w-[160px]">
+                <div className="text-xs text-white/40 font-medium max-w-[140px]">
                   {stat.label}
                 </div>
               </motion.div>
@@ -74,6 +53,9 @@ const StatsSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Divider line bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
     </section>
   );
 };
