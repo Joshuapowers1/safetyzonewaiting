@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
@@ -10,7 +10,6 @@ import FeaturesSection from '@/components/landing/FeaturesSection';
 import StatsSection from '@/components/landing/StatsSection';
 import FounderSection from '@/components/landing/FounderSection';
 import CTASection from '@/components/landing/CTASection';
-import TranslationDemo from '@/components/landing/TranslationDemo';
 import AppShowcase from '@/components/landing/AppShowcase';
 
 const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
@@ -171,7 +170,7 @@ const Index = () => {
           <SecurityErrorBoundary fallback={null}><AppShowcase /></SecurityErrorBoundary>
           <SecurityErrorBoundary fallback={null}><FeaturesSection /></SecurityErrorBoundary>
           <SecurityErrorBoundary fallback={null}><StatsSection /></SecurityErrorBoundary>
-          <SecurityErrorBoundary fallback={null}><TranslationDemo /></SecurityErrorBoundary>
+          
           <SecurityErrorBoundary fallback={null}><FounderSection /></SecurityErrorBoundary>
           <SecurityErrorBoundary fallback={null}><CTASection /></SecurityErrorBoundary>
         </main>
