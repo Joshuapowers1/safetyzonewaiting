@@ -24,8 +24,8 @@ const liveFeatures = [
   },
   {
     icon: Camera,
-    title: 'NutriScan AI',
-    description: 'AI calorie counter and macro tracker from any food photo. The fastest nutrition scanner for allergy-safe eating.',
+    title: 'Calorie & Macro Counter',
+    description: 'Snap a photo of any meal for instant calories, macros, and micronutrients. The fastest nutrition tracker for weight loss, muscle gain, keto, and allergy-safe eating.',
   },
   {
     icon: Pill,
@@ -105,11 +105,11 @@ const FeaturesSection = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             The most advanced{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              food allergy &amp; allergen detection app
+              food allergy, nutrition &amp; wellness app
             </span>
           </h2>
           <p className="text-base text-white/40">
-            Built to protect you and your family from hidden allergens in every meal, every restaurant, every country. Supporting peanut allergy, celiac disease, dairy allergy, tree nut allergy, shellfish allergy, food intolerance, and all dietary restrictions.
+            Built for food allergies, celiac disease, EOE, alpha-gal, FPIES, dietary restrictions, calorie &amp; macro tracking, and every sensitivity. Protecting you and your family in every meal, every restaurant, every country.
           </p>
         </FadeInSection>
 
@@ -137,7 +137,7 @@ const FeaturesSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-white">
             8 Live Features — Available Now on iOS App Store
           </h3>
-          <p className="text-sm text-white/30 mt-2">Every feature you need to manage food allergies, track medications, and eat safely — all in one free app</p>
+          <p className="text-sm text-white/30 mt-2">Everything you need for food allergies, celiac, EOE, alpha-gal, dietary restrictions, and calorie tracking — all free</p>
         </FadeInSection>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-16">

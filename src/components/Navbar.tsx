@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Apple } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
+import { AppStoreBadge } from '@/components/ui/store-badges';
 import logoWhite from '@/assets/logo-white.png';
 
 const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
@@ -63,12 +63,7 @@ const Navbar = () => {
             <Link to="/auth" className="text-sm font-medium text-white/50 hover:text-white transition-colors">
               Admin
             </Link>
-            <Button asChild size="sm" className="rounded-lg bg-white text-black hover:bg-white/90 font-medium h-9 px-4">
-              <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">
-                <Apple className="w-3.5 h-3.5" />
-                Download
-              </a>
-            </Button>
+            <AppStoreBadge className="h-9" />
           </div>
 
           <button
@@ -109,12 +104,7 @@ const Navbar = () => {
               >
                 Admin
               </Link>
-              <Button asChild size="sm" className="w-full rounded-lg bg-white text-black hover:bg-white/90 font-medium">
-                <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">
-                  <Apple className="w-3.5 h-3.5" />
-                  Download App
-                </a>
-              </Button>
+              <AppStoreBadge className="h-10 w-full" />
             </div>
           </motion.div>
         )}

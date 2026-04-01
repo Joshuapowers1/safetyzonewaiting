@@ -43,21 +43,10 @@ const showcaseFeatures = [
   },
 ];
 
-/* Modern iPhone-style phone frame */
-const IPhoneFrame = ({ children }: { children: React.ReactNode }) => (
-  <div className="relative">
-    <div className="rounded-[3rem] bg-gradient-to-b from-[hsl(220,10%,25%)] via-[hsl(220,10%,18%)] to-[hsl(220,10%,12%)] p-[3px] shadow-2xl shadow-black/60">
-      <div className="rounded-[2.85rem] bg-black p-[6px]">
-        <div className="rounded-[2.5rem] overflow-hidden relative">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 w-[90px] h-[28px] bg-black rounded-b-[16px]" />
-          {children}
-        </div>
-      </div>
-    </div>
-    <div className="absolute right-[-2px] top-[28%] w-[3px] h-[40px] rounded-r-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[22%] w-[3px] h-[24px] rounded-l-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[32%] w-[3px] h-[40px] rounded-l-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[42%] w-[3px] h-[40px] rounded-l-full bg-[hsl(220,10%,22%)]" />
+/* Clean screen frame — no bezel */
+const ScreenFrame = ({ children }: { children: React.ReactNode }) => (
+  <div className="rounded-[1.5rem] overflow-hidden shadow-2xl shadow-black/50">
+    {children}
   </div>
 );
 
@@ -74,12 +63,12 @@ const AppShowcase = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
             The most powerful{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              food allergy app
+              food allergy &amp; nutrition app
             </span>{' '}
             on iOS
           </h2>
           <p className="text-base text-white/35 mt-4 max-w-2xl mx-auto">
-            Allergen detection for peanut allergy, celiac disease, dairy allergy, tree nut allergy, shellfish allergy, egg allergy, soy allergy, and 50+ sensitivities
+            Built for food allergies, celiac disease, EOE, alpha-gal syndrome, FPIES, dietary restrictions, calorie counting, macro tracking, and 50+ sensitivities
           </p>
         </FadeInSection>
 
@@ -96,9 +85,9 @@ const AppShowcase = () => {
             >
               {/* Small phone preview */}
               <div className="shrink-0 w-[100px] sm:w-[120px]">
-                <IPhoneFrame>
+                <ScreenFrame>
                   <img src={feature.image} alt={feature.alt} loading="lazy" className="w-full aspect-[9/19.5] object-cover" width="120" height="260" />
-                </IPhoneFrame>
+                </ScreenFrame>
               </div>
 
               {/* Content */}
