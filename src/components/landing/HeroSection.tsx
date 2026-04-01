@@ -1,9 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { TextEffect } from '@/components/ui/text-effect';
-import { TextShimmer } from '@/components/ui/text-shimmer';
 import { Apple, Smartphone, ArrowRight, Shield, Star } from 'lucide-react';
-import logoWhite from '@/assets/logo-white.png';
 import screenHome from '@/assets/screen-home.png';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';

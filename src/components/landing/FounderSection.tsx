@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import joshHeadshot from '@/assets/josh-headshot.png';
 import { FadeInSection } from '@/components/ui/fade-in-section';
