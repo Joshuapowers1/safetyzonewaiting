@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Heart, CheckCircle, Smartphone, Star } from 'lucide-react';
+import { Shield, Heart, CheckCircle, Star } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 
