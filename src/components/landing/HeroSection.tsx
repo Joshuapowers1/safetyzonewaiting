@@ -34,18 +34,17 @@ const HeroSection = () => {
                   preset="blur"
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.08] tracking-tight font-bold text-white"
                 >
-                  The #1 Food Allergy App
+                  Safety in every bite.
                 </TextEffect>
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.08] tracking-tight font-bold mt-1"
+                  className="text-2xl sm:text-3xl md:text-4xl leading-[1.15] tracking-tight font-semibold mt-3"
                 >
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    Eat with confidence,
-                  </span>{' '}
-                  <span className="text-white">not caution</span>
+                    The #1 app for food allergies, dietary restrictions &amp; nutrition tracking
+                  </span>
                 </motion.p>
               </div>
 
