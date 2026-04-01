@@ -399,7 +399,7 @@ const Index = () => {
 
         <main>
           <SecurityErrorBoundary fallback={null}><HeroSection /></SecurityErrorBoundary>
-          <SecurityErrorBoundary fallback={null}><AppShowcase /></SecurityErrorBoundary>
+          
           <SecurityErrorBoundary fallback={null}><FeaturesSection /></SecurityErrorBoundary>
           <SecurityErrorBoundary fallback={null}><StatsSection /></SecurityErrorBoundary>
           
