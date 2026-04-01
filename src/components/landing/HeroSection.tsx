@@ -8,6 +8,29 @@ import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 
 const HeroWave = lazy(() => import('@/components/ui/dynamic-wave-canvas-background'));
 
+/* Modern iPhone-style phone frame */
+const IPhoneFrame = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div className={`relative ${className ?? ''}`}>
+    {/* Outer titanium frame */}
+    <div className="rounded-[3rem] bg-gradient-to-b from-[hsl(220,10%,25%)] via-[hsl(220,10%,18%)] to-[hsl(220,10%,12%)] p-[3px] shadow-2xl shadow-black/60">
+      {/* Inner bezel */}
+      <div className="rounded-[2.85rem] bg-black p-[6px]">
+        {/* Screen area */}
+        <div className="rounded-[2.5rem] overflow-hidden relative">
+          {/* Dynamic Island */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 w-[90px] h-[28px] bg-black rounded-b-[16px]" />
+          {children}
+        </div>
+      </div>
+    </div>
+    {/* Side button accent */}
+    <div className="absolute right-[-2px] top-[28%] w-[3px] h-[40px] rounded-r-full bg-[hsl(220,10%,22%)]" />
+    <div className="absolute left-[-2px] top-[22%] w-[3px] h-[24px] rounded-l-full bg-[hsl(220,10%,22%)]" />
+    <div className="absolute left-[-2px] top-[32%] w-[3px] h-[40px] rounded-l-full bg-[hsl(220,10%,22%)]" />
+    <div className="absolute left-[-2px] top-[42%] w-[3px] h-[40px] rounded-l-full bg-[hsl(220,10%,22%)]" />
+  </div>
+);
+
 const HeroSection = () => {
   const isMobile = useIsMobile();
 
@@ -41,12 +64,11 @@ const HeroSection = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.08] tracking-tight font-bold mt-1"
-                  aria-label="Eat safely with AI-powered allergen detection"
                 >
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    Eat safely
+                    Eat with confidence,
                   </span>{' '}
-                  <span className="text-white">with AI</span>
+                  <span className="text-white">not caution</span>
                 </motion.p>
               </div>
 
@@ -56,7 +78,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.4, duration: 0.5 }}
                 className="text-base md:text-lg text-white/45 leading-relaxed max-w-md"
               >
-                SafetyZone is the AI-powered food allergy app trusted by families with peanut, gluten, dairy, tree nut, shellfish, egg, soy, and sesame allergies. Share your QR allergy card in 200+ languages, track your EpiPens and inhalers, get FDA recall alerts, find allergen-free recipes, and track calories with AI. All in one free app.
+                SafetyZone protects families with peanut, gluten, dairy, tree nut, shellfish, egg, soy, and sesame allergies. Share your QR allergy card in 200+ languages, track your EpiPens and inhalers, get FDA recall alerts, find allergen-free recipes, and track calories. All in one free app.
               </motion.p>
 
               {/* Real App Store badges */}
@@ -100,7 +122,7 @@ const HeroSection = () => {
                   transition={{ delay: 0.5, duration: 0.7 }}
                   className="absolute right-0 top-0 w-[200px] sm:w-[240px] md:w-[260px]"
                 >
-                  <div className="rounded-[2.2rem] border-[5px] border-white/[0.08] bg-black overflow-hidden shadow-2xl shadow-black/50">
+                  <IPhoneFrame>
                     <img
                       src={screenQrProfile}
                       alt="SafetyZone QR allergy card translated into 200+ languages for restaurant staff - food allergy translation card app"
@@ -108,7 +130,7 @@ const HeroSection = () => {
                       width="260"
                       height="563"
                     />
-                  </div>
+                  </IPhoneFrame>
                 </motion.div>
 
                 {/* Front phone - Home */}
@@ -118,15 +140,15 @@ const HeroSection = () => {
                   transition={{ delay: 0.4, duration: 0.7 }}
                   className="absolute left-0 top-8 sm:top-12 w-[210px] sm:w-[250px] md:w-[270px] z-10"
                 >
-                  <div className="rounded-[2.4rem] border-[5px] border-white/[0.1] bg-black overflow-hidden shadow-2xl shadow-primary/10">
+                  <IPhoneFrame>
                     <img
                       src={screenHome}
-                      alt="SafetyZone food allergy app home dashboard showing EpiPen tracker, allergen scanner, NutriScan AI calorie counter, and FDA recall alerts"
+                      alt="SafetyZone food allergy app home dashboard showing EpiPen tracker, allergen scanner, NutriScan calorie counter, and FDA recall alerts"
                       className="w-full aspect-[9/19.5] object-cover"
                       width="270"
                       height="585"
                     />
-                  </div>
+                  </IPhoneFrame>
                 </motion.div>
               </div>
             </motion.div>

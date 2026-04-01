@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Heart, CheckCircle, Star } from 'lucide-react';
+import { Shield, Heart, CheckCircle } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 
@@ -11,21 +11,6 @@ const CTASection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <FadeInSection className="max-w-2xl mx-auto text-center">
-          {/* Star rating */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <div className="flex justify-center gap-1 mb-3">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 text-amber-400 fill-amber-400" />
-              ))}
-            </div>
-            <p className="text-sm text-white/40">Rated 4.9/5 on the App Store</p>
-          </motion.div>
-
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
             Download SafetyZone.{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -34,7 +19,7 @@ const CTASection = () => {
           </h2>
 
           <p className="text-base text-white/40 mb-10 max-w-lg mx-auto">
-            Join thousands of families with food allergies who eat with confidence using the #1 AI food allergy app. QR allergy cards, EpiPen tracker, FDA recall alerts, and more — all free on iOS.
+            Join thousands of families with food allergies who eat with confidence using the #1 food allergy app. QR allergy cards, EpiPen tracker, FDA recall alerts, and more — all free on iOS.
           </p>
 
           {/* Real store badges */}
@@ -54,13 +39,13 @@ const CTASection = () => {
             </div>
             <div className="flex items-center gap-1.5 text-xs text-white/30">
               <Heart className="w-3.5 h-3.5 text-primary/50" />
-              Medical-Grade AI
+              Medical-Grade Accuracy
             </div>
           </div>
         </FadeInSection>
 
         <p className="text-[10px] text-white/15 text-center mt-8 max-w-md mx-auto">
-          SafetyZone food allergy app — AI recommendations are informational only. Always verify allergens with restaurant staff and consult healthcare providers for medical advice.
+          SafetyZone food allergy app — recommendations are informational only. Always verify allergens with restaurant staff and consult healthcare providers for medical advice.
         </p>
       </div>
     </section>
