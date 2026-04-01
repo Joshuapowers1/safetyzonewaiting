@@ -43,21 +43,10 @@ const showcaseFeatures = [
   },
 ];
 
-/* Modern iPhone-style phone frame */
-const IPhoneFrame = ({ children }: { children: React.ReactNode }) => (
-  <div className="relative">
-    <div className="rounded-[3rem] bg-gradient-to-b from-[hsl(220,10%,25%)] via-[hsl(220,10%,18%)] to-[hsl(220,10%,12%)] p-[3px] shadow-2xl shadow-black/60">
-      <div className="rounded-[2.85rem] bg-black p-[6px]">
-        <div className="rounded-[2.5rem] overflow-hidden relative">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 w-[90px] h-[28px] bg-black rounded-b-[16px]" />
-          {children}
-        </div>
-      </div>
-    </div>
-    <div className="absolute right-[-2px] top-[28%] w-[3px] h-[40px] rounded-r-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[22%] w-[3px] h-[24px] rounded-l-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[32%] w-[3px] h-[40px] rounded-l-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[42%] w-[3px] h-[40px] rounded-l-full bg-[hsl(220,10%,22%)]" />
+/* Clean screen frame — no bezel */
+const ScreenFrame = ({ children }: { children: React.ReactNode }) => (
+  <div className="rounded-[1.5rem] overflow-hidden shadow-2xl shadow-black/50">
+    {children}
   </div>
 );
 
