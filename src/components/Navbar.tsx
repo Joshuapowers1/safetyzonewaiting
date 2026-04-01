@@ -63,12 +63,7 @@ const Navbar = () => {
             <Link to="/auth" className="text-sm font-medium text-white/50 hover:text-white transition-colors">
               Admin
             </Link>
-            <Button asChild size="sm" className="rounded-lg bg-white text-black hover:bg-white/90 font-medium h-9 px-4">
-              <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">
-                <Apple className="w-3.5 h-3.5" />
-                Download
-              </a>
-            </Button>
+            <AppStoreBadge className="h-9" />
           </div>
 
           <button
