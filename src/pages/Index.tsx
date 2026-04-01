@@ -52,7 +52,7 @@ const Index = () => {
             "applicationCategory": "HealthApplication",
             "applicationSubCategory": "Food Allergy Management",
             "operatingSystem": "iOS",
-            "description": "Eat with confidence, not caution. SafetyZone is the most advanced food allergy app, powered by AI to keep you and your family safe. Scan menus, products, and barcodes instantly to detect allergens before you eat. Features: QR Allergy Cards in 200+ languages, Travel Allergen with destination-specific safety tips, NutriScan AI calorie tracking, Recipe AI with infinite safe substitutions, EpiPen & Medication Tracker with auto reminders. Supports peanuts, tree nuts, milk, eggs, wheat, soy, fish, shellfish, sesame, and 50+ additional sensitivities.",
+            "description": "Eat with confidence, not caution. SafetyZone is the most advanced food allergy app, powered by AI to keep you and your family safe. Features: QR Allergy Cards in 200+ languages, Travel Allergen with destination-specific safety tips, NutriScan AI calorie tracking, Recipe AI with infinite safe substitutions, EpiPen Tracker, Inhaler Tracker, Medical Device Tracker, and FDA Recall Alerts. Supports peanuts, tree nuts, milk, eggs, wheat, soy, fish, shellfish, sesame, and 50+ additional sensitivities.",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -65,7 +65,7 @@ const Index = () => {
               "@type": "Organization",
               "name": "Powers Solutions USA LLC"
             },
-            "featureList": "QR Allergy Cards in 200+ Languages, Travel Allergen Feature, NutriScan AI Calorie Tracking, Recipe AI with Safe Substitutions, EpiPen & Medication Tracker, Cross-Reactivity Warnings",
+            "featureList": "QR Allergy Cards in 200+ Languages, Travel Allergen Feature, NutriScan AI Calorie Tracking, Recipe AI with Safe Substitutions, EpiPen Tracker, Inhaler Tracker, Medical Device Tracker, FDA Recall Alerts",
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
