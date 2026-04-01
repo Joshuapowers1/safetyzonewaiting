@@ -77,7 +77,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.7 }}
                 className="text-xs text-white/25 max-w-sm"
               >
-                Best food allergy app for celiac disease, food intolerance, anaphylaxis prevention, halal, kosher, vegan & vegetarian diets
+                For celiac disease, EOE, alpha-gal, FPIES, food intolerance, anaphylaxis prevention, halal, kosher, vegan, vegetarian, keto &amp; calorie tracking
               </motion.p>
             </div>
 
