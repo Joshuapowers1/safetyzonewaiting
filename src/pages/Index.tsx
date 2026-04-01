@@ -10,7 +10,6 @@ import FeaturesSection from '@/components/landing/FeaturesSection';
 import StatsSection from '@/components/landing/StatsSection';
 import FounderSection from '@/components/landing/FounderSection';
 import CTASection from '@/components/landing/CTASection';
-import TranslationDemo from '@/components/landing/TranslationDemo';
 import AppShowcase from '@/components/landing/AppShowcase';
 
 const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
