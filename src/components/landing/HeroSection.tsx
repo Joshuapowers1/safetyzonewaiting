@@ -71,14 +71,6 @@ const HeroSection = () => {
               </motion.div>
 
               {/* SEO keyword-rich trust line */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.3 }}
-                transition={{ delay: 0.7 }}
-                className="text-xs text-white/25 max-w-sm"
-              >
-                For celiac disease, EOE, alpha-gal, FPIES, food intolerance, anaphylaxis prevention, halal, kosher, vegan, vegetarian, keto &amp; calorie tracking
-              </motion.p>
             </div>
 
             {/* Right - Dual phone: Home + QR Profile */}
