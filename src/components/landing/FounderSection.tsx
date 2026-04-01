@@ -4,7 +4,7 @@ import { FadeInSection } from '@/components/ui/fade-in-section';
 
 const FounderSection = () => {
   return (
-    <section id="about" className="py-28 relative overflow-hidden bg-[hsl(220,25%,4%)]">
+    <section id="about" className="py-28 relative overflow-hidden bg-[hsl(220,25%,4%)]" aria-label="About SafetyZone founder Joshua Powers - food allergy app built from personal experience">
       <div className="absolute top-1/2 left-0 w-60 h-60 bg-primary/[0.03] rounded-full blur-[100px] -translate-y-1/2" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -17,9 +17,11 @@ const FounderSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/20 rounded-full blur-3xl opacity-40 scale-110" />
                   <img
                     src={joshHeadshot}
-                    alt="Joshua Powers - Founder of SafetyZone"
+                    alt="Joshua Powers - Founder and CEO of SafetyZone food allergy app, living with anaphylactic peanut and dairy allergies"
                     loading="lazy"
                     className="relative z-10 w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-[3px] border-white/[0.08] shadow-2xl"
+                    width="256"
+                    height="256"
                   />
                 </div>
               </FadeInSection>
@@ -29,13 +31,13 @@ const FounderSection = () => {
             <div className="md:col-span-3 space-y-6">
               <FadeInSection direction="right" delay={0.2}>
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] text-xs font-medium text-white/60 mb-4">
-                  Our Story
+                  Why We Built SafetyZone
                 </span>
 
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                  Built from{' '}
+                  A food allergy app built from{' '}
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    personal experience
+                    lived experience
                   </span>
                 </h2>
 
@@ -44,11 +46,11 @@ const FounderSection = () => {
                   <p className="text-base text-white/50 leading-relaxed">
                     SafetyZone was founded by Joshua Powers, who has lived with{' '}
                     <span className="text-white/80 font-medium">anaphylactic food allergies</span>{' '}
-                    to dairy, eggs, and nuts his entire life. Years of anxiety-filled dining and life-threatening reactions inspired this platform.
+                    to dairy, eggs, and nuts his entire life. Years of anxiety-filled dining experiences, emergency room visits, and life-threatening allergic reactions inspired him to build the most comprehensive food allergy management app available.
                   </p>
                   <p className="text-sm text-white/40 leading-relaxed">
-                    Our technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that others miss — supporting{' '}
-                    <span className="text-white/60 font-medium">200+ languages</span> for global accessibility.
+                    SafetyZone's AI technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that other food allergy apps miss — supporting{' '}
+                    <span className="text-white/60 font-medium">200+ languages</span> for global food allergy safety and travel protection.
                   </p>
                 </div>
 
@@ -60,7 +62,7 @@ const FounderSection = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-white text-sm">Joshua Powers</div>
-                    <div className="text-xs text-white/40">Founder & CEO, SafetyZone</div>
+                    <div className="text-xs text-white/40">Founder & CEO, SafetyZone — Food Allergy App</div>
                   </div>
                 </div>
               </FadeInSection>

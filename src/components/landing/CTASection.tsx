@@ -5,7 +5,7 @@ import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 
 const CTASection = () => {
   return (
-    <section className="py-28 relative overflow-hidden bg-[hsl(220,25%,4%)]">
+    <section className="py-28 relative overflow-hidden bg-[hsl(220,25%,4%)]" aria-label="Download SafetyZone food allergy app free on iOS App Store">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.02] via-transparent to-transparent" />
 
@@ -34,11 +34,11 @@ const CTASection = () => {
           </h2>
 
           <p className="text-base text-white/40 mb-10 max-w-lg mx-auto">
-            Join thousands of families who eat with confidence. Free on iOS.
+            Join thousands of families with food allergies who eat with confidence using the #1 AI food allergy app. QR allergy cards, EpiPen tracker, FDA recall alerts, and more — all free on iOS.
           </p>
 
           {/* Real store badges */}
-          <div className="flex items-center justify-center gap-4 mb-10">
+          <div className="flex items-center justify-center gap-4 mb-10" role="group" aria-label="Download SafetyZone food allergy app">
             <AppStoreBadge />
             <GooglePlayBadge comingSoon />
           </div>
@@ -60,7 +60,7 @@ const CTASection = () => {
         </FadeInSection>
 
         <p className="text-[10px] text-white/15 text-center mt-8 max-w-md mx-auto">
-          AI recommendations are informational only. Always verify with restaurant staff and healthcare providers.
+          SafetyZone food allergy app — AI recommendations are informational only. Always verify allergens with restaurant staff and consult healthcare providers for medical advice.
         </p>
       </div>
     </section>
