@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Linkedin, Mail } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Apple, Smartphone } from 'lucide-react';
 import logoWhite from '@/assets/logo-white.png';
+
+const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,29 +21,13 @@ const Footer = () => {
               AI-powered food safety for 200+ million people with dietary restrictions worldwide.
             </p>
             <div className="flex gap-4">
-              <a
-                href="https://instagram.com/safetyzoneofficial"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Instagram"
-              >
+              <a href="https://instagram.com/safetyzoneofficial" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a
-                href="https://www.linkedin.com/company/mysafetyzone/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
+              <a href="https://www.linkedin.com/company/mysafetyzone/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a
-                href="mailto:joshua@mysafetyzone.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Email"
-              >
+              <a href="mailto:joshua@mysafetyzone.com" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -57,9 +43,16 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/#waitlist" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Join Waitlist
+                <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1.5">
+                  <Apple className="w-3.5 h-3.5" />
+                  Download for iOS
                 </a>
+              </li>
+              <li>
+                <span className="text-sm text-muted-foreground/50 inline-flex items-center gap-1.5">
+                  <Smartphone className="w-3.5 h-3.5" />
+                  Google Play — Coming Soon
+                </span>
               </li>
             </ul>
           </div>
@@ -69,19 +62,13 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground">Company</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  About Us
-                </a>
+                <a href="/#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</a>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Contact
-                </Link>
+                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
               </li>
               <li>
-                <Link to="/support" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Support
-                </Link>
+                <Link to="/support" className="text-sm text-muted-foreground hover:text-primary transition-colors">Support</Link>
               </li>
             </ul>
           </div>
@@ -91,14 +78,10 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Privacy Policy
-                </Link>
+                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Terms of Service
-                </Link>
+                <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
               </li>
             </ul>
           </div>
