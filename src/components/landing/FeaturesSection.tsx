@@ -1,36 +1,51 @@
 import { motion } from 'framer-motion';
 import { 
   ScanLine, Barcode, Camera, ChefHat, Users, QrCode,
-  Shield, Globe, Zap,
-  Pill, MapPin, Sparkles, Heart
+  Shield, Globe, Zap, AlertTriangle,
+  Pill, MapPin, Sparkles, Heart, Wind, Stethoscope
 } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 
 const liveFeatures = [
   {
     icon: QrCode,
-    title: 'QR Allergy Cards',
-    description: 'Your digital allergy card — auto-translated into 200+ languages.',
+    title: 'Allergen QR Cards',
+    description: 'Shareable QR allergy cards auto-translated into 200+ languages for restaurants and travel.',
   },
   {
     icon: MapPin,
     title: 'Travel Allergen',
-    description: 'Destination-specific safety tips and translated allergy cards.',
-  },
-  {
-    icon: Camera,
-    title: 'NutriScan AI',
-    description: 'AI calorie tracking from any food photo.',
+    description: 'Destination-specific safety tips, local allergen databases, and translated cards for safe travel.',
   },
   {
     icon: ChefHat,
     title: 'Recipe AI',
-    description: 'Transform any recipe with safe substitutions.',
+    description: 'Transform any recipe with safe, taste-matched allergen-free substitutions powered by AI.',
+  },
+  {
+    icon: Camera,
+    title: 'NutriScan AI',
+    description: 'AI calorie and macro tracking from any food photo. No manual logging required.',
   },
   {
     icon: Pill,
-    title: 'EpiPen & Med Tracker',
-    description: 'Auto reminders before your medications expire.',
+    title: 'EpiPen Tracker',
+    description: 'Track your EpiPen expiration dates with automatic reminders before they expire.',
+  },
+  {
+    icon: Wind,
+    title: 'Inhaler Tracker',
+    description: 'Monitor your inhaler expiration and usage. Never be caught without a working inhaler.',
+  },
+  {
+    icon: Stethoscope,
+    title: 'Medical Device Tracker',
+    description: 'Track expiration dates for all your medical devices and medications in one place.',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'FDA Recall Alerts',
+    description: 'Real-time FDA food recall notifications so you are always aware of unsafe products.',
   },
 ];
 
@@ -38,7 +53,7 @@ const comingSoon = [
   {
     icon: ScanLine,
     title: 'Menu Scanner',
-    description: 'Personalized safety ratings from any restaurant menu.',
+    description: 'Personalized safety ratings from any restaurant menu photo.',
   },
   {
     icon: Barcode,
@@ -81,7 +96,7 @@ const FeaturesSection = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* "Why choose SafetyZone?" — Cal AI style */}
+        {/* Why choose SafetyZone */}
         <FadeInSection className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] text-xs font-medium text-white/60 mb-6">
             <Sparkles className="w-3 h-3" />
@@ -98,7 +113,6 @@ const FeaturesSection = () => {
           </p>
         </FadeInSection>
 
-        {/* Why choose grid */}
         <div className="grid sm:grid-cols-2 gap-4 mb-24 max-w-4xl mx-auto">
           {whyChoose.map((item, i) => (
             <motion.div
@@ -118,35 +132,34 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Live features list */}
+        {/* Live features */}
         <FadeInSection className="text-center mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-white">
             Available now on iOS
           </h3>
+          <p className="text-sm text-white/30 mt-2">8 powerful features, all live and ready to keep you safe</p>
         </FadeInSection>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-16">
           {liveFeatures.map((feature, i) => (
             <motion.div
               key={feature.title}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="flex items-start gap-3 bg-white/[0.02] border border-white/[0.05] rounded-xl p-4"
+              transition={{ delay: i * 0.04 }}
+              className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-4 hover:bg-white/[0.04] hover:border-white/[0.08] transition-all duration-300"
             >
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                <feature.icon className="w-4 h-4 text-primary" />
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-0.5">
-                  <h4 className="text-sm font-semibold text-white">{feature.title}</h4>
-                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
-                    LIVE
-                  </span>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <feature.icon className="w-3.5 h-3.5 text-primary" />
                 </div>
-                <p className="text-xs text-white/35 leading-relaxed">{feature.description}</p>
+                <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                  LIVE
+                </span>
               </div>
+              <h4 className="text-sm font-semibold text-white mb-1">{feature.title}</h4>
+              <p className="text-xs text-white/35 leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -164,10 +177,10 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="flex items-start gap-3 bg-white/[0.015] border border-white/[0.04] rounded-xl p-4 opacity-70"
+              className="flex items-start gap-3 bg-white/[0.015] border border-white/[0.04] rounded-xl p-4 opacity-60"
             >
-              <div className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center shrink-0 mt-0.5">
-                <feature.icon className="w-4 h-4 text-white/30" />
+              <div className="w-7 h-7 rounded-lg bg-white/[0.04] flex items-center justify-center shrink-0 mt-0.5">
+                <feature.icon className="w-3.5 h-3.5 text-white/30" />
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-0.5">

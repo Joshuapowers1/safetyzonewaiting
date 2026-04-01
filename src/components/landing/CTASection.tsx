@@ -1,10 +1,7 @@
 import { motion } from 'framer-motion';
-import { Shield, Heart, CheckCircle, Apple, Smartphone, ArrowRight, Star } from 'lucide-react';
+import { Shield, Heart, CheckCircle, Star } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
-import { Button } from '@/components/ui/button';
-
-
-const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
+import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 
 const CTASection = () => {
   return (
@@ -14,7 +11,7 @@ const CTASection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <FadeInSection className="max-w-2xl mx-auto text-center">
-          {/* Star rating — Cal AI style */}
+          {/* Star rating */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -36,23 +33,14 @@ const CTASection = () => {
             </span>
           </h2>
 
-          <p className="text-base text-white/40 mb-8 max-w-lg mx-auto">
+          <p className="text-base text-white/40 mb-10 max-w-lg mx-auto">
             Join thousands of families who eat with confidence. Free on iOS.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
-            <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="glow" size="lg" className="h-14 px-10 text-base rounded-xl gap-2.5">
-                <Apple className="w-5 h-5" />
-                Download for iOS
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </a>
-          </div>
-
-          <div className="flex items-center justify-center gap-2 text-sm text-white/25 mb-10">
-            <Smartphone className="w-4 h-4" />
-            <span>Google Play coming soon</span>
+          {/* Real store badges */}
+          <div className="flex items-center justify-center gap-4 mb-10">
+            <AppStoreBadge />
+            <GooglePlayBadge comingSoon />
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 pt-6 border-t border-white/[0.05]">
