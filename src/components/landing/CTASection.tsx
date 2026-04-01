@@ -19,7 +19,7 @@ const CTASection = () => {
           </h2>
 
           <p className="text-base text-white/40 mb-10 max-w-lg mx-auto">
-            Join thousands of families with food allergies who eat with confidence using the #1 food allergy app. QR allergy cards, EpiPen tracker, FDA recall alerts, and more — all free on iOS.
+            Join thousands of families with food allergies who eat with confidence using the #1 food allergy app. QR allergy cards, EpiPen tracker, FDA recall alerts, and more — free to download on iOS.
           </p>
 
           {/* Real store badges */}
