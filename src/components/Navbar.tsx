@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Apple } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logoWhite from '@/assets/logo-white.png';
 
@@ -36,12 +36,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[hsl(220,25%,4%)]/80 backdrop-blur-xl border-b border-white/[0.04]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logoWhite} alt="SafetyZone" className="w-10 h-10 object-contain" />
-            <span className="font-display text-xl font-semibold text-white italic">SafetyZone</span>
+          <Link to="/" className="flex items-center gap-2.5">
+            <img src={logoWhite} alt="SafetyZone" className="w-8 h-8 object-contain" />
+            <span className="text-lg font-semibold text-white">SafetyZone</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -50,8 +50,8 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => handleNavClick(link.path)}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.path) ? 'text-primary' : 'text-white/70'
+                className={`text-sm font-medium transition-colors hover:text-white ${
+                  isActive(link.path) ? 'text-white' : 'text-white/50'
                 }`}
               >
                 {link.name}
@@ -59,21 +59,24 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
-            <Link to="/auth" className="text-sm font-medium text-white/70 hover:text-primary transition-colors">
+          <div className="hidden md:flex items-center gap-3">
+            <Link to="/auth" className="text-sm font-medium text-white/50 hover:text-white transition-colors">
               Admin
             </Link>
-            <Button asChild variant="glow">
-              <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">Download App</a>
+            <Button asChild size="sm" className="rounded-lg bg-white text-black hover:bg-white/90 font-medium h-9 px-4">
+              <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">
+                <Apple className="w-3.5 h-3.5" />
+                Download
+              </a>
             </Button>
           </div>
 
           <button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-white/70"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -84,16 +87,16 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/80 backdrop-blur-xl border-b border-white/5"
+            className="md:hidden bg-[hsl(220,25%,4%)]/95 backdrop-blur-xl border-b border-white/[0.04]"
           >
-            <div className="container mx-auto px-4 py-4 space-y-4">
+            <div className="container mx-auto px-4 py-4 space-y-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`block text-base font-medium transition-colors ${
-                    isActive(link.path) ? 'text-primary' : 'text-white/70'
+                  className={`block text-sm font-medium transition-colors py-1 ${
+                    isActive(link.path) ? 'text-white' : 'text-white/50'
                   }`}
                 >
                   {link.name}
@@ -102,12 +105,15 @@ const Navbar = () => {
               <Link
                 to="/auth"
                 onClick={() => setIsOpen(false)}
-                className="block text-base font-medium text-white/70 hover:text-primary transition-colors"
+                className="block text-sm font-medium text-white/50 py-1"
               >
                 Admin
               </Link>
-              <Button asChild variant="glow" className="w-full">
-                <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">Download App</a>
+              <Button asChild size="sm" className="w-full rounded-lg bg-white text-black hover:bg-white/90 font-medium">
+                <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">
+                  <Apple className="w-3.5 h-3.5" />
+                  Download App
+                </a>
               </Button>
             </div>
           </motion.div>
