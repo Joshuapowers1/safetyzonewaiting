@@ -137,7 +137,7 @@ const FeaturesSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-white">
             8 Live Features — Available Now on iOS App Store
           </h3>
-          <p className="text-sm text-white/30 mt-2">Everything you need for food allergies, celiac, EOE, alpha-gal, dietary restrictions, and calorie tracking — all free</p>
+          <p className="text-sm text-white/30 mt-2">Everything you need for food allergies, celiac, EOE, alpha-gal, dietary restrictions, and calorie tracking — free to download</p>
         </FadeInSection>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-16">
