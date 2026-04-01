@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
