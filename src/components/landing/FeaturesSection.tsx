@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { 
   ScanLine, Barcode, Camera, ChefHat, Users, QrCode,
   Shield, Globe, Zap, AlertTriangle,
-  Pill, MapPin, Sparkles, Heart, Wind, Stethoscope
+  Pill, MapPin, Sparkles, Heart, MessageCircle
 } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 
@@ -10,7 +10,7 @@ const liveFeatures = [
   {
     icon: QrCode,
     title: 'Allergen QR Cards',
-    description: 'Shareable QR allergy cards auto-translated into 200+ languages — the best allergy card for restaurants and international travel.',
+    description: 'Shareable QR allergy cards auto-translated into 200+ languages. The best allergy card for restaurants and international travel.',
   },
   {
     icon: MapPin,
@@ -20,32 +20,27 @@ const liveFeatures = [
   {
     icon: ChefHat,
     title: 'Recipe AI',
-    description: 'AI-powered allergen-free recipe substitutions for peanut-free, gluten-free, dairy-free, and nut-free cooking.',
+    description: 'Allergen-free recipe substitutions for peanut-free, gluten-free, dairy-free, and nut-free cooking.',
   },
   {
     icon: Camera,
     title: 'Calorie & Macro Counter',
-    description: 'Snap a photo of any meal for instant calories, macros, and micronutrients. The fastest nutrition tracker for weight loss, muscle gain, keto, and allergy-safe eating.',
+    description: 'Snap a photo of any meal for instant calories, macros, and micronutrients. The fastest nutrition tracker for allergy-safe eating.',
   },
   {
     icon: Pill,
-    title: 'EpiPen Tracker',
-    description: 'Track EpiPen and epinephrine auto-injector expiration dates with automatic reminders. Never carry an expired EpiPen.',
-  },
-  {
-    icon: Wind,
-    title: 'Inhaler Tracker',
-    description: 'Monitor inhaler expiration dates and usage. Essential medication tracker for asthma and allergy sufferers.',
-  },
-  {
-    icon: Stethoscope,
-    title: 'Medical Device Tracker',
-    description: 'Track expiration dates for all medical devices and medications in one place. Auto-reminders before they expire.',
+    title: 'Medication & Device Tracker',
+    description: 'Track expiration dates for EpiPens, inhalers, and all medical devices in one place. Auto-reminders so you never carry expired medication.',
   },
   {
     icon: AlertTriangle,
     title: 'FDA Recall Alerts',
     description: 'Real-time FDA food recall notifications for undeclared allergens. Stay safe from recalled food products automatically.',
+  },
+  {
+    icon: MessageCircle,
+    title: 'In-App Chat Support',
+    description: 'Have a question about allergies, features, or your profile? Chat directly inside the app and get answers fast.',
   },
 ];
 
