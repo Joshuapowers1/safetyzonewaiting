@@ -10,60 +10,60 @@ const liveFeatures = [
   {
     icon: QrCode,
     title: 'Allergen QR Cards',
-    description: 'Shareable QR allergy cards auto-translated into 200+ languages for restaurants and travel.',
+    description: 'Shareable QR allergy cards auto-translated into 200+ languages — the best allergy card for restaurants and international travel.',
   },
   {
     icon: MapPin,
     title: 'Travel Allergen',
-    description: 'Destination-specific safety tips, local allergen databases, and translated cards for safe travel.',
+    description: 'Destination-specific food allergy safety tips, local allergen databases, and translated allergy cards for safe dining abroad.',
   },
   {
     icon: ChefHat,
     title: 'Recipe AI',
-    description: 'Transform any recipe with safe, taste-matched allergen-free substitutions powered by AI.',
+    description: 'AI-powered allergen-free recipe substitutions for peanut-free, gluten-free, dairy-free, and nut-free cooking.',
   },
   {
     icon: Camera,
     title: 'NutriScan AI',
-    description: 'AI calorie and macro tracking from any food photo. No manual logging required.',
+    description: 'AI calorie counter and macro tracker from any food photo. The fastest nutrition scanner for allergy-safe eating.',
   },
   {
     icon: Pill,
     title: 'EpiPen Tracker',
-    description: 'Track your EpiPen expiration dates with automatic reminders before they expire.',
+    description: 'Track EpiPen and epinephrine auto-injector expiration dates with automatic reminders. Never carry an expired EpiPen.',
   },
   {
     icon: Wind,
     title: 'Inhaler Tracker',
-    description: 'Monitor your inhaler expiration and usage. Never be caught without a working inhaler.',
+    description: 'Monitor inhaler expiration dates and usage. Essential medication tracker for asthma and allergy sufferers.',
   },
   {
     icon: Stethoscope,
     title: 'Medical Device Tracker',
-    description: 'Track expiration dates for all your medical devices and medications in one place.',
+    description: 'Track expiration dates for all medical devices and medications in one place. Auto-reminders before they expire.',
   },
   {
     icon: AlertTriangle,
     title: 'FDA Recall Alerts',
-    description: 'Real-time FDA food recall notifications so you are always aware of unsafe products.',
+    description: 'Real-time FDA food recall notifications for undeclared allergens. Stay safe from recalled food products automatically.',
   },
 ];
 
 const comingSoon = [
   {
     icon: ScanLine,
-    title: 'Menu Scanner',
-    description: 'Personalized safety ratings from any restaurant menu photo.',
+    title: 'AI Menu Scanner',
+    description: 'Scan any restaurant menu photo for personalized allergen safety ratings.',
   },
   {
     icon: Barcode,
     title: 'Barcode Scanner',
-    description: 'Instant allergen detection on packaged products.',
+    description: 'Instant allergen detection on packaged food products via barcode scan.',
   },
   {
     icon: Users,
-    title: 'Family Profiles',
-    description: 'Individual profiles for every household member.',
+    title: 'Family Allergy Profiles',
+    description: 'Individual allergy profiles for every family member — kids, parents, grandparents.',
   },
 ];
 
@@ -71,28 +71,28 @@ const whyChoose = [
   {
     icon: Shield,
     title: 'HIPAA-Level Privacy',
-    description: 'Your dietary and medical data is protected with medical-grade encryption and security protocols.',
+    description: 'Your food allergy, dietary, and medical data is protected with medical-grade encryption and enterprise security protocols.',
   },
   {
     icon: Zap,
-    title: '99.5% Accuracy',
-    description: 'Triple-verified AI cross-references FDA allergen databases, USDA data, and published medical research.',
+    title: '99.5% Allergen Accuracy',
+    description: 'Triple-verified AI cross-references FDA allergen databases, USDA nutritional data, and published medical research for the highest accuracy.',
   },
   {
     icon: Globe,
-    title: '200+ Languages',
-    description: 'Travel anywhere and communicate your allergies clearly with auto-translated allergy cards.',
+    title: '200+ Languages Supported',
+    description: 'Travel anywhere and communicate your food allergies clearly with auto-translated allergy cards. The best allergy translation app.',
   },
   {
     icon: Heart,
     title: 'Built by Allergy Sufferers',
-    description: 'Founded by someone with anaphylactic food allergies. We understand because we live it.',
+    description: 'Founded by someone with anaphylactic food allergies to dairy, eggs, and nuts. We built SafetyZone because we needed it.',
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-28 relative overflow-hidden bg-[hsl(220,25%,4%)]">
+    <section id="features" className="py-28 relative overflow-hidden bg-[hsl(220,25%,4%)]" aria-label="SafetyZone food allergy app features - allergen detection, EpiPen tracker, QR allergy cards">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -100,16 +100,16 @@ const FeaturesSection = () => {
         <FadeInSection className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] text-xs font-medium text-white/60 mb-6">
             <Sparkles className="w-3 h-3" />
-            Why choose SafetyZone?
+            Why SafetyZone is the #1 food allergy app
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             The most advanced{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              food allergy app
+              food allergy &amp; allergen detection app
             </span>
           </h2>
           <p className="text-base text-white/40">
-            Built to protect you and your family from hidden allergens, every meal, everywhere.
+            Built to protect you and your family from hidden allergens in every meal, every restaurant, every country. Supporting peanut allergy, celiac disease, dairy allergy, tree nut allergy, shellfish allergy, food intolerance, and all dietary restrictions.
           </p>
         </FadeInSection>
 
@@ -135,9 +135,9 @@ const FeaturesSection = () => {
         {/* Live features */}
         <FadeInSection className="text-center mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-white">
-            Available now on iOS
+            8 Live Features — Available Now on iOS App Store
           </h3>
-          <p className="text-sm text-white/30 mt-2">8 powerful features, all live and ready to keep you safe</p>
+          <p className="text-sm text-white/30 mt-2">Every feature you need to manage food allergies, track medications, and eat safely — all in one free app</p>
         </FadeInSection>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-16">
@@ -166,7 +166,7 @@ const FeaturesSection = () => {
 
         {/* Coming Soon */}
         <FadeInSection className="text-center mb-8">
-          <h3 className="text-xl font-semibold text-white/50">Coming Soon</h3>
+          <h3 className="text-xl font-semibold text-white/50">Coming Soon to SafetyZone</h3>
         </FadeInSection>
 
         <div className="grid sm:grid-cols-3 gap-3 max-w-4xl mx-auto">

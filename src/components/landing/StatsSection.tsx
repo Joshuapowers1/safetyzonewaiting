@@ -5,22 +5,24 @@ import { AlertTriangle, Globe, Zap, Users } from 'lucide-react';
 
 const stats = [
   { value: 33, suffix: 'M+', label: 'Americans with food allergies', icon: Users },
-  { value: 200, suffix: 'K+', label: 'ER visits from reactions yearly', icon: AlertTriangle },
-  { value: 200, suffix: '+', label: 'Languages supported', icon: Globe },
-  { value: 50, suffix: 'ms', label: 'Allergen detection speed', prefix: '< ', icon: Zap },
+  { value: 200, suffix: 'K+', label: 'ER visits from allergic reactions yearly', icon: AlertTriangle },
+  { value: 200, suffix: '+', label: 'Languages for allergy translation', icon: Globe },
+  { value: 50, suffix: 'ms', label: 'AI allergen detection speed', prefix: '< ', icon: Zap },
 ];
 
 const StatsSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[hsl(220,25%,4%)]">
-      {/* Divider line top */}
+    <section className="py-24 relative overflow-hidden bg-[hsl(220,25%,4%)]" aria-label="Food allergy statistics and SafetyZone allergen detection performance">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
         <FadeInSection className="text-center mb-14">
           <h2 className="text-2xl md:text-4xl font-bold text-white">
-            Built for the community that needs it most
+            Food allergies affect millions — SafetyZone protects them
           </h2>
+          <p className="text-sm text-white/30 mt-3 max-w-xl mx-auto">
+            Over 200 million people worldwide live with food allergies, celiac disease, and food intolerances. SafetyZone is the app built to keep them safe.
+          </p>
         </FadeInSection>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
@@ -54,7 +56,6 @@ const StatsSection = () => {
         </div>
       </div>
 
-      {/* Divider line bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
     </section>
   );
