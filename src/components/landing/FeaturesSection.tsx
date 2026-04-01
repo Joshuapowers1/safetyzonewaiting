@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   ScanLine, Barcode, Camera, ChefHat, Users, QrCode,
-  Shield, Globe, Zap, ChevronDown,
-  Pill, MapPin, Check, Clock, Sparkles, Heart
+  Shield, Globe, Zap,
+  Pill, MapPin, Sparkles, Heart
 } from 'lucide-react';
+import { FadeInSection } from '@/components/ui/fade-in-section';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 
 const liveFeatures = [

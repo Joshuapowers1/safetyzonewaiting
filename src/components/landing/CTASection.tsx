@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Shield, Heart, CheckCircle, Apple, Smartphone, ArrowRight, Star } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { Button } from '@/components/ui/button';
-import logoWhite from '@/assets/logo-white.png';
+
 
 const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
 

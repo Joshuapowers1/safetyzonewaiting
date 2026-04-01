@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { TextEffect } from '@/components/ui/text-effect';
-import { Apple, Smartphone, Star } from 'lucide-react';
+import { Apple, Smartphone } from 'lucide-react';
 import screenHome from '@/assets/screen-home.png';
 import screenNutriscan from '@/assets/screen-nutriscan.png';
 import { useIsMobile } from '@/hooks/use-mobile';

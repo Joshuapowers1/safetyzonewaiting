@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FadeInSection } from '@/components/ui/fade-in-section';
-import { QrCode, ChefHat, Flame, MapPin, Pill, Camera } from 'lucide-react';
+import { QrCode, ChefHat, Flame, Camera } from 'lucide-react';
 
 import screenQrProfile from '@/assets/screen-qr-profile.png';
 import screenRecipe from '@/assets/screen-recipe.png';
