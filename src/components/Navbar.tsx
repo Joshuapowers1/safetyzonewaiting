@@ -104,12 +104,7 @@ const Navbar = () => {
               >
                 Admin
               </Link>
-              <Button asChild size="sm" className="w-full rounded-lg bg-white text-black hover:bg-white/90 font-medium">
-                <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">
-                  <Apple className="w-3.5 h-3.5" />
-                  Download App
-                </a>
-              </Button>
+              <AppStoreBadge className="h-10 w-full" />
             </div>
           </motion.div>
         )}

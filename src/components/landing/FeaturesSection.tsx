@@ -105,11 +105,11 @@ const FeaturesSection = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             The most advanced{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              food allergy &amp; allergen detection app
+              food allergy, nutrition &amp; wellness app
             </span>
           </h2>
           <p className="text-base text-white/40">
-            Built to protect you and your family from hidden allergens in every meal, every restaurant, every country. Supporting peanut allergy, celiac disease, dairy allergy, tree nut allergy, shellfish allergy, food intolerance, and all dietary restrictions.
+            Built for food allergies, celiac disease, EOE, alpha-gal, FPIES, dietary restrictions, calorie &amp; macro tracking, and every sensitivity. Protecting you and your family in every meal, every restaurant, every country.
           </p>
         </FadeInSection>
 

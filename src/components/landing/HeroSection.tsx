@@ -98,7 +98,7 @@ const HeroSection = () => {
                   transition={{ delay: 0.5, duration: 0.7 }}
                   className="absolute right-0 top-0 w-[200px] sm:w-[240px] md:w-[260px]"
                 >
-                  <IPhoneFrame>
+                  <div className="rounded-[2rem] overflow-hidden shadow-2xl shadow-black/50">
                     <img
                       src={screenQrProfile}
                       alt="SafetyZone QR allergy card translated into 200+ languages for restaurant staff - food allergy translation card app"
@@ -106,7 +106,7 @@ const HeroSection = () => {
                       width="260"
                       height="563"
                     />
-                  </IPhoneFrame>
+                  </div>
                 </motion.div>
 
                 {/* Front phone - Home */}
@@ -116,7 +116,7 @@ const HeroSection = () => {
                   transition={{ delay: 0.4, duration: 0.7 }}
                   className="absolute left-0 top-8 sm:top-12 w-[210px] sm:w-[250px] md:w-[270px] z-10"
                 >
-                  <IPhoneFrame>
+                  <div className="rounded-[2rem] overflow-hidden shadow-2xl shadow-black/50">
                     <img
                       src={screenHome}
                       alt="SafetyZone food allergy app home dashboard showing EpiPen tracker, allergen scanner, NutriScan calorie counter, and FDA recall alerts"
@@ -124,7 +124,7 @@ const HeroSection = () => {
                       width="270"
                       height="585"
                     />
-                  </IPhoneFrame>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>

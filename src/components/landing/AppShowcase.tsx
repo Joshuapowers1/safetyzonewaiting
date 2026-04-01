@@ -85,9 +85,9 @@ const AppShowcase = () => {
             >
               {/* Small phone preview */}
               <div className="shrink-0 w-[100px] sm:w-[120px]">
-                <IPhoneFrame>
+                <ScreenFrame>
                   <img src={feature.image} alt={feature.alt} loading="lazy" className="w-full aspect-[9/19.5] object-cover" width="120" height="260" />
-                </IPhoneFrame>
+                </ScreenFrame>
               </div>
 
               {/* Content */}
