@@ -63,12 +63,12 @@ const AppShowcase = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
             The most powerful{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              food allergy app
+              food allergy &amp; nutrition app
             </span>{' '}
             on iOS
           </h2>
           <p className="text-base text-white/35 mt-4 max-w-2xl mx-auto">
-            Allergen detection for peanut allergy, celiac disease, dairy allergy, tree nut allergy, shellfish allergy, egg allergy, soy allergy, and 50+ sensitivities
+            Built for food allergies, celiac disease, EOE, alpha-gal syndrome, FPIES, dietary restrictions, calorie counting, macro tracking, and 50+ sensitivities
           </p>
         </FadeInSection>
 
