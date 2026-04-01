@@ -5,7 +5,6 @@ import {
   Pill, MapPin, Sparkles, Heart
 } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
-import { FadeInSection } from '@/components/ui/fade-in-section';
 
 const liveFeatures = [
   {
