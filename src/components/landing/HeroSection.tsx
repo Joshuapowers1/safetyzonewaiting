@@ -8,29 +8,6 @@ import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 
 const HeroWave = lazy(() => import('@/components/ui/dynamic-wave-canvas-background'));
 
-/* Modern iPhone-style phone frame */
-const IPhoneFrame = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <div className={`relative ${className ?? ''}`}>
-    {/* Outer titanium frame */}
-    <div className="rounded-[3rem] bg-gradient-to-b from-[hsl(220,10%,25%)] via-[hsl(220,10%,18%)] to-[hsl(220,10%,12%)] p-[3px] shadow-2xl shadow-black/60">
-      {/* Inner bezel */}
-      <div className="rounded-[2.85rem] bg-black p-[6px]">
-        {/* Screen area */}
-        <div className="rounded-[2.5rem] overflow-hidden relative">
-          {/* Dynamic Island */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 w-[90px] h-[28px] bg-black rounded-b-[16px]" />
-          {children}
-        </div>
-      </div>
-    </div>
-    {/* Side button accent */}
-    <div className="absolute right-[-2px] top-[28%] w-[3px] h-[40px] rounded-r-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[22%] w-[3px] h-[24px] rounded-l-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[32%] w-[3px] h-[40px] rounded-l-full bg-[hsl(220,10%,22%)]" />
-    <div className="absolute left-[-2px] top-[42%] w-[3px] h-[40px] rounded-l-full bg-[hsl(220,10%,22%)]" />
-  </div>
-);
-
 const HeroSection = () => {
   const isMobile = useIsMobile();
 
