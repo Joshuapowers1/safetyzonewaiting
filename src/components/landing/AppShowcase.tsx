@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { QrCode, ChefHat, Flame, Camera } from 'lucide-react';
+import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 
 import screenQrProfile from '@/assets/screen-qr-profile.png';
 import screenRecipe from '@/assets/screen-recipe.png';
@@ -9,29 +10,29 @@ import screenCookingSteps from '@/assets/screen-cooking-steps.png';
 
 const showcaseFeatures = [
   {
-    title: 'Scan Your Allergy Card Anywhere',
-    description: 'Generate a personal QR code with your complete allergy and dietary profile. Show it to restaurant staff anywhere — they scan it and instantly see what you need to avoid, in their own language.',
+    title: 'Share Your Allergy Card Anywhere',
+    description: 'Generate a personal QR code with your complete allergy and dietary profile. Show it to restaurant staff anywhere in the world. They scan it and instantly see exactly what you need to avoid, displayed clearly in their language. Supports 200+ languages so you are protected no matter where you travel.',
     image: screenQrProfile,
     icon: QrCode,
     badge: '200+ Languages',
   },
   {
     title: 'AI-Powered Recipe Substitutions',
-    description: 'Paste any recipe or URL and Recipe AI identifies every allergen risk. It generates safe, taste-matched substitutions — accounting for cooking chemistry, not just swapping ingredients.',
+    description: 'Paste any recipe or URL and Recipe AI identifies every allergen risk and generates safe, taste-matched ingredient substitutions tailored to your profile. It understands cooking chemistry, accounting for binding agents, texture, flavor profiles, and baking ratios so your allergen-free version actually works.',
     image: screenRecipe,
     icon: ChefHat,
     badge: 'Infinite Recipes',
   },
   {
     title: 'Track Calories With Just a Picture',
-    description: 'Take a photo of any meal and NutriScan uses AI image recognition to estimate calories, protein, carbs, fat, and key micronutrients in seconds — no manual logging.',
+    description: 'Snap a photo of any meal, whether home-cooked, at a restaurant, or packaged, and NutriScan uses AI-powered image recognition to estimate calories, macros (protein, carbs, fat), and key micronutrients in seconds. No manual logging required.',
     image: screenNutriscan,
     icon: Camera,
     badge: '99.5% Accuracy',
   },
   {
     title: 'Step-by-Step Safe Cooking',
-    description: 'Get detailed cooking instructions with allergen-free ingredients already substituted. Follow along step-by-step, knowing every ingredient is safe for you.',
+    description: 'Get detailed cooking instructions with allergen-free ingredients already substituted. Follow along step-by-step, knowing every single ingredient has been checked against your allergy profile. Cook with confidence, not caution.',
     image: screenCookingSteps,
     icon: Flame,
     badge: 'Allergen-Free',
@@ -47,7 +48,6 @@ const PhoneMockup = ({ src, alt }: { src: string; alt: string }) => (
 const AppShowcase = () => {
   return (
     <section className="py-28 relative overflow-hidden bg-[hsl(220,25%,4%)]">
-      {/* Top divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -63,7 +63,7 @@ const AppShowcase = () => {
           </h2>
         </FadeInSection>
 
-        {/* Cal AI-style alternating feature rows */}
+        {/* Alternating feature rows */}
         <div className="space-y-24 md:space-y-32">
           {showcaseFeatures.map((feature, i) => {
             const isReversed = i % 2 === 1;
@@ -101,6 +101,12 @@ const AppShowcase = () => {
             );
           })}
         </div>
+
+        {/* Download badges below showcase */}
+        <FadeInSection className="flex items-center justify-center gap-4 mt-20">
+          <AppStoreBadge />
+          <GooglePlayBadge comingSoon />
+        </FadeInSection>
       </div>
     </section>
   );
