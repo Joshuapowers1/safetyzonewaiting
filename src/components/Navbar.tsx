@@ -5,6 +5,8 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logoWhite from '@/assets/logo-white.png';
 
+const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -37,13 +39,11 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img src={logoWhite} alt="SafetyZone" className="w-10 h-10 object-contain" />
             <span className="font-display text-xl font-semibold text-white italic">SafetyZone</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -59,17 +59,15 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
             <Link to="/auth" className="text-sm font-medium text-white/70 hover:text-primary transition-colors">
               Admin
             </Link>
             <Button asChild variant="glow">
-              <a href="#waitlist">Join Waitlist</a>
+              <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">Download App</a>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 text-white"
             onClick={() => setIsOpen(!isOpen)}
@@ -80,7 +78,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -110,7 +107,7 @@ const Navbar = () => {
                 Admin
               </Link>
               <Button asChild variant="glow" className="w-full">
-                <a href="#waitlist">Join Waitlist</a>
+                <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer">Download App</a>
               </Button>
             </div>
           </motion.div>

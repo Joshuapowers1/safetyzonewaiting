@@ -5,22 +5,16 @@ import { TextShimmer } from '@/components/ui/text-shimmer';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { TextRotate } from '@/components/ui/text-rotate';
 import { AnimatedBadge } from '@/components/ui/animated-badge';
-import { Users } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
+import { Apple, Smartphone } from 'lucide-react';
 import logoWhite from '@/assets/logo-white.png';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroWave = lazy(() => import('@/components/ui/dynamic-wave-canvas-background'));
 
-const HeroSection = () => {
-  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
-  const isMobile = useIsMobile();
+const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
 
-  useEffect(() => {
-    supabase.rpc('get_waitlist_count').then(({ data }) => {
-      if (data !== null) setWaitlistCount(data);
-    });
-  }, []);
+const HeroSection = () => {
+  const isMobile = useIsMobile();
 
   return (
     <section className="relative min-h-[100dvh] overflow-hidden">
@@ -40,7 +34,7 @@ const HeroSection = () => {
               duration={1.5}
               className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] [--base-color:hsl(174,72%,60%)] [--base-gradient-color:hsl(168,70%,80%)]"
             >
-              Beta coming soon
+              Now Available on iOS
             </TextShimmer>
 
             <TextEffect
@@ -74,6 +68,7 @@ const HeroSection = () => {
                   'Detect hidden allergens instantly',
                   'Translate menus in 200+ languages',
                   'Share your allergy card anywhere',
+                  'Track calories with NutriScan AI',
                 ]}
                 className="font-medium text-primary"
                 interval={3500}
@@ -95,14 +90,14 @@ const HeroSection = () => {
               transition={{ delay: 0.6, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto"
             >
-              <a href="#waitlist" className="w-full sm:w-auto">
-                <ButtonColorful label="Join the Waitlist" />
+              <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <ButtonColorful label="Download on iOS" className="w-full" />
               </a>
               <a
                 href="#features"
                 className="inline-flex items-center justify-center gap-2.5 border border-white/10 hover:bg-white/10 text-white h-12 px-6 rounded-lg transition-all duration-200 font-medium text-sm backdrop-blur w-full sm:w-auto"
               >
-                Learn More
+                Explore Features
               </a>
             </motion.div>
 
@@ -113,18 +108,14 @@ const HeroSection = () => {
               className="flex flex-wrap items-center justify-center gap-3"
             >
               <AnimatedBadge pulse={false} className="bg-white/5 border-white/10 text-white/80">
-                <span className="relative flex h-2 w-2">
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-                </span>
-                AI-Powered Protection
+                <Apple className="w-3.5 h-3.5 text-primary" />
+                Available on App Store
               </AnimatedBadge>
 
-              {waitlistCount !== null && waitlistCount > 0 && (
-                <AnimatedBadge className="bg-white/5 border-white/10 text-white/80">
-                  <Users className="w-3.5 h-3.5 text-primary" />
-                  {waitlistCount.toLocaleString()} on the waitlist
-                </AnimatedBadge>
-              )}
+              <AnimatedBadge className="bg-white/5 border-white/10 text-white/80">
+                <Smartphone className="w-3.5 h-3.5 text-primary" />
+                Google Play Coming Soon
+              </AnimatedBadge>
             </motion.div>
           </div>
         </div>
