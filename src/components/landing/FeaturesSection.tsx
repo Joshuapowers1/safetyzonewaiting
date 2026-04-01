@@ -24,8 +24,8 @@ const liveFeatures = [
   },
   {
     icon: Camera,
-    title: 'NutriScan AI',
-    description: 'AI calorie counter and macro tracker from any food photo. The fastest nutrition scanner for allergy-safe eating.',
+    title: 'Calorie & Macro Counter',
+    description: 'Snap a photo of any meal for instant calories, macros, and micronutrients. The fastest nutrition tracker for weight loss, muscle gain, keto, and allergy-safe eating.',
   },
   {
     icon: Pill,
