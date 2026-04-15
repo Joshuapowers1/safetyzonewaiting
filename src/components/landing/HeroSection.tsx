@@ -20,19 +20,6 @@ const HeroSection = () => {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              {/* Social proof pill */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/50">
-                  <span className="text-sm font-medium text-teal-900 dark:text-teal-300">
-                    Trusted by thousands of allergy families ⭐ 4.8
-                  </span>
-                </div>
-              </motion.div>
-
               {/* Headline */}
               <div className="space-y-3">
                 <h1 className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black dark:text-white">
