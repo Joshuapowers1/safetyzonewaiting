@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     question: "How can I contact support?",
-    answer: "You can reach us at joshua@mysafetyzone.com or visit our Contact page. We typically respond within 24–48 hours."
+    answer: "You can reach us at joshua@mysafetyzone.com or visit our Contact page. We typically respond within 24 to 48 hours."
   },
 ];
 
@@ -107,7 +107,7 @@ const Support = () => {
             <div className="mt-12 text-center p-8 bg-muted/30 rounded-2xl border border-border">
               <h2 className="text-xl font-semibold text-foreground mb-2">Still have questions?</h2>
               <p className="text-muted-foreground mb-4">
-                We're happy to help. Reach out and we'll get back to you within 24–48 hours.
+                We're happy to help. Reach out and we'll get back to you within 24 to 48 hours.
               </p>
               <a
                 href="mailto:joshua@mysafetyzone.com"
