@@ -13,7 +13,7 @@ import {
 const faqs = [
   {
     question: "What is SafetyZone?",
-    answer: "SafetyZone is an AI-powered food safety platform designed to help the 200+ million people worldwide with dietary restrictions dine out safely. Our app scans menus, translates allergen information, and provides personalized safety assessments."
+    answer: "My SafetyZone is an AI-powered food safety platform designed to help the 500+ million people worldwide with food allergies and dietary restrictions eat safely. Our app translates allergen information, provides safe recipes, tracks medical devices, and more."
   },
   {
     question: "How does the AI allergen detection work?",

@@ -134,7 +134,7 @@ const Index = () => {
             "alternateName": ["Safety Zone", "My SafetyZone", "SafetyZone App"],
             "url": "https://mysafetyzone.com",
             "logo": "https://mysafetyzone.com/logo.png",
-            "description": "SafetyZone is the leading AI-powered food allergy and dietary safety platform helping 200M+ people with food allergies, celiac disease, and dietary restrictions eat safely worldwide. Features include QR allergy cards, EpiPen tracking, inhaler tracking, FDA recall alerts, and AI-powered allergen detection.",
+            "description": "My SafetyZone is the leading AI-powered food allergy and dietary safety platform helping 500M+ people with food allergies, celiac disease, and dietary restrictions eat safely worldwide. Features include QR allergy cards, EpiPen tracking, inhaler tracking, FDA recall alerts, and AI-powered allergen detection.",
             "foundingDate": "2025",
             "founder": {
               "@type": "Person",
