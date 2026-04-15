@@ -89,7 +89,7 @@ const FeaturesSection = () => {
                       <img
                         src={feature.screenshot}
                         alt={`${feature.title} screenshot`}
-                        className="w-full aspect-[9/19] object-cover"
+                        className="w-full aspect-[9/19] object-contain bg-white"
                         width="290"
                         height="612"
                       />
