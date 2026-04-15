@@ -5,13 +5,13 @@ import IPhoneFrame from '@/components/ui/iphone-frame';
 const fallIn = (delay: number) => ({
   initial: { opacity: 0, y: -40 },
   animate: { opacity: 1, y: 0 },
-  transition: { delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  transition: { delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 });
 
 const riseUp = (delay: number) => ({
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
-  transition: { delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  transition: { delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 });
 
 const HeroSection = () => {
