@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ScanLine, Barcode, Users } from 'lucide-react';
+import { ScanLine, Barcode, Users, Pill, AlertTriangle, MessageCircle } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 
 const showcaseFeatures = [
@@ -48,6 +48,39 @@ const showcaseFeatures = [
       { title: 'Emergency Info', description: 'Nearby hospitals and emergency contacts auto-populated for your trip.' },
     ],
   },
+  {
+    id: 'medication',
+    screenshot: null,
+    icon: Pill,
+    title: 'Medication & Device Tracker',
+    subtitle: 'Never lose track of your EpiPen, inhaler, or medical device expiry dates.',
+    cards: [
+      { title: 'Expiration Reminders', description: 'Get notified before your EpiPen, inhaler, or any medical device expires.' },
+      { title: 'All Devices in One Place', description: 'Track multiple medications and devices for you and your family.' },
+    ],
+  },
+  {
+    id: 'fda',
+    screenshot: null,
+    icon: AlertTriangle,
+    title: 'FDA Recall Alerts',
+    subtitle: 'Real-time safety alerts for food recalls that affect your allergies.',
+    cards: [
+      { title: 'Personalized Alerts', description: 'Only see recalls relevant to your specific allergens and dietary needs.' },
+      { title: 'Instant Notifications', description: 'Know immediately when a product you use gets recalled.' },
+    ],
+  },
+  {
+    id: 'chat',
+    screenshot: null,
+    icon: MessageCircle,
+    title: 'In-App Chat Support',
+    subtitle: 'Get answers from our AI assistant anytime you need help.',
+    cards: [
+      { title: 'AI-Powered Answers', description: 'Ask questions about allergies, ingredients, or app features and get instant help.' },
+      { title: 'Always Available', description: 'Support when you need it — no waiting, no tickets.' },
+    ],
+  },
 ];
 
 const comingSoon = [
@@ -76,7 +109,7 @@ const FeaturesSection = () => {
         {/* Interactive showcase */}
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-            {/* Left: Phone mockup */}
+            {/* Left: Phone mockup or icon */}
             <div className="w-full lg:w-auto flex justify-center lg:justify-start shrink-0">
               <div className="relative w-[240px] sm:w-[280px]">
                 <AnimatePresence mode="wait">
@@ -87,15 +120,23 @@ const FeaturesSection = () => {
                     exit={{ opacity: 0, scale: 0.97 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gray-100 dark:bg-gray-800">
-                      <img
-                        src={active.screenshot}
-                        alt={`${active.title} screenshot`}
-                        className="w-full aspect-[9/19] object-cover"
-                        width="280"
-                        height="590"
-                      />
-                    </div>
+                    {active.screenshot ? (
+                      <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gray-100 dark:bg-gray-800">
+                        <img
+                          src={active.screenshot}
+                          alt={`${active.title} screenshot`}
+                          className="w-full aspect-[9/19] object-cover"
+                          width="280"
+                          height="590"
+                        />
+                      </div>
+                    ) : (
+                      <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-950/40 dark:to-gray-900 aspect-[9/19] flex items-center justify-center">
+                        {active.icon && (
+                          <active.icon className="w-20 h-20 text-teal-500/40 dark:text-teal-400/30" strokeWidth={1.2} />
+                        )}
+                      </div>
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>
