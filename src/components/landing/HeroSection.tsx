@@ -29,11 +29,11 @@ const HeroSection = () => {
               </div>
 
               <p className="text-lg md:text-xl font-medium text-[#2dd4bf] max-w-xl leading-relaxed">
-                AI-powered allergy protection, nutrition tracking & safe dining — all in one app.
+                AI-powered allergy protection, nutrition tracking, and safe dining in one app.
               </p>
 
               <p className="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
-                Whether it's a peanut allergy, celiac disease, or any dietary restriction — My SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 200+ languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
+                Whether you have a peanut allergy, celiac disease, or any dietary restriction, My SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 200+ languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
               </p>
 
               <div
