@@ -2,6 +2,18 @@ import { motion } from 'framer-motion';
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 import IPhoneFrame from '@/components/ui/iphone-frame';
 
+const fallIn = (delay: number) => ({
+  initial: { opacity: 0, y: -40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+});
+
+const riseUp = (delay: number) => ({
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+});
+
 const HeroSection = () => {
   return (
     <section
@@ -12,55 +24,57 @@ const HeroSection = () => {
         <div className="container mx-auto px-4 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left content */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
-            >
+            <div className="space-y-8">
               <div className="space-y-3">
-                <h1 className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black">
+                <motion.h1
+                  {...fallIn(0.05)}
+                  className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black"
+                >
                   Meet{' '}
-                  <span className="text-[#2dd4bf]">My SafetyZone.</span>
-                </h1>
-                <h2 className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black">
+                  <span className="text-teal-400">My SafetyZone.</span>
+                </motion.h1>
+                <motion.h2
+                  {...fallIn(0.15)}
+                  className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black"
+                >
                   Finally eat without fear.
-                </h2>
+                </motion.h2>
               </div>
 
-              <p className="text-lg md:text-xl font-medium text-[#2dd4bf] max-w-xl leading-relaxed">
+              <motion.p
+                {...fallIn(0.25)}
+                className="text-lg md:text-xl font-medium text-teal-400 max-w-xl leading-relaxed"
+              >
                 AI-powered allergy protection, nutrition tracking, and safe dining in one app.
-              </p>
+              </motion.p>
 
-              <p className="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
+              <motion.p
+                {...riseUp(0.35)}
+                className="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed"
+              >
                 Whether you have a peanut allergy, celiac disease, or any dietary restriction, My SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 200+ languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
-              </p>
+              </motion.p>
 
-              <div
+              <motion.div
+                {...riseUp(0.45)}
                 className="flex items-center gap-4 flex-wrap pt-2"
                 role="group"
                 aria-label="Download SafetyZone food allergy app"
               >
                 <AppStoreBadge />
                 <GooglePlayBadge comingSoon />
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
 
             {/* Right - Phone mockups (desktop) */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="hidden lg:flex justify-end items-center"
-            >
+            <div className="hidden lg:flex justify-end items-center">
               <div className="relative w-full max-w-md h-[620px]">
                 {/* Back phone - Allergen card */}
                 <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4, duration: 0.7 }}
+                  initial={{ opacity: 0, y: -60, rotate: 0 }}
+                  animate={{ opacity: 1, y: 0, rotate: -5 }}
+                  transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute right-0 top-16 w-[210px]"
-                  style={{ transform: 'rotate(-5deg)' }}
                 >
                   <IPhoneFrame>
                     <img
@@ -75,9 +89,9 @@ const HeroSection = () => {
 
                 {/* Front phone - Home screen */}
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3, duration: 0.7 }}
+                  initial={{ opacity: 0, y: -80 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute left-0 top-8 w-[230px] z-10"
                 >
                   <IPhoneFrame>
@@ -91,23 +105,17 @@ const HeroSection = () => {
                   </IPhoneFrame>
                 </motion.div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Mobile phone mockups */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden flex justify-center items-center mt-12 mb-8"
-          >
+          <div className="lg:hidden flex justify-center items-center mt-12 mb-8">
             <div className="relative w-full max-w-xs h-[480px]">
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.7 }}
+                initial={{ opacity: 0, y: -50, rotate: 0 }}
+                animate={{ opacity: 1, y: 0, rotate: -5 }}
+                transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute right-0 top-12 w-[150px]"
-                style={{ transform: 'rotate(-5deg)' }}
               >
                 <IPhoneFrame>
                   <img
@@ -121,9 +129,9 @@ const HeroSection = () => {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3, duration: 0.7 }}
+                initial={{ opacity: 0, y: -70 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute left-0 top-6 w-[170px] z-10"
               >
                 <IPhoneFrame>
@@ -137,7 +145,7 @@ const HeroSection = () => {
                 </IPhoneFrame>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
