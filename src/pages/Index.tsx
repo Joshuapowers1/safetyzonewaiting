@@ -292,7 +292,7 @@ const Index = () => {
                 "name": "What is NutriScan AI in SafetyZone?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "NutriScan AI is SafetyZone's AI-powered calorie and nutrition tracker. Simply take a photo of any meal — home-cooked, restaurant, or packaged food — and NutriScan instantly estimates calories, macronutrients (protein, carbs, fat), and key micronutrients. No manual food logging required."
+                  "text": "NutriScan AI is SafetyZone's AI-powered calorie and nutrition tracker. Simply take a photo of any meal, whether home-cooked, restaurant, or packaged food, and NutriScan instantly estimates calories, macronutrients (protein, carbs, fat), and key micronutrients. No manual food logging required."
                 }
               },
               {
@@ -300,7 +300,7 @@ const Index = () => {
                 "name": "How does Recipe AI work in SafetyZone?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Recipe AI lets you paste any recipe or URL, and it automatically identifies every allergen risk based on your profile. It then generates safe, taste-matched ingredient substitutions that account for cooking chemistry, binding agents, texture, flavor profiles, and baking ratios — so your allergen-free version actually tastes great."
+                  "text": "Recipe AI lets you paste any recipe or URL, and it automatically identifies every allergen risk based on your profile. It then generates safe, taste-matched ingredient substitutions that account for cooking chemistry, binding agents, texture, flavor profiles, and baking ratios so your allergen-free version actually tastes great."
                 }
               },
               {

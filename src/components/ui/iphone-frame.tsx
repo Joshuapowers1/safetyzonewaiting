@@ -9,11 +9,11 @@ const IPhoneFrame = ({ children, className = '' }: IPhoneFrameProps) => {
   return (
     <div className={`relative ${className}`}>
       {/* iPhone 16 Pro frame */}
-      <div className="relative rounded-[3rem] border-[6px] border-[#1a1a1a] bg-[#1a1a1a] shadow-2xl overflow-hidden">
-        {/* Dynamic Island */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 w-[100px] h-[28px] bg-[#1a1a1a] rounded-b-[18px]" />
+      <div className="relative rounded-[2.8rem] border-[8px] border-[#1a1a1a] bg-[#1a1a1a] shadow-2xl overflow-hidden">
+        {/* Dynamic Island - floating pill, not connected to top */}
+        <div className="absolute top-[10px] left-1/2 -translate-x-1/2 z-20 w-[90px] h-[24px] bg-black rounded-full" />
         {/* Screen content */}
-        <div className="relative rounded-[2.4rem] overflow-hidden bg-white">
+        <div className="relative rounded-[2rem] overflow-hidden bg-white">
           {children}
         </div>
       </div>
