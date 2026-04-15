@@ -24,8 +24,8 @@ export const AppStoreBadge = ({ className }: { className?: string }) => (
 
 export const GooglePlayBadge = ({ className, comingSoon = true }: { className?: string; comingSoon?: boolean }) => (
   <div
-    className={`inline-block ${comingSoon ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80 cursor-pointer'} transition-opacity relative ${className ?? ''}`}
-    aria-label="Get it on Google Play"
+    className={`inline-block ${comingSoon ? 'opacity-60 cursor-default' : 'hover:opacity-80 cursor-pointer'} transition-opacity relative ${className ?? ''}`}
+    aria-label={comingSoon ? 'Coming soon on Google Play' : 'Get it on Google Play'}
   >
     <svg width="160" height="54" viewBox="0 0 160 54" xmlns="http://www.w3.org/2000/svg">
       <rect width="160" height="54" rx="8" fill="black" />

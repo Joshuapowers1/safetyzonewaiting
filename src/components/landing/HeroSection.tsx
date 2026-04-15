@@ -21,7 +21,7 @@ const HeroSection = () => {
               <div className="space-y-3">
                 <h1 className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black">
                   Meet{' '}
-                  <span className="text-[#2dd4bf]">SafetyZone.</span>
+                  <span className="text-[#2dd4bf]">My SafetyZone.</span>
                 </h1>
                 <h2 className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black">
                   Finally eat without fear.
@@ -33,7 +33,7 @@ const HeroSection = () => {
               </p>
 
               <p className="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
-                Whether it's a peanut allergy, celiac disease, or any dietary restriction — SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 200+ languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
+                Whether it's a peanut allergy, celiac disease, or any dietary restriction — My SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 200+ languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
               </p>
 
               <div
