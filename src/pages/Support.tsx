@@ -12,40 +12,48 @@ import {
 
 const faqs = [
   {
-    question: "What is SafetyZone?",
-    answer: "My SafetyZone is an AI-powered food safety platform designed to help the 500+ million people worldwide with food allergies and dietary restrictions eat safely. Our app translates allergen information, provides safe recipes, tracks medical devices, and more."
+    question: "What is My SafetyZone?",
+    answer: "My SafetyZone is an AI-powered food allergy and nutrition app available now on iOS. It helps the 500+ million people worldwide with food allergies and dietary restrictions eat safely with features like QR allergy cards, allergen-free recipe AI, NutriScan calorie tracking, EpiPen and inhaler trackers, FDA recall alerts, and more."
   },
   {
-    question: "How does the AI allergen detection work?",
-    answer: "Our AI analyzes menu items, ingredient lists, and restaurant data to identify potential allergens. It cross-references your dietary profile to flag items that may be unsafe. Note: AI recommendations are informational only. Always verify with restaurant staff and healthcare providers."
+    question: "Where can I download My SafetyZone?",
+    answer: "My SafetyZone is free to download on the iOS App Store with a 7-day free trial. Android support via Google Play is coming soon."
   },
   {
-    question: "Which allergens does SafetyZone support?",
-    answer: "SafetyZone supports all major allergens including peanuts, tree nuts, dairy, eggs, wheat/gluten, soy, fish, shellfish, sesame, and more. You can customize your profile to track any specific dietary restrictions."
+    question: "What features are included?",
+    answer: "The app includes NutriScan AI (photo-based calorie and macro tracking), Recipe AI (allergen-free recipe substitutions from 2M+ recipes), QR Allergy Cards translated into 200+ languages, Travel Mode with destination-specific allergy guides, EpiPen and inhaler expiration trackers, medical device reminders, FDA recall alerts, family profiles, and in-app chat support."
   },
   {
-    question: "Is SafetyZone available on iOS and Android?",
-    answer: "SafetyZone is currently in development. Join our waitlist to be among the first to access the app when it launches on both iOS and Android."
+    question: "How does NutriScan AI work?",
+    answer: "Snap a photo of any meal and NutriScan AI instantly estimates calories, macros (protein, carbs, fat), and detects potential allergens. No manual food logging required."
   },
   {
-    question: "How do I join the waitlist?",
-    answer: "You can join the waitlist directly from our homepage by scrolling to the waitlist section and entering your information. You'll receive updates about our launch and early access opportunities."
+    question: "How does Recipe AI work?",
+    answer: "Paste any recipe or URL and Recipe AI automatically identifies allergen risks based on your profile. It then generates safe, taste-matched ingredient substitutions that account for cooking chemistry so your allergen-free version actually works."
+  },
+  {
+    question: "What is the QR Allergy Card?",
+    answer: "The QR Allergy Card is a digital card with your complete allergy profile that translates into 200+ languages. Show it or let restaurant staff scan it anywhere in the world so they can see exactly what you need to avoid, in their language."
+  },
+  {
+    question: "Which allergens does My SafetyZone support?",
+    answer: "My SafetyZone supports all major allergens including peanuts, tree nuts, dairy, eggs, wheat/gluten, soy, fish, shellfish, sesame, and 50+ additional allergens and dietary restrictions. You can fully customize your profile."
+  },
+  {
+    question: "Can I use it for my child or family?",
+    answer: "Yes. My SafetyZone supports family profiles so you can manage allergy profiles for your children, partner, or anyone you care for, all from one account."
   },
   {
     question: "Is my health data secure?",
-    answer: "Absolutely. We take data privacy extremely seriously. All personal and health data is encrypted, and we follow strict privacy practices. Please review our Privacy Policy for full details on how we protect your information."
+    answer: "Absolutely. All personal and health data is encrypted and we follow strict privacy practices. Please review our Privacy Policy for full details on how we protect your information."
   },
   {
-    question: "Can I use SafetyZone for someone else (e.g., my child)?",
-    answer: "Yes! SafetyZone is designed for parents, caregivers, and anyone managing dietary restrictions for themselves or others. You can set up profiles for multiple family members."
+    question: "Does My SafetyZone work internationally?",
+    answer: "Yes. The QR Allergy Card translates into 200+ languages and Travel Mode provides destination-specific allergy safety tips, local phrases, safe restaurant suggestions, and emergency information for wherever you're headed."
   },
   {
-    question: "Does SafetyZone work internationally?",
-    answer: "SafetyZone includes real-time menu translation and allergen detection across multiple languages, making it ideal for international travel and dining."
-  },
-  {
-    question: "How accurate are the AI recommendations?",
-    answer: "Our AI is trained on extensive food safety data and continuously improves. However, AI assessments are informational only and not a substitute for medical advice. Always confirm with restaurant staff and consult your healthcare provider for serious allergies."
+    question: "How much does it cost?",
+    answer: "My SafetyZone is free to download with a 7-day free trial that gives you full access to all features. After the trial, you can choose a subscription plan to continue."
   },
   {
     question: "How can I contact support?",
@@ -57,8 +65,8 @@ const Support = () => {
   return (
     <>
       <Helmet>
-        <title>Support & FAQ | SafetyZone - AI Food Safety</title>
-        <meta name="description" content="Find answers to frequently asked questions about SafetyZone's AI-powered food safety platform, allergen detection, and more." />
+        <title>Support & FAQ | My SafetyZone - AI Food Allergy App</title>
+        <meta name="description" content="Find answers to frequently asked questions about My SafetyZone, the #1 AI-powered food allergy app on iOS. Get help with features, your account, and more." />
         <link rel="canonical" href="https://mysafetyzone.com/support" />
       </Helmet>
 
@@ -74,14 +82,14 @@ const Support = () => {
           >
             {/* Header */}
             <div className="text-center mb-12">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                <HelpCircle className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 rounded-2xl bg-teal-50 flex items-center justify-center mx-auto mb-6">
+                <HelpCircle className="w-8 h-8 text-teal-500" />
               </div>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Help & <span className="text-primary italic">FAQ</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Help & <span className="text-teal-500">FAQ</span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Find answers to common questions about SafetyZone. Can't find what you're looking for? Reach out to us directly.
+              <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+                Find answers to common questions about My SafetyZone. Can't find what you're looking for? Reach out to us directly.
               </p>
             </div>
 
@@ -91,12 +99,12 @@ const Support = () => {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-muted/30 border border-border rounded-xl px-6 data-[state=open]:bg-muted/50 transition-colors"
+                  className="bg-gray-50 border border-gray-200 rounded-xl px-6 data-[state=open]:bg-teal-50/50 transition-colors"
                 >
-                  <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-5">
+                  <AccordionTrigger className="text-left text-gray-900 hover:text-teal-500 hover:no-underline py-5">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5">
+                  <AccordionContent className="text-gray-500 pb-5">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -104,14 +112,14 @@ const Support = () => {
             </Accordion>
 
             {/* Still need help */}
-            <div className="mt-12 text-center p-8 bg-muted/30 rounded-2xl border border-border">
-              <h2 className="text-xl font-semibold text-foreground mb-2">Still have questions?</h2>
-              <p className="text-muted-foreground mb-4">
+            <div className="mt-12 text-center p-8 bg-gray-50 rounded-2xl border border-gray-200">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">Still have questions?</h2>
+              <p className="text-gray-500 mb-4">
                 We're happy to help. Reach out and we'll get back to you within 24 to 48 hours.
               </p>
               <a
                 href="mailto:joshua@mysafetyzone.com"
-                className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                className="inline-flex items-center gap-2 text-teal-500 hover:underline font-medium"
               >
                 <Mail className="w-4 h-4" />
                 joshua@mysafetyzone.com
