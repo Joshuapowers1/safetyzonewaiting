@@ -16,18 +16,18 @@ const StatsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-teal-500/10 dark:bg-white/5 rounded-xl p-8 md:p-12"
+          className="bg-teal-500/10 rounded-xl p-8 md:p-12"
         >
-          <div className="flex flex-col md:flex-row items-center justify-center gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-300 dark:divide-white/10">
-            {stats.map((stat, index) => (
+          <div className="flex flex-col md:flex-row items-center justify-center gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-300">
+            {stats.map((stat) => (
               <div
                 key={stat.label}
                 className="w-full md:flex-1 py-6 md:py-0 md:px-8 text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                <div className="text-sm text-gray-600 font-medium">
                   {stat.label}
                 </div>
               </div>
