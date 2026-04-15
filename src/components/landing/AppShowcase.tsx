@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import { QrCode, ChefHat, Flame, Camera } from 'lucide-react';
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
+import IPhoneFrame from '@/components/ui/iphone-frame';
 
 import screenQrProfile from '@/assets/screen-qr-profile.png';
 import screenRecipe from '@/assets/screen-recipe.png';
@@ -43,12 +44,7 @@ const showcaseFeatures = [
   },
 ];
 
-/* Clean screen frame — no bezel */
-const ScreenFrame = ({ children }: { children: React.ReactNode }) => (
-  <div className="rounded-[1.5rem] overflow-hidden shadow-2xl shadow-black/50">
-    {children}
-  </div>
-);
+/* No longer needed, using IPhoneFrame instead */
 
 const AppShowcase = () => {
   return (
@@ -85,9 +81,9 @@ const AppShowcase = () => {
             >
               {/* Small phone preview */}
               <div className="shrink-0 w-[100px] sm:w-[120px]">
-                <ScreenFrame>
-                  <img src={feature.image} alt={feature.alt} loading="lazy" className="w-full aspect-[9/19.5] object-cover" width="120" height="260" />
-                </ScreenFrame>
+                <IPhoneFrame>
+                  <img src={feature.image} alt={feature.alt} loading="lazy" className="w-full aspect-[9/19.5] object-contain bg-white" width="120" height="260" />
+                </IPhoneFrame>
               </div>
 
               {/* Content */}
