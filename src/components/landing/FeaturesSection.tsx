@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ScanLine, Barcode, Users } from 'lucide-react';
+import { ScanLine, Barcode, Users, Pill, AlertTriangle, MessageCircle } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 
 const showcaseFeatures = [
@@ -46,6 +46,39 @@ const showcaseFeatures = [
       { title: 'Safe Restaurant Finder', description: 'Discover allergy-friendly restaurants at your destination.' },
       { title: 'Local Phrases', description: 'Essential allergy phrases translated for ordering food abroad.' },
       { title: 'Emergency Info', description: 'Nearby hospitals and emergency contacts auto-populated for your trip.' },
+    ],
+  },
+  {
+    id: 'medication',
+    screenshot: null,
+    icon: Pill,
+    title: 'Medication & Device Tracker',
+    subtitle: 'Never lose track of your EpiPen, inhaler, or medical device expiry dates.',
+    cards: [
+      { title: 'Expiration Reminders', description: 'Get notified before your EpiPen, inhaler, or any medical device expires.' },
+      { title: 'All Devices in One Place', description: 'Track multiple medications and devices for you and your family.' },
+    ],
+  },
+  {
+    id: 'fda',
+    screenshot: null,
+    icon: AlertTriangle,
+    title: 'FDA Recall Alerts',
+    subtitle: 'Real-time safety alerts for food recalls that affect your allergies.',
+    cards: [
+      { title: 'Personalized Alerts', description: 'Only see recalls relevant to your specific allergens and dietary needs.' },
+      { title: 'Instant Notifications', description: 'Know immediately when a product you use gets recalled.' },
+    ],
+  },
+  {
+    id: 'chat',
+    screenshot: null,
+    icon: MessageCircle,
+    title: 'In-App Chat Support',
+    subtitle: 'Get answers from our AI assistant anytime you need help.',
+    cards: [
+      { title: 'AI-Powered Answers', description: 'Ask questions about allergies, ingredients, or app features and get instant help.' },
+      { title: 'Always Available', description: 'Support when you need it — no waiting, no tickets.' },
     ],
   },
 ];
