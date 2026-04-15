@@ -18,7 +18,7 @@ const Footer = () => {
               <span className="text-lg font-semibold text-gray-900">My SafetyZone</span>
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed">
-              The #1 AI-powered food allergy app. Allergen detection, QR allergy cards, EpiPen tracker, FDA recall alerts, and safe recipe AI for 200M+ people with food allergies and dietary restrictions worldwide.
+              The #1 AI-powered food allergy app. Allergen detection, QR allergy cards, EpiPen tracker, FDA recall alerts, and safe recipe AI for 500M+ people with food allergies and dietary restrictions worldwide.
             </p>
             <div className="flex gap-3">
               <a href="https://instagram.com/safetyzoneofficial" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors" aria-label="My SafetyZone on Instagram">
