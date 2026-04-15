@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const CTASection = () => {
   return (
-    <section className="w-full bg-teal-500 py-20 px-4" aria-label="Download SafetyZone">
+    <section className="w-full bg-teal-500 py-20 px-4" aria-label="Download My SafetyZone">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
