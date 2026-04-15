@@ -1,35 +1,39 @@
-import { AnimatedCounter } from '@/components/ui/animated-counter';
-import { FadeInSection } from '@/components/ui/fade-in-section';
+import { motion } from 'framer-motion';
 
 const stats = [
-  { value: 33, suffix: 'M+', label: 'Americans with food allergies' },
-  { value: 200, suffix: 'K+', label: 'ER visits from allergic reactions yearly' },
-  { value: 200, suffix: '+', label: 'Languages for allergy translation' },
-  { value: 50, suffix: 'ms', label: 'AI allergen detection speed', prefix: '< ' },
+  { value: '200+', label: 'Languages' },
+  { value: 'AI-Powered', label: 'Detection' },
+  { value: 'Free', label: 'To Download' },
+  { value: '4.8★', label: 'Rating' },
 ];
 
 const StatsSection = () => {
   return (
-    <section className="py-20 relative overflow-hidden bg-[hsl(220,25%,4%)]" aria-label="Food allergy statistics">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-4xl mx-auto">
-          {stats.map((stat, index) => (
-            <FadeInSection key={stat.label} delay={index * 0.1} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                <AnimatedCounter
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  prefix={stat.prefix}
-                  className="text-white"
-                  duration={2.5}
-                />
+    <section className="py-16 px-4" aria-label="Key statistics">
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-teal-500/10 dark:bg-white/5 rounded-xl p-8 md:p-12"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-300 dark:divide-white/10">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className="w-full md:flex-1 py-6 md:py-0 md:px-8 text-center"
+              >
+                <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                  {stat.label}
+                </div>
               </div>
-              <div className="text-xs text-white/35 font-medium">
-                {stat.label}
-              </div>
-            </FadeInSection>
-          ))}
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

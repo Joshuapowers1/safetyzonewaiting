@@ -1,58 +1,55 @@
-import { FadeInSection } from '@/components/ui/fade-in-section';
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
-import screenHome from '@/assets/screen-home.png';
+import nutriscan from '@/assets/screenshots/nutriscan.png';
 import { motion } from 'framer-motion';
 
 const CTASection = () => {
   return (
-    <section className="py-32 relative overflow-hidden bg-[hsl(220,25%,4%)]" aria-label="Download SafetyZone food allergy app">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-transparent to-transparent" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <FadeInSection className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-5 leading-tight">
-            Download SafetyZone.{' '}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Eat fearlessly.
-            </span>
+    <section className="w-full bg-teal-500 py-20 px-4" aria-label="Download SafetyZone">
+      <div className="max-w-5xl mx-auto">
+        {/* Content Container */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+            Your safety starts with one download.
           </h2>
 
-          <p className="text-base md:text-lg text-white/40 mb-10 max-w-lg mx-auto">
-            Join thousands of families who eat with confidence. QR allergy cards, medication tracking, FDA alerts, calorie counting, and more — free to download.
+          <p className="text-lg md:text-xl text-white mb-8">
+            Free on iOS and Android. No credit card required.
           </p>
 
-          <div className="flex items-center justify-center gap-4 mb-12" role="group" aria-label="Download SafetyZone">
+          {/* Store Badges */}
+          <div className="flex items-center justify-center gap-4 mb-12" role="group" aria-label="Download options">
             <AppStoreBadge />
-            <GooglePlayBadge comingSoon />
+            <GooglePlayBadge />
           </div>
+        </motion.div>
 
-          {/* App preview */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="flex justify-center"
-          >
-            <div className="w-[200px] sm:w-[240px]">
-              <div className="rounded-[2rem] overflow-hidden shadow-2xl shadow-black/50">
-                <img
-                  src={screenHome}
-                  alt="SafetyZone app home screen"
-                  className="w-full aspect-[9/19.5] object-cover"
-                  loading="lazy"
-                  width="240"
-                  height="520"
-                />
-              </div>
+        {/* Phone Mockup */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="flex justify-center"
+        >
+          <div className="w-[220px] sm:w-[280px]">
+            <div className="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-black bg-black">
+              <img
+                src={nutriscan}
+                alt="SafetyZone app screenshot"
+                className="w-full aspect-[9/19.5] object-cover"
+                loading="lazy"
+                width="280"
+                height="600"
+              />
             </div>
-          </motion.div>
-        </FadeInSection>
-
-        <p className="text-[10px] text-white/15 text-center mt-12 max-w-md mx-auto">
-          SafetyZone — recommendations are informational only. Always verify allergens with restaurant staff and consult healthcare providers for medical advice.
-        </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
