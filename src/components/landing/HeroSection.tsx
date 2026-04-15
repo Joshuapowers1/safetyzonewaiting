@@ -66,7 +66,7 @@ const HeroSection = () => {
                     <img
                       src="/screenshots/allergen-card.png"
                       alt="SafetyZone digital allergy card in 200+ languages"
-                      className="w-full aspect-[9/19.5] object-cover object-top"
+                      className="w-full aspect-[9/19.5] object-contain bg-white"
                       width="210"
                       height="455"
                     />
@@ -84,7 +84,7 @@ const HeroSection = () => {
                     <img
                       src="/screenshots/home-screen.png"
                       alt="SafetyZone app home dashboard"
-                      className="w-full aspect-[9/19.5] object-cover object-top"
+                      className="w-full aspect-[9/19.5] object-contain bg-white"
                       width="230"
                       height="498"
                     />
@@ -113,7 +113,7 @@ const HeroSection = () => {
                   <img
                     src="/screenshots/allergen-card.png"
                     alt="SafetyZone digital allergy card"
-                    className="w-full aspect-[9/19.5] object-cover object-top"
+                    className="w-full aspect-[9/19.5] object-contain bg-white"
                     width="150"
                     height="325"
                   />
@@ -130,7 +130,7 @@ const HeroSection = () => {
                   <img
                     src="/screenshots/home-screen.png"
                     alt="SafetyZone app home dashboard"
-                    className="w-full aspect-[9/19.5] object-cover object-top"
+                    className="w-full aspect-[9/19.5] object-contain bg-white"
                     width="170"
                     height="368"
                   />
