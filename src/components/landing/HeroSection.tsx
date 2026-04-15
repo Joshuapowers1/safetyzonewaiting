@@ -38,7 +38,7 @@ const HeroSection = () => {
 
               {/* Description paragraph */}
               <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed">
-                Whether it's a peanut allergy, celiac disease, or any dietary restriction — SafetyZone has your back. Scan meals, get allergen-free recipes, carry a digital allergy card in 200+ languages, and track your nutrition. Free to download.
+                Whether it's a peanut allergy, celiac disease, or any dietary restriction — SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 200+ languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
               </p>
 
               {/* Download badges */}
@@ -72,7 +72,7 @@ const HeroSection = () => {
                     <img
                       src="/screenshots/allergen-card.png"
                       alt="SafetyZone digital allergy card in 200+ languages"
-                      className="w-full aspect-[9/19.5] object-cover"
+                      className="w-full aspect-[9/19.5] object-cover object-top"
                       width="220"
                       height="476"
                     />
@@ -90,7 +90,7 @@ const HeroSection = () => {
                     <img
                       src="/screenshots/home-screen.png"
                       alt="SafetyZone app home dashboard showing meal scanning and nutrition tracking"
-                      className="w-full aspect-[9/19.5] object-cover"
+                      className="w-full aspect-[9/19.5] object-cover object-top"
                       width="240"
                       height="519"
                     />

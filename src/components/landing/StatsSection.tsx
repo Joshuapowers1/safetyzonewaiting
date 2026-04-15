@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 const stats = [
   { value: '200+', label: 'Languages' },
   { value: 'AI-Powered', label: 'Detection' },
-  { value: 'Free', label: 'To Download' },
-  { value: '4.8★', label: 'Rating' },
+  { value: '7-Day', label: 'Free Trial' },
+  { value: '5.0★', label: 'Rating' },
 ];
 
 const StatsSection = () => {
