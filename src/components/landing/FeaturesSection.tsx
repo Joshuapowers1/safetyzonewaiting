@@ -112,24 +112,31 @@ const FeaturesSection = () => {
                       onClick={() => setActiveId(feature.id)}
                       className={`w-full text-left rounded-2xl border transition-all duration-300 px-6 py-5 group ${
                         isActive
-                          ? 'bg-gray-50 dark:bg-white/5 border-gray-300 dark:border-white/15 shadow-md'
+                          ? 'bg-teal-50 dark:bg-teal-950/30 border-teal-300 dark:border-teal-500/30 shadow-md ring-1 ring-teal-200 dark:ring-teal-500/20'
                           : 'bg-transparent border-gray-200 dark:border-white/8 hover:bg-gray-50/60 dark:hover:bg-white/[0.03] hover:border-gray-300 dark:hover:border-white/12'
                       }`}
                     >
-                      <h3 className={`text-lg md:text-xl font-bold transition-colors duration-200 ${
-                        isActive
-                          ? 'text-gray-900 dark:text-white'
-                          : 'text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200'
-                      }`}>
-                        {feature.title}
-                      </h3>
-                      <p className={`text-sm mt-1 transition-colors duration-200 ${
-                        isActive
-                          ? 'text-gray-600 dark:text-gray-300'
-                          : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400'
-                      }`}>
-                        {feature.subtitle}
-                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-2 h-2 rounded-full shrink-0 transition-colors duration-200 ${
+                          isActive ? 'bg-teal-500' : 'bg-gray-300 dark:bg-gray-600'
+                        }`} />
+                        <div>
+                          <h3 className={`text-lg md:text-xl font-bold transition-colors duration-200 ${
+                            isActive
+                              ? 'text-teal-900 dark:text-teal-300'
+                              : 'text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200'
+                          }`}>
+                            {feature.title}
+                          </h3>
+                          <p className={`text-sm mt-1 transition-colors duration-200 ${
+                            isActive
+                              ? 'text-teal-700/70 dark:text-teal-400/70'
+                              : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400'
+                          }`}>
+                            {feature.subtitle}
+                          </p>
+                        </div>
+                      </div>
                     </button>
 
                     {/* Expanded cards */}
