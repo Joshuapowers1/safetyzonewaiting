@@ -1,7 +1,4 @@
-import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SecurityErrorBoundary from '@/components/SecurityErrorBoundary';
@@ -15,7 +12,6 @@ import CTASection from '@/components/landing/CTASection';
 const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
 
 const Index = () => {
-  const [showLoading, setShowLoading] = useState(true);
 
   return (
     <>
@@ -390,9 +386,8 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <AnimatePresence>
-        {showLoading && <LoadingScreen onComplete={() => setShowLoading(false)} />}
-      </AnimatePresence>
+
+
 
       <div className="min-h-screen bg-background">
         <SecurityErrorBoundary fallback={null}><Navbar /></SecurityErrorBoundary>
