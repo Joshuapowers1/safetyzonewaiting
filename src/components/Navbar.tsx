@@ -1,13 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { AppStoreBadge } from '@/components/ui/store-badges';
 import logoWhite from '@/assets/logo-white.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
   const location = useLocation();
 
   const navLinks = [
@@ -17,16 +16,6 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' },
     { name: 'Support', path: '/support' },
   ];
-
-  // Initialize dark mode on mount
-  useEffect(() => {
-    const htmlElement = document.documentElement;
-    if (isDark) {
-      htmlElement.classList.add('dark');
-    } else {
-      htmlElement.classList.remove('dark');
-    }
-  }, [isDark]);
 
   const isActive = (path: string) => {
     if (path.startsWith('/#')) return false;
@@ -44,17 +33,13 @@ const Navbar = () => {
     }
   };
 
-  const toggleDarkMode = () => {
-    setIsDark(!isDark);
-  };
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[hsl(220,25%,4%)]/80 backdrop-blur-md border-b border-gray-200 dark:border-white/[0.04]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2.5">
             <img src={logoWhite} alt="SafetyZone" className="w-8 h-8 object-contain" />
-            <span className="text-lg font-semibold text-gray-900 dark:text-white">SafetyZone</span>
+            <span className="text-lg font-semibold text-gray-900">SafetyZone</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -66,7 +51,7 @@ const Navbar = () => {
                 className={`text-sm font-medium transition-colors ${
                   isActive(link.path)
                     ? 'text-teal-500'
-                    : 'text-gray-600 dark:text-white/60 hover:text-teal-500'
+                    : 'text-gray-600 hover:text-teal-500'
                 }`}
               >
                 {link.name}
@@ -75,26 +60,11 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 text-gray-600 dark:text-white/60 hover:text-teal-500 dark:hover:text-teal-500 transition-colors rounded-lg"
-              aria-label="Toggle dark mode"
-            >
-              <motion.div
-                key={isDark ? 'moon' : 'sun'}
-                initial={{ rotate: -180, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 180, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {isDark ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-              </motion.div>
-            </button>
             <AppStoreBadge className="h-9" />
           </div>
 
           <button
-            className="md:hidden p-2 text-gray-600 dark:text-white/70 hover:text-teal-500 transition-colors"
+            className="md:hidden p-2 text-gray-600 hover:text-teal-500 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -109,7 +79,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 dark:bg-[hsl(220,25%,4%)]/95 backdrop-blur-md border-b border-gray-200 dark:border-white/[0.04]"
+            className="md:hidden bg-white/95 backdrop-blur-md border-b border-gray-200"
           >
             <div className="container mx-auto px-4 py-4 space-y-3">
               {navLinks.map((link) => (
@@ -120,19 +90,12 @@ const Navbar = () => {
                   className={`block text-sm font-medium transition-colors py-1 ${
                     isActive(link.path)
                       ? 'text-teal-500'
-                      : 'text-gray-600 dark:text-white/60 hover:text-teal-500'
+                      : 'text-gray-600 hover:text-teal-500'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <button
-                onClick={toggleDarkMode}
-                className="flex items-center gap-2 w-full text-sm font-medium text-gray-600 dark:text-white/60 hover:text-teal-500 py-1 transition-colors"
-              >
-                {isDark ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-                <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
-              </button>
               <div className="pt-2">
                 <AppStoreBadge className="h-10 w-full" />
               </div>
