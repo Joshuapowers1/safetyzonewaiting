@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
-import logoWhite from '@/assets/logo-white.png';
+import tealLogo from '@/assets/teal-logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +38,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2.5">
-            <img src={logoWhite} alt="My SafetyZone" className="w-8 h-8 object-contain" />
+            <img src={tealLogo} alt="My SafetyZone" className="w-8 h-8 object-contain" />
             <span className="text-lg font-semibold text-gray-900">My SafetyZone</span>
           </Link>
 

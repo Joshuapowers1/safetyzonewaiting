@@ -31,7 +31,7 @@ const FounderSection = () => {
             <div className="md:col-span-3 space-y-6">
               <FadeInSection direction="right" delay={0.2}>
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-xs font-medium text-gray-500 mb-4">
-                  Why We Built SafetyZone
+                  Why We Built My SafetyZone
                 </span>
 
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -44,12 +44,12 @@ const FounderSection = () => {
                 <div className="relative pl-6 border-l-2 border-primary/20 space-y-4">
                   <Quote className="absolute -left-3 -top-1 w-6 h-6 text-primary/30 bg-gray-50" />
                   <p className="text-base text-gray-600 leading-relaxed">
-                    SafetyZone was founded by Joshua Powers, who has lived with{' '}
+                    My SafetyZone was founded by Joshua Powers, who has lived with{' '}
                     <span className="text-gray-900 font-medium">anaphylactic food allergies</span>{' '}
                     to dairy, eggs, and nuts his entire life. Years of anxiety-filled dining experiences, emergency room visits, and life-threatening allergic reactions inspired him to build the most comprehensive food allergy management app available.
                   </p>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    SafetyZone's AI technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that other food allergy apps miss — supporting{' '}
+                    My SafetyZone's AI technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that other food allergy apps miss. It supports{' '}
                     <span className="text-gray-700 font-medium">200+ languages</span> for global food allergy safety and travel protection.
                   </p>
                 </div>
@@ -62,7 +62,7 @@ const FounderSection = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900 text-sm">Joshua Powers</div>
-                    <div className="text-xs text-gray-500">Founder & CEO, SafetyZone — Food Allergy App</div>
+                    <div className="text-xs text-gray-500">Founder & CEO, My SafetyZone</div>
                   </div>
                 </div>
               </FadeInSection>

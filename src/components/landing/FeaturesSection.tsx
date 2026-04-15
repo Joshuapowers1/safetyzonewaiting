@@ -21,7 +21,7 @@ const showcaseFeatures = [
     id: 'allergen-card',
     screenshot: '/screenshots/allergen-card.png',
     title: 'Digital QR Allergen Card',
-    description: 'Your allergies translated into 200+ languages on a scannable digital card. Show it at any restaurant, kitchen, or food counter — anywhere in the world.',
+    description: 'Your allergies translated into 200+ languages on a scannable digital card. Show it at any restaurant, kitchen, or food counter anywhere in the world.',
   },
   {
     id: 'travel',
@@ -45,7 +45,7 @@ const moreFeatures = [
   {
     icon: MessageCircle,
     title: 'In-App Chat Support',
-    description: 'Get instant answers from our AI assistant — anytime you need help.',
+    description: 'Get instant answers from our AI assistant anytime you need help.',
   },
 ];
 
