@@ -16,8 +16,8 @@ const CTASection = () => {
             Your safety starts with the download.
           </h2>
 
-          <p className="text-lg md:text-xl text-white mb-8">
-            Free on iOS, coming soon on Android.
+          <p className="text-lg md:text-xl text-white/90 mb-8">
+            Free to download · 7-day free trial · 5-star rated · Free on iOS, coming soon on Android.
           </p>
 
           {/* Store Badges */}
