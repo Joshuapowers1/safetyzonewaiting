@@ -17,7 +17,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <div className="dark">
+  <div>
     <SecurityErrorBoundary>
       <HelmetProvider>
         <QueryClientProvider client={queryClient}>
