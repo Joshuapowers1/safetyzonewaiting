@@ -48,38 +48,23 @@ const showcaseFeatures = [
       { title: 'Emergency Info', description: 'Nearby hospitals and emergency contacts auto-populated for your trip.' },
     ],
   },
+];
+
+const moreFeatures = [
   {
-    id: 'medication',
-    screenshot: null,
     icon: Pill,
     title: 'Medication & Device Tracker',
-    subtitle: 'Never lose track of your EpiPen, inhaler, or medical device expiry dates.',
-    cards: [
-      { title: 'Expiration Reminders', description: 'Get notified before your EpiPen, inhaler, or any medical device expires.' },
-      { title: 'All Devices in One Place', description: 'Track multiple medications and devices for you and your family.' },
-    ],
+    description: 'Never lose track of your EpiPen, inhaler, or medical device expiry dates. Get reminders before anything expires.',
   },
   {
-    id: 'fda',
-    screenshot: null,
     icon: AlertTriangle,
     title: 'FDA Recall Alerts',
-    subtitle: 'Real-time safety alerts for food recalls that affect your allergies.',
-    cards: [
-      { title: 'Personalized Alerts', description: 'Only see recalls relevant to your specific allergens and dietary needs.' },
-      { title: 'Instant Notifications', description: 'Know immediately when a product you use gets recalled.' },
-    ],
+    description: 'Real-time safety alerts personalized to your allergens. Know instantly when a product you use gets recalled.',
   },
   {
-    id: 'chat',
-    screenshot: null,
     icon: MessageCircle,
     title: 'In-App Chat Support',
-    subtitle: 'Get answers from our AI assistant anytime you need help.',
-    cards: [
-      { title: 'AI-Powered Answers', description: 'Ask questions about allergies, ingredients, or app features and get instant help.' },
-      { title: 'Always Available', description: 'Support when you need it — no waiting, no tickets.' },
-    ],
+    description: 'Get instant answers about allergies, ingredients, or app features from our AI assistant — anytime.',
   },
 ];
 
@@ -109,36 +94,35 @@ const FeaturesSection = () => {
         {/* Interactive showcase */}
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-            {/* Left: Phone mockup or icon */}
+            {/* Left: Phone mockup — all images stacked, only active visible */}
             <div className="w-full lg:w-auto flex justify-center lg:justify-start shrink-0">
               <div className="relative w-[240px] sm:w-[280px]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeId}
-                    initial={{ opacity: 0, scale: 0.97 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.97 }}
-                    transition={{ duration: 0.3 }}
+                {showcaseFeatures.map((feature) => (
+                  <div
+                    key={feature.id}
+                    className="absolute inset-0 transition-opacity duration-200"
+                    style={{
+                      opacity: feature.id === activeId ? 1 : 0,
+                      pointerEvents: feature.id === activeId ? 'auto' : 'none',
+                    }}
                   >
-                    {active.screenshot ? (
-                      <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gray-100 dark:bg-gray-800">
-                        <img
-                          src={active.screenshot}
-                          alt={`${active.title} screenshot`}
-                          className="w-full aspect-[9/19] object-cover"
-                          width="280"
-                          height="590"
-                        />
-                      </div>
-                    ) : (
-                      <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-950/40 dark:to-gray-900 aspect-[9/19] flex items-center justify-center">
-                        {active.icon && (
-                          <active.icon className="w-20 h-20 text-teal-500/40 dark:text-teal-400/30" strokeWidth={1.2} />
-                        )}
-                      </div>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
+                    <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gray-100 dark:bg-gray-800">
+                      <img
+                        src={feature.screenshot}
+                        alt={`${feature.title} screenshot`}
+                        className="w-full aspect-[9/19] object-cover"
+                        width="280"
+                        height="590"
+                      />
+                    </div>
+                  </div>
+                ))}
+                {/* Spacer to maintain height */}
+                <div className="invisible">
+                  <div className="rounded-[2.5rem] overflow-hidden">
+                    <div className="w-full aspect-[9/19]" />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -148,28 +132,27 @@ const FeaturesSection = () => {
                 const isActive = feature.id === activeId;
                 return (
                   <div key={feature.id}>
-                    {/* Clickable header */}
                     <button
                       onClick={() => setActiveId(feature.id)}
-                      className={`w-full text-left rounded-2xl border transition-all duration-300 px-6 py-5 group ${
+                      className={`w-full text-left rounded-2xl border transition-all duration-200 px-6 py-5 group ${
                         isActive
                           ? 'bg-teal-50 dark:bg-teal-950/30 border-teal-300 dark:border-teal-500/30 shadow-md ring-1 ring-teal-200 dark:ring-teal-500/20'
                           : 'bg-transparent border-gray-200 dark:border-white/8 hover:bg-gray-50/60 dark:hover:bg-white/[0.03] hover:border-gray-300 dark:hover:border-white/12'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className={`w-2 h-2 rounded-full shrink-0 transition-colors duration-200 ${
+                        <div className={`w-2 h-2 rounded-full shrink-0 transition-colors duration-150 ${
                           isActive ? 'bg-teal-500' : 'bg-gray-300 dark:bg-gray-600'
                         }`} />
                         <div>
-                          <h3 className={`text-lg md:text-xl font-bold transition-colors duration-200 ${
+                          <h3 className={`text-lg md:text-xl font-bold transition-colors duration-150 ${
                             isActive
                               ? 'text-teal-900 dark:text-teal-300'
                               : 'text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200'
                           }`}>
                             {feature.title}
                           </h3>
-                          <p className={`text-sm mt-1 transition-colors duration-200 ${
+                          <p className={`text-sm mt-1 transition-colors duration-150 ${
                             isActive
                               ? 'text-teal-700/70 dark:text-teal-400/70'
                               : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400'
@@ -187,16 +170,13 @@ const FeaturesSection = () => {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                          transition={{ duration: 0.25, ease: 'easeOut' }}
                           className="overflow-hidden"
                         >
                           <div className="pt-3 space-y-2">
                             {feature.cards.map((card, ci) => (
-                              <motion.div
+                              <div
                                 key={card.title}
-                                initial={{ opacity: 0, y: 8 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.3, delay: ci * 0.08 }}
                                 className="bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/8 rounded-xl px-5 py-4"
                               >
                                 <h4 className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-1">
@@ -205,7 +185,7 @@ const FeaturesSection = () => {
                                 <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                                   {card.description}
                                 </p>
-                              </motion.div>
+                              </div>
                             ))}
                           </div>
                         </motion.div>
@@ -218,8 +198,38 @@ const FeaturesSection = () => {
           </div>
         </div>
 
+        {/* Additional features — text only */}
+        <div className="max-w-6xl mx-auto mt-20 md:mt-28">
+          <FadeInSection className="text-center mb-10">
+            <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+              Also Included
+            </h3>
+          </FadeInSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {moreFeatures.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className="flex flex-col items-start gap-3 p-6 rounded-2xl border border-gray-200 dark:border-white/8 bg-gray-50/50 dark:bg-white/[0.02]"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950/30 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+                  </div>
+                  <h4 className="text-base font-bold text-gray-900 dark:text-white">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Coming Soon Section */}
-        <div className="max-w-6xl mx-auto mt-24 md:mt-32">
+        <div className="max-w-6xl mx-auto mt-20 md:mt-28">
           <FadeInSection className="text-center mb-8">
             <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
               Coming Soon
