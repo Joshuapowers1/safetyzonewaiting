@@ -4,7 +4,7 @@ import { FadeInSection } from '@/components/ui/fade-in-section';
 
 const FounderSection = () => {
   return (
-    <section id="about" className="py-28 relative overflow-hidden bg-[hsl(220,25%,4%)]" aria-label="About SafetyZone founder Joshua Powers - food allergy app built from personal experience">
+    <section id="about" className="py-28 relative overflow-hidden bg-gray-50 dark:bg-[hsl(220,25%,4%)]" aria-label="About SafetyZone founder Joshua Powers - food allergy app built from personal experience">
       <div className="absolute top-1/2 left-0 w-60 h-60 bg-primary/[0.03] rounded-full blur-[100px] -translate-y-1/2" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -19,7 +19,7 @@ const FounderSection = () => {
                     src={joshHeadshot}
                     alt="Joshua Powers - Founder and CEO of SafetyZone food allergy app, living with anaphylactic peanut and dairy allergies"
                     loading="lazy"
-                    className="relative z-10 w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-[3px] border-white/[0.08] shadow-2xl"
+                    className="relative z-10 w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-[3px] border-gray-200 dark:border-white/[0.08] shadow-2xl"
                     width="256"
                     height="256"
                   />
@@ -30,11 +30,11 @@ const FounderSection = () => {
             {/* Story */}
             <div className="md:col-span-3 space-y-6">
               <FadeInSection direction="right" delay={0.2}>
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] text-xs font-medium text-white/60 mb-4">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-white/[0.05] border border-gray-200 dark:border-white/[0.08] text-xs font-medium text-gray-500 dark:text-white/60 mb-4">
                   Why We Built SafetyZone
                 </span>
 
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
                   A food allergy app built from{' '}
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     lived experience
@@ -42,27 +42,27 @@ const FounderSection = () => {
                 </h2>
 
                 <div className="relative pl-6 border-l-2 border-primary/20 space-y-4">
-                  <Quote className="absolute -left-3 -top-1 w-6 h-6 text-primary/30 bg-[hsl(220,25%,4%)]" />
-                  <p className="text-base text-white/50 leading-relaxed">
+                  <Quote className="absolute -left-3 -top-1 w-6 h-6 text-primary/30 bg-gray-50 dark:bg-[hsl(220,25%,4%)]" />
+                  <p className="text-base text-gray-600 dark:text-white/50 leading-relaxed">
                     SafetyZone was founded by Joshua Powers, who has lived with{' '}
-                    <span className="text-white/80 font-medium">anaphylactic food allergies</span>{' '}
+                    <span className="text-gray-900 dark:text-white/80 font-medium">anaphylactic food allergies</span>{' '}
                     to dairy, eggs, and nuts his entire life. Years of anxiety-filled dining experiences, emergency room visits, and life-threatening allergic reactions inspired him to build the most comprehensive food allergy management app available.
                   </p>
-                  <p className="text-sm text-white/40 leading-relaxed">
+                  <p className="text-sm text-gray-500 dark:text-white/40 leading-relaxed">
                     SafetyZone's AI technology detects hidden allergens, cross-contamination risks, and ingredient derivatives that other food allergy apps miss — supporting{' '}
-                    <span className="text-white/60 font-medium">200+ languages</span> for global food allergy safety and travel protection.
+                    <span className="text-gray-700 dark:text-white/60 font-medium">200+ languages</span> for global food allergy safety and travel protection.
                   </p>
                 </div>
 
-                <div className="h-px bg-white/[0.06] my-6" />
+                <div className="h-px bg-gray-200 dark:bg-white/[0.06] my-6" />
 
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">
                     JP
                   </div>
                   <div>
-                    <div className="font-semibold text-white text-sm">Joshua Powers</div>
-                    <div className="text-xs text-white/40">Founder & CEO, SafetyZone — Food Allergy App</div>
+                    <div className="font-semibold text-gray-900 dark:text-white text-sm">Joshua Powers</div>
+                    <div className="text-xs text-gray-500 dark:text-white/40">Founder & CEO, SafetyZone — Food Allergy App</div>
                   </div>
                 </div>
               </FadeInSection>

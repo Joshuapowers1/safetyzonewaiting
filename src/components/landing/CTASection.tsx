@@ -1,5 +1,5 @@
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
-import nutriscan from '@/assets/screenshots/nutriscan.png';
+const nutriscan = '/screenshots/nutriscan.png';
 import { motion } from 'framer-motion';
 
 const CTASection = () => {

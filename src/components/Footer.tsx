@@ -8,26 +8,26 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[hsl(220,25%,3%)] border-t border-white/[0.04]" role="contentinfo">
+    <footer className="bg-gray-50 dark:bg-[hsl(220,25%,3%)] border-t border-gray-200 dark:border-white/[0.04]" role="contentinfo">
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2" aria-label="SafetyZone food allergy app home">
               <img src={logoWhite} alt="SafetyZone food allergy app logo" className="w-8 h-8 object-contain" width="32" height="32" />
-              <span className="text-lg font-semibold text-white">SafetyZone</span>
+              <span className="text-lg font-semibold text-gray-900 dark:text-white">SafetyZone</span>
             </Link>
-            <p className="text-sm text-white/30 leading-relaxed">
+            <p className="text-sm text-gray-500 dark:text-white/30 leading-relaxed">
               The #1 AI-powered food allergy app. Allergen detection, QR allergy cards, EpiPen tracker, FDA recall alerts, and safe recipe AI for 200M+ people with food allergies and dietary restrictions worldwide.
             </p>
             <div className="flex gap-3">
-              <a href="https://instagram.com/safetyzoneofficial" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-primary transition-colors" aria-label="SafetyZone on Instagram">
+              <a href="https://instagram.com/safetyzoneofficial" target="_blank" rel="noopener noreferrer" className="text-gray-400 dark:text-white/20 hover:text-primary transition-colors" aria-label="SafetyZone on Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://www.linkedin.com/company/mysafetyzone/" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-primary transition-colors" aria-label="SafetyZone on LinkedIn">
+              <a href="https://www.linkedin.com/company/mysafetyzone/" target="_blank" rel="noopener noreferrer" className="text-gray-400 dark:text-white/20 hover:text-primary transition-colors" aria-label="SafetyZone on LinkedIn">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="mailto:joshua@mysafetyzone.com" className="text-white/20 hover:text-primary transition-colors" aria-label="Email SafetyZone support">
+              <a href="mailto:joshua@mysafetyzone.com" className="text-gray-400 dark:text-white/20 hover:text-primary transition-colors" aria-label="Email SafetyZone support">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
@@ -35,19 +35,19 @@ const Footer = () => {
 
           {/* Product */}
           <nav className="space-y-3" aria-label="Product links">
-            <h4 className="text-xs font-semibold text-white/60 uppercase tracking-wider">Product</h4>
+            <h4 className="text-xs font-semibold text-gray-700 dark:text-white/60 uppercase tracking-wider">Product</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/#features" className="text-sm text-white/30 hover:text-white/60 transition-colors">Food Allergy App Features</a>
+                <a href="/#features" className="text-sm text-gray-500 dark:text-white/30 hover:text-gray-900 dark:hover:text-white/60 transition-colors">Food Allergy App Features</a>
               </li>
               <li>
-                <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-white/30 hover:text-white/60 transition-colors inline-flex items-center gap-1.5">
+                <a href={IOS_APP_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 dark:text-white/30 hover:text-gray-900 dark:hover:text-white/60 transition-colors inline-flex items-center gap-1.5">
                   <Apple className="w-3 h-3" />
                   Download for iOS
                 </a>
               </li>
               <li>
-                <span className="text-sm text-white/15 inline-flex items-center gap-1.5">
+                <span className="text-sm text-gray-300 dark:text-white/15 inline-flex items-center gap-1.5">
                   <Smartphone className="w-3 h-3" />
                   Google Play — Coming Soon
                 </span>
@@ -57,30 +57,30 @@ const Footer = () => {
 
           {/* Company */}
           <nav className="space-y-3" aria-label="Company links">
-            <h4 className="text-xs font-semibold text-white/60 uppercase tracking-wider">Company</h4>
+            <h4 className="text-xs font-semibold text-gray-700 dark:text-white/60 uppercase tracking-wider">Company</h4>
             <ul className="space-y-2">
-              <li><a href="/#about" className="text-sm text-white/30 hover:text-white/60 transition-colors">About SafetyZone</a></li>
-              <li><Link to="/contact" className="text-sm text-white/30 hover:text-white/60 transition-colors">Contact Us</Link></li>
-              <li><Link to="/support" className="text-sm text-white/30 hover:text-white/60 transition-colors">Support</Link></li>
+              <li><a href="/#about" className="text-sm text-gray-500 dark:text-white/30 hover:text-gray-900 dark:hover:text-white/60 transition-colors">About SafetyZone</a></li>
+              <li><Link to="/contact" className="text-sm text-gray-500 dark:text-white/30 hover:text-gray-900 dark:hover:text-white/60 transition-colors">Contact Us</Link></li>
+              <li><Link to="/support" className="text-sm text-gray-500 dark:text-white/30 hover:text-gray-900 dark:hover:text-white/60 transition-colors">Support</Link></li>
             </ul>
           </nav>
 
           {/* Legal */}
           <nav className="space-y-3" aria-label="Legal links">
-            <h4 className="text-xs font-semibold text-white/60 uppercase tracking-wider">Legal</h4>
+            <h4 className="text-xs font-semibold text-gray-700 dark:text-white/60 uppercase tracking-wider">Legal</h4>
             <ul className="space-y-2">
-              <li><Link to="/privacy" className="text-sm text-white/30 hover:text-white/60 transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-sm text-white/30 hover:text-white/60 transition-colors">Terms of Service</Link></li>
+              <li><Link to="/privacy" className="text-sm text-gray-500 dark:text-white/30 hover:text-gray-900 dark:hover:text-white/60 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-sm text-gray-500 dark:text-white/30 hover:text-gray-900 dark:hover:text-white/60 transition-colors">Terms of Service</Link></li>
             </ul>
           </nav>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/[0.04]">
+        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-white/[0.04]">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-[11px] text-white/20">
+            <p className="text-[11px] text-gray-400 dark:text-white/20">
               © {currentYear} Powers Solutions USA LLC. All rights reserved. SafetyZone™ is the #1 food allergy app.
             </p>
-            <p className="text-[11px] text-white/20 text-center">
+            <p className="text-[11px] text-gray-400 dark:text-white/20 text-center">
               AI allergen detection recommendations are informational only. Always verify with restaurant staff and healthcare providers.
             </p>
           </div>
