@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const CTASection = () => {
   return (
-    <section className="w-full bg-teal-500 py-20 px-4" aria-label="Download My SafetyZone">
+    <section className="w-full bg-white py-20 px-4 border-t border-gray-100" aria-label="Download My SafetyZone">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -12,11 +12,12 @@ const CTASection = () => {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-            Your safety starts with the download.
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+            Your safety starts with the{' '}
+            <span className="text-teal-500">download.</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-white/90 mb-8">
+          <p className="text-lg md:text-xl text-gray-500 mb-8">
             Free to download · 7-day free trial · 5-star rated · Free on iOS, coming soon on Android.
           </p>
 
