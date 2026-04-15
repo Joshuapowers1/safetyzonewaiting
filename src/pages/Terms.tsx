@@ -93,9 +93,9 @@ const Terms = () => {
                     SafetyZone uses artificial intelligence to analyze food items. Users should be aware of the following limitations:
                   </p>
                   <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-                    <li><strong className="text-foreground">Cross-contamination cannot be detected</strong> — AI analysis is based on listed ingredients only and cannot account for kitchen preparation practices</li>
-                    <li><strong className="text-foreground">Recipes and formulations may change</strong> — manufacturers and restaurants may alter ingredients without notice</li>
-                    <li><strong className="text-foreground">Image quality affects accuracy</strong> — blurry, low-resolution, or poorly lit photos may produce less accurate results</li>
+                    <li><strong className="text-foreground">Cross-contamination cannot be detected</strong>. AI analysis is based on listed ingredients only and cannot account for kitchen preparation practices</li>
+                    <li><strong className="text-foreground">Recipes and formulations may change</strong>. Manufacturers and restaurants may alter ingredients without notice</li>
+                    <li><strong className="text-foreground">Image quality affects accuracy</strong>. Blurry, low-resolution, or poorly lit photos may produce less accurate results</li>
                     <li>AI accuracy rates are based on internal benchmarks and may vary with real-world conditions, language, and menu formatting</li>
                     <li>The Service may not recognize every allergen in every language or regional naming convention</li>
                   </ul>
@@ -122,7 +122,7 @@ const Terms = () => {
                 <ul className="list-disc pl-6 text-muted-foreground space-y-2">
                   <li>Subscriptions <strong className="text-foreground">auto-renew</strong> at the end of each billing period unless cancelled before the renewal date</li>
                   <li>You authorize us to charge your selected payment method on a recurring basis</li>
-                  <li>Cancellations take effect at the end of the current billing period — you retain access until then</li>
+                  <li>Cancellations take effect at the end of the current billing period. You retain access until then</li>
                   <li>Refunds are handled according to the policies of the respective app store (Apple App Store or Google Play)</li>
                   <li>We reserve the right to modify pricing with reasonable advance notice</li>
                 </ul>

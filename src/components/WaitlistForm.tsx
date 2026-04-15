@@ -567,8 +567,8 @@ const WaitlistForm = () => {
             <div className="bg-secondary/20 rounded-xl p-4 space-y-1.5 border border-border">
               <p className="text-xs font-medium text-foreground mb-2">Your summary:</p>
               <p className="text-xs text-muted-foreground"><span className="text-foreground">Name:</span> {sanitizeText(formData.name)}</p>
-              <p className="text-xs text-muted-foreground"><span className="text-foreground">Managing for:</span> {formData.managingFor || '—'}</p>
-              <p className="text-xs text-muted-foreground"><span className="text-foreground">Allergies:</span> {formData.allergyTypes.length > 0 ? formData.allergyTypes.join(', ') : '—'}</p>
+              <p className="text-xs text-muted-foreground"><span className="text-foreground">Managing for:</span> {formData.managingFor || 'N/A'}</p>
+              <p className="text-xs text-muted-foreground"><span className="text-foreground">Allergies:</span> {formData.allergyTypes.length > 0 ? formData.allergyTypes.join(', ') : 'N/A'}</p>
               {formData.severity && <p className="text-xs text-muted-foreground"><span className="text-foreground">Severity:</span> {formData.severity}</p>}
               {formData.interest && <p className="text-xs text-muted-foreground"><span className="text-foreground">Excited about:</span> {formData.interest}</p>}
             </div>

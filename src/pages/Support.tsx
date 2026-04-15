@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: "How does the AI allergen detection work?",
-    answer: "Our AI analyzes menu items, ingredient lists, and restaurant data to identify potential allergens. It cross-references your dietary profile to flag items that may be unsafe. Note: AI recommendations are informational only — always verify with restaurant staff and healthcare providers."
+    answer: "Our AI analyzes menu items, ingredient lists, and restaurant data to identify potential allergens. It cross-references your dietary profile to flag items that may be unsafe. Note: AI recommendations are informational only. Always verify with restaurant staff and healthcare providers."
   },
   {
     question: "Which allergens does SafetyZone support?",

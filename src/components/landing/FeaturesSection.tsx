@@ -136,7 +136,7 @@ const FeaturesSection = () => {
           </div>
         </div>
 
-        {/* Additional features — text only */}
+        {/* Additional features */}
         <div className="max-w-6xl mx-auto mt-20 md:mt-28">
           <FadeInSection className="text-center mb-10">
             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">

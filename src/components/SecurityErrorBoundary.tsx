@@ -108,7 +108,7 @@ class SecurityErrorBoundary extends Component<Props, State> {
   }
 }
 
-// Global unhandled error listener (also strips PII) — only logs, never blocks UI
+// Global unhandled error listener (also strips PII). Only logs, never blocks UI
 if (typeof window !== 'undefined') {
   window.addEventListener('error', (event) => {
     const sanitizedMessage = stripPII(event.message || 'Unknown error');
