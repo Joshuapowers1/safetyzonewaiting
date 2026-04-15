@@ -109,7 +109,7 @@ const FeaturesSection = () => {
         {/* Interactive showcase */}
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-            {/* Left: Phone mockup */}
+            {/* Left: Phone mockup or icon */}
             <div className="w-full lg:w-auto flex justify-center lg:justify-start shrink-0">
               <div className="relative w-[240px] sm:w-[280px]">
                 <AnimatePresence mode="wait">
@@ -120,15 +120,23 @@ const FeaturesSection = () => {
                     exit={{ opacity: 0, scale: 0.97 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gray-100 dark:bg-gray-800">
-                      <img
-                        src={active.screenshot}
-                        alt={`${active.title} screenshot`}
-                        className="w-full aspect-[9/19] object-cover"
-                        width="280"
-                        height="590"
-                      />
-                    </div>
+                    {active.screenshot ? (
+                      <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gray-100 dark:bg-gray-800">
+                        <img
+                          src={active.screenshot}
+                          alt={`${active.title} screenshot`}
+                          className="w-full aspect-[9/19] object-cover"
+                          width="280"
+                          height="590"
+                        />
+                      </div>
+                    ) : (
+                      <div className="rounded-[2.5rem] overflow-hidden shadow-xl dark:shadow-black/40 bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-950/40 dark:to-gray-900 aspect-[9/19] flex items-center justify-center">
+                        {active.icon && (
+                          <active.icon className="w-20 h-20 text-teal-500/40 dark:text-teal-400/30" strokeWidth={1.2} />
+                        )}
+                      </div>
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>
