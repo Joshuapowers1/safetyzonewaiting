@@ -1,0 +1,10 @@
+/* TEAM */
+Founder & CEO: Joshua Powers
+Contact: joshua [at] mysafetyzone.com
+From: USA
+
+/* SITE */
+Last update: 2026/05/06
+Standards: HTML5, CSS3, JSON-LD, llms.txt, ai.txt
+Components: React, Vite, Tailwind, Framer Motion, Supabase
+Software: Lovable
