@@ -13,6 +13,8 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
+import LandingPage from "./pages/landing/LandingPage";
+import { landingSlugs } from "./pages/landing/configs";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,9 @@ const App = () => (
                 <Route path="/privacy-policy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/support" element={<Support />} />
+                {landingSlugs.map((slug) => (
+                  <Route key={slug} path={`/${slug}`} element={<LandingPage />} />
+                ))}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
