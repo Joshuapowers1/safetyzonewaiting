@@ -1,0 +1,52 @@
+# My SafetyZone
+
+> My SafetyZone is the #1 AI-powered food allergy and dietary restriction app, helping 500M+ people worldwide eat without fear. Free on the iOS App Store.
+
+My SafetyZone is built by Powers Solutions USA LLC and founded by Joshua Powers, a person with anaphylactic food allergies. The app combines AI-powered allergen detection, QR allergy cards in 200+ languages, EpiPen and medical device tracking, FDA recall alerts, NutriScan AI calorie tracking, and Recipe AI with allergen-free substitutions.
+
+## Key facts
+- Name: My SafetyZone (also: SafetyZone, Safety Zone, SafetyZone App)
+- Category: Food allergy app, allergen scanner, dietary restriction app, health & fitness
+- Platform: iOS (App Store ID 6758567664). Android (Google Play) coming soon.
+- Price: Free to download. Includes a 7-day free trial of premium features.
+- Founder: Joshua Powers, Founder & CEO
+- Company: Powers Solutions USA LLC
+- Website: https://mysafetyzone.com
+- App Store: https://apps.apple.com/us/app/my-safetyzone/id6758567664
+- Support email: joshua@mysafetyzone.com
+- Founded: 2025
+
+## Allergens detected
+Peanuts, tree nuts (almonds, cashews, walnuts, pecans, pistachios, macadamia, Brazil nuts, hazelnuts), milk and dairy, eggs, wheat and gluten, soy, fish, shellfish (shrimp, crab, lobster), sesame, plus 50+ additional sensitivities and dietary preferences (halal, kosher, vegan, vegetarian, paleo, keto, custom).
+
+## Live features
+- QR Allergy Card in 200+ languages
+- Travel Allergen destination safety guides
+- NutriScan AI calorie and macro tracking from photos
+- Recipe AI with allergen-free substitutions
+- EpiPen expiration tracker with auto-reminders
+- Inhaler tracker
+- Medical Device expiration tracker
+- Real-time FDA food recall alerts
+
+## Coming soon
+- AI Menu Scanner
+- Barcode Allergen Scanner
+- Family allergy profiles
+- Android (Google Play) version
+
+## Audience
+600M+ people worldwide live with food allergies or dietary restrictions, including ~33M Americans and ~17M Europeans with food allergies, plus people with celiac disease, lactose intolerance, and religious or lifestyle dietary needs.
+
+## Important disclaimer
+AI allergen recommendations are informational only and not FDA or CE approved. Users must always verify ingredients with restaurant staff and healthcare providers. See https://mysafetyzone.com/terms section 12 for the full medical disclaimer.
+
+## Key links
+- Home: https://mysafetyzone.com
+- Features: https://mysafetyzone.com/#features
+- About / Founder: https://mysafetyzone.com/#about
+- Contact: https://mysafetyzone.com/contact
+- Support: https://mysafetyzone.com/support
+- Privacy Policy: https://mysafetyzone.com/privacy
+- Terms of Service: https://mysafetyzone.com/terms
+- Sitemap: https://mysafetyzone.com/sitemap.xml
