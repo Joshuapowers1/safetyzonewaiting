@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-50 border-t border-gray-200" role="contentinfo">
       <div className="container mx-auto px-4 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2" aria-label="My SafetyZone food allergy app home">
