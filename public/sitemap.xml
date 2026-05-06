@@ -1,51 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mysafetyzone.com/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mysafetyzone.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mysafetyzone.com/" />
     <image:image>
       <image:loc>https://storage.googleapis.com/gpt-engineer-file-uploads/nEcjojHa9EVFIDIZCStgDsGp4NE3/social-images/social-1766274742323-Black_SZ_logo.png</image:loc>
-      <image:title>SafetyZone Food Allergy App - AI Allergen Scanner</image:title>
-      <image:caption>SafetyZone is the #1 AI-powered food allergy app featuring QR allergy cards, EpiPen tracker, and allergen detection for peanut, gluten, dairy, and 50+ allergens</image:caption>
+      <image:title>My SafetyZone Food Allergy App - AI Allergen Scanner</image:title>
+      <image:caption>My SafetyZone is the #1 AI-powered food allergy app featuring QR allergy cards, EpiPen tracker, and allergen detection for peanut, gluten, dairy, and 50+ allergens</image:caption>
     </image:image>
   </url>
-  <url>
-    <loc>https://mysafetyzone.com/#features</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://mysafetyzone.com/#about</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mysafetyzone.com/contact</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mysafetyzone.com/support</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mysafetyzone.com/privacy</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://mysafetyzone.com/terms</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
+  <url><loc>https://mysafetyzone.com/#features</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mysafetyzone.com/#about</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mysafetyzone.com/contact</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mysafetyzone.com/support</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mysafetyzone.com/privacy</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://mysafetyzone.com/terms</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
 </urlset>

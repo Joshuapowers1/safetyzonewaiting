@@ -44,6 +44,45 @@ const Contact = () => {
       <Helmet>
         <title>Contact Us | SafetyZone - AI Food Safety Platform</title>
         <meta name="description" content="Get in touch with the SafetyZone team. We're here to help with questions about our AI-powered food safety platform." />
+        <link rel="canonical" href="https://mysafetyzone.com/contact" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mysafetyzone.com/contact" />
+        <meta property="og:title" content="Contact My SafetyZone — Food Allergy App Support" />
+        <meta property="og:description" content="Reach the My SafetyZone team. Email joshua@mysafetyzone.com — typical response within 24–48 hours." />
+        <meta property="og:site_name" content="My SafetyZone" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "url": "https://mysafetyzone.com/contact",
+            "name": "Contact My SafetyZone",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "My SafetyZone",
+              "legalName": "Powers Solutions USA LLC",
+              "url": "https://mysafetyzone.com",
+              "email": "joshua@mysafetyzone.com",
+              "contactPoint": [{
+                "@type": "ContactPoint",
+                "email": "joshua@mysafetyzone.com",
+                "contactType": "customer support",
+                "availableLanguage": ["en"]
+              }]
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mysafetyzone.com" },
+              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://mysafetyzone.com/contact" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <Navbar />
