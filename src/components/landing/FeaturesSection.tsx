@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { ScanLine, Barcode, Pill, AlertTriangle, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Pill, AlertTriangle, MessageCircle } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import IPhoneFrame from '@/components/ui/iphone-frame';
 
@@ -47,11 +47,6 @@ const moreFeatures = [
     title: 'In-App Chat Support',
     description: 'Get instant answers from our AI assistant anytime you need help.',
   },
-];
-
-const comingSoon = [
-  { icon: ScanLine, title: 'Menu Scanner', description: 'Scan restaurant menus for personalized allergen safety ratings.' },
-  { icon: Barcode, title: 'Barcode Scanner', description: 'Instant allergen detection on packaged food via barcode scan.' },
 ];
 
 const FeaturesSection = () => {
@@ -175,40 +170,6 @@ const FeaturesSection = () => {
               );
             })}
           </ul>
-        </div>
-
-        {/* Coming soon — inline roadmap chips */}
-        <div className="max-w-4xl mx-auto mt-20 md:mt-24">
-          <FadeInSection>
-            <div className="rounded-2xl bg-gray-50 border border-gray-100 px-6 md:px-10 py-8 md:py-10">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                <div>
-                  <p className="text-xs font-medium text-teal-600 uppercase tracking-[0.2em] mb-2">
-                    On the roadmap
-                  </p>
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">
-                    What's coming next
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {comingSoon.map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <div
-                        key={item.title}
-                        className="flex items-center gap-2.5 bg-white border border-gray-200 rounded-full pl-3 pr-4 py-2"
-                        title={item.description}
-                      >
-                        <Icon className="w-3.5 h-3.5 text-gray-500" />
-                        <span className="text-sm font-medium text-gray-700">{item.title}</span>
-                        <ArrowUpRight className="w-3 h-3 text-gray-300" />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </FadeInSection>
         </div>
       </div>
     </section>
