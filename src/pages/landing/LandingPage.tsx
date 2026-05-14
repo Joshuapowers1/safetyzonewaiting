@@ -69,6 +69,21 @@ const LandingPage = () => {
             isPartOf: { '@type': 'WebSite', name: 'My SafetyZone', url: 'https://mysafetyzone.com' },
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: 'My SafetyZone',
+            applicationCategory: 'HealthApplication',
+            applicationSubCategory: config.keyword,
+            operatingSystem: 'iOS',
+            url: 'https://mysafetyzone.com',
+            downloadUrl: 'https://apps.apple.com/us/app/my-safetyzone/id6758567664',
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+            aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', ratingCount: '150' },
+            publisher: { '@type': 'Organization', name: 'Powers Solutions USA LLC', url: 'https://mysafetyzone.com' },
+          })}
+        </script>
       </Helmet>
 
       <Navbar />
