@@ -41,6 +41,19 @@ Peanuts, tree nuts (almonds, cashews, walnuts, pecans, pistachios, macadamia, Br
 ## Important disclaimer
 AI allergen recommendations are informational only and not FDA or CE approved. Users must always verify ingredients with restaurant staff and healthcare providers. See https://mysafetyzone.com/terms section 12 for the full medical disclaimer.
 
+## Pages
+- [Home](/): Overview of My SafetyZone, features, and App Store download.
+- [Contact](/contact): Reach the team for press, partnerships, or support.
+- [Support](/support): Help center with FAQs and troubleshooting guides.
+- [Privacy Policy](/privacy): Data handling, GDPR compliance, and user rights.
+- [Terms of Service](/terms): Medical disclaimer, usage terms, and legal information.
+- [Peanut Allergy App](/peanut-allergy-app): AI peanut detection, QR cards, and EpiPen tracking.
+- [Celiac App](/celiac-app): Gluten detection, Recipe AI, and cross-contact protocols.
+- [Gluten Free App](/gluten-free-app): AI gluten scanning and safe recipe substitutions.
+- [EpiPen Tracker App](/epipen-tracker-app): Expiration reminders and medical device tracking.
+- [QR Allergy Card](/qr-allergy-card): Generate translated allergy cards for dining and travel.
+- [Food Allergy App for Kids](/food-allergy-app-for-kids): Profiles, school cards, and parent tools.
+
 ## Key links
 - Home: https://mysafetyzone.com
 - Features: https://mysafetyzone.com/#features
