@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { ScanLine, Barcode, Pill, AlertTriangle, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Pill, AlertTriangle, MessageCircle } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 import IPhoneFrame from '@/components/ui/iphone-frame';
 
@@ -47,11 +47,6 @@ const moreFeatures = [
     title: 'In-App Chat Support',
     description: 'Get instant answers from our AI assistant anytime you need help.',
   },
-];
-
-const comingSoon = [
-  { icon: ScanLine, title: 'Menu Scanner', description: 'Scan restaurant menus for personalized allergen safety ratings.' },
-  { icon: Barcode, title: 'Barcode Scanner', description: 'Instant allergen detection on packaged food via barcode scan.' },
 ];
 
 const FeaturesSection = () => {
