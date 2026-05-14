@@ -101,6 +101,8 @@ const HeroSection = () => {
                       className="w-full aspect-[9/19.5] object-contain bg-white"
                       width="230"
                       height="498"
+                      fetchPriority="high"
+                      decoding="async"
                     />
                   </IPhoneFrame>
                 </motion.div>
@@ -141,6 +143,8 @@ const HeroSection = () => {
                     className="w-full aspect-[9/19.5] object-contain bg-white"
                     width="170"
                     height="368"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                 </IPhoneFrame>
               </motion.div>
