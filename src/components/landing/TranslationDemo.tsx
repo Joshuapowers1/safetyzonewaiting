@@ -90,7 +90,7 @@ const TranslationDemo = () => {
             <div className="md:col-span-2">
               <FadeInSection direction="left" delay={0.1}>
                 <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 space-y-2">
-                  <p className="text-xs text-white/40 uppercase tracking-wider font-medium px-2 mb-3">Select Language</p>
+                  <p className="text-xs text-white/70 uppercase tracking-wider font-medium px-2 mb-3">Select Language</p>
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
@@ -98,7 +98,7 @@ const TranslationDemo = () => {
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left ${
                         activeLang === lang.code
                           ? 'bg-primary/10 border border-primary/30 text-white'
-                          : 'hover:bg-white/5 text-white/60'
+                          : 'hover:bg-white/5 text-white/80'
                       }`}
                     >
                       <span className="text-xl">{lang.flag}</span>
@@ -149,7 +149,7 @@ const TranslationDemo = () => {
                               <div className="font-medium text-white">
                                 <ScrambleText key={`${scrambleKey}-${i}`} text={item.name} duration={600} />
                               </div>
-                              <div className="text-sm text-white/50 mt-1">
+                              <div className="text-sm text-white/75 mt-1">
                                 <ScrambleText key={`${scrambleKey}-desc-${i}`} text={item.desc} duration={800} />
                               </div>
                             </div>
