@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Pill, AlertTriangle, MessageCircle } from 'lucide-react';
+import { Pill, AlertTriangle, MessageCircle, Users } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 const showcaseFeatures = [
   {
@@ -30,6 +30,11 @@ const showcaseFeatures = [
 ];
 
 const moreFeatures = [
+  {
+    icon: Users,
+    title: 'Community',
+    description: 'Connect with people who share your dietary restrictions, swap safe restaurants, and learn what works from others like you.',
+  },
   {
     icon: Pill,
     title: 'Medication & Device Tracker',
