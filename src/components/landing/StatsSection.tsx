@@ -4,7 +4,7 @@ const stats = [
   { value: '200+', label: 'Languages' },
   { value: 'AI-Powered', label: 'Detection' },
   { value: '7-Day', label: 'Free Trial' },
-  { value: '5.0★', label: 'Rating' },
+  { value: '5.0★', label: 'Only 5-Star Reviews' },
 ];
 
 const StatsSection = () => {
