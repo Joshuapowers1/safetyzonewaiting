@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { z } from 'zod';
 import { Mail, Lock, Loader2, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -91,6 +92,13 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
+      <Helmet>
+        <title>Admin Login — My SafetyZone</title>
+        <meta name="description" content="Secure admin login for the My SafetyZone dashboard. Authorized access only." />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:title" content="Admin Login — My SafetyZone" />
+        <meta property="og:description" content="Admin-only login portal for My SafetyZone." />
+      </Helmet>
       <ParticleBackground />
 
       {/* Gradient overlays */}
