@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const stats = [
   { value: '200+', label: 'Languages' },
-  { value: 'AI-Powered', label: 'Detection' },
+  { value: 'Patient-Built', label: 'By Allergy Founder' },
   { value: '7-Day', label: 'Free Trial' },
   { value: '5.0★', label: 'Only 5-Star Reviews' },
 ];
