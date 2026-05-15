@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { 
   Users, 
   LogOut, 
@@ -258,6 +259,13 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Admin Dashboard — My SafetyZone</title>
+        <meta name="description" content="Internal admin dashboard for managing My SafetyZone waitlist, users, and notifications." />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:title" content="Admin Dashboard — My SafetyZone" />
+        <meta property="og:description" content="Internal admin dashboard for My SafetyZone." />
+      </Helmet>
       {/* Email Panel */}
       <AnimatePresence>
         {showEmailPanel && (
