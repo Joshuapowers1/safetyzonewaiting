@@ -2,14 +2,12 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Pill, AlertTriangle, MessageCircle } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
-import IPhoneFrame from '@/components/ui/iphone-frame';
-
 const showcaseFeatures = [
   {
     id: 'nutriscan',
     screenshot: '/screenshots/nutriscan.png',
-    title: 'NutriScan AI',
-    description: 'Snap a photo of any meal to instantly estimate calories, macros, and detect allergens with AI-powered analysis. Set daily goals and track everything in real time.',
+    title: 'Nutrition',
+    description: 'Track every health intake measure that keeps you well — calories, macros, water, hydration goals, and more. Snap a photo of any meal for instant AI analysis and log it all in one place.',
   },
   {
     id: 'recipe',
@@ -72,31 +70,21 @@ const FeaturesSection = () => {
             <div className="w-full lg:w-auto flex justify-center lg:justify-start shrink-0 lg:sticky lg:top-32">
               <div className="relative w-[250px] sm:w-[290px]">
                 {showcaseFeatures.map((feature) => (
-                  <div
+                  <img
                     key={feature.id}
-                    className="absolute inset-0 transition-opacity duration-200"
+                    src={feature.screenshot}
+                    alt={`${feature.title} screenshot`}
+                    width="290"
+                    height="612"
+                    className="absolute inset-0 w-full aspect-[9/19] object-contain transition-opacity duration-200"
                     style={{
                       opacity: feature.id === activeId ? 1 : 0,
                       pointerEvents: feature.id === activeId ? 'auto' : 'none',
                     }}
-                  >
-                    <IPhoneFrame>
-                      <img
-                        src={feature.screenshot}
-                        alt={`${feature.title} screenshot`}
-                        className="w-full aspect-[9/19] object-contain bg-white"
-                        width="290"
-                        height="612"
-                      />
-                    </IPhoneFrame>
-                  </div>
+                  />
                 ))}
-                {/* Spacer */}
-                <div className="invisible">
-                  <IPhoneFrame>
-                    <div className="w-full aspect-[9/19]" />
-                  </IPhoneFrame>
-                </div>
+                {/* Spacer to preserve layout height */}
+                <div className="invisible w-full aspect-[9/19]" />
               </div>
             </div>
 
