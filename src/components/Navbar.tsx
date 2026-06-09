@@ -13,7 +13,7 @@ const Navbar = () => {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -47,18 +47,18 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? 'bg-slate-950/80 backdrop-blur-xl border-white/[0.08] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.8)]'
-          : 'bg-slate-950/40 backdrop-blur-md border-transparent'
+          ? 'bg-[#05080f]/80 backdrop-blur-xl border-white/[0.08] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.8)]'
+          : 'bg-[#05080f]/40 backdrop-blur-md border-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="absolute inset-0 bg-teal-400/30 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-[#00C2A8]/30 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
               <img src={tealLogo} alt="My SafetyZone" className="relative w-10 h-10 object-contain" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-white">My SafetyZone</span>
+            <span className="font-display text-xl font-semibold tracking-tight text-white">My SafetyZone</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -69,7 +69,7 @@ const Navbar = () => {
                 onClick={() => handleNavClick(link.path)}
                 className={`text-sm font-medium transition-colors ${
                   isActive(link.path)
-                    ? 'text-teal-300'
+                    ? 'text-[#00C2A8]'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -83,14 +83,14 @@ const Navbar = () => {
               href="https://apps.apple.com/us/app/my-safetyzone/id6758567664"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-5 py-2 text-sm font-semibold text-slate-950 shadow-[0_0_24px_-6px_rgba(45,212,191,0.7)] hover:bg-teal-300 hover:shadow-[0_0_32px_-4px_rgba(45,212,191,0.9)] transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-[#00C2A8] px-5 py-2 text-sm font-semibold text-[#05080f] shadow-[0_0_24px_-6px_rgba(0,194,168,0.7)] hover:bg-[#00E5FF] hover:shadow-[0_0_32px_-4px_rgba(0,229,255,0.8)] transition-all"
             >
               Download Free
             </a>
           </div>
 
           <button
-            className="md:hidden p-2 text-slate-400 hover:text-teal-300 transition-colors"
+            className="md:hidden p-2 text-slate-400 hover:text-[#00C2A8] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -99,11 +99,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Scroll progress bar */}
+      {/* Animated gradient sweep line */}
+      <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-[1.5px] sz-sweep-line opacity-70" />
+      {/* Scroll progress */}
       <motion.div
         aria-hidden="true"
         style={{ scaleX: progress }}
-        className="absolute bottom-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-teal-400 via-cyan-300 to-emerald-300"
+        className="absolute bottom-0 left-0 right-0 h-[1.5px] origin-left bg-gradient-to-r from-[#00C2A8] to-[#00E5FF]"
       />
 
       <AnimatePresence>
@@ -112,7 +114,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/[0.08]"
+            className="md:hidden bg-[#05080f]/95 backdrop-blur-xl border-b border-white/[0.08]"
           >
             <div className="container mx-auto px-4 py-4 space-y-3">
               {navLinks.map((link) => (
@@ -121,7 +123,7 @@ const Navbar = () => {
                   to={link.path}
                   onClick={() => handleNavClick(link.path)}
                   className={`block text-sm font-medium transition-colors py-1 ${
-                    isActive(link.path) ? 'text-teal-300' : 'text-slate-400 hover:text-white'
+                    isActive(link.path) ? 'text-[#00C2A8]' : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   {link.name}
