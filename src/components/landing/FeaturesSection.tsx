@@ -56,24 +56,31 @@ const FeaturesSection = () => {
   const [activeId, setActiveId] = useState(showcaseFeatures[0].id);
 
   return (
-    <section id="features" className="py-20 md:py-32 relative overflow-hidden bg-white" aria-label="SafetyZone features">
+    <section id="features" className="py-20 md:py-32 relative overflow-hidden bg-slate-950" aria-label="SafetyZone features">
+      {/* Ambient glow */}
+      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-teal-500/[0.06] rounded-full blur-[140px] pointer-events-none" />
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <FadeInSection className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+          <span className="inline-block text-xs font-semibold tracking-[0.22em] uppercase text-teal-300 mb-4">
+            Features
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
             Everything you need to eat safely
           </h2>
-          <p className="text-base md:text-lg text-gray-600">
+          <p className="text-base md:text-lg text-slate-400">
             Packed with the features that matter most.
           </p>
         </FadeInSection>
 
-        {/* Cal AI-style: phone left, stacked cards right */}
+        {/* Phone left, stacked cards right */}
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center lg:items-start">
-            {/* Left: Phone mockup with iPhone frame */}
+            {/* Left: Phone mockup */}
             <div className="w-full lg:w-auto flex justify-center lg:justify-start shrink-0 lg:sticky lg:top-32">
               <div className="relative w-[250px] sm:w-[290px]">
+                <div aria-hidden="true" className="absolute inset-0 scale-110 bg-teal-400/[0.12] rounded-full blur-[80px] pointer-events-none" />
                 {showcaseFeatures.map((feature) => (
                   <img
                     key={feature.id}
@@ -81,7 +88,7 @@ const FeaturesSection = () => {
                     alt={`${feature.title} screenshot`}
                     width="290"
                     height="612"
-                    className="absolute inset-0 w-full aspect-[9/19] object-contain transition-opacity duration-200"
+                    className="absolute inset-0 w-full aspect-[9/19] object-contain transition-opacity duration-200 drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
                     style={{
                       opacity: feature.id === activeId ? 1 : 0,
                       pointerEvents: feature.id === activeId ? 'auto' : 'none',
@@ -101,19 +108,19 @@ const FeaturesSection = () => {
                   <button
                     key={feature.id}
                     onClick={() => setActiveId(feature.id)}
-                    className={`w-full text-left rounded-2xl border transition-all duration-200 px-6 py-6 ${
+                    className={`w-full text-left rounded-2xl border transition-all duration-200 px-6 py-6 backdrop-blur-sm ${
                       isActive
-                        ? 'bg-teal-50 border-teal-300 shadow-md ring-1 ring-teal-200'
-                        : 'bg-white border-gray-200 hover:border-gray-300 hover:shadow-sm'
+                        ? 'bg-teal-400/[0.08] border-teal-400/40 ring-1 ring-teal-400/30 shadow-[0_0_48px_-12px_rgba(45,212,191,0.45)]'
+                        : 'bg-white/[0.03] border-white/[0.08] hover:border-white/[0.18] hover:bg-white/[0.05]'
                     }`}
                   >
                     <h3 className={`text-lg md:text-xl font-bold mb-2 transition-colors duration-150 ${
-                      isActive ? 'text-teal-900' : 'text-gray-900'
+                      isActive ? 'text-teal-300' : 'text-white'
                     }`}>
                       {feature.title}
                     </h3>
                     <p className={`text-sm md:text-base leading-relaxed transition-colors duration-150 ${
-                      isActive ? 'text-teal-700/80' : 'text-gray-500'
+                      isActive ? 'text-slate-300' : 'text-slate-500'
                     }`}>
                       {feature.description}
                     </p>
@@ -127,17 +134,17 @@ const FeaturesSection = () => {
         {/* Also included — editorial list */}
         <div className="max-w-4xl mx-auto mt-24 md:mt-32">
           <FadeInSection className="mb-10 md:mb-14">
-            <div className="flex items-baseline justify-between gap-6 border-b border-gray-200 pb-4">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+            <div className="flex items-baseline justify-between gap-6 border-b border-white/[0.08] pb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
                 Also included
               </h3>
-              <span className="text-xs font-medium text-gray-400 uppercase tracking-[0.2em]">
+              <span className="text-xs font-medium text-slate-500 uppercase tracking-[0.2em]">
                 In every download
               </span>
             </div>
           </FadeInSection>
 
-          <ul className="divide-y divide-gray-200">
+          <ul className="divide-y divide-white/[0.06]">
             {moreFeatures.map((item, i) => {
               const Icon = item.icon;
               return (
@@ -149,14 +156,14 @@ const FeaturesSection = () => {
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   className="group grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_2fr] gap-x-6 md:gap-x-10 gap-y-2 py-7 md:py-8 items-baseline"
                 >
-                  <span className="text-xs font-mono text-gray-400 tabular-nums pt-1">
+                  <span className="text-xs font-mono text-slate-600 tabular-nums pt-1">
                     0{i + 1}
                   </span>
-                  <h4 className="text-lg md:text-xl font-semibold text-gray-900 flex items-center gap-3">
-                    <Icon className="w-4 h-4 text-teal-500 shrink-0" strokeWidth={2.25} />
+                  <h4 className="text-lg md:text-xl font-semibold text-white flex items-center gap-3">
+                    <Icon className="w-4 h-4 text-teal-300 shrink-0" strokeWidth={2.25} />
                     {item.title}
                   </h4>
-                  <p className="text-sm md:text-base text-gray-500 leading-relaxed col-start-2 md:col-start-3 max-w-md">
+                  <p className="text-sm md:text-base text-slate-400 leading-relaxed col-start-2 md:col-start-3 max-w-md">
                     {item.description}
                   </p>
                 </motion.li>
