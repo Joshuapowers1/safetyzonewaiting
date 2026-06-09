@@ -2,9 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 import IPhoneFrame from '@/components/ui/iphone-frame';
-import { Marquee } from '@/components/ui/marquee';
 import { TextRotate } from '@/components/ui/text-rotate';
-import { FloatingParticles } from '@/components/ui/floating-particles';
 
 const fallIn = (delay: number) => ({
   initial: { opacity: 0, y: -40 },
@@ -17,12 +15,6 @@ const riseUp = (delay: number) => ({
   animate: { opacity: 1, y: 0 },
   transition: { delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 });
-
-const dietPills = [
-  '🥜 Peanut Allergy', '🌾 Gluten-Free', '🥛 Dairy-Free', '🥚 Egg Allergy',
-  '🦐 Shellfish', '🌰 Tree Nuts', '🐟 Fish Allergy', '⚪ Sesame',
-  '☪️ Halal', '✡️ Kosher', '🌱 Vegan', '🥦 Vegetarian', '🌽 Celiac Safe', '🍓 50+ More',
-];
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -64,10 +56,9 @@ const HeroSection = () => {
             WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent)',
           }}
         />
-        <FloatingParticles count={14} />
       </div>
 
-      <div className="relative z-10 flex items-center min-h-[100dvh] pt-20 pb-40 md:pt-24 md:pb-44">
+      <div className="relative z-10 flex items-center min-h-[100dvh] pt-20 pb-16 md:pt-24 md:pb-20">
         <div className="container mx-auto px-4 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left content */}
@@ -100,7 +91,7 @@ const HeroSection = () => {
                   <TextRotate
                     texts={['without fear.', 'with confidence.', 'anywhere.', 'safely.']}
                     interval={2600}
-                    className="bg-gradient-to-r from-teal-300 to-emerald-300 bg-clip-text text-transparent align-bottom"
+                    className="text-teal-300 align-bottom"
                   />
                 </motion.h2>
               </div>
@@ -222,41 +213,13 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Allergen marquee — double row, opposite directions */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 1 }}
-        className="absolute bottom-14 inset-x-0 z-10 space-y-3"
-        aria-hidden="true"
-        style={{
-          maskImage: 'linear-gradient(90deg, transparent, black 12%, black 88%, transparent)',
-          WebkitMaskImage: 'linear-gradient(90deg, transparent, black 12%, black 88%, transparent)',
-        }}
-      >
-        <Marquee speed={45}>
-          {dietPills.map((pill) => (
-            <span key={pill} className="whitespace-nowrap rounded-full border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm px-5 py-2 text-sm text-slate-300">
-              {pill}
-            </span>
-          ))}
-        </Marquee>
-        <Marquee speed={55} reverse>
-          {dietPills.slice().reverse().map((pill) => (
-            <span key={pill} className="whitespace-nowrap rounded-full border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm px-5 py-2 text-sm text-slate-400">
-              {pill}
-            </span>
-          ))}
-        </Marquee>
-      </motion.div>
-
       {/* Scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8 }}
         style={{ opacity: contentOpacity }}
-        className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-slate-500"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-slate-500"
         aria-hidden="true"
       >
         <motion.div
