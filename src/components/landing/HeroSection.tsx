@@ -129,8 +129,12 @@ const HeroSection = () => {
                 {/* Back phone - parallax fast */}
                 <motion.div
                   initial={{ opacity: 0, y: -60, rotate: 0 }}
-                  animate={{ opacity: 1, y: 0, rotate: -5 }}
-                  transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  animate={{ opacity: 1, y: [0, -10, 0], rotate: -5 }}
+                  transition={{
+                    opacity: { delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+                    y: { delay: 0.3, duration: 4, repeat: Infinity, ease: 'easeInOut' },
+                    rotate: { delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+                  }}
                   style={{ y: phoneBackY, rotate: phoneRotate }}
                   className="absolute right-0 top-16 w-[210px] drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
                 >
@@ -148,8 +152,11 @@ const HeroSection = () => {
                 {/* Front phone - parallax slow */}
                 <motion.div
                   initial={{ opacity: 0, y: -80 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  animate={{ opacity: 1, y: [0, -10, 0] }}
+                  transition={{
+                    opacity: { delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+                    y: { delay: 0.15, duration: 4, repeat: Infinity, ease: 'easeInOut' },
+                  }}
                   style={{ y: phoneFrontY }}
                   className="absolute left-0 top-8 w-[230px] z-10 drop-shadow-[0_32px_80px_rgba(0,0,0,0.7)]"
                 >
