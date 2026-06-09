@@ -1,6 +1,5 @@
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 import { motion } from 'framer-motion';
-import { FloatingParticles } from '@/components/ui/floating-particles';
 
 const CTASection = () => {
   return (
@@ -20,7 +19,6 @@ const CTASection = () => {
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
             className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-teal-400/[0.15] rounded-full blur-[100px] pointer-events-none"
           />
-          <FloatingParticles count={10} />
 
           <div className="relative">
             <motion.h2
@@ -31,7 +29,7 @@ const CTASection = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-tight"
             >
               Your safety starts with the{' '}
-              <span className="bg-gradient-to-r from-teal-300 to-cyan-300 bg-clip-text text-transparent">download.</span>
+              <span className="text-teal-300">download.</span>
             </motion.h2>
 
             <motion.p
