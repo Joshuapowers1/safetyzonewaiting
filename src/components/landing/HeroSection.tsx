@@ -1,6 +1,10 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { AppStoreBadge, GooglePlayBadge } from '@/components/ui/store-badges';
 import IPhoneFrame from '@/components/ui/iphone-frame';
+import { Marquee } from '@/components/ui/marquee';
+import { TextRotate } from '@/components/ui/text-rotate';
+import { FloatingParticles } from '@/components/ui/floating-particles';
 
 const fallIn = (delay: number) => ({
   initial: { opacity: 0, y: -40 },
@@ -14,15 +18,39 @@ const riseUp = (delay: number) => ({
   transition: { delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 });
 
+const dietPills = [
+  '🥜 Peanut Allergy', '🌾 Gluten-Free', '🥛 Dairy-Free', '🥚 Egg Allergy',
+  '🦐 Shellfish', '🌰 Tree Nuts', '🐟 Fish Allergy', '⚪ Sesame',
+  '☪️ Halal', '✡️ Kosher', '🌱 Vegan', '🥦 Vegetarian', '🌽 Celiac Safe', '🍓 50+ More',
+];
+
 const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Parallax transforms — phones drift at different speeds, content fades up
+  const phoneBackY = useTransform(scrollYProgress, [0, 1], [0, 220]);
+  const phoneFrontY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const phoneRotate = useTransform(scrollYProgress, [0, 1], [-5, -14]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const glowScale = useTransform(scrollYProgress, [0, 1], [1, 1.6]);
+
   return (
     <section
+      ref={sectionRef}
       className="relative min-h-[100dvh] bg-slate-950 overflow-hidden"
       aria-label="SafetyZone food allergy app hero"
     >
       {/* Ambient glows */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-teal-500/[0.12] rounded-full blur-[140px]" />
+        <motion.div
+          style={{ scale: glowScale }}
+          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-teal-500/[0.13] rounded-full blur-[140px]"
+        />
         <div className="absolute bottom-0 -left-40 w-[500px] h-[400px] bg-cyan-500/[0.07] rounded-full blur-[120px]" />
         <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-emerald-500/[0.06] rounded-full blur-[120px]" />
         {/* Subtle grid */}
@@ -36,13 +64,14 @@ const HeroSection = () => {
             WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent)',
           }}
         />
+        <FloatingParticles count={14} />
       </div>
 
-      <div className="relative z-10 flex items-center min-h-[100dvh] pt-20 pb-16 md:pt-24 md:pb-20">
+      <div className="relative z-10 flex items-center min-h-[100dvh] pt-20 pb-40 md:pt-24 md:pb-44">
         <div className="container mx-auto px-4 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left content */}
-            <div className="space-y-8">
+            <motion.div style={{ y: contentY, opacity: contentOpacity }} className="space-y-8">
               <motion.div {...fallIn(0)}>
                 <span className="inline-flex items-center gap-2 rounded-full border border-teal-400/20 bg-teal-400/[0.08] px-4 py-1.5 text-xs font-semibold tracking-[0.18em] uppercase text-teal-300">
                   <span className="relative flex h-2 w-2">
@@ -65,9 +94,14 @@ const HeroSection = () => {
                 </motion.h1>
                 <motion.h2
                   {...fallIn(0.15)}
-                  className="text-5xl md:text-7xl leading-[1.05] tracking-tight font-[800] text-white/90"
+                  className="text-5xl md:text-7xl leading-[1.15] tracking-tight font-[800] text-white/90"
                 >
-                  Finally eat without fear.
+                  Finally eat{' '}
+                  <TextRotate
+                    texts={['without fear.', 'with confidence.', 'anywhere.', 'safely.']}
+                    interval={2600}
+                    className="bg-gradient-to-r from-teal-300 to-emerald-300 bg-clip-text text-transparent align-bottom"
+                  />
                 </motion.h2>
               </div>
 
@@ -94,19 +128,19 @@ const HeroSection = () => {
                 <AppStoreBadge />
                 <GooglePlayBadge comingSoon />
               </motion.div>
-            </div>
+            </motion.div>
 
-            {/* Right - Phone mockups (desktop) */}
+            {/* Right - Phone mockups (desktop) with parallax */}
             <div className="hidden lg:flex justify-end items-center">
               <div className="relative w-full max-w-md h-[620px]">
-                {/* Glow behind phones */}
                 <div aria-hidden="true" className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[420px] bg-teal-400/[0.14] rounded-full blur-[100px]" />
 
-                {/* Back phone - Allergen card */}
+                {/* Back phone - parallax fast */}
                 <motion.div
                   initial={{ opacity: 0, y: -60, rotate: 0 }}
                   animate={{ opacity: 1, y: 0, rotate: -5 }}
                   transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ y: phoneBackY, rotate: phoneRotate }}
                   className="absolute right-0 top-16 w-[210px] drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
                 >
                   <IPhoneFrame>
@@ -120,11 +154,12 @@ const HeroSection = () => {
                   </IPhoneFrame>
                 </motion.div>
 
-                {/* Front phone - Home screen */}
+                {/* Front phone - parallax slow */}
                 <motion.div
                   initial={{ opacity: 0, y: -80 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ y: phoneFrontY }}
                   className="absolute left-0 top-8 w-[230px] z-10 drop-shadow-[0_32px_80px_rgba(0,0,0,0.7)]"
                 >
                   <IPhoneFrame>
@@ -187,8 +222,54 @@ const HeroSection = () => {
         </div>
       </div>
 
+      {/* Allergen marquee — double row, opposite directions */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="absolute bottom-14 inset-x-0 z-10 space-y-3"
+        aria-hidden="true"
+        style={{
+          maskImage: 'linear-gradient(90deg, transparent, black 12%, black 88%, transparent)',
+          WebkitMaskImage: 'linear-gradient(90deg, transparent, black 12%, black 88%, transparent)',
+        }}
+      >
+        <Marquee speed={45}>
+          {dietPills.map((pill) => (
+            <span key={pill} className="whitespace-nowrap rounded-full border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm px-5 py-2 text-sm text-slate-300">
+              {pill}
+            </span>
+          ))}
+        </Marquee>
+        <Marquee speed={55} reverse>
+          {dietPills.slice().reverse().map((pill) => (
+            <span key={pill} className="whitespace-nowrap rounded-full border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm px-5 py-2 text-sm text-slate-400">
+              {pill}
+            </span>
+          ))}
+        </Marquee>
+      </motion.div>
+
+      {/* Scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
+        style={{ opacity: contentOpacity }}
+        className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-slate-500"
+        aria-hidden="true"
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1"
+        >
+          <div className="w-1 h-2 rounded-full bg-teal-300" />
+        </motion.div>
+      </motion.div>
+
       {/* Bottom fade into next section */}
-      <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
+      <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
     </section>
   );
 };
