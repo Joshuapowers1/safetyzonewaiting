@@ -1,30 +1,50 @@
+import { useRef } from 'react';
 import { Quote } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import joshHeadshot from '@/assets/josh-headshot.png';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 
 const FounderSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const photoY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 0.6, 0.2]);
+
   return (
-    <section id="about" className="py-28 relative overflow-hidden bg-slate-950" aria-label="About SafetyZone founder Joshua Powers - food allergy app built from personal experience">
-      <div aria-hidden="true" className="absolute top-1/2 left-0 w-96 h-96 bg-teal-500/[0.07] rounded-full blur-[140px] -translate-y-1/2 pointer-events-none" />
+    <section ref={sectionRef} id="about" className="py-28 relative overflow-hidden bg-slate-950" aria-label="About SafetyZone founder Joshua Powers - food allergy app built from personal experience">
+      <motion.div
+        aria-hidden="true"
+        style={{ opacity: glowOpacity }}
+        className="absolute top-1/2 left-0 w-96 h-96 bg-teal-500/[0.12] rounded-full blur-[140px] -translate-y-1/2 pointer-events-none"
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-5 gap-12 lg:gap-16 items-center">
-            {/* Photo */}
+            {/* Photo with scroll parallax */}
             <div className="md:col-span-2 flex justify-center">
-              <FadeInSection delay={0.2}>
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-400/40 to-cyan-400/20 rounded-full blur-3xl opacity-50 scale-110" />
-                  <img
-                    src={joshHeadshot}
-                    alt="Joshua Powers - Founder and CEO of SafetyZone food allergy app, living with anaphylactic peanut and dairy allergies"
-                    loading="lazy"
-                    className="relative z-10 w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-[3px] border-teal-400/30 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.8)]"
-                    width="256"
-                    height="256"
-                  />
-                </div>
-              </FadeInSection>
+              <motion.div style={{ y: photoY }}>
+                <FadeInSection delay={0.2}>
+                  <div className="relative">
+                    <motion.div
+                      animate={{ scale: [1.05, 1.18, 1.05], opacity: [0.4, 0.6, 0.4] }}
+                      transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                      className="absolute inset-0 bg-gradient-to-br from-teal-400/40 to-cyan-400/20 rounded-full blur-3xl"
+                    />
+                    <img
+                      src={joshHeadshot}
+                      alt="Joshua Powers - Founder and CEO of SafetyZone food allergy app, living with anaphylactic peanut and dairy allergies"
+                      loading="lazy"
+                      className="relative z-10 w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-[3px] border-teal-400/30 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.8)]"
+                      width="256"
+                      height="256"
+                    />
+                  </div>
+                </FadeInSection>
+              </motion.div>
             </div>
 
             {/* Story */}
