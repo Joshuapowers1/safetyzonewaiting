@@ -56,7 +56,7 @@ const FounderSection = () => {
 
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 leading-tight">
                   A food allergy app built from{' '}
-                  <span className="bg-gradient-to-r from-teal-300 to-emerald-300 bg-clip-text text-transparent">
+                  <span className="text-teal-300">
                     lived experience
                   </span>
                 </h2>
