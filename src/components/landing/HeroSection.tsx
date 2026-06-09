@@ -17,25 +17,55 @@ const riseUp = (delay: number) => ({
 const HeroSection = () => {
   return (
     <section
-      className="relative min-h-[100dvh] bg-white overflow-hidden"
+      className="relative min-h-[100dvh] bg-slate-950 overflow-hidden"
       aria-label="SafetyZone food allergy app hero"
     >
+      {/* Ambient glows */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-teal-500/[0.12] rounded-full blur-[140px]" />
+        <div className="absolute bottom-0 -left-40 w-[500px] h-[400px] bg-cyan-500/[0.07] rounded-full blur-[120px]" />
+        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-emerald-500/[0.06] rounded-full blur-[120px]" />
+        {/* Subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+            maskImage: 'radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent)',
+            WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent)',
+          }}
+        />
+      </div>
+
       <div className="relative z-10 flex items-center min-h-[100dvh] pt-20 pb-16 md:pt-24 md:pb-20">
         <div className="container mx-auto px-4 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left content */}
             <div className="space-y-8">
+              <motion.div {...fallIn(0)}>
+                <span className="inline-flex items-center gap-2 rounded-full border border-teal-400/20 bg-teal-400/[0.08] px-4 py-1.5 text-xs font-semibold tracking-[0.18em] uppercase text-teal-300">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-60" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-400" />
+                  </span>
+                  AI-Powered Food Safety
+                </span>
+              </motion.div>
+
               <div className="space-y-3">
                 <motion.h1
                   {...fallIn(0.05)}
-                  className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black"
+                  className="text-5xl md:text-7xl leading-[1.05] tracking-tight font-[800] text-white"
                 >
                   Meet{' '}
-                  <span className="text-teal-400">My SafetyZone.</span>
+                  <span className="bg-gradient-to-r from-teal-300 via-cyan-300 to-teal-400 bg-clip-text text-transparent">
+                    My SafetyZone.
+                  </span>
                 </motion.h1>
                 <motion.h2
                   {...fallIn(0.15)}
-                  className="text-5xl md:text-7xl leading-[1.1] tracking-tight font-[800] text-black"
+                  className="text-5xl md:text-7xl leading-[1.05] tracking-tight font-[800] text-white/90"
                 >
                   Finally eat without fear.
                 </motion.h2>
@@ -43,14 +73,14 @@ const HeroSection = () => {
 
               <motion.p
                 {...fallIn(0.25)}
-                className="text-lg md:text-xl font-medium text-teal-400 max-w-xl leading-relaxed"
+                className="text-lg md:text-xl font-medium text-teal-300 max-w-xl leading-relaxed"
               >
                 AI-powered allergy protection, nutrition tracking, and safe dining in one app.
               </motion.p>
 
               <motion.p
                 {...riseUp(0.35)}
-                className="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed"
+                className="text-base md:text-lg text-slate-400 max-w-xl leading-relaxed"
               >
                 Whether you have a peanut allergy, celiac disease, or any dietary restriction, My SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 200+ languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
               </motion.p>
@@ -69,12 +99,15 @@ const HeroSection = () => {
             {/* Right - Phone mockups (desktop) */}
             <div className="hidden lg:flex justify-end items-center">
               <div className="relative w-full max-w-md h-[620px]">
+                {/* Glow behind phones */}
+                <div aria-hidden="true" className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[420px] bg-teal-400/[0.14] rounded-full blur-[100px]" />
+
                 {/* Back phone - Allergen card */}
                 <motion.div
                   initial={{ opacity: 0, y: -60, rotate: 0 }}
                   animate={{ opacity: 1, y: 0, rotate: -5 }}
                   transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute right-0 top-16 w-[210px]"
+                  className="absolute right-0 top-16 w-[210px] drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
                 >
                   <IPhoneFrame>
                     <img
@@ -92,7 +125,7 @@ const HeroSection = () => {
                   initial={{ opacity: 0, y: -80 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute left-0 top-8 w-[230px] z-10"
+                  className="absolute left-0 top-8 w-[230px] z-10 drop-shadow-[0_32px_80px_rgba(0,0,0,0.7)]"
                 >
                   <IPhoneFrame>
                     <img
@@ -113,11 +146,12 @@ const HeroSection = () => {
           {/* Mobile phone mockups */}
           <div className="lg:hidden flex justify-center items-center mt-12 mb-8">
             <div className="relative w-full max-w-xs h-[480px]">
+              <div aria-hidden="true" className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[320px] bg-teal-400/[0.12] rounded-full blur-[80px]" />
               <motion.div
                 initial={{ opacity: 0, y: -50, rotate: 0 }}
                 animate={{ opacity: 1, y: 0, rotate: -5 }}
                 transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute right-0 top-12 w-[150px]"
+                className="absolute right-0 top-12 w-[150px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
               >
                 <IPhoneFrame>
                   <img
@@ -134,7 +168,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: -70 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute left-0 top-6 w-[170px] z-10"
+                className="absolute left-0 top-6 w-[170px] z-10 drop-shadow-[0_24px_60px_rgba(0,0,0,0.7)]"
               >
                 <IPhoneFrame>
                   <img
@@ -152,6 +186,9 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Bottom fade into next section */}
+      <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
     </section>
   );
 };
