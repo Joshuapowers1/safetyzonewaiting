@@ -182,8 +182,12 @@ const HeroSection = () => {
               <div aria-hidden="true" className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[320px] bg-teal-400/[0.12] rounded-full blur-[80px]" />
               <motion.div
                 initial={{ opacity: 0, y: -50, rotate: 0 }}
-                animate={{ opacity: 1, y: 0, rotate: -5 }}
-                transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                animate={{ opacity: 1, y: [0, -10, 0], rotate: -5 }}
+                transition={{
+                  opacity: { delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+                  y: { delay: 0.3, duration: 4, repeat: Infinity, ease: 'easeInOut' },
+                  rotate: { delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+                }}
                 className="absolute right-0 top-12 w-[150px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
               >
                 <IPhoneFrame>
@@ -199,8 +203,11 @@ const HeroSection = () => {
 
               <motion.div
                 initial={{ opacity: 0, y: -70 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                animate={{ opacity: 1, y: [0, -10, 0] }}
+                transition={{
+                  opacity: { delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+                  y: { delay: 0.15, duration: 4, repeat: Infinity, ease: 'easeInOut' },
+                }}
                 className="absolute left-0 top-6 w-[170px] z-10 drop-shadow-[0_24px_60px_rgba(0,0,0,0.7)]"
               >
                 <IPhoneFrame>
