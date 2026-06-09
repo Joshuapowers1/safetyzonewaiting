@@ -430,7 +430,7 @@ const Index = () => {
 
 
 
-      <div className="min-h-screen bg-slate-950">
+      <div className="min-h-screen bg-[#05080f]">
         <SecurityErrorBoundary fallback={null}><Navbar /></SecurityErrorBoundary>
 
         <main>
