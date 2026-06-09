@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Pill, AlertTriangle, MessageCircle, Users } from 'lucide-react';
 import { FadeInSection } from '@/components/ui/fade-in-section';
+import { TiltCard } from '@/components/ui/tilt-card';
 const showcaseFeatures = [
   {
     id: 'nutriscan',
@@ -63,9 +64,15 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <FadeInSection className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
-          <span className="inline-block text-xs font-semibold tracking-[0.22em] uppercase text-teal-300 mb-4">
+          <motion.span
+            initial={{ opacity: 0, letterSpacing: '0.6em' }}
+            whileInView={{ opacity: 1, letterSpacing: '0.22em' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-block text-xs font-semibold uppercase text-teal-300 mb-4"
+          >
             Features
-          </span>
+          </motion.span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
             Everything you need to eat safely
           </h2>
@@ -79,8 +86,19 @@ const FeaturesSection = () => {
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center lg:items-start">
             {/* Left: Phone mockup */}
             <div className="w-full lg:w-auto flex justify-center lg:justify-start shrink-0 lg:sticky lg:top-32">
-              <div className="relative w-[250px] sm:w-[290px]">
-                <div aria-hidden="true" className="absolute inset-0 scale-110 bg-teal-400/[0.12] rounded-full blur-[80px] pointer-events-none" />
+              <motion.div
+                initial={{ opacity: 0, y: 60, rotate: -4 }}
+                whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="relative w-[250px] sm:w-[290px]"
+              >
+                <motion.div
+                  aria-hidden="true"
+                  animate={{ opacity: [0.6, 1, 0.6] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute inset-0 scale-110 bg-teal-400/[0.12] rounded-full blur-[80px] pointer-events-none"
+                />
                 {showcaseFeatures.map((feature) => (
                   <img
                     key={feature.id}
@@ -88,43 +106,53 @@ const FeaturesSection = () => {
                     alt={`${feature.title} screenshot`}
                     width="290"
                     height="612"
-                    className="absolute inset-0 w-full aspect-[9/19] object-contain transition-opacity duration-200 drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
+                    className="absolute inset-0 w-full aspect-[9/19] object-contain transition-all duration-300 drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
                     style={{
                       opacity: feature.id === activeId ? 1 : 0,
+                      transform: feature.id === activeId ? 'scale(1)' : 'scale(0.96)',
                       pointerEvents: feature.id === activeId ? 'auto' : 'none',
                     }}
                   />
                 ))}
                 {/* Spacer to preserve layout height */}
                 <div className="invisible w-full aspect-[9/19]" />
-              </div>
+              </motion.div>
             </div>
 
-            {/* Right: Feature cards */}
+            {/* Right: Feature cards with stagger + tilt */}
             <div className="flex-1 space-y-4 w-full">
-              {showcaseFeatures.map((feature) => {
+              {showcaseFeatures.map((feature, i) => {
                 const isActive = feature.id === activeId;
                 return (
-                  <button
+                  <motion.div
                     key={feature.id}
-                    onClick={() => setActiveId(feature.id)}
-                    className={`w-full text-left rounded-2xl border transition-all duration-200 px-6 py-6 backdrop-blur-sm ${
-                      isActive
-                        ? 'bg-teal-400/[0.08] border-teal-400/40 ring-1 ring-teal-400/30 shadow-[0_0_48px_-12px_rgba(45,212,191,0.45)]'
-                        : 'bg-white/[0.03] border-white/[0.08] hover:border-white/[0.18] hover:bg-white/[0.05]'
-                    }`}
+                    initial={{ opacity: 0, x: 60 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <h3 className={`text-lg md:text-xl font-bold mb-2 transition-colors duration-150 ${
-                      isActive ? 'text-teal-300' : 'text-white'
-                    }`}>
-                      {feature.title}
-                    </h3>
-                    <p className={`text-sm md:text-base leading-relaxed transition-colors duration-150 ${
-                      isActive ? 'text-slate-300' : 'text-slate-500'
-                    }`}>
-                      {feature.description}
-                    </p>
-                  </button>
+                    <TiltCard>
+                      <button
+                        onClick={() => setActiveId(feature.id)}
+                        className={`w-full text-left rounded-2xl border transition-all duration-200 px-6 py-6 backdrop-blur-sm ${
+                          isActive
+                            ? 'bg-teal-400/[0.08] border-teal-400/40 ring-1 ring-teal-400/30 shadow-[0_0_48px_-12px_rgba(45,212,191,0.45)]'
+                            : 'bg-white/[0.03] border-white/[0.08] hover:border-white/[0.18] hover:bg-white/[0.05]'
+                        }`}
+                      >
+                        <h3 className={`text-lg md:text-xl font-bold mb-2 transition-colors duration-150 ${
+                          isActive ? 'text-teal-300' : 'text-white'
+                        }`}>
+                          {feature.title}
+                        </h3>
+                        <p className={`text-sm md:text-base leading-relaxed transition-colors duration-150 ${
+                          isActive ? 'text-slate-300' : 'text-slate-500'
+                        }`}>
+                          {feature.description}
+                        </p>
+                      </button>
+                    </TiltCard>
+                  </motion.div>
                 );
               })}
             </div>
@@ -150,17 +178,17 @@ const FeaturesSection = () => {
               return (
                 <motion.li
                   key={item.title}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="group grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_2fr] gap-x-6 md:gap-x-10 gap-y-2 py-7 md:py-8 items-baseline"
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.6, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                  className="group grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_2fr] gap-x-6 md:gap-x-10 gap-y-2 py-7 md:py-8 items-baseline hover:bg-white/[0.02] transition-colors rounded-xl px-2 -mx-2"
                 >
-                  <span className="text-xs font-mono text-slate-600 tabular-nums pt-1">
+                  <span className="text-xs font-mono text-slate-600 tabular-nums pt-1 group-hover:text-teal-400 transition-colors">
                     0{i + 1}
                   </span>
                   <h4 className="text-lg md:text-xl font-semibold text-white flex items-center gap-3">
-                    <Icon className="w-4 h-4 text-teal-300 shrink-0" strokeWidth={2.25} />
+                    <Icon className="w-4 h-4 text-teal-300 shrink-0 group-hover:scale-125 transition-transform" strokeWidth={2.25} />
                     {item.title}
                   </h4>
                   <p className="text-sm md:text-base text-slate-400 leading-relaxed col-start-2 md:col-start-3 max-w-md">
