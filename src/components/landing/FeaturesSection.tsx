@@ -1,203 +1,229 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Pill, AlertTriangle, MessageCircle, Users } from 'lucide-react';
-import { FadeInSection } from '@/components/ui/fade-in-section';
-import { TiltCard } from '@/components/ui/tilt-card';
-const showcaseFeatures = [
-  {
-    id: 'nutriscan',
-    screenshot: '/screenshots/nutriscan.png',
-    title: 'Nutrition',
-    description: 'Track every health intake measure that keeps you well — calories, macros, water, hydration goals, and more. Snap a photo of any meal for instant AI analysis and log it all in one place.',
-  },
-  {
-    id: 'recipe',
-    screenshot: '/screenshots/recipe.png',
-    title: 'Recipe AI',
-    description: 'Transform any recipe to be safe for your dietary needs. AI-powered ingredient substitution with full nutritional analysis from 2M+ verified recipes.',
-  },
-  {
-    id: 'allergen-card',
-    screenshot: '/screenshots/allergen-card.png',
-    title: 'Digital QR Allergen Card',
-    description: 'Your allergies translated into 200+ languages on a scannable digital card. Show it at any restaurant, kitchen, or food counter anywhere in the world.',
-  },
-  {
-    id: 'travel',
-    screenshot: '/screenshots/travel.png',
-    title: 'Travel Mode',
-    description: 'AI generates a complete allergy travel guide with local phrases, safe restaurants, packing lists, and emergency info for your destination.',
-  },
+import {
+  Pill, AlertTriangle, MessageCircle, Users, QrCode, Camera,
+  ChefHat, Plane, ScanBarcode, BellRing, Apple as AppleIcon,
+} from 'lucide-react';
+import IPhoneFrame from '@/components/ui/iphone-frame';
+import { Marquee } from '@/components/ui/marquee';
+
+const tickerItems = [
+  'Community', 'FDA Recall Alerts', 'Medication Tracker', 'In-App Chat Support',
+  'Barcode Scanner', 'EpiPen Reminders', 'Travel Mode', 'Recipe AI', 'Nutrition Tracking',
 ];
 
-const moreFeatures = [
+const spotlights = [
   {
     icon: Users,
-    title: 'Community',
-    description: 'Connect with people who share your dietary restrictions, swap safe restaurants, and learn what works from others like you.',
+    title: 'A community that gets it',
+    description: 'Swap safe restaurants and real-world advice with people who share your restrictions.',
   },
   {
     icon: Pill,
-    title: 'Medication & Device Tracker',
-    description: 'Get reminders before your EpiPen, inhaler, or any medical device expires.',
+    title: 'Never carry expired protection',
+    description: 'Automatic reminders before your EpiPen, inhaler, or medical device expires.',
   },
   {
     icon: AlertTriangle,
-    title: 'FDA Recall Alerts',
-    description: 'Real-time safety alerts personalized to your specific allergens.',
-  },
-  {
-    icon: MessageCircle,
-    title: 'In-App Chat Support',
-    description: 'Get instant answers from our AI assistant anytime you need help.',
+    title: 'Recalls, before they reach you',
+    description: 'Real-time FDA alerts personalized to your exact allergen profile.',
   },
 ];
 
-const FeaturesSection = () => {
-  const [activeId, setActiveId] = useState(showcaseFeatures[0].id);
+const glass = 'border border-white/[0.07] bg-white/[0.03] backdrop-blur-[20px]';
 
+const cardReveal = (i: number) => ({
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+});
+
+const FeaturesSection = () => {
   return (
-    <section id="features" className="py-20 md:py-32 relative overflow-hidden bg-slate-950" aria-label="SafetyZone features">
-      {/* Ambient glow */}
-      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-teal-500/[0.06] rounded-full blur-[140px] pointer-events-none" />
+    <section id="features" className="py-[120px] relative overflow-hidden bg-[#05080f]" aria-label="SafetyZone features">
+      {/* Ambient glow + top gradient divider */}
+      <div aria-hidden="true" className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00C2A8]/30 to-transparent" />
+      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#00C2A8]/[0.05] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
-        <FadeInSection className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
+        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
           <motion.span
-            initial={{ opacity: 0, letterSpacing: '0.6em' }}
-            whileInView={{ opacity: 1, letterSpacing: '0.22em' }}
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-block text-xs font-semibold uppercase text-teal-300 mb-4"
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-block text-xs font-semibold tracking-[0.22em] uppercase text-[rgba(255,255,255,0.35)] mb-4"
           >
-            Features
+            <span className="text-[#00C2A8]">Features</span>
           </motion.span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-3xl md:text-5xl font-semibold tracking-tight text-white mb-4"
+          >
             Everything you need to eat safely
-          </h2>
-          <p className="text-base md:text-lg text-slate-400">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-base md:text-lg text-white/60"
+          >
             Packed with the features that matter most.
-          </p>
-        </FadeInSection>
-
-        {/* Phone left, stacked cards right */}
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center lg:items-start">
-            {/* Left: Phone mockup */}
-            <div className="w-full lg:w-auto flex justify-center lg:justify-start shrink-0 lg:sticky lg:top-32">
-              <motion.div
-                initial={{ opacity: 0, y: 60, rotate: -4 }}
-                whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative w-[250px] sm:w-[290px]"
-              >
-                <motion.div
-                  aria-hidden="true"
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute inset-0 scale-110 bg-teal-400/[0.12] rounded-full blur-[80px] pointer-events-none"
-                />
-                {showcaseFeatures.map((feature) => (
-                  <img
-                    key={feature.id}
-                    src={feature.screenshot}
-                    alt={`${feature.title} screenshot`}
-                    width="290"
-                    height="612"
-                    className="absolute inset-0 w-full aspect-[9/19] object-contain transition-all duration-300 drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
-                    style={{
-                      opacity: feature.id === activeId ? 1 : 0,
-                      transform: feature.id === activeId ? 'scale(1)' : 'scale(0.96)',
-                      pointerEvents: feature.id === activeId ? 'auto' : 'none',
-                    }}
-                  />
-                ))}
-                {/* Spacer to preserve layout height */}
-                <div className="invisible w-full aspect-[9/19]" />
-              </motion.div>
-            </div>
-
-            {/* Right: Feature cards with stagger + tilt */}
-            <div className="flex-1 space-y-4 w-full">
-              {showcaseFeatures.map((feature, i) => {
-                const isActive = feature.id === activeId;
-                return (
-                  <motion.div
-                    key={feature.id}
-                    initial={{ opacity: 0, x: 60 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <TiltCard>
-                      <button
-                        onClick={() => setActiveId(feature.id)}
-                        className={`w-full text-left rounded-2xl border transition-all duration-200 px-6 py-6 backdrop-blur-sm ${
-                          isActive
-                            ? 'bg-teal-400/[0.08] border-teal-400/40 ring-1 ring-teal-400/30 shadow-[0_0_48px_-12px_rgba(45,212,191,0.45)]'
-                            : 'bg-white/[0.03] border-white/[0.08] hover:border-white/[0.18] hover:bg-white/[0.05]'
-                        }`}
-                      >
-                        <h3 className={`text-lg md:text-xl font-bold mb-2 transition-colors duration-150 ${
-                          isActive ? 'text-teal-300' : 'text-white'
-                        }`}>
-                          {feature.title}
-                        </h3>
-                        <p className={`text-sm md:text-base leading-relaxed transition-colors duration-150 ${
-                          isActive ? 'text-slate-300' : 'text-slate-500'
-                        }`}>
-                          {feature.description}
-                        </p>
-                      </button>
-                    </TiltCard>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
+          </motion.p>
         </div>
 
-        {/* Also included — editorial list */}
-        <div className="max-w-4xl mx-auto mt-24 md:mt-32">
-          <FadeInSection className="mb-10 md:mb-14">
-            <div className="flex items-baseline justify-between gap-6 border-b border-white/[0.08] pb-4">
-              <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                Also included
-              </h3>
-              <span className="text-xs font-medium text-slate-500 uppercase tracking-[0.2em]">
-                In every download
-              </span>
+        {/* Bento grid */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 auto-rows-[minmax(180px,auto)]">
+          {/* Large featured card — QR Allergen Card, spans 2x2 */}
+          <motion.div
+            {...cardReveal(0)}
+            className={`relative md:col-span-2 lg:row-span-2 rounded-3xl ${glass} p-8 overflow-hidden group hover:border-[#00C2A8]/30 transition-colors`}
+          >
+            <div aria-hidden="true" className="absolute -top-16 -right-16 w-64 h-64 bg-[#00C2A8]/[0.1] rounded-full blur-[80px]" />
+            <div className="relative flex flex-col h-full">
+              <QrCode className="w-7 h-7 text-[#00C2A8] mb-4" strokeWidth={1.75} />
+              <h3 className="font-display text-2xl font-semibold text-white mb-2">Digital QR Allergen Card</h3>
+              <p className="text-sm md:text-base text-white/60 leading-relaxed max-w-sm mb-8">
+                Your allergies translated into 200+ languages on a scannable card. Show it at any restaurant, kitchen, or food counter anywhere in the world.
+              </p>
+              <div className="flex-1 flex items-end justify-center">
+                <div className="w-[200px] md:w-[220px]">
+                  <IPhoneFrame>
+                    <img
+                      src="/screenshots/allergen-card.png"
+                      alt="SafetyZone digital QR allergy card"
+                      className="w-full aspect-[9/19.5] object-contain bg-white"
+                      width="220"
+                      height="477"
+                      loading="lazy"
+                    />
+                  </IPhoneFrame>
+                </div>
+              </div>
             </div>
-          </FadeInSection>
+          </motion.div>
 
-          <ul className="divide-y divide-white/[0.06]">
-            {moreFeatures.map((item, i) => {
+          {/* Medium — Nutrition */}
+          <motion.div
+            {...cardReveal(1)}
+            className={`relative md:col-span-2 lg:col-span-2 rounded-3xl ${glass} p-8 overflow-hidden hover:border-[#00C2A8]/30 transition-colors`}
+          >
+            <div aria-hidden="true" className="absolute -bottom-12 -right-12 w-48 h-48 bg-[#00E5FF]/[0.07] rounded-full blur-[70px]" />
+            <Camera className="w-7 h-7 text-[#00C2A8] mb-4" strokeWidth={1.75} />
+            <h3 className="font-display text-xl font-semibold text-white mb-2">Nutrition, from a photo</h3>
+            <p className="text-sm md:text-base text-white/60 leading-relaxed">
+              Snap any meal for instant AI analysis — calories, macros, water, and hydration goals logged in one place.
+            </p>
+          </motion.div>
+
+          {/* Medium — Recipe AI */}
+          <motion.div
+            {...cardReveal(2)}
+            className={`relative md:col-span-1 lg:col-span-1 rounded-3xl ${glass} p-8 overflow-hidden hover:border-[#00C2A8]/30 transition-colors`}
+          >
+            <ChefHat className="w-7 h-7 text-[#00C2A8] mb-4" strokeWidth={1.75} />
+            <h3 className="font-display text-xl font-semibold text-white mb-2">Recipe AI</h3>
+            <p className="text-sm text-white/60 leading-relaxed">
+              Transform any recipe to be safe for you, with substitutions from 2M+ verified recipes.
+            </p>
+          </motion.div>
+
+          {/* Small — Travel Mode */}
+          <motion.div
+            {...cardReveal(3)}
+            className={`relative md:col-span-1 lg:col-span-1 rounded-3xl ${glass} p-8 overflow-hidden hover:border-[#00C2A8]/30 transition-colors`}
+          >
+            <Plane className="w-7 h-7 text-[#00C2A8] mb-4" strokeWidth={1.75} />
+            <h3 className="font-display text-xl font-semibold text-white mb-2">Travel Mode</h3>
+            <p className="text-sm text-white/60 leading-relaxed">
+              AI travel guides with local phrases, safe restaurants, and emergency info for your destination.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* ===== Also included ===== */}
+        <div className="max-w-6xl mx-auto mt-[120px]">
+          <motion.h3
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-2xl md:text-3xl font-semibold text-white tracking-tight text-center mb-10"
+          >
+            Also in every download
+          </motion.h3>
+
+          {/* Infinite marquee ticker */}
+          <div
+            aria-hidden="true"
+            className="mb-14"
+            style={{
+              maskImage: 'linear-gradient(90deg, transparent, black 10%, black 90%, transparent)',
+              WebkitMaskImage: 'linear-gradient(90deg, transparent, black 10%, black 90%, transparent)',
+            }}
+          >
+            <Marquee speed={38}>
+              {tickerItems.map((item) => (
+                <span
+                  key={item}
+                  className="whitespace-nowrap rounded-full border border-white/[0.07] bg-white/[0.03] backdrop-blur-[20px] px-6 py-2.5 text-sm text-white/60"
+                >
+                  {item}
+                </span>
+              ))}
+            </Marquee>
+          </div>
+
+          {/* 3 spotlight cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {spotlights.map((item, i) => {
               const Icon = item.icon;
               return (
-                <motion.li
+                <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.6, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                  className="group grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_2fr] gap-x-6 md:gap-x-10 gap-y-2 py-7 md:py-8 items-baseline hover:bg-white/[0.02] transition-colors rounded-xl px-2 -mx-2"
+                  {...cardReveal(i)}
+                  whileHover={{ y: -8 }}
+                  className={`relative rounded-3xl ${glass} p-8 overflow-hidden transition-shadow hover:shadow-[0_24px_64px_-16px_rgba(0,194,168,0.25)]`}
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(#05080f, #05080f), linear-gradient(140deg, rgba(0,194,168,0.35), rgba(255,255,255,0.06) 40%, rgba(0,229,255,0.25))',
+                    backgroundOrigin: 'border-box',
+                    backgroundClip: 'padding-box, border-box',
+                    border: '1px solid transparent',
+                  }}
                 >
-                  <span className="text-xs font-mono text-slate-600 tabular-nums pt-1 group-hover:text-teal-400 transition-colors">
-                    0{i + 1}
-                  </span>
-                  <h4 className="text-lg md:text-xl font-semibold text-white flex items-center gap-3">
-                    <Icon className="w-4 h-4 text-teal-300 shrink-0 group-hover:scale-125 transition-transform" strokeWidth={2.25} />
-                    {item.title}
-                  </h4>
-                  <p className="text-sm md:text-base text-slate-400 leading-relaxed col-start-2 md:col-start-3 max-w-md">
-                    {item.description}
-                  </p>
-                </motion.li>
+                  <motion.div
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.6 }}
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#00C2A8]/[0.1] border border-[#00C2A8]/25 mb-5"
+                  >
+                    <Icon className="w-6 h-6 text-[#00C2A8]" strokeWidth={1.75} />
+                  </motion.div>
+                  <h4 className="font-display text-lg font-semibold text-white mb-2">{item.title}</h4>
+                  <p className="text-sm text-white/60 leading-relaxed">{item.description}</p>
+                </motion.div>
               );
             })}
-          </ul>
+          </div>
+
+          {/* Quiet capability row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-12 flex items-center justify-center gap-8 flex-wrap text-white/35 text-sm"
+          >
+            <span className="inline-flex items-center gap-2"><ScanBarcode className="w-4 h-4" /> Barcode Scanner</span>
+            <span className="inline-flex items-center gap-2"><BellRing className="w-4 h-4" /> EpiPen Reminders</span>
+            <span className="inline-flex items-center gap-2"><MessageCircle className="w-4 h-4" /> In-App Chat Support</span>
+            <span className="inline-flex items-center gap-2"><AppleIcon className="w-4 h-4" /> Built for iOS</span>
+          </motion.div>
         </div>
       </div>
     </section>
