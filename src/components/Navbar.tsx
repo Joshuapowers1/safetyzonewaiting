@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { AppStoreBadge } from '@/components/ui/store-badges';
 import tealLogo from '@/assets/teal-logo.png';
@@ -9,6 +9,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -96,6 +98,13 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {/* Scroll progress bar */}
+      <motion.div
+        aria-hidden="true"
+        style={{ scaleX: progress }}
+        className="absolute bottom-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-teal-400 via-cyan-300 to-emerald-300"
+      />
 
       <AnimatePresence>
         {isOpen && (
