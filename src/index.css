@@ -95,6 +95,11 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'DM Sans', 'Inter', sans-serif;
     -webkit-tap-highlight-color: transparent;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 15% 10%, hsl(167 100% 42% / 0.15), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 85% 90%, hsl(258 84% 58% / 0.15), transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, hsl(167 100% 42% / 0.08), transparent 70%);
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -105,12 +110,20 @@
 
 @layer components {
   .clean-card {
-    @apply bg-card border border-border rounded-xl;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    @apply rounded-xl;
     box-shadow: var(--shadow-md);
   }
   
   .soft-card {
-    @apply bg-secondary/50 border border-border rounded-xl;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    @apply rounded-xl;
   }
 }
 
