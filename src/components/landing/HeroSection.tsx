@@ -33,7 +33,7 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[100dvh] bg-[#05080f] overflow-hidden"
+      className="relative min-h-[100dvh] bg-[#0a0a0a] overflow-hidden"
       aria-label="SafetyZone food allergy app hero"
     >
       {/* Breathing aurora behind the phones */}
@@ -42,13 +42,13 @@ const HeroSection = () => {
           className="absolute left-[72%] top-[48%] w-[820px] h-[820px] rounded-full blur-[130px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(0,194,168,0.22) 0%, rgba(0,229,255,0.10) 42%, transparent 72%)',
+              'radial-gradient(circle, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.05) 42%, transparent 72%)',
             animation: 'sz-aurora 12s ease-in-out infinite',
             transform: 'translate(-50%, -50%)',
           }}
         />
-        <div className="absolute -top-40 left-1/3 w-[700px] h-[420px] bg-[#00C2A8]/[0.07] rounded-full blur-[140px]" />
-        <div className="absolute bottom-0 -left-40 w-[500px] h-[400px] bg-[#00E5FF]/[0.05] rounded-full blur-[120px]" />
+        <div className="absolute -top-40 left-1/3 w-[700px] h-[420px] bg-[#ffffff]/[0.07] rounded-full blur-[140px]" />
+        <div className="absolute bottom-0 -left-40 w-[500px] h-[400px] bg-[#d6d6d6]/[0.05] rounded-full blur-[120px]" />
         {/* Subtle grid */}
         <div
           className="absolute inset-0 opacity-[0.3]"
@@ -68,10 +68,10 @@ const HeroSection = () => {
             {/* Left content */}
             <motion.div style={{ y: contentY, opacity: contentOpacity }} className="space-y-8">
               <motion.div {...fallIn(0)}>
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#00C2A8]/25 bg-[#00C2A8]/[0.07] px-4 py-1.5 text-xs font-semibold tracking-[0.18em] uppercase text-[#00C2A8]">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#ffffff]/25 bg-[#ffffff]/[0.07] px-4 py-1.5 text-xs font-semibold tracking-[0.18em] uppercase text-[#ffffff]">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00C2A8] opacity-60" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00C2A8]" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffffff] opacity-60" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ffffff]" />
                   </span>
                   AI-Powered Food Safety
                 </span>
@@ -83,7 +83,7 @@ const HeroSection = () => {
                   className="font-display text-5xl md:text-7xl leading-[1.04] tracking-tight font-semibold text-white"
                 >
                   Meet{' '}
-                  <span className="bg-gradient-to-r from-[#00C2A8] to-[#00E5FF] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#ffffff] to-[#d6d6d6] bg-clip-text text-transparent">
                     My SafetyZone.
                   </span>
                 </motion.h1>
@@ -95,14 +95,14 @@ const HeroSection = () => {
                   <TextRotate
                     texts={['safely anywhere.', 'without fear.', 'with confidence.']}
                     interval={2500}
-                    className="text-[#00C2A8] align-bottom"
+                    className="text-[#ffffff] align-bottom"
                   />
                 </motion.h2>
               </div>
 
               <motion.p
                 {...fallIn(0.25)}
-                className="text-lg md:text-xl font-medium text-[#00C2A8] max-w-xl leading-relaxed"
+                className="text-lg md:text-xl font-medium text-[#ffffff] max-w-xl leading-relaxed"
               >
                 AI-powered allergy protection, nutrition tracking, and safe dining in one app.
               </motion.p>
@@ -128,7 +128,7 @@ const HeroSection = () => {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 360, damping: 22 }}
-                  className="group inline-flex items-center gap-3 rounded-2xl bg-white/95 px-6 py-3.5 text-[#05080f] shadow-[0_8px_32px_-8px_rgba(255,255,255,0.25)] backdrop-blur-xl border border-white/40 hover:shadow-[0_8px_40px_-6px_rgba(0,194,168,0.5)] transition-shadow"
+                  className="group inline-flex items-center gap-3 rounded-2xl bg-white/95 px-6 py-3.5 text-[#0a0a0a] shadow-[0_8px_32px_-8px_rgba(255,255,255,0.25)] backdrop-blur-xl border border-white/40 hover:shadow-[0_8px_40px_-6px_rgba(255,255,255,0.18)] transition-shadow"
                 >
                   <Apple className="w-6 h-6" />
                   <span className="text-left leading-tight">
@@ -141,7 +141,7 @@ const HeroSection = () => {
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: 'spring', stiffness: 360, damping: 22 }}
-                  className="inline-flex items-center gap-3 rounded-2xl border border-white/[0.15] bg-white/[0.03] px-6 py-3.5 text-white/70 backdrop-blur-xl cursor-default hover:border-[#00C2A8]/40 hover:shadow-[0_8px_40px_-10px_rgba(0,194,168,0.4)] transition-all"
+                  className="inline-flex items-center gap-3 rounded-2xl border border-white/[0.15] bg-white/[0.03] px-6 py-3.5 text-white/70 backdrop-blur-xl cursor-default hover:border-[#ffffff]/40 hover:shadow-[0_8px_40px_-10px_rgba(255,255,255,0.14)] transition-all"
                   aria-label="Coming soon on Google Play"
                 >
                   <Play className="w-5 h-5 fill-current" />
@@ -263,12 +263,12 @@ const HeroSection = () => {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown className="w-6 h-6 text-[#00C2A8]/70" />
+          <ChevronDown className="w-6 h-6 text-[#ffffff]/70" />
         </motion.div>
       </motion.div>
 
       {/* Gradient fade divider into next section */}
-      <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-b from-transparent to-[#05080f] pointer-events-none" />
+      <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none" />
     </section>
   );
 };
