@@ -134,7 +134,7 @@ const Support = () => {
                   <AccordionTrigger className="text-left text-gray-900 hover:text-teal-500 hover:no-underline py-5">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-500 pb-5">
+                  <AccordionContent forceMount className="text-gray-500 pb-5 data-[state=closed]:hidden">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
