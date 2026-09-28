@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import logoWhite from '@/assets/logo-white.png';
+import logo from '@/assets/sz-logo-black.png';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -21,9 +21,9 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         transition={{ duration: 0.4 }}
       >
         <img 
-          src={logoWhite} 
+          src={logo}
           alt="Safety Zone Logo" 
-          className="w-16 h-16 object-contain"
+          className="w-16 h-16 rounded-xl bg-white p-1 object-contain"
         />
         
         <motion.h1

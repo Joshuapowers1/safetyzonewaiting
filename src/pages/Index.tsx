@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { AppStoreBadge } from "@/components/ui/store-badges";
 import FeaturePreview from "@/components/FeaturePreview";
-import logo from "@/assets/teal-logo.png";
+import logo from "@/assets/sz-logo-black.png";
 import "./home.css";
 
 const APP_URL = "https://apps.apple.com/us/app/my-safetyzone/id6758567664";

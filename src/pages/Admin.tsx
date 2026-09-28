@@ -21,7 +21,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import type { Database } from '@/integrations/supabase/types';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/sz-logo-black.png';
 import EmailNotificationPanel from '@/components/EmailNotificationPanel';
 
 type WaitlistEntry = Database['public']['Tables']['waitlist']['Row'];
@@ -244,7 +244,7 @@ const Admin = () => {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="glass-card p-8 text-center max-w-md">
-          <img src={logo} alt="Safety Zone" className="w-12 h-12 mx-auto mb-4 rounded-lg" />
+          <img src={logo} alt="Safety Zone" className="w-12 h-12 mx-auto mb-4 rounded-lg bg-white p-1 object-contain" />
           <h1 className="font-display text-xl font-bold text-foreground mb-2">Access Denied</h1>
           <p className="text-muted-foreground mb-4">
             You don't have admin privileges. Please contact an administrator.
@@ -284,7 +284,7 @@ const Admin = () => {
       <header className="border-b border-border bg-card/50 backdrop-blur-xl sticky top-0 z-20">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Safety Zone" className="w-10 h-10 rounded-lg" />
+            <img src={logo} alt="Safety Zone" className="w-10 h-10 rounded-lg bg-white p-1 object-contain" />
             <div>
               <h1 className="font-display text-lg font-bold text-foreground">Safety Zone</h1>
               <p className="text-xs text-muted-foreground">Admin Dashboard</p>

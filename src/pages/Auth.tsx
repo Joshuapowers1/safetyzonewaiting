@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import ParticleBackground from '@/components/ParticleBackground';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/sz-logo-black.png';
 
 const authSchema = z.object({
   email: z.string().trim().email("Please enter a valid email"),
@@ -134,7 +134,7 @@ const Auth = () => {
             <img 
               src={logo} 
               alt="Safety Zone Logo" 
-              className="w-16 h-16 object-contain rounded-xl shadow-[0_0_20px_hsl(174_72%_46%_/_0.3)]"
+              className="w-16 h-16 rounded-xl bg-white p-1 object-contain shadow-[0_0_20px_hsl(174_72%_46%_/_0.3)]"
             />
           </div>
 

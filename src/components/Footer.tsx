@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Mail, Apple, Smartphone } from 'lucide-react';
-import tealLogo from '@/assets/teal-logo.png';
+import logo from '@/assets/sz-logo-black.png';
 
 const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
 
@@ -23,7 +23,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-5 md:col-span-2">
             <Link to="/" className="flex items-center gap-3" aria-label="My SafetyZone food allergy app home">
-              <img src={tealLogo} alt="My SafetyZone food allergy app logo" className="w-11 h-11 object-contain" width="44" height="44" />
+              <img src={logo} alt="My SafetyZone food allergy app logo" className="w-11 h-11 rounded-xl bg-white p-1 object-contain" width="44" height="44" />
               <span className="font-display text-xl font-semibold text-white">My SafetyZone</span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed max-w-sm">

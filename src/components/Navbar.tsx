@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { AppStoreBadge } from '@/components/ui/store-badges';
-import tealLogo from '@/assets/teal-logo.png';
+import logo from '@/assets/sz-logo-black.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,7 +56,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative">
               <div className="absolute inset-0 bg-[#00C2A8]/30 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-              <img src={tealLogo} alt="My SafetyZone" className="relative w-10 h-10 object-contain" />
+              <img src={logo} alt="My SafetyZone" className="relative w-10 h-10 rounded-xl bg-white p-1 object-contain" />
             </div>
             <span className="font-display text-xl font-semibold tracking-tight text-white">My SafetyZone</span>
           </Link>
