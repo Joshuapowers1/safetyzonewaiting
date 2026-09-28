@@ -767,22 +767,6 @@ body.safetyzone-home {
   margin-left: auto;
   white-space: nowrap;
 }
-.campaign-section {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-top: 28px;
-  margin-bottom: 28px;
-  padding: 38px 42px;
-  border-radius: 22px;
-  background: linear-gradient(115deg, #173f36, #23685e);
-  color: white;
-}
-.campaign-section h2 { margin-top: 8px; font-size: clamp(30px, 4vw, 48px); }
-.campaign-section h2 em { color: #bfe1d5; }
-.campaign-section p { margin-top: 12px; max-width: 640px; color: #d2e3dc; font-size: 12px; line-height: 1.75; }
-.campaign-section .home-eyebrow { color: #a9d9ca; }
-.campaign-section .home-button { margin-left: auto; flex-shrink: 0; background: #f8f9f5; color: #173f36; }
 .button-outline {
   background: transparent;
   color: var(--home-ink);
@@ -1064,8 +1048,6 @@ body.safetyzone-home {
   }
 }
 @media (max-width: 800px) {
-  .campaign-section { align-items: flex-start; flex-direction: column; }
-  .campaign-section .home-button { margin-left: 0; }
   .reviews-grid { grid-template-columns: 1fr; }
   .reviews-grid figure { min-height: auto; }
   .home-shell {

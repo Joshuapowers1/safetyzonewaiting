@@ -753,14 +753,6 @@ export default function Index() {
             SafetyZone for businesses <ArrowUpRight size={17} />
           </a>
         </section>
-        <section className="campaign-section home-shell">
-          <div>
-            <div className="home-eyebrow">STORIES CAN MOVE SAFETY FORWARD.</div>
-            <h2>The Eat Safe <em>Project.</em></h2>
-            <p>Help make food service safer and more inclusive by sharing the experiences that shaped you.</p>
-          </div>
-          <a className="home-button" href="/eat-safe-project">Explore the project <ArrowUpRight size={17} /></a>
-        </section>
         <section
           className="home-shell home-section faq-section"
           aria-labelledby="faq-title"

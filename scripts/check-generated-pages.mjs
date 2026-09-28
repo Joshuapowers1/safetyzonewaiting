@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 const configSource = readFileSync(join("src", "pages", "landing", "configs.ts"), "utf8");
 const landingRoutes = [...configSource.matchAll(/^  '([a-z0-9-]+)': \{/gm)].map((match) => match[1]);
-const requiredRoutes = ["", "contact", "support", "privacy", "privacy-policy", "terms", "eat-safe-project", ...landingRoutes];
+const requiredRoutes = ["", "contact", "support", "privacy", "privacy-policy", "terms", ...landingRoutes];
 const failures = [];
 for (const route of requiredRoutes) {
   const file = route ? join("dist", route, "index.html") : join("dist", "index.html");

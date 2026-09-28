@@ -17,7 +17,6 @@ const Terms = lazy(() => import("./pages/Terms"));
 const Support = lazy(() => import("./pages/Support"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const LandingPage = lazy(() => import("./pages/landing/LandingPage"));
-const EatSafeProject = lazy(() => import("./pages/EatSafeProject"));
 
 const queryClient = new QueryClient();
 
@@ -49,7 +48,6 @@ const App = () => (
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/terms" element={<Terms />} />
                   <Route path="/support" element={<Support />} />
-                  <Route path="/eat-safe-project" element={<EatSafeProject />} />
                   {landingSlugs.map((slug) => (
                     <Route
                       key={slug}
