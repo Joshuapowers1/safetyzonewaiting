@@ -27,7 +27,7 @@ const Footer = () => {
               <span className="font-display text-xl font-semibold text-white">My SafetyZone</span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed max-w-sm">
-              The #1 AI-powered food allergy app. Allergen detection, QR allergy cards, EpiPen tracker, FDA recall alerts, and safe recipe AI for 500M+ people with food allergies and dietary restrictions worldwide.
+              An allergy-first food app. Allergen detection, QR allergy cards, EpiPen tracker, FDA recall alerts, and safe recipe AI for the 600M+ people (global estimate) with food allergies and dietary restrictions worldwide.
             </p>
             <div className="flex gap-3">
               <a href="https://instagram.com/safetyzoneofficial" target="_blank" rel="noopener noreferrer" className={socialBtn} aria-label="My SafetyZone on Instagram">
@@ -76,7 +76,7 @@ const Footer = () => {
           <nav className="space-y-4" aria-label="Legal links">
             <h4 className={headerCls}>Legal</h4>
             <ul className="space-y-2.5">
-              <li><Link to="/privacy" className={linkCls}>Privacy Policy</Link></li>
+              <li><Link to="/privacy-policy" className={linkCls}>Privacy Policy</Link></li>
               <li><Link to="/terms" className={linkCls}>Terms of Service</Link></li>
             </ul>
           </nav>
@@ -85,7 +85,7 @@ const Footer = () => {
         <div className="mt-14 pt-6 border-t border-white/[0.07]">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
             <p className="text-[11px] text-white/35">
-              &copy; {currentYear} Powers Solutions USA LLC. All rights reserved. My SafetyZone&trade; is the #1 food allergy app.
+              &copy; {currentYear} Powers Solutions USA LLC. All rights reserved. My SafetyZone&trade; is a trademark of Powers Solutions USA LLC.
             </p>
             <p className="text-[11px] text-white/35 text-center">
               AI allergen detection recommendations are informational only. Always verify with restaurant staff and healthcare providers.

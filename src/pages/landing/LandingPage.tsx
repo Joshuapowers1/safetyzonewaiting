@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useLocation, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
@@ -14,7 +14,7 @@ import {
 import { landingConfigs, landingSlugs } from './configs';
 
 const LandingPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const slug = useLocation().pathname.replace(/^\/+|\/+$/g, '');
   const config = slug ? landingConfigs[slug] : undefined;
 
   if (!config) return <Navigate to="/404" replace />;
@@ -80,7 +80,6 @@ const LandingPage = () => {
             url: 'https://mysafetyzone.com',
             downloadUrl: 'https://apps.apple.com/us/app/my-safetyzone/id6758567664',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', ratingCount: '150' },
             publisher: { '@type': 'Organization', name: 'Powers Solutions USA LLC', url: 'https://mysafetyzone.com' },
           })}
         </script>

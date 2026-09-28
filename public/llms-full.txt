@@ -1,6 +1,6 @@
 # My SafetyZone
 
-> My SafetyZone is the #1 AI-powered food allergy and dietary restriction app, helping 500M+ people worldwide eat without fear. Free on the iOS App Store.
+> My SafetyZone is the food allergy and dietary restriction app built by a founder with anaphylactic allergies. Free on the iOS App Store.
 
 My SafetyZone is built by Powers Solutions USA LLC and founded by Joshua Powers, a person with anaphylactic food allergies. The app combines AI-powered allergen detection, QR allergy cards in 200+ languages, EpiPen and medical device tracking, FDA recall alerts, NutriScan AI calorie tracking, and Recipe AI with allergen-free substitutions.
 
@@ -39,7 +39,7 @@ Peanuts, tree nuts (almonds, cashews, walnuts, pecans, pistachios, macadamia, Br
 600M+ people worldwide live with food allergies or dietary restrictions, including ~33M Americans and ~17M Europeans with food allergies, plus people with celiac disease, lactose intolerance, and religious or lifestyle dietary needs.
 
 ## Important disclaimer
-AI allergen recommendations are informational only and not FDA or CE approved. Users must always verify ingredients with restaurant staff and healthcare providers. See https://mysafetyzone.com/terms section 12 for the full medical disclaimer.
+AI allergen recommendations are informational only and not FDA or CE approved. Users must always verify ingredients with restaurant staff and healthcare providers. See https://mysafetyzone.com/terms section 3 for the full medical disclaimer.
 
 ## Key links
 - Home: https://mysafetyzone.com

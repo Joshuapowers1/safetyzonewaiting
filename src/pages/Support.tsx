@@ -66,17 +66,17 @@ const Support = () => {
     <>
       <Helmet>
         <title>Support & FAQ | My SafetyZone - AI Food Allergy App</title>
-        <meta name="description" content="Find answers to frequently asked questions about My SafetyZone, the #1 AI-powered food allergy app on iOS. Get help with features, your account, and more." />
+        <meta name="description" content="Find answers to frequently asked questions about My SafetyZone, an allergy-first food app on iOS. Get help with features, your account, and more." />
         <link rel="canonical" href="https://mysafetyzone.com/support" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://mysafetyzone.com/support" />
         <meta property="og:title" content="Support & FAQ | My SafetyZone Food Allergy App" />
-        <meta property="og:description" content="Frequently asked questions about My SafetyZone — the #1 AI-powered food allergy app on iOS." />
+        <meta property="og:description" content="Frequently asked questions about My SafetyZone — an allergy-first food app on iOS." />
         <meta property="og:site_name" content="My SafetyZone" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Support & FAQ | My SafetyZone" />
-        <meta name="twitter:description" content="Frequently asked questions about My SafetyZone, the #1 food allergy app on iOS." />
+        <meta name="twitter:description" content="Frequently asked questions about My SafetyZone, a food allergy app for iOS." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
