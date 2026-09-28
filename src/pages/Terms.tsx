@@ -10,6 +10,10 @@ const Terms = () => {
       <Helmet>
         <title>Terms of Service | SafetyZone - AI Food Safety Platform</title>
         <meta name="description" content="SafetyZone Terms of Service - Read our terms and conditions for using the SafetyZone AI-powered food allergen scanning app." />
+        <meta property="og:title" content="Terms of Service | My SafetyZone" />
+        <meta property="og:description" content="The terms and conditions for using the My SafetyZone food allergy app, including the medical disclaimer." />
+        <meta name="twitter:title" content="Terms of Service | My SafetyZone" />
+        <meta name="twitter:description" content="The terms and conditions for using the My SafetyZone food allergy app, including the medical disclaimer." />
       </Helmet>
 
       <Navbar />

@@ -212,10 +212,10 @@ export default function Index() {
   return (
     <div className="sz-home" ref={root}>
       <Helmet>
-        <title>My SafetyZone — A little more confidence in every bite.</title>
+        <title>My SafetyZone — Food Allergy App for iOS</title>
         <meta
           name="description"
-          content="Your everyday companion for food allergies and dietary needs. Discover digital allergy cards, travel tools, recipes, and medication reminders. Download My SafetyZone for iOS."
+          content="Food allergy app with an AI food scanner, digital allergy cards, 150-language translation, recipes, and EpiPen reminders. Built by an allergy founder. Free on iOS."
         />
         <link rel="canonical" href="https://mysafetyzone.com/" />
         <meta name="theme-color" content="#f8f9f5" />
@@ -437,7 +437,7 @@ export default function Index() {
             >
               <Phone
                 image="/screenshots/home-screen.png"
-                alt="My SafetyZone home screen with travel, safety card, medication, nutrition, and recipe tools"
+                alt="My SafetyZone iPhone home screen showing shortcuts to the digital allergy safety card, travel translation mode, EpiPen and medication reminders, nutrition tracking, and allergy-safe recipes"
                 className="hero-phone"
                 eager
               />
