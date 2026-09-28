@@ -10,6 +10,10 @@ const Privacy = () => {
         <title>Privacy Policy | SafetyZone - AI Food Safety Platform</title>
         <meta name="description" content="SafetyZone Privacy Policy - Learn how we collect, use, and protect your personal information." />
         <link rel="canonical" href="https://mysafetyzone.com/privacy-policy" />
+        <meta property="og:title" content="Privacy Policy | My SafetyZone" />
+        <meta property="og:description" content="How My SafetyZone collects, uses, and protects your personal and health information, and how to request data deletion." />
+        <meta name="twitter:title" content="Privacy Policy | My SafetyZone" />
+        <meta name="twitter:description" content="How My SafetyZone collects, uses, and protects your personal and health information, and how to request data deletion." />
       </Helmet>
 
       <Navbar />
