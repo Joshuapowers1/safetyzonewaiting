@@ -28,10 +28,10 @@ import {
 } from "lucide-react";
 import { AppStoreBadge } from "@/components/ui/store-badges";
 import logo from "@/assets/teal-logo.png";
-import founder from "@/assets/josh-headshot.png";
 import "./home.css";
 
 const APP_URL = "https://apps.apple.com/us/app/my-safetyzone/id6758567664";
+const FOUNDER_IMAGE = "/joshua-powers-founder.jpg";
 const features = [
   {
     label: "Allergy card",
@@ -233,15 +233,66 @@ export default function Index() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            name: "My SafetyZone",
-            applicationCategory: "HealthApplication",
-            operatingSystem: "iOS",
-            url: "https://mysafetyzone.com",
-            downloadUrl: APP_URL,
-            description:
-              "A food allergy and dietary companion with digital allergy cards, travel guidance, recipe inspiration, nutrition estimates, and medication reminders.",
-            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://mysafetyzone.com/#organization",
+                name: "Powers Solutions USA LLC",
+                alternateName: "My SafetyZone",
+                url: "https://mysafetyzone.com/",
+                email: "joshpowersbiz@gmail.com",
+                founder: { "@id": "https://mysafetyzone.com/#founder" },
+                sameAs: [
+                  "https://instagram.com/safetyzoneofficial",
+                  "https://www.linkedin.com/company/mysafetyzone/",
+                  APP_URL,
+                ],
+              },
+              {
+                "@type": "Person",
+                "@id": "https://mysafetyzone.com/#founder",
+                name: "Joshua Powers",
+                jobTitle: "Founder & CEO",
+                image: "https://mysafetyzone.com/joshua-powers-founder.jpg",
+                worksFor: { "@id": "https://mysafetyzone.com/#organization" },
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://mysafetyzone.com/#website",
+                name: "My SafetyZone",
+                url: "https://mysafetyzone.com/",
+                publisher: { "@id": "https://mysafetyzone.com/#organization" },
+                inLanguage: "en-US",
+              },
+              {
+                "@type": "MobileApplication",
+                "@id": "https://mysafetyzone.com/#app",
+                name: "My SafetyZone",
+                applicationCategory: "HealthApplication",
+                applicationSubCategory: "Food allergy and dietary companion",
+                operatingSystem: "iOS",
+                url: "https://mysafetyzone.com/",
+                downloadUrl: APP_URL,
+                installUrl: APP_URL,
+                isAccessibleForFree: true,
+                description:
+                  "A food allergy and dietary companion with digital allergy cards, travel guidance, recipe inspiration, nutrition estimates, medication reminders, and FDA recall alerts.",
+                featureList: [
+                  "QR allergy cards in 150 languages",
+                  "Travel allergen guidance",
+                  "Recipe ideas and allergen-aware substitutions",
+                  "EpiPen and medication expiration reminders",
+                  "FDA food recall alerts",
+                ],
+                screenshot: [
+                  "https://mysafetyzone.com/screenshots/home-screen.png",
+                  "https://mysafetyzone.com/screenshots/allergen-card.png",
+                  "https://mysafetyzone.com/screenshots/travel-mode.png",
+                ],
+                author: { "@id": "https://mysafetyzone.com/#organization" },
+                offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+              },
+            ],
           })}
         </script>
         <script type="application/ld+json">
@@ -618,10 +669,10 @@ export default function Index() {
         >
           <div className="founder-portrait">
             <img
-              src={founder}
-              alt="Joshua Powers, founder of My SafetyZone"
-              width="640"
-              height="760"
+              src={FOUNDER_IMAGE}
+              alt="Joshua Powers, founder and CEO of My SafetyZone"
+              width="1198"
+              height="1313"
               loading="lazy"
             />
             <div className="founder-caption">

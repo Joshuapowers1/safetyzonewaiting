@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import joshHeadshot from '@/assets/josh-headshot.png';
+
+const joshHeadshot = '/joshua-powers-founder.jpg';
 
 const FounderSection = () => {
   const sectionRef = useRef<HTMLElement>(null);

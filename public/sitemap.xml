@@ -4,7 +4,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mysafetyzone.com/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mysafetyzone.com/" />
@@ -14,13 +14,18 @@
       <image:title>My SafetyZone Food Allergy App - AI Allergen Scanner</image:title>
       <image:caption>My SafetyZone is the food allergy app featuring QR allergy cards, EpiPen tracker, and allergen detection for peanut, gluten, dairy, and 50+ allergens</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://mysafetyzone.com/joshua-powers-founder.jpg</image:loc>
+      <image:title>Joshua Powers, founder and CEO of My SafetyZone</image:title>
+      <image:caption>Joshua Powers founded My SafetyZone from his lived experience with anaphylactic food allergies.</image:caption>
+    </image:image>
   </url>
-  <url><loc>https://mysafetyzone.com/peanut-allergy-app</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mysafetyzone.com/celiac-app</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mysafetyzone.com/gluten-free-app</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mysafetyzone.com/epipen-tracker-app</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mysafetyzone.com/qr-allergy-card</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mysafetyzone.com/food-allergy-app-for-kids</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mysafetyzone.com/peanut-allergy-app</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mysafetyzone.com/celiac-app</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mysafetyzone.com/gluten-free-app</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mysafetyzone.com/epipen-tracker-app</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mysafetyzone.com/qr-allergy-card</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mysafetyzone.com/food-allergy-app-for-kids</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://mysafetyzone.com/contact</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mysafetyzone.com/support</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://mysafetyzone.com/privacy-policy</loc><lastmod>2026-05-15</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>

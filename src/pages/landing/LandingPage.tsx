@@ -33,9 +33,13 @@ const LandingPage = () => {
         <meta property="og:title" content={config.title} />
         <meta property="og:description" content={config.metaDescription} />
         <meta property="og:site_name" content="My SafetyZone" />
+        <meta property="og:image" content="https://mysafetyzone.com/screenshots/home-screen.png" />
+        <meta property="og:image:alt" content="My SafetyZone food allergy app for iOS" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={config.title} />
         <meta name="twitter:description" content={config.metaDescription} />
+        <meta name="twitter:image" content="https://mysafetyzone.com/screenshots/home-screen.png" />
+        <meta name="apple-itunes-app" content="app-id=6758567664" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
@@ -79,6 +83,10 @@ const LandingPage = () => {
             operatingSystem: 'iOS',
             url: 'https://mysafetyzone.com',
             downloadUrl: 'https://apps.apple.com/us/app/my-safetyzone/id6758567664',
+            installUrl: 'https://apps.apple.com/us/app/my-safetyzone/id6758567664',
+            isAccessibleForFree: true,
+            featureList: config.benefits.map((benefit) => benefit.title),
+            screenshot: 'https://mysafetyzone.com/screenshots/home-screen.png',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             publisher: { '@type': 'Organization', name: 'Powers Solutions USA LLC', url: 'https://mysafetyzone.com' },
           })}

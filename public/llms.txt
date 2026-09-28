@@ -10,6 +10,8 @@ My SafetyZone is built by Powers Solutions USA LLC and founded by Joshua Powers,
 - Platform: iOS (App Store ID 6758567664). Android (Google Play) coming soon.
 - Price: Free to download. 7-day free trial, then a subscription is required for premium features.
 - Founder: Joshua Powers, Founder & CEO
+- Founder profile: https://mysafetyzone.com/#about
+- Founder image: https://mysafetyzone.com/joshua-powers-founder.jpg
 - Company: Powers Solutions USA LLC
 - Website: https://mysafetyzone.com
 - App Store: https://apps.apple.com/us/app/my-safetyzone/id6758567664
