@@ -8,7 +8,7 @@ const trustSignals = [
   { icon: BadgeCheck, label: 'Free to Download' },
   { icon: CalendarClock, label: '7-Day Free Trial' },
   { icon: Star, label: '5-Star Rated' },
-  { icon: Languages, label: '200+ Languages' },
+  { icon: Languages, label: '150 Languages' },
   { icon: CreditCard, label: 'No Credit Card' },
 ];
 

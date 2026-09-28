@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "What features are included?",
-    answer: "The app includes NutriScan AI (photo-based calorie and macro tracking), Recipe AI (allergen-free recipe substitutions from 2M+ recipes), QR Allergy Cards translated into 200+ languages, Travel Mode with destination-specific allergy guides, EpiPen and inhaler expiration trackers, medical device reminders, FDA recall alerts, family profiles, and in-app chat support."
+    answer: "The app includes NutriScan AI (photo-based calorie and macro tracking), Recipe AI (allergen-free recipe substitutions from 1,000+ recipes), QR Allergy Cards translated into 150 languages, Travel Mode with destination-specific allergy guides, EpiPen and inhaler expiration trackers, medical device reminders, FDA recall alerts, family profiles, and in-app chat support."
   },
   {
     question: "How does NutriScan AI work?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: "What is the QR Allergy Card?",
-    answer: "The QR Allergy Card is a digital card with your complete allergy profile that translates into 200+ languages. Show it or let restaurant staff scan it anywhere in the world so they can see exactly what you need to avoid, in their language."
+    answer: "The QR Allergy Card is a digital card with your complete allergy profile that translates into 150 languages. Show it or let restaurant staff scan it anywhere in the world so they can see exactly what you need to avoid, in their language."
   },
   {
     question: "Which allergens does My SafetyZone support?",
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     question: "Does My SafetyZone work internationally?",
-    answer: "Yes. The QR Allergy Card translates into 200+ languages and Travel Mode provides destination-specific allergy safety tips, local phrases, safe restaurant suggestions, and emergency information for wherever you're headed."
+    answer: "Yes. The QR Allergy Card translates into 150 languages and Travel Mode provides destination-specific allergy safety tips, local phrases, safe restaurant suggestions, and emergency information for wherever you're headed."
   },
   {
     question: "How much does it cost?",

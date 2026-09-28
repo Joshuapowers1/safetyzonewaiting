@@ -17,14 +17,14 @@ const Index = () => {
     <>
       <Helmet>
         <title>My SafetyZone — Food Allergy App for iOS</title>
-        <meta name="description" content="AI allergen scanner, QR allergy cards in 200+ languages, EpiPen tracker, FDA recall alerts and Recipe AI. Free on iOS for food allergies & celiac." />
+        <meta name="description" content="AI allergen scanner, QR allergy cards in 150 languages, EpiPen tracker, FDA recall alerts and Recipe AI. Free on iOS for food allergies & celiac." />
         <meta name="keywords" content="food allergy app, best food allergy app, food allergy app 2026, SafetyZone, SafetyZone app, safety zone app, my safetyzone, allergy scanner app, allergen detector app, menu scanner allergy, restaurant allergy app, barcode allergen scanner, food label scanner allergy, peanut allergy app, peanut allergy scanner, tree nut allergy app, nut allergy detector, gluten free app, gluten free scanner, gluten free restaurant app, celiac disease app, celiac app, dairy allergy app, dairy free app, lactose intolerance app, milk allergy app, egg allergy app, soy allergy app, soy free scanner, shellfish allergy app, fish allergy app, wheat allergy app, sesame allergy app, food intolerance app, food sensitivity app, multiple food allergies app, top 14 allergens app, allergen detection app, AI food scanner, AI allergy scanner, AI allergen detector, AI menu scanner, dietary restriction app, diet restriction tracker, halal food app, halal food finder, halal scanner, kosher food app, kosher scanner, vegan food scanner, vegan app, vegetarian food app, food safety app, food safety scanner, EpiPen tracker app, EpiPen expiration tracker, EpiPen reminder app, epinephrine auto-injector tracker, inhaler tracker app, inhaler expiration reminder, medical device tracker, medication tracker app, medication expiration tracker, FDA food recall app, FDA recall alerts, food recall notification app, food recall tracker, QR allergy card, allergy card app, allergy translation card, allergy card restaurant, allergy card 200 languages, travel allergy card, travel food allergy app, international allergy app, allergy translation app, calorie tracker allergy, calorie counter food allergy, NutriScan, nutrition tracker, macro tracker, AI calorie counter, recipe allergy checker, recipe allergen scanner, recipe substitution app, allergen free recipe app, safe recipe app, allergy safe cooking, anaphylaxis prevention app, anaphylaxis app, allergic reaction prevention, food allergy management app, allergy management, allergy tracker, allergy diary app, cross contamination app, cross contamination detector, food allergy kids app, child food allergy app, kids allergy app, family allergy app, parent allergy app, school allergy app, allergy app for parents, food allergy iOS app, food allergy iPhone app, food allergy iPad app, best allergy app iOS, best allergy app iPhone, best food safety app, best allergen scanner, best allergy scanner app, top food allergy app, top rated allergy app, number one allergy app, food allergy technology, allergy tech app, food allergy solution, eat safely app, safe eating app, allergy free eating, dining with allergies app, restaurant safety app, eating out allergy app, travel with allergies, travel allergy safety, allergy abroad app, food allergy awareness, allergy awareness app, food allergy community, allergy support app" />
         <link rel="canonical" href="https://mysafetyzone.com" />
         
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://mysafetyzone.com" />
         <meta property="og:title" content="SafetyZone - AI Food Allergy App 2026 | Free Download iOS" />
-        <meta property="og:description" content="The best food allergy app with AI allergen scanner, QR allergy cards in 200+ languages, EpiPen tracker, FDA recall alerts & Recipe AI. Detects peanut, gluten, dairy, nut, shellfish, egg & soy allergies. Free on iOS." />
+        <meta property="og:description" content="The best food allergy app with AI allergen scanner, QR allergy cards in 150 languages, EpiPen tracker, FDA recall alerts & Recipe AI. Detects peanut, gluten, dairy, nut, shellfish, egg & soy allergies. Free on iOS." />
         <meta property="og:site_name" content="SafetyZone" />
         <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/nEcjojHa9EVFIDIZCStgDsGp4NE3/social-images/social-1766274742323-Black_SZ_logo.png" />
         <meta property="og:image:width" content="1200" />
@@ -34,7 +34,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://mysafetyzone.com" />
         <meta name="twitter:title" content="SafetyZone - AI Food Allergy App | EpiPen Tracker & QR Allergy Card" />
-        <meta name="twitter:description" content="AI-powered food allergy scanner detecting peanut, gluten, dairy & 50+ allergens with 99.5% accuracy. QR allergy cards in 200+ languages. EpiPen & inhaler tracker. FDA recall alerts. Free on iOS." />
+        <meta name="twitter:description" content="AI-powered food allergy scanner detecting peanut, gluten, dairy & 50+ allergens.5% accuracy. QR allergy cards in 150 languages. EpiPen & inhaler tracker. FDA recall alerts. Free on iOS." />
         <meta name="twitter:site" content="@SafetyZoneApp" />
         <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/nEcjojHa9EVFIDIZCStgDsGp4NE3/social-images/social-1766274742323-Black_SZ_logo.png" />
         
@@ -71,7 +71,7 @@ const Index = () => {
             "applicationCategory": "HealthApplication",
             "applicationSubCategory": "Food Allergy Management",
             "operatingSystem": "iOS 16.0 or later",
-            "description": "SafetyZone is an allergy-first food app for iOS. Scan menus, barcodes, and recipes to detect allergens including peanuts, tree nuts, dairy, eggs, wheat, gluten, soy, fish, shellfish, and sesame with 99.5% accuracy. Features QR Allergy Cards translated into 200+ languages, Travel Allergen destination safety guides, NutriScan AI calorie and macro tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker with auto-reminders, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts. Built for people with food allergies, celiac disease, food intolerance, anaphylaxis risk, and dietary restrictions including halal, kosher, vegan, and vegetarian. Free to download.",
+            "description": "SafetyZone is an allergy-first food app for iOS. Scan menus, barcodes, and recipes to detect allergens including peanuts, tree nuts, dairy, eggs, wheat, gluten, soy, fish, shellfish, and sesame.5% accuracy. Features QR Allergy Cards translated into 150 languages, Travel Allergen destination safety guides, NutriScan AI calorie and macro tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker with auto-reminders, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts. Built for people with food allergies, celiac disease, food intolerance, anaphylaxis risk, and dietary restrictions including halal, kosher, vegan, and vegetarian. Free to download.",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -91,7 +91,7 @@ const Index = () => {
               "name": "Powers Solutions USA LLC"
             },
             "featureList": [
-              "QR Allergy Cards in 200+ Languages",
+              "QR Allergy Cards in 150 Languages",
               "Travel Allergen Safety Guides",
               "NutriScan AI Calorie & Macro Tracking",
               "Recipe AI with Allergen-Free Substitutions",
@@ -209,7 +209,7 @@ const Index = () => {
                 "name": "What is SafetyZone?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "SafetyZone is an allergy-first food app for iOS in 2026. It helps people with food allergies, celiac disease, food intolerances, and dietary restrictions eat safely everywhere. Key features include QR Allergy Cards that translate into 200+ languages, Travel Allergen safety guides, NutriScan AI calorie tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts."
+                  "text": "SafetyZone is an allergy-first food app for iOS in 2026. It helps people with food allergies, celiac disease, food intolerances, and dietary restrictions eat safely everywhere. Key features include QR Allergy Cards that translate into 150 languages, Travel Allergen safety guides, NutriScan AI calorie tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts."
                 }
               },
               {
@@ -241,7 +241,7 @@ const Index = () => {
                 "name": "How does the QR Allergy Card work?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "SafetyZone generates a personal QR code containing your complete allergy and dietary profile. When you show it to restaurant staff, they scan it with any phone camera and instantly see exactly what allergens you need to avoid, automatically translated into their native language. The QR Allergy Card supports 200+ languages, making it invaluable for international travel and dining at restaurants with non-English-speaking staff."
+                  "text": "SafetyZone generates a personal QR code containing your complete allergy and dietary profile. When you show it to restaurant staff, they scan it with any phone camera and instantly see exactly what allergens you need to avoid, automatically translated into their native language. The QR Allergy Card supports 150 languages, making it invaluable for international travel and dining at restaurants with non-English-speaking staff."
                 }
               },
               {
@@ -297,7 +297,7 @@ const Index = () => {
                 "name": "Can I use SafetyZone when traveling internationally?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes, SafetyZone is built for international travel safety. The Travel Allergen feature provides destination-specific allergy safety tips, local allergen databases, and cultural dining guidance. Combined with QR Allergy Cards that auto-translate into 200+ languages, you can communicate your allergies to restaurant staff anywhere in the world."
+                  "text": "Yes, SafetyZone is built for international travel safety. The Travel Allergen feature provides destination-specific allergy safety tips, local allergen databases, and cultural dining guidance. Combined with QR Allergy Cards that auto-translate into 150 languages, you can communicate your allergies to restaurant staff anywhere in the world."
                 }
               },
               {
@@ -305,7 +305,7 @@ const Index = () => {
                 "name": "What makes SafetyZone better than other food allergy apps?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "SafetyZone is the most comprehensive food allergy app available, combining 8 live features in one app: QR Allergy Cards (200+ languages), Travel Allergen guides, Recipe AI, NutriScan AI calorie tracking, EpiPen Tracker, Inhaler Tracker, Medical Device Tracker, and FDA Recall Alerts. Unlike other apps, SafetyZone was built by someone with anaphylactic food allergies who understands the daily challenges. It uses HIPAA-level encryption, achieves 99.5% allergen detection accuracy, and is completely free to download."
+                  "text": "SafetyZone is the most comprehensive food allergy app available, combining 8 live features in one app: QR Allergy Cards (150 languages), Travel Allergen guides, Recipe AI, NutriScan AI calorie tracking, EpiPen Tracker, Inhaler Tracker, Medical Device Tracker, and FDA Recall Alerts. Unlike other apps, SafetyZone was built by someone with anaphylactic food allergies who understands the daily challenges. It uses HIPAA-level encryption, achieves 99.5% allergen detection accuracy, and is completely free to download."
                 }
               }
             ]
@@ -336,7 +336,7 @@ const Index = () => {
                 "@type": "HowToStep",
                 "position": 3,
                 "name": "Generate Your QR Allergy Card",
-                "text": "Create a personal QR allergy card that automatically translates your allergies into 200+ languages. Show it to restaurant staff anywhere in the world."
+                "text": "Create a personal QR allergy card that automatically translates your allergies into 150 languages. Show it to restaurant staff anywhere in the world."
               },
               {
                 "@type": "HowToStep",
@@ -410,7 +410,7 @@ const Index = () => {
             "dateModified": new Date().toISOString().slice(0, 10),
             "mainEntityOfPage": "https://mysafetyzone.com",
             "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/nEcjojHa9EVFIDIZCStgDsGp4NE3/social-images/social-1766274742323-Black_SZ_logo.png",
-            "articleBody": "My SafetyZone is an allergy-first food app, free on the iOS App Store (App ID 6758567664). It serves the 600M+ people worldwide with food allergies, celiac disease, food intolerances, and dietary restrictions. Live features: QR Allergy Card in 200+ languages, Travel Allergen safety guides, NutriScan AI calorie and macro tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts. Detects peanuts, tree nuts, milk, eggs, wheat, gluten, soy, fish, shellfish, sesame, plus 50+ additional allergens and dietary preferences (halal, kosher, vegan, vegetarian, paleo, keto). Built by Joshua Powers, founder of Powers Solutions USA LLC, who lives with anaphylactic food allergies. AI recommendations are informational only and not FDA or CE approved; always verify with restaurant staff and healthcare providers."
+            "articleBody": "My SafetyZone is an allergy-first food app, free on the iOS App Store (App ID 6758567664). It serves the 600M+ people worldwide with food allergies, celiac disease, food intolerances, and dietary restrictions. Live features: QR Allergy Card in 150 languages, Travel Allergen safety guides, NutriScan AI calorie and macro tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts. Detects peanuts, tree nuts, milk, eggs, wheat, gluten, soy, fish, shellfish, sesame, plus 50+ additional allergens and dietary preferences (halal, kosher, vegan, vegetarian, paleo, keto). Built by Joshua Powers, founder of Powers Solutions USA LLC, who lives with anaphylactic food allergies. AI recommendations are informational only and not FDA or CE approved; always verify with restaurant staff and healthcare providers."
           })}
         </script>
       </Helmet>

@@ -52,7 +52,7 @@ const Terms = () => {
                   <li>Offering recipe transformations with safe ingredient substitutions</li>
                   <li>Generating shareable QR Dietary Profiles</li>
                   <li>Providing calorie, macro, and nutrition analysis via NutriScan AI</li>
-                  <li>Translating allergy information into 200+ languages</li>
+                  <li>Translating allergy information into 150 languages</li>
                 </ul>
               </section>
 

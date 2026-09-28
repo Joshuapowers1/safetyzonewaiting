@@ -11,11 +11,11 @@ import screenCookingSteps from '@/assets/screen-cooking-steps.png';
 
 const showcaseFeatures = [
   {
-    title: 'QR Allergy Card in 200+ Languages',
+    title: 'QR Allergy Card in 150 Languages',
     description: 'Generate a personal QR code with your complete allergy profile. Restaurant staff scan it and instantly see what you need to avoid, in their language.',
     image: screenQrProfile,
     icon: QrCode,
-    badge: '200+ Languages',
+    badge: '150 Languages',
     alt: 'SafetyZone QR allergy card feature showing food allergy profile translated for restaurant staff in multiple languages',
     featured: true,
   },
