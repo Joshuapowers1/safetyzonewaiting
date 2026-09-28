@@ -36,7 +36,7 @@ const Footer = () => {
               <a href="https://www.linkedin.com/company/mysafetyzone/" target="_blank" rel="noopener noreferrer" className={socialBtn} aria-label="My SafetyZone on LinkedIn">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="mailto:joshua@mysafetyzone.com" className={socialBtn} aria-label="Email My SafetyZone support">
+              <a href="mailto:joshpowersbiz@gmail.com" className={socialBtn} aria-label="Email My SafetyZone support">
                 <Mail className="w-4 h-4" />
               </a>
             </div>

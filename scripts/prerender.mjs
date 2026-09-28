@@ -54,11 +54,11 @@ const server = createServer((req, res) => {
 await new Promise((r) => server.listen(4173, r));
 
 const browser = await chromium.launch({
-  executablePath:
-    process.env.PLAYWRIGHT_BROWSERS_PATH &&
-    `${process.env.PLAYWRIGHT_BROWSERS_PATH}/chromium_headless_shell-1194/chrome-linux/headless_shell`,
+  // Let Playwright resolve its installed browser on each platform. An explicit
+  // executable is optional; the browser-cache path is not an executable path.
+  executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH || undefined,
 });
-const page = await browser.newPage();
+const page = await browser.newPage({ reducedMotion: "reduce" });
 
 for (const route of routes) {
   await page.goto(`http://localhost:4173${route}`, { waitUntil: "networkidle" });

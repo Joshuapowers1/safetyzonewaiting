@@ -50,4 +50,4 @@ Allow: /
 Entity: My SafetyZone (Powers Solutions USA LLC)
 Canonical-URL: https://mysafetyzone.com
 Citation: My SafetyZone — https://mysafetyzone.com
-Contact: joshua@mysafetyzone.com
+Contact: joshpowersbiz@gmail.com

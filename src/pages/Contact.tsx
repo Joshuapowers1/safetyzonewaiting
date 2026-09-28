@@ -23,15 +23,13 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
+    const subject = encodeURIComponent(formData.subject || 'SafetyZone inquiry');
+    const body = encodeURIComponent(`${formData.message}\n\nFrom: ${formData.name}\nReply to: ${formData.email}`);
+    window.location.href = `mailto:joshpowersbiz@gmail.com?subject=${subject}&body=${body}`;
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Your email draft is ready",
+      description: "Review and send it in your email app. If it didn't open, email joshpowersbiz@gmail.com directly.",
     });
-
-    setFormData({ name: '', email: '', subject: '', message: '' });
     setIsSubmitting(false);
   };
 
@@ -49,7 +47,7 @@ const Contact = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://mysafetyzone.com/contact" />
         <meta property="og:title" content="Contact My SafetyZone — Food Allergy App Support" />
-        <meta property="og:description" content="Reach the My SafetyZone team. Email joshua@mysafetyzone.com — typical response within 24–48 hours." />
+        <meta property="og:description" content="Reach the My SafetyZone team. Email joshpowersbiz@gmail.com — typical response within 24–48 hours." />
         <meta property="og:site_name" content="My SafetyZone" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
@@ -63,10 +61,10 @@ const Contact = () => {
               "name": "My SafetyZone",
               "legalName": "Powers Solutions USA LLC",
               "url": "https://mysafetyzone.com",
-              "email": "joshua@mysafetyzone.com",
+              "email": "joshpowersbiz@gmail.com",
               "contactPoint": [{
                 "@type": "ContactPoint",
-                "email": "joshua@mysafetyzone.com",
+                "email": "joshpowersbiz@gmail.com",
                 "contactType": "customer support",
                 "availableLanguage": ["en"]
               }]
@@ -115,8 +113,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                      <a href="mailto:joshua@mysafetyzone.com" className="text-muted-foreground hover:text-primary transition-colors">
-                        joshua@mysafetyzone.com
+                      <a href="mailto:joshpowersbiz@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                        joshpowersbiz@gmail.com
                       </a>
                     </div>
                   </div>
@@ -228,8 +226,9 @@ const Contact = () => {
 
                 <Button type="submit" size="lg" className="w-full gap-2" disabled={isSubmitting}>
                   <Send className="w-4 h-4" />
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Opening...' : 'Open email draft'}
                 </Button>
+                <p className="text-xs text-muted-foreground text-center">Opens your email app. Review your draft and send it to joshpowersbiz@gmail.com.</p>
               </motion.form>
             </div>
           </motion.div>

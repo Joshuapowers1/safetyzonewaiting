@@ -198,7 +198,7 @@ const EmailNotificationPanel = ({ recipientCount, selectedIds, onClose }: EmailN
     {
       name: "Feature Preview",
       subject: "Sneak Peek: New Features Coming to Safety Zone",
-      message: "<p>Hi there!</p><p>We wanted to give you an <strong>exclusive preview</strong> of what's coming to Safety Zone.</p><p>As a valued waitlist member, you'll be among the first to experience our AI-powered dietary companion.</p><p>We'd love to hear what features matter most to you. <a href=\"mailto:joshua@mysafetyzone.com\">Reply to this email</a> with your thoughts!</p><p>Thanks for being part of our journey.</p><p>Warm regards,<br><strong>The Safety Zone Team</strong></p>"
+      message: "<p>Hi there!</p><p>We wanted to give you an <strong>exclusive preview</strong> of what's coming to Safety Zone.</p><p>As a valued waitlist member, you'll be among the first to experience our AI-powered dietary companion.</p><p>We'd love to hear what features matter most to you. <a href=\"mailto:joshpowersbiz@gmail.com\">Reply to this email</a> with your thoughts!</p><p>Thanks for being part of our journey.</p><p>Warm regards,<br><strong>The Safety Zone Team</strong></p>"
     },
   ];
 
