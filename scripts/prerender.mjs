@@ -5,7 +5,9 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from "no
 import { extname, join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
-import { landingSlugs } from "../src/pages/landing/configs.ts";
+// Landing slugs are parsed from the config source to avoid a TS import.
+const configsSrc = readFileSync(join(root, "src/pages/landing/configs.ts"), "utf8");
+const landingSlugs = [...configsSrc.matchAll(/^  '([a-z0-9-]+)': \{/gm)].map((m) => m[1]);
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
