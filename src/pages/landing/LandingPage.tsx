@@ -33,12 +33,12 @@ const LandingPage = () => {
         <meta property="og:title" content={config.title} />
         <meta property="og:description" content={config.metaDescription} />
         <meta property="og:site_name" content="My SafetyZone" />
-        <meta property="og:image" content="https://mysafetyzone.com/screenshots/home-screen.png" />
+        <meta property="og:image" content="https://mysafetyzone.com/social-preview.jpg" />
         <meta property="og:image:alt" content="My SafetyZone food allergy app for iOS" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={config.title} />
         <meta name="twitter:description" content={config.metaDescription} />
-        <meta name="twitter:image" content="https://mysafetyzone.com/screenshots/home-screen.png" />
+        <meta name="twitter:image" content="https://mysafetyzone.com/social-preview.jpg" />
         <meta name="apple-itunes-app" content="app-id=6758567664" />
         <script type="application/ld+json">
           {JSON.stringify({

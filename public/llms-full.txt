@@ -52,3 +52,11 @@ AI allergen recommendations are informational only and not FDA or CE approved. U
 - Privacy Policy: https://mysafetyzone.com/privacy
 - Terms of Service: https://mysafetyzone.com/terms
 - Sitemap: https://mysafetyzone.com/sitemap.xml
+
+## Topic guides
+- Dairy allergy: https://mysafetyzone.com/dairy-allergy-app
+- Egg allergy: https://mysafetyzone.com/egg-allergy-app
+- Tree nut allergy: https://mysafetyzone.com/tree-nut-allergy-app
+- Sesame allergy: https://mysafetyzone.com/sesame-allergy-app
+- Restaurant allergy cards: https://mysafetyzone.com/allergy-card-for-restaurants
+- Food allergy travel: https://mysafetyzone.com/food-allergy-travel-app

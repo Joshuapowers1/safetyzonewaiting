@@ -5,6 +5,7 @@ export const AppStoreBadge = ({ className }: { className?: string }) => (
     href={IOS_APP_URL}
     target="_blank"
     rel="noopener noreferrer"
+    data-placement="app-store-badge"
     className={`inline-block hover:opacity-80 transition-opacity ${className ?? ''}`}
     aria-label="Download on the App Store"
   >

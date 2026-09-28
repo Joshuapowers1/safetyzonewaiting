@@ -55,6 +55,12 @@ AI allergen recommendations are informational only and not FDA or CE approved. U
 - [EpiPen Tracker App](/epipen-tracker-app): Expiration reminders and medical device tracking.
 - [QR Allergy Card](/qr-allergy-card): Generate translated allergy cards for dining and travel.
 - [Food Allergy App for Kids](/food-allergy-app-for-kids): Profiles, school cards, and parent tools.
+- [Dairy Allergy App](/dairy-allergy-app): Communication, recipe, travel, and medication tools.
+- [Egg Allergy App](/egg-allergy-app): Allergy cards, recipe support, and travel tools.
+- [Tree Nut Allergy App](/tree-nut-allergy-app): Detailed profiles and dining communication.
+- [Sesame Allergy App](/sesame-allergy-app): QR cards, travel support, and reminders.
+- [Allergy Card for Restaurants](/allergy-card-for-restaurants): QR-based restaurant communication.
+- [Food Allergy Travel App](/food-allergy-travel-app): Language, destination, and medication tools.
 
 ## Key links
 - Home: https://mysafetyzone.com

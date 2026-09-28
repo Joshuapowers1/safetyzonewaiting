@@ -700,6 +700,52 @@ body.safetyzone-home {
 .button-outline:hover {
   color: white;
 }
+.reviews-section {
+  background: #edf2e8;
+}
+.reviews-section .section-heading {
+  margin-bottom: 42px;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.reviews-grid figure {
+  display: flex;
+  flex-direction: column;
+  min-height: 285px;
+  margin: 0;
+  padding: 30px;
+  border: 1px solid #d9e2d3;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 45px -34px #243b2d66;
+}
+.review-stars {
+  color: #c68427;
+  font-size: 15px;
+  letter-spacing: 3px;
+}
+.reviews-grid blockquote {
+  margin: 22px 0 30px;
+  color: #526259;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.reviews-grid figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #e7ebe3;
+  font-size: 10px;
+}
+.reviews-grid figcaption strong { color: var(--home-ink); }
+.reviews-grid figcaption span { color: #879188; }
+.mobile-download-cta { display: none; }
 .faq-section {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -927,6 +973,8 @@ body.safetyzone-home {
   }
 }
 @media (max-width: 800px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+  .reviews-grid figure { min-height: auto; }
   .home-shell {
     width: calc(100% - 48px);
   }
@@ -1077,6 +1125,30 @@ body.safetyzone-home {
   }
 }
 @media (max-width: 560px) {
+  .sz-home { padding-bottom: 74px; }
+  .mobile-download-cta {
+    position: fixed;
+    z-index: 80;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 12px 14px;
+    border: 1px solid #ffffff44;
+    border-radius: 16px;
+    background: #173f36ee;
+    color: #fff;
+    box-shadow: 0 16px 40px #173f3650;
+    backdrop-filter: blur(14px);
+    text-decoration: none;
+  }
+  .mobile-download-cta > span:first-child { display: grid; gap: 2px; }
+  .mobile-download-cta strong { font-size: 13px; }
+  .mobile-download-cta small { color: #d6e5de; font-size: 9px; }
+  .mobile-download-cta > span:last-child { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; }
   .home-shell {
     width: calc(100% - 40px);
   }

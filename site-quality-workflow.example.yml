@@ -1,0 +1,28 @@
+name: Site quality
+
+on:
+  push:
+    branches: [main, codex/light-mode-landing]
+  pull_request:
+  schedule:
+    - cron: "17 13 * * 1"
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check:site
+      - name: Check live discovery endpoints
+        if: github.event_name == 'schedule'
+        run: |
+          curl --fail --silent --show-error https://mysafetyzone.com/ >/dev/null
+          curl --fail --silent --show-error https://mysafetyzone.com/sitemap.xml >/dev/null
+          curl --fail --silent --show-error https://mysafetyzone.com/llms.txt >/dev/null
+          curl --fail --silent --show-error https://mysafetyzone.com/social-preview.jpg >/dev/null

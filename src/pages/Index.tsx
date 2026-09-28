@@ -125,6 +125,11 @@ const questions = [
       "Menu, product, and barcode scanning are coming soon. You can already explore allergy cards, travel tools, Recipe AI, NutriScan, medication tracking, and recall information in the app.",
   },
 ];
+const testimonials = [
+  { title: "Life-changing", author: "OscyBooBear", date: "Apr 1", quote: "SafteyZone is revolutionary for those with allergies. It just came out and the features are out of this world. The app makes traveling, going out, and eating not as daunting. It’s given me hope. 10/10 would recommend to anyone." },
+  { title: "Great app", author: "Bethay P", date: "Apr 2", quote: "My daughter has food allergies and this helps us with language barriers and travel. I also use it to track my calories to lose weight. Great app all around." },
+  { title: "Blessing", author: "Dominic Doerr", date: "May 11", quote: "This app made me feel safe to eat at restaurants internationally, and locally. SafetyZone changed not only my information on the food I was eating, but also cleaned up my diet. So thankful for this app!" },
+];
 function Brand() {
   return (
     <a href="/" className="home-brand" aria-label="My SafetyZone home">
@@ -291,6 +296,13 @@ export default function Index() {
                 ],
                 author: { "@id": "https://mysafetyzone.com/#organization" },
                 offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+                review: testimonials.map((review) => ({
+                  "@type": "Review",
+                  author: { "@type": "Person", name: review.author },
+                  name: review.title,
+                  reviewBody: review.quote,
+                  reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+                })),
               },
             ],
           })}
@@ -713,6 +725,24 @@ export default function Index() {
             </a>
           </div>
         </section>
+        <section className="home-section reviews-section" aria-labelledby="reviews-title">
+          <div className="home-shell">
+            <div className="section-heading centered">
+              <div className="home-eyebrow">REAL EXPERIENCES. SHARED OPENLY.</div>
+              <h2 id="reviews-title">A little more <em>confidence.</em></h2>
+              <p>Recent five-star App Store reviews from people using My SafetyZone.</p>
+            </div>
+            <div className="reviews-grid">
+              {testimonials.map((review) => (
+                <figure key={review.author}>
+                  <div className="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  <blockquote>“{review.quote}”</blockquote>
+                  <figcaption><strong>{review.title}</strong><span>{review.author} · {review.date}</span></figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
         <section className="restaurant-section home-shell">
           <div className="restaurant-icon">
             <Utensils size={27} />
@@ -784,6 +814,10 @@ export default function Index() {
           </div>
         </section>
       </main>
+      <a className="mobile-download-cta" href={APP_URL} target="_blank" rel="noopener noreferrer">
+        <span><strong>My SafetyZone</strong><small>Free to download on iOS</small></span>
+        <span>Get the app <ArrowUpRight size={16} /></span>
+      </a>
       <footer className="home-footer home-shell">
         <div className="footer-main">
           <div>

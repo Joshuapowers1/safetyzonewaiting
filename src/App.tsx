@@ -6,9 +6,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import SecurityErrorBoundary from "@/components/SecurityErrorBoundary";
-import Index from "./pages/Index";
 import { landingSlugs } from "./pages/landing/configs";
 
+const Index = lazy(() => import("./pages/Index"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Admin = lazy(() => import("./pages/Admin"));
 const Contact = lazy(() => import("./pages/Contact"));

@@ -9,7 +9,7 @@ export function useHomeMotion(
     if (reducedMotion || !root.current || !("IntersectionObserver" in window))
       return;
     const elements = root.current.querySelectorAll<HTMLElement>(
-      ".section-heading, .everyday-tools article, .steps-grid article, .founder-portrait, .founder-copy, .restaurant-section, .faq-section > div, .download-inner",
+      ".section-heading, .everyday-tools article, .steps-grid article, .founder-portrait, .founder-copy, .reviews-grid figure, .restaurant-section, .faq-section > div, .download-inner",
     );
     const observer = new IntersectionObserver(
       (entries) => {
