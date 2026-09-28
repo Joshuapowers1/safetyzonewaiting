@@ -2,7 +2,7 @@
 
 > My SafetyZone is the food allergy and dietary restriction app built by a founder with anaphylactic allergies. Free on the iOS App Store.
 
-My SafetyZone is built by Powers Solutions USA LLC and founded by Joshua Powers, a person with anaphylactic food allergies. The app combines AI-powered allergen detection, QR allergy cards in 200+ languages, EpiPen and medical device tracking, FDA recall alerts, NutriScan AI calorie tracking, and Recipe AI with allergen-free substitutions.
+My SafetyZone is built by Powers Solutions USA LLC and founded by Joshua Powers, a person with anaphylactic food allergies. The app combines AI-powered allergen detection, QR allergy cards in 150 languages, EpiPen and medical device tracking, FDA recall alerts, NutriScan AI calorie tracking, and Recipe AI with allergen-free substitutions.
 
 ## Key facts
 - Name: My SafetyZone (also: SafetyZone, Safety Zone, SafetyZone App)
@@ -20,7 +20,7 @@ My SafetyZone is built by Powers Solutions USA LLC and founded by Joshua Powers,
 Peanuts, tree nuts (almonds, cashews, walnuts, pecans, pistachios, macadamia, Brazil nuts, hazelnuts), milk and dairy, eggs, wheat and gluten, soy, fish, shellfish (shrimp, crab, lobster), sesame, plus 50+ additional sensitivities and dietary preferences (halal, kosher, vegan, vegetarian, paleo, keto, custom).
 
 ## Live features
-- QR Allergy Card in 200+ languages
+- QR Allergy Card in 150 languages
 - Travel Allergen destination safety guides
 - NutriScan AI calorie and macro tracking from photos
 - Recipe AI with allergen-free substitutions

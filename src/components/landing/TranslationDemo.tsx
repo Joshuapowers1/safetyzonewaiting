@@ -81,7 +81,7 @@ const TranslationDemo = () => {
             <GradientText className="italic font-bold">any language</GradientText>
           </h2>
           <p className="text-lg text-white/60">
-            Your QR Allergen Card translates your dietary needs into 200+ languages so restaurant staff worldwide can keep you safe.
+            Your QR Allergen Card translates your dietary needs into 150 languages so restaurant staff worldwide can keep you safe.
           </p>
         </FadeInSection>
 

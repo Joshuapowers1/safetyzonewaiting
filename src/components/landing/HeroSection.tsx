@@ -111,7 +111,7 @@ const HeroSection = () => {
                 {...riseUp(0.35)}
                 className="text-base md:text-lg text-white/60 max-w-xl leading-relaxed"
               >
-                Whether you have a peanut allergy, celiac disease, or any dietary restriction, My SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 200+ languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
+                Whether you have a peanut allergy, celiac disease, or any dietary restriction, My SafetyZone has your back. Get allergen-free recipes, carry a digital allergy card in 150 languages, track your nutrition, and never miss an EpiPen expiry. Free to download with a 7-day free trial.
               </motion.p>
 
               <motion.div
@@ -168,7 +168,7 @@ const HeroSection = () => {
                     <IPhoneFrame>
                       <img
                         src="/screenshots/allergen-card.png"
-                        alt="SafetyZone digital allergy card in 200+ languages"
+                        alt="SafetyZone digital allergy card in 150 languages"
                         className="w-full aspect-[9/19.5] object-contain bg-white"
                         width="205"
                         height="444"

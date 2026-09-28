@@ -89,7 +89,7 @@ const FeaturesSection = () => {
               <QrCode className="w-7 h-7 text-[#00C2A8] mb-4" strokeWidth={1.75} />
               <h3 className="font-display text-2xl font-semibold text-white mb-2">Digital QR Allergen Card</h3>
               <p className="text-sm md:text-base text-white/60 leading-relaxed max-w-sm mb-8">
-                Your allergies translated into 200+ languages on a scannable card. Show it at any restaurant, kitchen, or food counter anywhere in the world.
+                Your allergies translated into 150 languages on a scannable card. Show it at any restaurant, kitchen, or food counter anywhere in the world.
               </p>
               <div className="flex-1 flex items-end justify-center">
                 <div className="w-[200px] md:w-[220px]">
@@ -129,7 +129,7 @@ const FeaturesSection = () => {
             <ChefHat className="w-7 h-7 text-[#00C2A8] mb-4" strokeWidth={1.75} />
             <h3 className="font-display text-xl font-semibold text-white mb-2">Recipe AI</h3>
             <p className="text-sm text-white/60 leading-relaxed">
-              Transform any recipe to be safe for you, with substitutions from 2M+ verified recipes.
+              Transform any recipe to be safe for you, with substitutions from 1,000+ recipes.
             </p>
           </motion.div>
 
