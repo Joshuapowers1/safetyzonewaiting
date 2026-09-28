@@ -4,15 +4,6 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const campaignImages = [
-  ["1", "Introducing the Eat Safe Project and its food allergy advocacy collaborators"],
-  ["2", "Why safer food service matters for people living with food allergies"],
-  ["3", "Invitation to share food allergy experiences through the Eat Safe Project"],
-  ["4", "Eat Safe Project advocacy information about allergy labeling proposals"],
-  ["5", "Food allergy safety is a life-or-death need, not a preference"],
-  ["6", "How to share a food allergy story with the Eat Safe Project"],
-];
-
 export default function EatSafeProject() {
   const url = "https://mysafetyzone.com/eat-safe-project";
   return (
@@ -23,14 +14,13 @@ export default function EatSafeProject() {
         <link rel="canonical" href={url} />
         <meta property="og:title" content="The Eat Safe Project | My SafetyZone" />
         <meta property="og:description" content="Share your food allergy story and help encourage safer, more inclusive food service." />
-        <meta property="og:image" content="https://mysafetyzone.com/eat-safe-project/1.jpg" />
+        <meta property="og:image" content="https://mysafetyzone.com/social-preview.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://mysafetyzone.com/eat-safe-project/1.jpg" />
+        <meta name="twitter:image" content="https://mysafetyzone.com/social-preview.jpg" />
         <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org", "@type": "CollectionPage", name: "The Eat Safe Project", url,
+          "@context": "https://schema.org", "@type": "WebPage", name: "The Eat Safe Project", url,
           description: "A food allergy storytelling and advocacy campaign encouraging safer, more inclusive food service.",
           isPartOf: { "@type": "WebSite", name: "My SafetyZone", url: "https://mysafetyzone.com" },
-          associatedMedia: campaignImages.map(([file, caption]) => ({ "@type": "ImageObject", contentUrl: `${url}/${file}.jpg`, caption })),
         })}</script>
       </Helmet>
       <Navbar />
@@ -44,15 +34,6 @@ export default function EatSafeProject() {
             <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-[#bdcbbf] px-6 py-3 text-sm font-bold"><ArrowLeft size={16} /> My SafetyZone</Link>
           </div>
         </section>
-        <section className="mx-auto grid max-w-6xl gap-8 px-5 pb-24 sm:grid-cols-2 lg:gap-12">
-          {campaignImages.map(([file, caption], index) => (
-            <figure key={file} className={index === 0 || index === 5 ? "sm:col-span-2 sm:mx-auto sm:max-w-xl" : ""}>
-              <img src={`/eat-safe-project/${file}.jpg`} alt={caption} width="1080" height="1350" loading={index < 2 ? "eager" : "lazy"} className="w-full rounded-[24px] border border-[#dce4d9] shadow-[0_28px_70px_-45px_rgba(23,63,54,.55)]" />
-              <figcaption className="mt-3 px-2 text-sm leading-6 text-[#718079]">{caption}</figcaption>
-            </figure>
-          ))}
-        </section>
-        <aside className="mx-auto mb-24 max-w-3xl px-5 text-center text-xs leading-6 text-[#7a8781]">Campaign graphics are presented for community education and advocacy. Legislative status and public-health figures can change; verify current information with official government and medical sources. This page is not legal or medical advice.</aside>
       </main>
       <Footer />
     </>
