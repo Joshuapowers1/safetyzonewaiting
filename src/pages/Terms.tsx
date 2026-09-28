@@ -180,8 +180,8 @@ const Terms = () => {
                   <p className="text-foreground font-semibold">Powers Solutions USA LLC</p>
                   <p className="text-muted-foreground mt-2">
                     Email:{' '}
-                    <a href="mailto:support@mysafetyzone.com" className="text-primary hover:underline">
-                      support@mysafetyzone.com
+                    <a href="mailto:joshpowersbiz@gmail.com" className="text-primary hover:underline">
+                      joshpowersbiz@gmail.com
                     </a>
                   </p>
                   <p className="text-muted-foreground mt-4 text-sm">

@@ -214,6 +214,7 @@ const handler = async (req: Request): Promise<Response> => {
           },
           body: JSON.stringify({
             from: "Safety Zone <joshua@mysafetyzone.com>",
+            reply_to: "joshpowersbiz@gmail.com",
             to: [recipient.email],
             subject: subject,
             html: htmlContent,

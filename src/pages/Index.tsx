@@ -1,440 +1,793 @@
-import { Helmet } from 'react-helmet-async';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import SecurityErrorBoundary from '@/components/SecurityErrorBoundary';
-import HeroSection from '@/components/landing/HeroSection';
-import FeaturesSection from '@/components/landing/FeaturesSection';
-import StatsSection from '@/components/landing/StatsSection';
-import FounderSection from '@/components/landing/FounderSection';
-import CTASection from '@/components/landing/CTASection';
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { Helmet } from "react-helmet-async";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { useHomeMotion } from "@/hooks/use-home-motion";
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  Bell,
+  Check,
+  ChefHat,
+  Globe2,
+  Heart,
+  Menu,
+  Plus,
+  QrCode,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+  Utensils,
+  X,
+} from "lucide-react";
+import { AppStoreBadge } from "@/components/ui/store-badges";
+import logo from "@/assets/teal-logo.png";
+import founder from "@/assets/josh-headshot.png";
+import "./home.css";
 
-
-const IOS_APP_URL = 'https://apps.apple.com/us/app/my-safetyzone/id6758567664';
-
-const Index = () => {
-
+const APP_URL = "https://apps.apple.com/us/app/my-safetyzone/id6758567664";
+const features = [
+  {
+    label: "Allergy card",
+    icon: QrCode,
+    eyebrow: "LESS EXPLAINING. MORE ENJOYING.",
+    title: "Your needs.\nClearly understood.",
+    description:
+      "Keep your dietary needs in one personal, shareable allergy card. Show it to your server and start a clearer conversation, wherever you find yourself.",
+    points: [
+      "Your allergy profile, in your pocket",
+      "Share with a simple QR code",
+      "Translations for dining abroad",
+    ],
+    image: "/screenshots/allergen-card.png",
+    alt: "SafetyZone digital allergy card creation screen",
+    color: "mint",
+  },
+  {
+    label: "Travel mode",
+    icon: Globe2,
+    eyebrow: "GO FURTHER. FEEL MORE PREPARED.",
+    title: "New places.\nA familiar companion.",
+    description:
+      "Bring your allergy information along for the adventure. Explore destination guidance and communicate your needs when you’re far from home.",
+    points: [
+      "Destination-specific allergen guidance",
+      "Communicate across languages",
+      "Keep your dietary needs close",
+    ],
+    image: "/screenshots/travel-mode.png",
+    alt: "SafetyZone travel mode and destination guidance",
+    color: "sand",
+  },
+  {
+    label: "Recipe AI",
+    icon: ChefHat,
+    eyebrow: "A LITTLE INSPIRATION. A LOT OF POSSIBILITY.",
+    title: "Make room for\nsomething delicious.",
+    description:
+      "Find fresh inspiration for your kitchen. Explore recipe ideas and ingredient substitutions around your dietary needs, then make them your own.",
+    points: [
+      "Ideas shaped around your preferences",
+      "Ingredient substitution suggestions",
+      "Step-by-step cooking inspiration",
+    ],
+    image: "/screenshots/recipe-ai.png",
+    alt: "SafetyZone Recipe AI screen",
+    color: "peach",
+  },
+  {
+    label: "NutriScan",
+    icon: Sparkles,
+    eyebrow: "YOUR DAILY PICTURE, A LITTLE CLEARER.",
+    title: "A snapshot of\nyour everyday nutrition.",
+    description:
+      "Turn a meal photo into an estimated nutrition breakdown. Keep calories, macros, and your daily goals together in one simple place.",
+    points: [
+      "Photo-based nutrition estimates",
+      "Calories and macros at a glance",
+      "A daily view of your nutrition",
+    ],
+    image: "/screenshots/nutriscan.png",
+    alt: "SafetyZone NutriScan nutrition screen",
+    color: "lilac",
+  },
+];
+const questions = [
+  {
+    question: "What is My SafetyZone?",
+    answer:
+      "My SafetyZone is an iOS companion for life with food allergies and dietary restrictions. It brings together a digital allergy card, travel guidance, recipe inspiration, nutrition tracking, medication reminders, and FDA recall information.",
+  },
+  {
+    question: "Is the app free to download?",
+    answer:
+      "Yes, My SafetyZone is free to download from the App Store. Check the current App Store listing and in-app subscription screen for plan details, trial availability, and pricing.",
+  },
+  {
+    question: "Can I use it on Android?",
+    answer:
+      "My SafetyZone is currently available on iOS. An Android version is coming soon. Follow SafetyZone on Instagram for release updates.",
+  },
+  {
+    question: "Does SafetyZone guarantee a meal is safe?",
+    answer:
+      "No. SafetyZone supports your food decisions, but it cannot guarantee that a meal is allergen-free or detect kitchen cross-contact. Always check ingredients, confirm preparation with staff, and follow your clinician’s advice. AI recipe and nutrition suggestions may be inaccurate.",
+  },
+  {
+    question: "Are menu and barcode scanners available?",
+    answer:
+      "Menu, product, and barcode scanning are coming soon. You can already explore allergy cards, travel tools, Recipe AI, NutriScan, medication tracking, and recall information in the app.",
+  },
+];
+function Brand() {
   return (
-    <>
+    <a href="/" className="home-brand" aria-label="My SafetyZone home">
+      <img src={logo} alt="" width="40" height="40" />
+      <span>
+        SafetyZone<span className="brand-dot">.</span>
+      </span>
+    </a>
+  );
+}
+function Phone({
+  image,
+  alt,
+  className = "",
+  eager = false,
+}: {
+  image: string;
+  alt: string;
+  className?: string;
+  eager?: boolean;
+}) {
+  return (
+    <div className={`home-phone ${className}`}>
+      <div className="phone-camera" aria-hidden="true" />
+      <img
+        src={image}
+        alt={alt}
+        width="945"
+        height="1920"
+        loading={eager ? "eager" : "lazy"}
+        fetchPriority={eager ? "high" : "auto"}
+      />
+      <div className="phone-button" aria-hidden="true" />
+    </div>
+  );
+}
+export default function Index() {
+  const root = useRef<HTMLDivElement>(null);
+  const reducedMotion = useReducedMotion();
+  const { scrollY, scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  const phoneY = useTransform(scrollY, [0, 700], [0, -48]);
+  const phoneRotate = useTransform(scrollY, [0, 700], [-4, 1]);
+  useHomeMotion(root, reducedMotion);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedFeature, setSelectedFeature] = useState(0);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const feature = features[selectedFeature];
+  useEffect(() => {
+    document.body.classList.add("safetyzone-home");
+    return () => document.body.classList.remove("safetyzone-home");
+  }, []);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
+  const navigateFeature = (
+    event: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    let next = index;
+    if (event.key === "ArrowRight") next = (index + 1) % features.length;
+    else if (event.key === "ArrowLeft")
+      next = (index + features.length - 1) % features.length;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = features.length - 1;
+    else return;
+    event.preventDefault();
+    setSelectedFeature(next);
+    document.getElementById(`feature-tab-${next}`)?.focus();
+  };
+  return (
+    <div className="sz-home" ref={root}>
       <Helmet>
-        <title>My SafetyZone — Food Allergy App for iOS</title>
-        <meta name="description" content="AI allergen scanner, QR allergy cards in 150 languages, EpiPen tracker, FDA recall alerts and Recipe AI. Free on iOS for food allergies & celiac." />
-        <meta name="keywords" content="food allergy app, best food allergy app, food allergy app 2026, SafetyZone, SafetyZone app, safety zone app, my safetyzone, allergy scanner app, allergen detector app, menu scanner allergy, restaurant allergy app, barcode allergen scanner, food label scanner allergy, peanut allergy app, peanut allergy scanner, tree nut allergy app, nut allergy detector, gluten free app, gluten free scanner, gluten free restaurant app, celiac disease app, celiac app, dairy allergy app, dairy free app, lactose intolerance app, milk allergy app, egg allergy app, soy allergy app, soy free scanner, shellfish allergy app, fish allergy app, wheat allergy app, sesame allergy app, food intolerance app, food sensitivity app, multiple food allergies app, top 14 allergens app, allergen detection app, AI food scanner, AI allergy scanner, AI allergen detector, AI menu scanner, dietary restriction app, diet restriction tracker, halal food app, halal food finder, halal scanner, kosher food app, kosher scanner, vegan food scanner, vegan app, vegetarian food app, food safety app, food safety scanner, EpiPen tracker app, EpiPen expiration tracker, EpiPen reminder app, epinephrine auto-injector tracker, inhaler tracker app, inhaler expiration reminder, medical device tracker, medication tracker app, medication expiration tracker, FDA food recall app, FDA recall alerts, food recall notification app, food recall tracker, QR allergy card, allergy card app, allergy translation card, allergy card restaurant, allergy card 200 languages, travel allergy card, travel food allergy app, international allergy app, allergy translation app, calorie tracker allergy, calorie counter food allergy, NutriScan, nutrition tracker, macro tracker, AI calorie counter, recipe allergy checker, recipe allergen scanner, recipe substitution app, allergen free recipe app, safe recipe app, allergy safe cooking, anaphylaxis prevention app, anaphylaxis app, allergic reaction prevention, food allergy management app, allergy management, allergy tracker, allergy diary app, cross contamination app, cross contamination detector, food allergy kids app, child food allergy app, kids allergy app, family allergy app, parent allergy app, school allergy app, allergy app for parents, food allergy iOS app, food allergy iPhone app, food allergy iPad app, best allergy app iOS, best allergy app iPhone, best food safety app, best allergen scanner, best allergy scanner app, top food allergy app, top rated allergy app, number one allergy app, food allergy technology, allergy tech app, food allergy solution, eat safely app, safe eating app, allergy free eating, dining with allergies app, restaurant safety app, eating out allergy app, travel with allergies, travel allergy safety, allergy abroad app, food allergy awareness, allergy awareness app, food allergy community, allergy support app" />
-        <link rel="canonical" href="https://mysafetyzone.com" />
-        
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mysafetyzone.com" />
-        <meta property="og:title" content="SafetyZone - AI Food Allergy App 2026 | Free Download iOS" />
-        <meta property="og:description" content="The best food allergy app with AI allergen scanner, QR allergy cards in 150 languages, EpiPen tracker, FDA recall alerts & Recipe AI. Detects peanut, gluten, dairy, nut, shellfish, egg & soy allergies. Free on iOS." />
-        <meta property="og:site_name" content="SafetyZone" />
-        <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/nEcjojHa9EVFIDIZCStgDsGp4NE3/social-images/social-1766274742323-Black_SZ_logo.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:locale" content="en_US" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://mysafetyzone.com" />
-        <meta name="twitter:title" content="SafetyZone - AI Food Allergy App | EpiPen Tracker & QR Allergy Card" />
-        <meta name="twitter:description" content="AI-powered food allergy scanner detecting peanut, gluten, dairy & 50+ allergens.5% accuracy. QR allergy cards in 150 languages. EpiPen & inhaler tracker. FDA recall alerts. Free on iOS." />
-        <meta name="twitter:site" content="@SafetyZoneApp" />
-        <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/nEcjojHa9EVFIDIZCStgDsGp4NE3/social-images/social-1766274742323-Black_SZ_logo.png" />
-        
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="author" content="Powers Solutions USA LLC" />
-        <meta name="theme-color" content="#2dd4bf" />
+        <title>My SafetyZone — A little more confidence in every bite.</title>
+        <meta
+          name="description"
+          content="Your everyday companion for food allergies and dietary needs. Discover digital allergy cards, travel tools, recipes, and medication reminders. Download My SafetyZone for iOS."
+        />
+        <link rel="canonical" href="https://mysafetyzone.com/" />
+        <meta name="theme-color" content="#f8f9f5" />
         <meta name="apple-itunes-app" content="app-id=6758567664" />
-        <meta name="application-name" content="SafetyZone" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-title" content="SafetyZone" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="msapplication-TileColor" content="#2dd4bf" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="rating" content="general" />
-        <meta name="coverage" content="Worldwide" />
-        <meta name="distribution" content="global" />
-        <meta name="target" content="all" />
-        <meta name="HandheldFriendly" content="True" />
-        <meta name="MobileOptimized" content="320" />
-        <meta name="revisit-after" content="3 days" />
-        <meta name="subject" content="Food Allergy Management App with AI Allergen Detection" />
-        <meta name="classification" content="Health, Food Safety, Allergy Management, Medical" />
-        <meta name="category" content="Health & Fitness" />
-        <meta name="topic" content="Food Allergies, Allergen Detection, Dietary Restrictions, EpiPen Tracking" />
-        
-        {/* Structured Data - SoftwareApplication */}
+        <meta
+          property="og:title"
+          content="My SafetyZone — A little more confidence in every bite."
+        />
+        <meta
+          property="og:description"
+          content="Food allergies are personal. Your everyday companion should be too. Meet My SafetyZone for iOS."
+        />
+        <meta
+          name="twitter:title"
+          content="My SafetyZone — A little more confidence in every bite."
+        />
+        <meta
+          name="twitter:description"
+          content="Allergy cards, travel tools, recipe inspiration, and medication reminders. One thoughtful companion for your everyday."
+        />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "SafetyZone",
-            "alternateName": ["Safety Zone", "SafetyZone App", "Safety Zone App", "My SafetyZone", "SafetyZone Food Allergy App", "SafetyZone Allergy Scanner"],
-            "applicationCategory": "HealthApplication",
-            "applicationSubCategory": "Food Allergy Management",
-            "operatingSystem": "iOS 16.0 or later",
-            "description": "SafetyZone is an allergy-first food app for iOS. Scan menus, barcodes, and recipes to detect allergens including peanuts, tree nuts, dairy, eggs, wheat, gluten, soy, fish, shellfish, and sesame.5% accuracy. Features QR Allergy Cards translated into 150 languages, Travel Allergen destination safety guides, NutriScan AI calorie and macro tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker with auto-reminders, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts. Built for people with food allergies, celiac disease, food intolerance, anaphylaxis risk, and dietary restrictions including halal, kosher, vegan, and vegetarian. Free to download.",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            },
-            "downloadUrl": IOS_APP_URL,
-            "installUrl": IOS_APP_URL,
-            "url": "https://mysafetyzone.com",
-            "author": {
-              "@type": "Organization",
-              "name": "Powers Solutions USA LLC",
-              "url": "https://mysafetyzone.com"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Powers Solutions USA LLC"
-            },
-            "featureList": [
-              "QR Allergy Cards in 150 Languages",
-              "Travel Allergen Safety Guides",
-              "NutriScan AI Calorie & Macro Tracking",
-              "Recipe AI with Allergen-Free Substitutions",
-              "EpiPen Expiration Tracker with Auto-Reminders",
-              "Inhaler Tracker",
-              "Medical Device Expiration Tracker",
-              "Real-Time FDA Food Recall Alerts",
-              "AI Menu Scanner (Coming Soon)",
-              "Barcode Allergen Scanner (Coming Soon)",
-              "Family Allergy Profiles (Coming Soon)"
-            ],
-            "screenshot": "https://mysafetyzone.com/screenshots/home.png",
-            "softwareVersion": "1.0",
-            "datePublished": "2026-01-01",
-            "inLanguage": ["en", "es", "fr", "de", "ja", "zh", "ko", "ar", "hi", "pt"],
-            "review": [
-              {
-                "@type": "Review",
-                "author": {"@type": "Person", "name": "Allergy Parent"},
-                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-                "reviewBody": "This app is a lifesaver for my son with peanut and tree nut allergies. The QR card feature makes dining out so much less stressful."
-              }
-            ]
+            name: "My SafetyZone",
+            applicationCategory: "HealthApplication",
+            operatingSystem: "iOS",
+            url: "https://mysafetyzone.com",
+            downloadUrl: APP_URL,
+            description:
+              "A food allergy and dietary companion with digital allergy cards, travel guidance, recipe inspiration, nutrition estimates, and medication reminders.",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           })}
         </script>
-        
-        {/* Structured Data - Organization */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "SafetyZone",
-            "alternateName": ["Safety Zone", "My SafetyZone", "SafetyZone App"],
-            "url": "https://mysafetyzone.com",
-            "logo": "https://mysafetyzone.com/logo.png",
-            "description": "My SafetyZone is the leading AI-powered food allergy and dietary safety platform for the 600M+ people (global estimate) with food allergies, celiac disease, and dietary restrictions eat safely worldwide. Features include QR allergy cards, EpiPen tracking, inhaler tracking, FDA recall alerts, and AI-powered allergen detection.",
-            "foundingDate": "2025",
-            "founder": {
-              "@type": "Person",
-              "name": "Joshua Powers",
-              "jobTitle": "Founder & CEO"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "email": "joshua@mysafetyzone.com",
-              "contactType": "customer support"
-            },
-            "sameAs": [
-              "https://instagram.com/safetyzoneofficial",
-              "https://www.linkedin.com/company/mysafetyzone/",
-              "https://apps.apple.com/us/app/my-safetyzone/id6758567664"
-            ],
-            "knowsAbout": ["Food Allergies", "Allergen Detection", "Celiac Disease", "Anaphylaxis", "EpiPen Management", "Dietary Restrictions", "Food Safety"]
-          })}
-        </script>
-
-        {/* Structured Data - WebSite with SearchAction */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "SafetyZone - Food Allergy App",
-            "alternateName": ["Safety Zone", "SafetyZone", "My SafetyZone"],
-            "url": "https://mysafetyzone.com",
-            "description": "An allergy-first food app. Scan menus, share QR allergy cards, track EpiPens, and get FDA recall alerts.",
-            "publisher": {
-              "@type": "Organization",
-              "name": "Powers Solutions USA LLC"
-            }
-          })}
-        </script>
-
-        {/* Structured Data - BreadcrumbList */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://mysafetyzone.com"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Features",
-                "item": "https://mysafetyzone.com/#features"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "About",
-                "item": "https://mysafetyzone.com/#about"
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
-                "name": "Download",
-                "item": "https://apps.apple.com/us/app/my-safetyzone/id6758567664"
-              }
-            ]
-          })}
-        </script>
-
-        {/* Structured Data - FAQPage (expanded) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is SafetyZone?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "SafetyZone is an allergy-first food app for iOS in 2026. It helps people with food allergies, celiac disease, food intolerances, and dietary restrictions eat safely everywhere. Key features include QR Allergy Cards that translate into 150 languages, Travel Allergen safety guides, NutriScan AI calorie tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is SafetyZone free to download?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, SafetyZone is completely free to download on the iOS App Store. All core features including QR Allergy Cards, Travel Allergen guides, NutriScan AI, Recipe AI, EpiPen tracking, Inhaler tracking, Medical Device tracking, and FDA Recall Alerts are available to all users at no cost."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is SafetyZone available on Android?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "SafetyZone is currently available on iOS through the Apple App Store. The Google Play version for Android devices is coming soon in 2026."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What food allergies does SafetyZone detect?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "SafetyZone detects all major food allergens including peanuts, tree nuts (almonds, cashews, walnuts, pecans, pistachios, macadamia nuts, Brazil nuts, hazelnuts), milk and dairy, eggs, wheat and gluten, soy, fish, shellfish (shrimp, crab, lobster), and sesame. It also supports 50+ additional sensitivities and dietary preferences including halal, kosher, vegan, vegetarian, paleo, keto, and custom restrictions."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How does the QR Allergy Card work?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "SafetyZone generates a personal QR code containing your complete allergy and dietary profile. When you show it to restaurant staff, they scan it with any phone camera and instantly see exactly what allergens you need to avoid, automatically translated into their native language. The QR Allergy Card supports 150 languages, making it invaluable for international travel and dining at restaurants with non-English-speaking staff."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can SafetyZone track my EpiPen expiration date?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, SafetyZone includes a dedicated EpiPen Tracker that monitors your epinephrine auto-injector expiration dates and sends automatic reminders before they expire. It also tracks inhalers and other medical devices, ensuring you're never caught with expired life-saving medication."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does SafetyZone send FDA food recall alerts?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, SafetyZone provides real-time FDA food recall notifications and alerts so you're always informed about potentially unsafe food products. This feature helps protect you and your family from consuming recalled items that may contain undeclared allergens."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How accurate is SafetyZone's allergen detection?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "SafetyZone reviews listed ingredients and flags possible allergen terms. It cannot see how food is prepared, so it cannot detect kitchen cross-contact. Always confirm ingredients and preparation with restaurant staff and your healthcare provider."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is SafetyZone safe for children with food allergies?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Absolutely. SafetyZone is designed to protect the entire family, including children with food allergies. Parents can set up detailed allergy profiles, generate QR cards for school and daycare, track EpiPen and medication expiration dates, and receive FDA recall alerts. The app uses HIPAA-level encryption to protect all health data."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is NutriScan AI in SafetyZone?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "NutriScan AI is SafetyZone's AI-powered calorie and nutrition tracker. Simply take a photo of any meal, whether home-cooked, restaurant, or packaged food, and NutriScan instantly estimates calories, macronutrients (protein, carbs, fat), and key micronutrients. No manual food logging required."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How does Recipe AI work in SafetyZone?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Recipe AI lets you paste any recipe or URL, and it automatically identifies every allergen risk based on your profile. It then generates safe, taste-matched ingredient substitutions that account for cooking chemistry, binding agents, texture, flavor profiles, and baking ratios so your allergen-free version actually tastes great."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can I use SafetyZone when traveling internationally?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, SafetyZone is built for international travel safety. The Travel Allergen feature provides destination-specific allergy safety tips, local allergen databases, and cultural dining guidance. Combined with QR Allergy Cards that auto-translate into 150 languages, you can communicate your allergies to restaurant staff anywhere in the world."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What makes SafetyZone better than other food allergy apps?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "SafetyZone is the most comprehensive food allergy app available, combining 8 live features in one app: QR Allergy Cards (150 languages), Travel Allergen guides, Recipe AI, NutriScan AI calorie tracking, EpiPen Tracker, Inhaler Tracker, Medical Device Tracker, and FDA Recall Alerts. Unlike other apps, SafetyZone was built by someone with anaphylactic food allergies who understands the daily challenges. It uses HIPAA-level encryption, achieves 99.5% allergen detection accuracy, and is completely free to download."
-                }
-              }
-            ]
-          })}
-        </script>
-
-        {/* Structured Data - HowTo */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            "name": "How to Use SafetyZone Food Allergy App",
-            "description": "Learn how to set up SafetyZone to protect yourself and your family from food allergens when dining out, cooking, or traveling.",
-            "step": [
-              {
-                "@type": "HowToStep",
-                "position": 1,
-                "name": "Download SafetyZone",
-                "text": "Download SafetyZone for free from the iOS App Store and create your account."
-              },
-              {
-                "@type": "HowToStep",
-                "position": 2,
-                "name": "Set Up Your Allergy Profile",
-                "text": "Add your food allergies, dietary restrictions, and sensitivities to your personal profile. SafetyZone supports peanuts, tree nuts, dairy, eggs, wheat, gluten, soy, fish, shellfish, sesame, and 50+ additional allergens."
-              },
-              {
-                "@type": "HowToStep",
-                "position": 3,
-                "name": "Generate Your QR Allergy Card",
-                "text": "Create a personal QR allergy card that automatically translates your allergies into 150 languages. Show it to restaurant staff anywhere in the world."
-              },
-              {
-                "@type": "HowToStep",
-                "position": 4,
-                "name": "Track Your EpiPens and Medications",
-                "text": "Add your EpiPens, inhalers, and medical devices to receive automatic expiration reminders so you're never caught with expired medication."
-              },
-              {
-                "@type": "HowToStep",
-                "position": 5,
-                "name": "Eat Safely Everywhere",
-                "text": "Use Recipe AI for safe cooking, NutriScan AI for calorie tracking, Travel Allergen for international trips, and FDA Recall Alerts to stay informed about unsafe products."
-              }
-            ]
-          })}
-        </script>
-
-        {/* Structured Data - MobileApplication */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MobileApplication",
-            "name": "SafetyZone - Food Allergy App",
-            "operatingSystem": "iOS",
-            "applicationCategory": "HealthApplication",
-            "contentRating": "Everyone",
-            "downloadUrl": IOS_APP_URL,
-            "installUrl": IOS_APP_URL,
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-          })}
-        </script>
-
-        {/* Structured Data - Speakable (for voice assistants & AI answer engines) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "url": "https://mysafetyzone.com",
-            "name": "My SafetyZone — Food Allergy App",
-            "speakable": {
-              "@type": "SpeakableSpecification",
-              "cssSelector": ["h1", "h2", "[data-speakable]"]
-            },
-            "about": [
-              {"@type": "Thing", "name": "Food allergies"},
-              {"@type": "Thing", "name": "Celiac disease"},
-              {"@type": "Thing", "name": "Allergen detection"},
-              {"@type": "Thing", "name": "EpiPen tracking"},
-              {"@type": "Thing", "name": "Dietary restrictions"}
-            ],
-            "audience": {
-              "@type": "PeopleAudience",
-              "name": "People with food allergies and dietary restrictions"
-            }
-          })}
-        </script>
-
-        {/* GEO: Concise factual summary block for LLM extraction */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "My SafetyZone: The AI Food Allergy App",
-            "author": {"@type": "Person", "name": "Joshua Powers"},
-            "publisher": {"@type": "Organization", "name": "Powers Solutions USA LLC"},
-            "datePublished": "2026-01-01",
-            "dateModified": new Date().toISOString().slice(0, 10),
-            "mainEntityOfPage": "https://mysafetyzone.com",
-            "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/nEcjojHa9EVFIDIZCStgDsGp4NE3/social-images/social-1766274742323-Black_SZ_logo.png",
-            "articleBody": "My SafetyZone is an allergy-first food app, free on the iOS App Store (App ID 6758567664). It serves the 600M+ people worldwide with food allergies, celiac disease, food intolerances, and dietary restrictions. Live features: QR Allergy Card in 150 languages, Travel Allergen safety guides, NutriScan AI calorie and macro tracking from food photos, Recipe AI with allergen-free substitutions, EpiPen expiration tracker, Inhaler tracker, Medical Device tracker, and real-time FDA food recall alerts. Detects peanuts, tree nuts, milk, eggs, wheat, gluten, soy, fish, shellfish, sesame, plus 50+ additional allergens and dietary preferences (halal, kosher, vegan, vegetarian, paleo, keto). Built by Joshua Powers, founder of Powers Solutions USA LLC, who lives with anaphylactic food allergies. AI recommendations are informational only and not FDA or CE approved; always verify with restaurant staff and healthcare providers."
+            mainEntity: questions.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: { "@type": "Answer", text: item.answer },
+            })),
           })}
         </script>
       </Helmet>
-
-
-
-
-      <div className="min-h-screen bg-[#05080f]">
-        <SecurityErrorBoundary fallback={null}><Navbar /></SecurityErrorBoundary>
-
-        <main>
-          <SecurityErrorBoundary fallback={null}><HeroSection /></SecurityErrorBoundary>
-          
-          <SecurityErrorBoundary fallback={null}><FeaturesSection /></SecurityErrorBoundary>
-          <SecurityErrorBoundary fallback={null}><StatsSection /></SecurityErrorBoundary>
-          
-          <SecurityErrorBoundary fallback={null}><FounderSection /></SecurityErrorBoundary>
-          <SecurityErrorBoundary fallback={null}><CTASection /></SecurityErrorBoundary>
-        </main>
-
-        <SecurityErrorBoundary fallback={null}><Footer /></SecurityErrorBoundary>
-      </div>
-    </>
+      <a className="home-skip" href="#main-content">
+        Skip to content
+      </a>
+      <header className="home-header">
+        <motion.div
+          className="reading-progress"
+          style={{ scaleX: reducedMotion ? scrollYProgress : progress }}
+          aria-hidden="true"
+        />
+        <div className="home-shell home-nav">
+          <Brand />
+          <nav aria-label="Main navigation" className="desktop-nav">
+            <a href="#features">The app</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#about">Our story</a>
+          </nav>
+          <div className="nav-actions">
+            <a
+              href="https://menu.mysafetyzone.com"
+              className="business-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              For restaurants <ArrowUpRight size={14} />
+            </a>
+            <a
+              className="home-button button-small"
+              href={APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get the app <ArrowUpRight size={16} />
+            </a>
+            <button
+              ref={menuButton}
+              className="mobile-menu-button"
+              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+        </div>
+        {menuOpen && (
+          <nav
+            id="mobile-navigation"
+            className="mobile-navigation"
+            aria-label="Mobile navigation"
+          >
+            <a href="#features" onClick={() => setMenuOpen(false)}>
+              The app <ArrowRight size={18} />
+            </a>
+            <a href="#how-it-works" onClick={() => setMenuOpen(false)}>
+              How it works <ArrowRight size={18} />
+            </a>
+            <a href="#about" onClick={() => setMenuOpen(false)}>
+              Our story <ArrowRight size={18} />
+            </a>
+            <a
+              href="https://menu.mysafetyzone.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+            >
+              For restaurants <ArrowUpRight size={18} />
+            </a>
+          </nav>
+        )}
+      </header>
+      <main id="main-content">
+        <section className="home-hero home-shell" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <div className="home-eyebrow">
+              <span className="status-dot" /> YOUR EVERYDAY FOOD COMPANION
+            </div>
+            <h1 id="hero-title">
+              A little more
+              <br />
+              confidence.
+              <br />
+              <em>In every bite.</em>
+            </h1>
+            <p>
+              For the everyday meals. The faraway places.
+              <br className="desktop-break" /> And everything you want to try
+              next.
+            </p>
+            <p className="hero-description">
+              Allergy cards, travel tools, and thoughtful daily support.
+              <br className="desktop-break" /> One app that understands your
+              dietary needs.
+            </p>
+            <div className="hero-actions">
+              <AppStoreBadge />
+              <a className="text-link" href="#features">
+                Meet your new companion <ArrowDown size={17} />
+              </a>
+            </div>
+            <div className="hero-note">
+              <Check size={14} /> Free to download <span /> Available on iOS
+            </div>
+          </div>
+          <div
+            className="hero-art"
+            aria-label="A preview of the SafetyZone app"
+          >
+            <div className="hero-halo" aria-hidden="true" />
+            <motion.div
+              className="hero-device"
+              style={
+                reducedMotion ? undefined : { y: phoneY, rotate: phoneRotate }
+              }
+            >
+              <Phone
+                image="/screenshots/home-screen.png"
+                alt="My SafetyZone home screen with travel, safety card, medication, nutrition, and recipe tools"
+                className="hero-phone"
+                eager
+              />
+            </motion.div>
+            <div className="hero-device-caption">
+              <span className="status-dot" /> YOUR WORLD. A LITTLE MORE OPEN.
+            </div>
+          </div>
+        </section>
+        <div className="home-reassurance">
+          <div className="home-shell reassurance-inner">
+            <span>THOUGHTFULLY BUILT AROUND YOU</span>
+            <div>
+              <QrCode /> Share your needs
+            </div>
+            <div>
+              <Globe2 /> Explore with confidence
+            </div>
+            <div>
+              <Heart /> Feel more prepared
+            </div>
+            <a href="#about">
+              Built from lived experience <ArrowUpRight size={16} />
+            </a>
+          </div>
+        </div>
+        <section
+          id="features"
+          className="home-shell home-section feature-section"
+          aria-labelledby="features-title"
+        >
+          <div className="section-heading">
+            <div>
+              <div className="home-eyebrow">
+                SMALL TOOLS. MEANINGFUL DIFFERENCE.
+              </div>
+              <h2 id="features-title">
+                Life is full of possibilities.
+                <br />
+                <em>Let’s make room for them.</em>
+              </h2>
+            </div>
+            <p>
+              From your own kitchen to somewhere new,
+              <br className="desktop-break" /> find a little more support for
+              the moments
+              <br className="desktop-break" /> that make life yours.
+            </p>
+          </div>
+          <div
+            className="feature-tabs"
+            role="tablist"
+            aria-label="Explore app features"
+          >
+            {features.map((item, index) => (
+              <button
+                key={item.label}
+                id={`feature-tab-${index}`}
+                role="tab"
+                aria-selected={selectedFeature === index}
+                aria-controls="feature-panel"
+                tabIndex={selectedFeature === index ? 0 : -1}
+                onClick={() => setSelectedFeature(index)}
+                onKeyDown={(event) => navigateFeature(event, index)}
+              >
+                {selectedFeature === index && (
+                  <motion.span
+                    className="feature-tab-indicator"
+                    layoutId="active-feature"
+                    transition={
+                      reducedMotion
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 380, damping: 34 }
+                    }
+                  />
+                )}
+                <item.icon size={19} />
+                <span>{item.label}</span>
+                <ArrowUpRight className="tab-arrow" size={17} />
+              </button>
+            ))}
+          </div>
+          <div
+            id="feature-panel"
+            role="tabpanel"
+            tabIndex={0}
+            aria-labelledby={`feature-tab-${selectedFeature}`}
+            className={`feature-panel ${feature.color}`}
+          >
+            <motion.div
+              className="feature-copy"
+              key={feature.label}
+              initial={reducedMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              <span className="home-eyebrow">{feature.eyebrow}</span>
+              <h3>
+                {feature.title.split("\n").map((line, i) => (
+                  <span key={line}>
+                    {i > 0 && <br />}
+                    {line}
+                  </span>
+                ))}
+              </h3>
+              <p>{feature.description}</p>
+              <ul>
+                {feature.points.map((point) => (
+                  <li key={point}>
+                    <Check size={16} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <a
+                className="text-link"
+                href={APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Explore in the app <ArrowUpRight size={18} />
+              </a>
+            </motion.div>
+            <div className="feature-visual">
+              <div className="feature-circle" aria-hidden="true" />
+              <motion.div
+                className="feature-device"
+                key={feature.image}
+                initial={reducedMotion ? false : { y: 25, rotate: 2 }}
+                animate={{ y: 0, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 130, damping: 23 }}
+              >
+                <Phone
+                  image={feature.image}
+                  alt={feature.alt}
+                  className="feature-phone"
+                />
+              </motion.div>
+              <span className="preview-caption">A LOOK INSIDE THE APP</span>
+            </div>
+          </div>
+          <div className="everyday-tools">
+            <article>
+              <span className="tool-icon">
+                <Bell size={21} />
+              </span>
+              <div>
+                <h3>One less thing to remember.</h3>
+                <p>
+                  Track EpiPen, inhaler, and medical device expiry dates with
+                  helpful reminders.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span className="tool-icon">
+                <ShieldCheck size={21} />
+              </span>
+              <div>
+                <h3>Stay a little more informed.</h3>
+                <p>
+                  Keep up with FDA food recalls, right alongside your everyday
+                  allergy tools.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span className="tool-icon">
+                <Heart size={21} />
+              </span>
+              <div>
+                <h3>Find people who understand.</h3>
+                <p>
+                  Connect with a community that knows what life with dietary
+                  restrictions feels like.
+                </p>
+              </div>
+            </article>
+          </div>
+          <p className="coming-next">
+            <Sparkles size={15} />
+            <strong>More on the way</strong>
+            <span>Menu, product, and barcode scanning — coming soon.</span>
+          </p>
+        </section>
+        <section
+          id="how-it-works"
+          className="how-section home-section"
+          aria-labelledby="how-title"
+        >
+          <div className="home-shell">
+            <div className="section-heading centered">
+              <div className="home-eyebrow">
+                A LITTLE SETUP. A NEW KIND OF EVERYDAY.
+              </div>
+              <h2 id="how-title">
+                Make it <em>your SafetyZone.</em>
+              </h2>
+              <p>Start with you. Take it from there.</p>
+            </div>
+            <div className="steps-grid">
+              <article>
+                <div className="step-number">
+                  01 <span />
+                  <Smartphone size={25} />
+                </div>
+                <h3>Meet your companion.</h3>
+                <p>
+                  Download My SafetyZone on your iPhone and get to know your
+                  everyday toolkit.
+                </p>
+              </article>
+              <article>
+                <div className="step-number">
+                  02 <span />
+                  <Heart size={25} />
+                </div>
+                <h3>Make it personal.</h3>
+                <p>
+                  Add your food allergies and dietary needs. Create an allergy
+                  card that speaks for you.
+                </p>
+              </article>
+              <article>
+                <div className="step-number">
+                  03 <span />
+                  <Utensils size={25} />
+                </div>
+                <h3>Bring it to the table.</h3>
+                <p>
+                  Share your card, explore a recipe, or prepare for your next
+                  trip. It’s all there when you need it.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section
+          id="about"
+          className="home-shell home-section founder-section"
+          aria-labelledby="founder-title"
+        >
+          <div className="founder-portrait">
+            <img
+              src={founder}
+              alt="Joshua Powers, founder of My SafetyZone"
+              width="640"
+              height="760"
+              loading="lazy"
+            />
+            <div className="founder-caption">
+              <span className="status-dot" /> BUILT WITH PURPOSE. AND PERSONAL
+              EXPERIENCE.
+            </div>
+          </div>
+          <div className="founder-copy">
+            <div className="home-eyebrow">
+              A PERSONAL REASON. A SHARED PURPOSE.
+            </div>
+            <h2 id="founder-title">
+              Because we know
+              <br />
+              it’s <em>more than a meal.</em>
+            </h2>
+            <p className="founder-intro">
+              It’s saying yes to dinner. Planning that trip.
+              <br />
+              Feeling understood at the table.
+            </p>
+            <p>
+              Our founder, Joshua Powers, has lived with anaphylactic food
+              allergies his entire life. He knows the questions, the extra
+              planning, and the moments other people don’t always see.
+            </p>
+            <p>
+              SafetyZone grew from that experience: a thoughtful companion to
+              help make everyday life with dietary needs feel a little less
+              complicated.
+            </p>
+            <div className="founder-signature">
+              <span>Joshua Powers</span>
+              <div>Founder, My SafetyZone</div>
+            </div>
+            <a className="text-link" href="mailto:joshpowersbiz@gmail.com">
+              Say hello <ArrowUpRight size={17} />
+            </a>
+          </div>
+        </section>
+        <section className="restaurant-section home-shell">
+          <div className="restaurant-icon">
+            <Utensils size={27} />
+          </div>
+          <div>
+            <div className="home-eyebrow">ON THE OTHER SIDE OF THE TABLE?</div>
+            <h2>
+              Make every guest feel <em>welcome.</em>
+            </h2>
+            <p>
+              Discover allergen-aware digital menus for your restaurant, hotel,
+              or venue.
+            </p>
+          </div>
+          <a
+            className="home-button button-outline"
+            href="https://menu.mysafetyzone.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SafetyZone for businesses <ArrowUpRight size={17} />
+          </a>
+        </section>
+        <section
+          className="home-shell home-section faq-section"
+          aria-labelledby="faq-title"
+        >
+          <div>
+            <div className="home-eyebrow">GOOD QUESTIONS.</div>
+            <h2 id="faq-title">
+              A little more
+              <br />
+              <em>clarity.</em>
+            </h2>
+            <p>Something else on your mind?</p>
+            <a className="text-link" href="/support">
+              We’re here to help <ArrowUpRight size={17} />
+            </a>
+          </div>
+          <div className="faq-list">
+            {questions.map((item) => (
+              <details key={item.question}>
+                <summary>
+                  {item.question}
+                  <Plus size={20} />
+                </summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+        <section id="download" className="download-section">
+          <div className="download-orbit" aria-hidden="true" />
+          <div className="home-shell download-inner">
+            <span className="download-mark">
+              <ShieldCheck size={32} strokeWidth={1.4} />
+            </span>
+            <div className="home-eyebrow">HERE’S TO WHAT’S NEXT.</div>
+            <h2>
+              A bigger world.
+              <br />
+              <em>A little more confidence.</em>
+            </h2>
+            <p>Your next meal. Your next adventure. Your SafetyZone.</p>
+            <AppStoreBadge />
+            <span className="download-note">
+              Available on iOS · Android coming soon
+            </span>
+          </div>
+        </section>
+      </main>
+      <footer className="home-footer home-shell">
+        <div className="footer-main">
+          <div>
+            <Brand />
+            <p>
+              A thoughtful companion.
+              <br />
+              For a life that’s entirely yours.
+            </p>
+          </div>
+          <div className="footer-links">
+            <div>
+              <span>EXPLORE</span>
+              <a href="#features">The app</a>
+              <a href="#about">Our story</a>
+              <a
+                href="https://menu.mysafetyzone.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                For businesses <ArrowUpRight size={13} />
+              </a>
+            </div>
+            <div>
+              <span>LET’S CONNECT</span>
+              <a href="mailto:joshpowersbiz@gmail.com">Email us</a>
+              <a href="/support">Support</a>
+              <a
+                href="https://instagram.com/safetyzoneofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram <ArrowUpRight size={13} />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>
+            © {new Date().getFullYear()} My SafetyZone · Powers Solutions USA
+            LLC
+          </span>
+          <div>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <a href="#main-content">Back to top ↑</a>
+          </div>
+        </div>
+        <p className="footer-disclaimer">
+          A companion for informed decisions, not a guarantee of food safety.
+          Always verify ingredients and preparation with staff. AI suggestions
+          and nutrition estimates may be inaccurate. Follow your healthcare
+          professional’s guidance.
+        </p>
+      </footer>
+    </div>
   );
-};
-
-export default Index;
+}
