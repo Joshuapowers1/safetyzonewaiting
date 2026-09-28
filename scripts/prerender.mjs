@@ -53,11 +53,18 @@ const server = createServer((req, res) => {
 
 await new Promise((r) => server.listen(4173, r));
 
-const browser = await chromium.launch({
-  // Let Playwright resolve its installed browser on each platform. An explicit
-  // executable is optional; the browser-cache path is not an executable path.
-  executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH || undefined,
-});
+let browser;
+try {
+  browser = await chromium.launch({
+    executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH || undefined,
+  });
+} catch (err) {
+  // Production build hosts may not have a browser installed. Don't fail the
+  // deploy — ship the normal SPA build instead.
+  console.warn("Prerender skipped: no browser available.", err?.message?.split("\n")[0]);
+  server.close();
+  process.exit(0);
+}
 const page = await browser.newPage({ reducedMotion: "reduce" });
 
 for (const route of routes) {
