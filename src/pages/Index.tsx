@@ -27,6 +27,7 @@ import {
   X,
 } from "lucide-react";
 import { AppStoreBadge } from "@/components/ui/store-badges";
+import FeaturePreview from "@/components/FeaturePreview";
 import logo from "@/assets/teal-logo.png";
 import "./home.css";
 
@@ -97,7 +98,7 @@ const features = [
     alt: "SafetyZone NutriScan nutrition screen",
     color: "lilac",
   },
-];
+ ] as const;
 const questions = [
   {
     question: "What is My SafetyZone?",
@@ -561,21 +562,7 @@ export default function Index() {
               </a>
             </motion.div>
             <div className="feature-visual">
-              <div className="feature-circle" aria-hidden="true" />
-              <motion.div
-                className="feature-device"
-                key={feature.image}
-                initial={reducedMotion ? false : { y: 25, rotate: 2 }}
-                animate={{ y: 0, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 130, damping: 23 }}
-              >
-                <Phone
-                  image={feature.image}
-                  alt={feature.alt}
-                  className="feature-phone"
-                />
-              </motion.div>
-              <span className="preview-caption">A LOOK INSIDE THE APP</span>
+              <FeaturePreview key={feature.label} label={feature.label} image={feature.image} alt={feature.alt} />
             </div>
           </div>
           <div className="everyday-tools">
