@@ -53,7 +53,11 @@ const server = createServer((req, res) => {
 
 await new Promise((r) => server.listen(4173, r));
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({
+  executablePath:
+    process.env.PLAYWRIGHT_BROWSERS_PATH &&
+    `${process.env.PLAYWRIGHT_BROWSERS_PATH}/chromium_headless_shell-1194/chrome-linux/headless_shell`,
+});
 const page = await browser.newPage();
 
 for (const route of routes) {
