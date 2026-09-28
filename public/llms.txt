@@ -61,6 +61,7 @@ AI allergen recommendations are informational only and not FDA or CE approved. U
 - [Sesame Allergy App](/sesame-allergy-app): QR cards, travel support, and reminders.
 - [Allergy Card for Restaurants](/allergy-card-for-restaurants): QR-based restaurant communication.
 - [Food Allergy Travel App](/food-allergy-travel-app): Language, destination, and medication tools.
+- [The Eat Safe Project](/eat-safe-project): Food allergy stories and advocacy for safer food service.
 
 ## Key links
 - Home: https://mysafetyzone.com

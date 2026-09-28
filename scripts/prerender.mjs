@@ -10,7 +10,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
 const configsSrc = readFileSync(join(root, "src/pages/landing/configs.ts"), "utf8");
 const landingSlugs = [...configsSrc.matchAll(/^  '([a-z0-9-]+)': \{/gm)].map((match) => match[1]);
-const routes = ["/", "/contact", "/support", "/privacy", "/privacy-policy", "/terms", ...landingSlugs.map((slug) => `/${slug}`)];
+const routes = ["/", "/contact", "/support", "/privacy", "/privacy-policy", "/terms", "/eat-safe-project", ...landingSlugs.map((slug) => `/${slug}`)];
 
 const pageMeta = {
   "/": ["My SafetyZone — A little more confidence in every bite.", "Your everyday companion for food allergies and dietary needs. Digital allergy cards, travel tools, recipes, medication reminders, and more.", "Feel safer. Live fuller.", "My SafetyZone brings the tools for everyday allergy life into one calm, thoughtful place."],
@@ -19,6 +19,7 @@ const pageMeta = {
   "/privacy": ["Privacy Policy | My SafetyZone", "Learn how My SafetyZone collects, uses, and protects your personal information.", "Privacy Policy", "Your trust matters. Read how My SafetyZone handles and protects your information."],
   "/privacy-policy": ["Privacy Policy | My SafetyZone", "Learn how My SafetyZone collects, uses, and protects your personal information.", "Privacy Policy", "Your trust matters. Read how My SafetyZone handles and protects your information."],
   "/terms": ["Terms of Service | My SafetyZone", "Read the terms and conditions for using My SafetyZone.", "Terms of Service", "The terms that govern your use of My SafetyZone and its services."],
+  "/eat-safe-project": ["The Eat Safe Project | My SafetyZone", "Food allergy stories and advocacy for safer, more inclusive food service.", "The Eat Safe Project.", "Share your food allergy story and help encourage safer, more inclusive food service."],
   "/peanut-allergy-app": ["Peanut Allergy App | My SafetyZone — AI Scanner", "Peanut allergy app for iOS with AI detection, QR cards in 150 languages, EpiPen tracking, and FDA alerts.", "The Peanut Allergy App for iOS.", "Scan ingredients, communicate needs clearly, and keep essential allergy tools close at hand."],
   "/celiac-app": ["Celiac App | My SafetyZone — Gluten-Free AI", "Celiac app for iOS with AI gluten detection, Recipe AI, QR cards in 150 languages, and FDA alerts.", "The Celiac Disease App for safe gluten-free living.", "Scan ingredients, communicate needs clearly, and keep essential allergy tools close at hand."],
   "/epipen-tracker-app": ["EpiPen Tracker App | My SafetyZone — Reminders", "Track auto-injectors, receive expiration reminders, and manage inhalers and other medical devices.", "The EpiPen Tracker App for life-saving medication.", "Keep every medication and expiration date organized in one thoughtful place."],
