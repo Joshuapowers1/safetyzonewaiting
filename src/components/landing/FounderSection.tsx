@@ -88,7 +88,7 @@ const FounderSection = () => {
                 <p className="text-base text-white/60 leading-relaxed">
                   My SafetyZone was founded by Joshua Powers, who has lived with{' '}
                   <span className="text-white font-medium">anaphylactic food allergies</span>{' '}
-                  to dairy, eggs, and nuts his entire life. Its AI detects hidden allergens, cross-contamination risks, and ingredient derivatives other apps miss — in{' '}
+                  to dairy, eggs, and nuts his entire life. It helps you review listed ingredients and possible allergen terms before you order (it can't see kitchen cross-contact, so always confirm with staff) — in{' '}
                   <span className="text-white/80 font-medium">200+ languages</span> for safety anywhere on earth.
                 </p>
 
